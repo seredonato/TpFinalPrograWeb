@@ -3,8 +3,8 @@
 include_once ("header.php");
 ?>
 
-    <div class="w3-container w3-padding-32 " id="contact">
-        <form action="/action_page.php" target="_blank" class="w3-third w3-display-middle  w3-card-2 w3-padding">
+    <div class="w3-container registrocontenedor w3-display-middle">
+        <form action="/action_page.php" target="_blank" class="w3-third w3-padding">
             <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Registrarse</h3>
             <input class="w3-input w3-border" type="text" placeholder="Ingrese su nombre y apellido" required name="nombre">
             <input class="w3-input w3-section w3-border" type="text" placeholder="Ingrese su email" required name="email">

@@ -3,15 +3,15 @@
 <title>Trabajo Práctico Final</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="w3.css">
 <link rel="icon" href="./img/logoheader.png" /> <!-- LOGO EN EL COSO DEL NAV , DSP CAMBIENLO KLS -->
 <body>
 
 
 <div class="w3-top">
-    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-        <a href="index.php #home"><img src="img/logoheader.png" height="80" width="115"></a>
+    <div class="w3-bar w3-white  w3-padding w3-card">
+        <a href="index.php #home"><img src="img/logoheader.png" class="logoheader"></a>
         <div class="w3-right w3-hide-small">
             <a href="#viajes" class="w3-bar-item w3-button w3-margin-top w3-large">Transportes</a>
             <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-margin-top w3-large">Iniciar Sesión</a>
@@ -21,7 +21,6 @@
     </div>
 </div>
 
-<!-- MODAL PARA INICIAR SESIÓN -->
 
 <div id="id01" class="w3-modal">
     <div class="w3-modal-content">

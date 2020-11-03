@@ -1,0 +1,46 @@
+.logoheader{
+    height: 3em;
+}
+.registrocontenedor{
+    margin-top: 5em;
+    width: 90%;
+}
+
+.registrocontenedor form {
+    width: 100%;
+}
+@media (min-width: 320px) {
+
+
+}
+@media (min-width: 375px) {
+
+
+}
+@media (min-width: 425px) {
+
+
+}
+@media (min-width: 768px) {
+
+    .logoheader{
+        height: 5em;
+    }
+
+}
+@media (min-width: 1024px) {
+
+    .registrocontenedor{
+        margin-top: 0.5em;
+    }
+
+}
+
+@media (min-width: 1440px) {
+
+    .registrocontenedor{
+        margin-top: -9em;
+    }
+
+}
+

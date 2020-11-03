@@ -3,16 +3,16 @@
 include_once ("header.php");
 ?>
 
-<!-- Header -->
+
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-    <img class="mySlides w3-animate-fading" src="./img/indexFoto1.jpg" width="1500" height="800">
-    <img class="mySlides w3-animate-fading" src="./img/indexFoto2.jpg" width="1500" height="800">
-    <img class="mySlides w3-animate-fading" src="./img/indexFoto3.jpg" width="1500" height="800">
-    <img class="mySlides w3-animate-fading" src="./img/indexFoto4.jpg" width="1500" height="800">
-    <img class="mySlides w3-animate-fading" src="./img/indexFoto5.jpg" width="1500" height="800">
+    <img class="mySlides w3-animate-opacity w3-image" src="./img/indexFoto1.jpg" width="1500" height="600">
+    <img class="mySlides w3-animate-opacity w3-image" src="./img/indexFoto2.jpg" width="1500" height="600">
+    <img class="mySlides w3-animate-opacity w3-image" src="./img/indexFoto3.jpg" width="1500" height="600">
+    <img class="mySlides w3-animate-opacity w3-image" src="./img/indexFoto4.jpg" width="1500" height="600">
+    <img class="mySlides w3-animate-opacity w3-image" src="./img/indexFoto5.jpg" width="1500" height="600">
 </header>
 
-<!-- Page content -->
+
 <div class="w3-content w3-padding" style="max-width:1564px">
 
     <div class="w3-container w3-padding-32" id="somos">
