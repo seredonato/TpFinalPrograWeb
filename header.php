@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="estilos.css">
-<link rel="icon" type="image/png" href="./img/logoQ.jpg" /> <!-- LOGO EN EL EL COSO DEL NAV , DSP CAMBIENLO KLS -->
+<link rel="icon" href="./img/logoheader.png" /> <!-- LOGO EN EL COSO DEL NAV , DSP CAMBIENLO KLS -->
 <body>
 
 
 <div class="w3-top">
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-        <a href="index.php #home" class="w3-bar-item w3-button"><b>FFAS</b> Viajes</a>
+        <a href="index.php #home"><img src="img/logoheader.png" height="80" width="115"></a>
         <div class="w3-right w3-hide-small">
-            <a href="#viajes" class="w3-bar-item w3-button">Transportes</a>
-            <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button">Iniciar Sesión</a>
-            <a href="registro.php" class="w3-bar-item w3-button">Registrarse</a>
-            <a href="index.php #contact" class="w3-bar-item w3-button">Contacto</a>
+            <a href="#viajes" class="w3-bar-item w3-button w3-margin-top w3-large">Transportes</a>
+            <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-margin-top w3-large">Iniciar Sesión</a>
+            <a href="registro.php" class="w3-bar-item w3-button w3-margin-top w3-large">Registrarse</a>
+            <a href="index.php #contact" class="w3-bar-item w3-button w3-margin-top w3-large">Contacto</a>
         </div>
     </div>
 </div>

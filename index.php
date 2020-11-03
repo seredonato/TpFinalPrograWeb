@@ -5,11 +5,11 @@ include_once ("header.php");
 
 <!-- Header -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-    <img class="mySlides" src="./img/indexFoto1.jpg" width="1500" height="800">
-    <img class="mySlides" src="./img/indexFoto2.jpg" width="1500" height="800">
-    <img class="mySlides" src="./img/indexFoto3.jpg" width="1500" height="800">
-    <img class="mySlides" src="./img/indexFoto4.jpg" width="1500" height="800">
-    <img class="mySlides" src="./img/indexFoto5.jpg" width="1500" height="800">
+    <img class="mySlides w3-animate-fading" src="./img/indexFoto1.jpg" width="1500" height="800">
+    <img class="mySlides w3-animate-fading" src="./img/indexFoto2.jpg" width="1500" height="800">
+    <img class="mySlides w3-animate-fading" src="./img/indexFoto3.jpg" width="1500" height="800">
+    <img class="mySlides w3-animate-fading" src="./img/indexFoto4.jpg" width="1500" height="800">
+    <img class="mySlides w3-animate-fading" src="./img/indexFoto5.jpg" width="1500" height="800">
 </header>
 
 <!-- Page content -->
