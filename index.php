@@ -1,81 +1,112 @@
-
 <?php
-include_once ("header.php");
+include_once("header.php");
 ?>
-
-
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-    <img class="mySlides w3-animate-opacity w3-image" src="./img/indexFoto1.jpg" width="1500" height="600">
-    <img class="mySlides w3-animate-opacity w3-image" src="./img/indexFoto2.jpg" width="1500" height="600">
-    <img class="mySlides w3-animate-opacity w3-image" src="./img/indexFoto3.jpg" width="1500" height="600">
-    <img class="mySlides w3-animate-opacity w3-image" src="./img/indexFoto4.jpg" width="1500" height="600">
-    <img class="mySlides w3-animate-opacity w3-image" src="./img/indexFoto5.jpg" width="1500" height="600">
-</header>
-
-
-<div class="w3-content w3-padding" style="max-width:1564px">
-
-    <div class="w3-container w3-padding-32" id="somos">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">¿Quiénes Somos?</h3>
-        <p>Somos una compañía joven especializada en brindar soluciones logísticas para empresas, comercio y e-commerce.
-            Con el objetivo de satisfacer las necesidades de cada empresa, un servicio de calidad,
-            atención personalizada y tarifas competitivas.
-        </p>
-    </div>
-
-    <div class="w3-container w3-padding-32" id="somos">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Choferes Destacados de la Semana</h3>
-        <div class="w3-row-padding w3-grayscale">
-            <div class="w3-col l3 m6 w3-margin-bottom">
-                <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-                <h3>John Doe</h3>
-                <p class="w3-opacity">CEO & Founder</p>
-                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    <div class="p-4 container-sm mt-5" style="width: 75%;">
+        <div class="container">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="img/indexFoto1.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="img/indexFoto2.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="img/indexFoto3.jpg" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <div class="w3-col l3 m6 w3-margin-bottom">
-                <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-                <h3>Jane Doe</h3>
-                <p class="w3-opacity">Architect</p>
-                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+        </div>
+
+        <div class="container mt-2" id="quienes">
+            <h3 class="display-4">¿Quiénes Somos?</h3>
+            <hr>
+            <p>Somos una compañía joven especializada en brindar soluciones logísticas para empresas, comercio y
+                e-commerce.
+                Con el objetivo de satisfacer las necesidades de cada empresa, un servicio de calidad,
+                atención personalizada y tarifas competitivas.
+            </p>
+        </div>
+
+        <div class="container mt-2">
+            <h3 class="display-4">Choferes Destacados de la Semana</h3>
+            <hr>
+            <div class="row my-5">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="img/logoQ.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Chofer</h5>
+                            <p class="card-text">Holaaaaa,
+                                soy chofer de TRANSAFF, la mejor empresa.</p>
+                            <a href="#" class="btn btn-outline-dark">Contactar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="img/logoQ.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Chofer</h5>
+                            <p class="card-text">Holaaaaa,
+                                soy chofer de TRANSAFF, la mejor empresa.</p>
+                            <a href="#" class="btn btn-outline-dark">Contactar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="img/logoQ.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Chofer</h5>
+                            <p class="card-text">Holaaaaa,
+                                soy chofer de TRANSAFF, la mejor empresa.</p>
+                            <a href="#" class="btn btn-outline-dark">Contactar</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="w3-col l3 m6 w3-margin-bottom">
-                <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
-                <h3>Mike Ross</h3>
-                <p class="w3-opacity">Architect</p>
-                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom">
-                <img src="/w3images/team4.jpg" alt="Dan" style="width:100%">
-                <h3>Dan Star</h3>
-                <p class="w3-opacity">Architect</p>
-                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-            </div>
+        </div>
+
+        <div class="container mt-2" id="contacto">
+            <h3 class="display-4">Contacto</h3>
+            <hr>
+            <form action="#" enctype="multipart/form-data" method="post" class="mt-3">
+                <div class="form-row mt-4 mb-3">
+                    <div class="col">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" placeholder="Ingrese su Nombre" required name="email">
+                    </div>
+                    <div class="col">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" placeholder="Ingrese su Email" required name="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="asunto">Asunto:</label>
+                    <input class="form-control" placeholder="Ingrese el Asunto" required name="asunto">
+                </div>
+                <div class="form-group">
+                    <label for="consulta">Consulta:</label>
+                    <textarea class="form-control" placeholder="Realice su Consulta" required
+                              name="consulta" rows="4"></textarea>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-dark btn-lg">Enviar</button>
+                </div>
+            </form>
+            <!-- End page content -->
         </div>
     </div>
 
-    <div class="w3-container w3-padding-32" id="contact">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contacto</h3>
-        <p>Realice un comentario.</p>
-        <form action="/action_page.php" target="_blank">
-            <input class="w3-input w3-border" type="text" placeholder="Nombre" required name="nombre">
-            <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="email">
-            <input class="w3-input w3-section w3-border" type="text" placeholder="Asunto" required name="asunto">
-            <textarea class="w3-input w3-section w3-border" placeholder="Comentario" required name="comentario"></textarea>
-            <div class="w3-center">
-                <button class="w3-button w3-black w3-section" type="submit">
-                    <i class="fa fa-paper-plane"></i> Enviar
-                </button>
-            </div>
-        </form>
-    </div>
-
-    <!-- End page content -->
-</div>
-
 <?php
-include_once ("footer.php");
+include_once("footer.php");
 ?>
