@@ -1,6 +1,7 @@
 <?php
 include_once("header.php");
 ?>
+<?php include_once ("metodos/conexionConLaBd.php")?>
     <div class="p-4 container-sm mt-5" style="width: 75%;">
         <div class="container">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
