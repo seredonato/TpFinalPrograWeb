@@ -5,3 +5,45 @@
 footer{
     background: #000;
 }
+
+.imagencarousel img {
+    position: relative;
+    z-index: 0;
+
+
+}
+
+.imagencarousel h4 {
+    position: absolute;
+    top: 45%;
+    bottom: 50%;
+    left: 10%;
+    right: 10%;
+    z-index: 1;
+    color: whitesmoke;
+    -webkit-text-stroke: 1px black;
+    
+}
+
+
+body {
+    width: 100%;
+}
+@media (min-width: 576px) {
+
+}
+
+
+@media (min-width: 768px) {
+
+}
+
+
+@media (min-width: 992px) {
+
+}
+
+
+@media (min-width: 1200px) {
+
+}

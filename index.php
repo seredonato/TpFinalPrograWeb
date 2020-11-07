@@ -1,19 +1,32 @@
 <?php
 include_once("header.php");
 ?>
+<<<<<<< HEAD
 <?php include_once ("metodos/conexionConLaBd.php")?>
-    <div class="p-4 container-sm mt-5" style="width: 75%;">
+
+    <div class="p-4 container-sm mt-5" style="width: 100%">
         <div class="container">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="img/indexFoto1.jpg" alt="First slide">
+                    <div class="carousel-item active imagencarousel">
+                        <img class="d-block w-100 " src="img/indexfoto1.png" alt="First slide">
+                        <h4 class="text-center">Todos los dias cumpliendo nuestro trabajo</h4>
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="img/indexFoto2.jpg" alt="Second slide">
+                    <div class="carousel-item imagencarousel">
+                        <img class="d-block w-100" src="img/indexfoto2.png" alt="Second slide">
+                        <h4 class="text-center">Tomamos muchas rutas, pero solo un camino: hacer nuestro trabajo</h4>
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="img/indexFoto3.jpg" alt="Third slide">
+                    <div class="carousel-item imagencarousel">
+                        <img class="d-block w-100" src="img/indexfoto3.png" alt="Third slide">
+                        <h4 class="text-center">Con seguimiento de carga online. Una clave, una contraseña y es como si estuvieras en el asiento del acompañante</h4>
+                    </div>
+                    <div class="carousel-item imagencarousel">
+                        <img class="d-block w-100" src="img/indexfoto4.png" alt="Third slide">
+                        <h4 class="text-center">Con personal capacitado, en regla y que cumplen con los protocolos</h4>
+                    </div>
+                    <div class="carousel-item imagencarousel">
+                        <img class="d-block w-100" src="img/indexfoto5.png" alt="Third slide">
+                        <h4 class="text-center">A la seguridad y la prevencion la llevamos muy lejos</h4>
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
