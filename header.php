@@ -20,7 +20,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand">
-            <img src="img/logoheader.png" width="60" height="45" class="d-inline-block align-top" alt="" loading="lazy">
+            <img src="img/logoheader.png" class="d-inline-block align-top logonav" alt="TRANSAFF" loading="lazy">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -38,7 +38,7 @@
                 </li>
             </ul>
         </div>
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-end divloginregistro">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#exampleModal" type="button">Login</a>

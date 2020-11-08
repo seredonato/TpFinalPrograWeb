@@ -25,9 +25,17 @@ footer{
     
 }
 
+.logonav {
+    height: 3em;
+}
+
 
 body {
     width: 100%;
+}
+
+.divloginregistro {
+
 }
 @media (min-width: 576px) {
 
