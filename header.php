@@ -71,7 +71,7 @@
                         <div class="form-group">
                             <input type="password" class="form-control" id="password" name=password
                                    placeholder="Contraseña">
-                        </div>
+                        </div> 
                         <button type="submit" class="btn btn-dark btn-lg btn-block">Login</button>
                     </form>
                 </div>
