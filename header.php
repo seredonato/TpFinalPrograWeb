@@ -18,7 +18,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-md  navbar-light bg-light fixed-top">
         <a class="navbar-brand">
             <img src="img/logoheader.png" class="d-inline-block align-top logonav" alt="TRANSAFF" loading="lazy">
         </a>
@@ -38,8 +38,8 @@
                 </li>
             </ul>
         </div>
-        <div class="d-flex justify-content-end divloginregistro">
-            <ul class="navbar-nav ml-auto">
+        <div class="justify-content-end navbar-expand">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#exampleModal" type="button">Login</a>
                 </li>
@@ -49,34 +49,33 @@
             </ul>
         </div>
     </nav>
-</header>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="text-center"><br>
-                    <img src="img/logoPerfil.png" alt="Avatar" style="width:25%; height: auto;"
-                         class="rounded-circle mb-4">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <form method="POST" action="#">
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" name=email placeholder="Email">
+                <div class="modal-body">
+                    <div class="text-center"><br>
+                        <img src="img/logoPerfil.png" alt="Avatar" style="width:25%; height: auto;"
+                             class="rounded-circle mb-4">
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="password" name=password
-                               placeholder="Contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">Login</button>
-                </form>
+                    <form method="POST" action="#">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name=email placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" name=password
+                                   placeholder="Contraseña">
+                        </div>
+                        <button type="submit" class="btn btn-dark btn-lg btn-block">Login</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</header>
