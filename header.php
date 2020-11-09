@@ -41,7 +41,7 @@
         <div class="justify-content-end navbar-expand">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" type="button">Login</a>
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" type="button">Iniciar Sesion</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./registro.php">Registro</a>
@@ -54,7 +54,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -72,7 +72,7 @@
                             <input type="password" class="form-control" id="password" name=password
                                    placeholder="Contraseña">
                         </div> 
-                        <button type="submit" class="btn btn-dark btn-lg btn-block">Login</button>
+                        <button type="submit" class="btn btn-dark btn-lg btn-block">Iniciar Sesion</button>
                     </form>
                 </div>
             </div>
