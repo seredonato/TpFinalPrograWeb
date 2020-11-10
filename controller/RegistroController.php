@@ -8,7 +8,7 @@ class RegistroController{
     }
 
     public function execute(){
-        echo $this->render->render("view/registro.php");
+        echo $this->render->render("view/registroView.php");
     }
 
 }

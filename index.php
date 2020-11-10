@@ -5,7 +5,7 @@ session_start();
 $configuration = new Configuration();
 
 $urlHelper = $configuration->getUrlHelper();
-$module = $urlHelper->getModuleFromRequestOr("inicio");
+$module = $urlHelper->getModuleFromRequestOr("transaff");
 $action = $urlHelper->getActionFromRequestOr("execute");
 
 

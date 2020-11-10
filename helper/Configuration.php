@@ -4,7 +4,7 @@ include_once("helper/Render.php");
 include_once("helper/UrlHelper.php");
 
 include_once("controller/TransaffController.php");
-include_once("controller/RegistroController");
+include_once("controller/RegistroController.php");
 
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
@@ -37,7 +37,7 @@ class Configuration{
 
 
     public function getTransaffController(){
-        return new transaffController($this->getRender());
+        return new TransaffController($this->getRender());
     }
 
     public function getRegistroController(){
