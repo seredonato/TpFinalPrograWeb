@@ -11,4 +11,6 @@ class RegistroController{
         echo $this->render->render("view/registroView.php");
     }
 
+
+
 }
