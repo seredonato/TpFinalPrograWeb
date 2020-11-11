@@ -5,7 +5,9 @@ include_once("helper/UrlHelper.php");
 
 include_once("controller/TransaffController.php");
 include_once("controller/RegistroController.php");
+include_once("controller/LoginController.php");
 
+include_once ("model/LoginModel.php");
 include_once("model/RegistroModel.php");
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
@@ -50,6 +52,16 @@ class Configuration
     {
         $database = $this->getDatabase();
         return new RegistroModel($database);
+    }
+
+    public function getLoginController(){
+        $loginModel = $this->getLoginModel();
+        return new LoginController($this->getRender(), $loginModel);
+    }
+
+    public function getLoginModel(){
+        $database = $this->getDatabase();
+        return new LoginModel($database);
     }
 
     public function getTransaffController()
