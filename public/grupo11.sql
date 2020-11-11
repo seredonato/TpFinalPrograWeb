@@ -2,16 +2,16 @@ CREATE DATABASE grupo11;
 USE grupo11;
 
 CREATE TABLE usuario (
-  Id int(11) NOT NULL,
-  dni int(8) NOT NULL,
+  id int AUTO_INCREMENT NOT NULL,
+  dni int NOT NULL,
   email varchar(90) NOT NULL,
-  contraseña varchar(20) NOT NULL,
+  usuario varchar(90) NOT NULL,
+  contrasenia varchar(100) NOT NULL,
   nombre varchar(180) NOT NULL,
   apellido varchar(180) NOT NULL,
-  fecha_nacimiento date NOT NULL,
-  tipo varchar(20) NOT NULL
+  fecha_nacimiento date,
+  tipo varchar(100),
+  PRIMARY KEY (id)
 );
 
-ALTER TABLE usuario
-  ADD PRIMARY KEY (Id);
-COMMIT;
+select * from usuario;
