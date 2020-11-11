@@ -20,7 +20,8 @@
 <header>
     <nav class="navbar navbar-expand-md  navbar-light bg-light fixed-top">
         <a class="navbar-brand">
-            <img src="public/images/logoheader.png" class="d-inline-block align-top logonav" alt="TRANSAFF" loading="lazy">
+            <img src="public/images/logoheader.png" class="d-inline-block align-top logonav" alt="TRANSAFF"
+                 loading="lazy">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -39,43 +40,64 @@
             </ul>
         </div>
         <div class="justify-content-end navbar-expand">
+
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" type="button">Iniciar Sesion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/TpFinalPrograWeb/index.php?module=registro">Registro</a>
-                </li>
+                {{#login}}
+
+                    <li class="nav-item">
+
+                        <h4 class="nav-link">Bienvenido {{nombre}}</h4>
+
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="/TpFinalPrograWeb/index.php?module=login&action=desloguearse" class="nav-link"
+                          type="button">Cerrar
+                            Sesi&oacute;n</a>
+                    </li>
+                {{/login}}
+                {{^login}}
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" type="button">Iniciar
+                            Sesi&oacute;n</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/TpFinalPrograWeb/index.php?module=registro">Registro</a>
+                    </li>
+                {{/login}}
             </ul>
         </div>
     </nav>
+    {{^login}}
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="text-center"><br>
-                        <img src="public/images/logoPerfil.png" alt="Avatar" style="width:25%; height: auto;"
-                             class="rounded-circle mb-4">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesi&oacute;n</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <form method="POST" action="#">
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email" name=email placeholder="Email">
+                    <div class="modal-body">
+                        <div class="text-center"><br>
+                            <img src="public/images/logoPerfil.png" alt="Avatar" style="width:25%; height: auto;"
+                                 class="rounded-circle mb-4">
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="password" name=password
-                                   placeholder="Contraseña">
-                        </div>
-                        <button type="submit" class="btn btn-dark btn-lg btn-block">Iniciar Sesion</button>
-                    </form>
+                        <form method="POST" action="/TpFinalPrograWeb/index.php?module=login&action=login">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" name=email placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password" name=contrasenia
+                                       placeholder="Contraseña">
+                            </div>
+                            <button type="submit" class="btn btn-dark btn-lg btn-block">Iniciar Sesi&oacute;n</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {{/login}}
+
 </header>
