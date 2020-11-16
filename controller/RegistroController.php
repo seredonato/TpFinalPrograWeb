@@ -2,8 +2,10 @@
 
 class RegistroController {
     private $render;
+    private $registroModel;
 
-    public function __construct($render){
+    public function __construct($render, $registroModel){
+        $this->registroModel = $registroModel;
         $this->render = $render;
     }
 
@@ -11,18 +13,21 @@ class RegistroController {
         echo $this->render->render("view/registroView.php");
     }
 
-    public function procesarFormulario(){
+    public function registroUsuario(){
+
+        $dni = $_POST["dni"];
+        $email = $_POST["email"];
+        $usuario = $_POST["usuario"];
+        $contrasenia = $_POST["contrasenia"];
         $nombre = $_POST["nombre"];
-        $dni= $_POST["dni"];
-        $email["email"]  = $_POST["email"];
-        $password["password"]  = $_POST["password"];
-        $birthday["birthday"]  = $_POST["birthday"];
+        $apellido = $_POST["apellido"];
+        $fecha_nacimiento = $_POST["fechaNacimiento"];
 
-        $usuario = $this->model->crearUsuario($nombre,$dni,$email,$password,$birthday);
-        $data["usuario"] = $usuario[0];
+        $this->registroModel->registrarUsuario($dni, $email, $usuario, $contrasenia, $nombre, $apellido, $fecha_nacimiento);
 
-        echo $this->renderer->render( "view/registroView.php", $data);
+        echo $this->render->render("view/inicio.php");
+
+
     }
-
 
 }

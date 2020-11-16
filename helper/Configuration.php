@@ -5,18 +5,19 @@ include_once("helper/UrlHelper.php");
 
 include_once("controller/TransaffController.php");
 include_once("controller/RegistroController.php");
+include_once("controller/LoginController.php");
 
+include_once ("model/LoginModel.php");
+include_once("model/RegistroModel.php");
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("Router.php");
 
-class Configuration{
-    public function getPresentacionModel(){
-        $database = $this->getDatabase();
-        return new TourModel($database);
-    }
+class Configuration
+{
 
-    private function getDatabase(){
+    private function getDatabase()
+    {
         $config = $this->getConfig();
         return new MysqlDatabase(
             $config["servername"],
@@ -26,29 +27,53 @@ class Configuration{
         );
     }
 
-    private function getConfig(){
+    private function getConfig()
+    {
         return parse_ini_file("config/config.ini");
     }
 
 
-    public function getRender(){
+    public function getRender()
+    {
         return new Render('view/partial');
     }
 
-
-    public function getTransaffController(){
-        return new TransaffController($this->getRender());
-    }
-
-    public function getRegistroController(){
-        return new RegistroController($this->getRender());
-    }
-
-    public function getRouter(){
+    public function getRouter()
+    {
         return new Router($this);
     }
 
-    public function getUrlHelper(){
+    public function getUrlHelper()
+    {
         return new UrlHelper();
     }
+
+    public function getRegistroModel()
+    {
+        $database = $this->getDatabase();
+        return new RegistroModel($database);
+    }
+
+    public function getLoginController(){
+        $loginModel = $this->getLoginModel();
+        return new LoginController($this->getRender(), $loginModel);
+    }
+
+    public function getLoginModel(){
+        $database = $this->getDatabase();
+        return new LoginModel($database);
+    }
+
+    public function getTransaffController()
+    {
+        return new TransaffController($this->getRender());
+    }
+
+    public function getRegistroController()
+    {
+        $registroModel = $this->getRegistroModel();
+        return new RegistroController($this->getRender(), $registroModel);
+    }
+
+
 }
