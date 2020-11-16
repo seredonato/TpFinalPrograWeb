@@ -7,13 +7,13 @@
 
     <!-- Bootstrap CSS -->
     <link rel="icon" href="public/images/logoheader.png"/>
-    <link rel="stylesheet" href="public/css/estilos.css">
     <link rel="stylesheet" href="public/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
           integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
           crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/estilos.css">
     <title>TRANSAFF</title>
 </head>
 <body>
@@ -26,16 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/TpFinalPrograWeb/index.php?module=transaff">Home</a>
+                    <a class="nav-link" href="/transaff">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Servicios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?#contacto">Contacto</a>
+                    <a class="nav-link" href="/transaff#contacto">Contacto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?#quienes">¿Quiénes Somos?</a>
+                    <a class="nav-link" href="/transaff#quienes">¿Quiénes Somos?</a>
                 </li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a href="/TpFinalPrograWeb/index.php?module=login&action=desloguearse" class="nav-link"
+                        <a href="/login/desloguearse" class="nav-link"
                           type="button">Cerrar
                             Sesi&oacute;n</a>
                     </li>
@@ -62,7 +62,7 @@
                             Sesi&oacute;n</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/TpFinalPrograWeb/index.php?module=registro">Registro</a>
+                        <a class="nav-link" href="/registro">Registro</a>
                     </li>
                 {{/login}}
             </ul>
@@ -84,7 +84,7 @@
                             <img src="public/images/logoPerfil.png" alt="Avatar" style="width:25%; height: auto;"
                                  class="rounded-circle mb-4">
                         </div>
-                        <form method="POST" action="/TpFinalPrograWeb/index.php?module=login&action=login">
+                        <form method="POST" action="/login/login">
                             <div class="form-group">
                                 <input type="email" class="form-control" id="email" name=email placeholder="Email">
                             </div>

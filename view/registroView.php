@@ -2,7 +2,7 @@
 <main class="container justify-content-center" id="contenedor-registro">
     <h3 class="mt-3 text-center display-4">Registro</h3>
     <hr>
-    <form action="/TpFinalPrograWeb/index.php?module=registro&action=registroUsuario" enctype="multipart/form-data" method="post" class="mt-3">
+    <form action="/registro/registroUsuario" enctype="multipart/form-data" method="post" class="mt-3">
         <div class="form-row mt-4 mb-3">
             <div class="col">
                 <label for="nombre">Nombre:</label>
