@@ -23,4 +23,5 @@ class Router{
         $validMethod = method_exists($controller, $method) ?$method : "execute";
         call_user_func(array($controller, $validMethod));
     }
+
 }

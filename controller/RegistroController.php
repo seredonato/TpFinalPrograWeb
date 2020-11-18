@@ -1,6 +1,6 @@
 <?php
 
-class RegistroController{
+class RegistroController {
     private $render;
     private $registroModel;
 
@@ -29,7 +29,5 @@ class RegistroController{
 
 
     }
-
-
 
 }
