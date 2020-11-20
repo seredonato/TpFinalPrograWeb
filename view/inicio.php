@@ -4,23 +4,23 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active imagencarousel">
-                <img class="d-block w-100 " src="public/images/indexfoto1.png" alt="First slide">
+                <img class="d-block w-100 " src="/public/images/indexfoto1.png" alt="First slide">
                 <h4 class="text-center">Todos los dias cumpliendo nuestro trabajo</h4>
             </div>
             <div class="carousel-item imagencarousel">
-                <img class="d-block w-100" src="public/images/indexfoto2.png" alt="Second slide">
+                <img class="d-block w-100" src="/public/images/indexfoto2.png" alt="Second slide">
                 <h4 class="text-center">Tomamos muchas rutas, pero solo un camino: hacer nuestro trabajo</h4>
             </div>
             <div class="carousel-item imagencarousel">
-                <img class="d-block w-100" src="public/images/indexfoto3.png" alt="Third slide">
+                <img class="d-block w-100" src="/public/images/indexfoto3.png" alt="Third slide">
                 <h4 class="text-center">Con seguimiento de carga online. Una clave, una contraseña y es como si estuvieras en el asiento del acompañante</h4>
             </div>
             <div class="carousel-item imagencarousel">
-                <img class="d-block w-100" src="public/images/indexfoto4.png" alt="Third slide">
+                <img class="d-block w-100" src="/public/images/indexfoto4.png" alt="Third slide">
                 <h4 class="text-center">Con personal capacitado, en regla y que cumplen con los protocolos</h4>
             </div>
             <div class="carousel-item imagencarousel">
-                <img class="d-block w-100" src="public/images/indexfoto5.png" alt="Third slide">
+                <img class="d-block w-100" src="/public/images/indexfoto5.png" alt="Third slide">
                 <h4 class="text-center">A la seguridad y la prevencion la llevamos muy lejos</h4>
             </div>
         </div>
@@ -51,7 +51,7 @@
         <div class="row my-5">
             <div class="col-md-4">
                 <div class="card choferes"">
-                <img src="public/images/logoQ.jpg" class="card-img-top" alt="...">
+                <img src="/public/images/logoQ.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chofer</h5>
                     <p class="card-text">Holaaaaa,
@@ -62,7 +62,7 @@
         </div>
         <div class="col-md-4">
             <div class="card choferes">
-                <img src="public/images/logoQ.jpg" class="card-img-top" alt="...">
+                <img src="/public/images/logoQ.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chofer</h5>
                     <p class="card-text">Holaaaaa,
@@ -73,7 +73,7 @@
         </div>
         <div class="col-md-4">
             <div class="card choferes">
-                <img src="public/images/logoQ.jpg" class="card-img-top" alt="...">
+                <img src="/public/images/logoQ.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chofer</h5>
                     <p class="card-text">Holaaaaa,
@@ -114,5 +114,4 @@
     </form>
 </div>
 </main>
-
 {{> footer}}

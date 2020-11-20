@@ -21,10 +21,16 @@
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" class="form-control" placeholder="Ingrese su Email" required name="email">
+            {{#emailAsociado}}
+            <label class="text-danger" for="email">{{emailAsociado}}</label>
+            {{/emailAsociado}}
         </div>
         <div class="form-group">
             <label for="usuario">Nombre de Usuario:</label>
             <input type="text" class="form-control" placeholder="Ingrese su Nombre de Usuario" required name="usuario">
+            {{#usuarioExistente}}
+            <label class="text-danger" for="usuario">{{usuarioExistente}}</label>
+            {{/usuarioExistente}}
         </div>
 
 
@@ -36,6 +42,9 @@
         <div class="form-group">
             <label for="contrasenia2">Confirme Contraseña:</label>
             <input type="password" class="form-control" placeholder="Repita su Contraseña" required name="contrasenia2">
+            {{#contraseñaDiferente}}
+            <label class="text-danger" for="contraseña">{{contraseñaDiferente}}</label>
+            {{/contraseñaDiferente}}
         </div>
 
         <div class="form-group">
