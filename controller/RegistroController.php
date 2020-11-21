@@ -19,13 +19,39 @@ class RegistroController {
         $email = $_POST["email"];
         $usuario = $_POST["usuario"];
         $contrasenia = $_POST["contrasenia"];
+        $contrasenia2 = $_POST["contrasenia2"];
         $nombre = $_POST["nombre"];
         $apellido = $_POST["apellido"];
         $fecha_nacimiento = $_POST["fechaNacimiento"];
 
-        $this->registroModel->registrarUsuario($dni, $email, $usuario, $contrasenia, $nombre, $apellido, $fecha_nacimiento);
+        $result = $this->registroModel->registrarUsuario($dni, $email, $usuario, $contrasenia, $contrasenia2, $nombre, $apellido, $fecha_nacimiento);
+        if($result == "Las contraseñas no coinciden"){
 
-        echo $this->render->render("view/inicio.php");
+            $data["contraseñaDiferente"] = $result;
+
+            echo $this->render->render("view/registroView.php", $data);
+
+
+        }else if($result == "El usuario ya existe"){
+
+            $data["usuarioExistente"] = $result;
+
+            echo $this->render->render("view/registroView.php", $data);
+
+
+        }else if($result == "Ya hay una cuenta asociada a este email"){
+
+            $data["emailAsociado"] = $result;
+
+            echo $this->render->render("view/registroView.php", $data);
+
+
+        }else if ($result) {
+
+            echo $this->render->render("view/inicio.php");
+
+
+        }
     }
 
 }

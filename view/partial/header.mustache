@@ -29,7 +29,7 @@
                     <a class="nav-link" href="/transaff">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Servicios</a>
+                    <a class="nav-link" href="/transaff">Servicios</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/transaff#contacto">Contacto</a>
@@ -43,13 +43,6 @@
 
             <ul class="navbar-nav">
                 {{#login}}
-
-                    <li class="nav-item">
-
-                        <h4 class="nav-link">Bienvenido {{nombre}}</h4>
-
-
-                    </li>
                     <li class="nav-item">
                         <a href="/asignarRoles" class="nav-link"
                           type="button">Ver usuarios</a>
@@ -87,12 +80,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="text-center"><br>
-                            <img src="public/images/logoPerfil.png" alt="Avatar" style="width:25%; height: auto;"
+                            <img src="/public/images/logoPerfil.png" alt="Avatar" style="width:25%; height: auto;"
                                  class="rounded-circle mb-4">
                         </div>
                         <form method="POST" action="/login/login">
                             <div class="form-group">
-                                <input type="email" class="form-control" id="email" name=email placeholder="Email">
+                                <input type="text" class="form-control" id="nombreUsuario" name=nombreUsuario placeholder="Nombre de Usuario">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="password" name=contrasenia

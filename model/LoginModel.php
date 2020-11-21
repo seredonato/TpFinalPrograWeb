@@ -17,7 +17,7 @@ class LoginModel
     }
 
 
-    public function loguearUsuario($email, $contrasenia)
+    public function loguearUsuario($nombreUsuario, $contrasenia)
 
     {
 
@@ -27,13 +27,9 @@ class LoginModel
 
         for ($i = 0; $i < sizeof($table); $i++) {
 
-            if ($table[$i]["email"] == $email && $table[$i]["contrasenia"] == $contraseniaEncriptada) {
+            if ($table[$i]["usuario"] == $nombreUsuario && $table[$i]["contrasenia"] == $contraseniaEncriptada) {
 
-                $_SESSION["nombreUsuario"] = $table[$i]["usuario"];
-
-                $_SESSION["email"] = $email;
-
-                $_SESSION["logueado"] = 1;
+                $_SESSION["logueado"] = true; //antes estaba 1
 
                 return true;
 
@@ -45,4 +41,13 @@ class LoginModel
 
     }
 
+    public function ifSesionIniciada()
+    {
+        return isset($_SESSION["logueado"]);
+    }
+
+    public function desloguearUsuario()
+    {
+        session_destroy();
+    }
 }
