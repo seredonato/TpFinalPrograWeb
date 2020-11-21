@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/TransaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/TransaffController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper/Configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/Configuration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/LoginModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/LoginModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/RegistroModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/RegistroModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/inicio.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/inicio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/header.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
