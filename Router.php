@@ -20,7 +20,7 @@ class Router{
     }
 
     private function executeMethodFromController($controller, $method){
-        $validMethod = method_exists($controller, $method) ?$method : "execute";
+        $validMethod = method_exists($controller, $method) ? $method : "execute";
         call_user_func(array($controller, $validMethod));
     }
 

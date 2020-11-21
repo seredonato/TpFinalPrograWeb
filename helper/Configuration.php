@@ -66,7 +66,8 @@ class Configuration
 
     public function getTransaffController()
     {
-        return new TransaffController($this->getRender());
+        $loginModel = $this->getLoginModel();
+        return new TransaffController($this->getRender(), $loginModel);
     }
 
     public function getRegistroController()
