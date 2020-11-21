@@ -13,8 +13,10 @@
             </div>
             <div class="carousel-item imagencarousel">
                 <img class="d-block w-100" src="/public/images/indexfoto3.png" alt="Third slide">
+
                 <h4 class="text-center">Con seguimiento de carga online. Una clave, una contraseña y es como si
                     estuvieras en el asiento del acompañante</h4>
+
             </div>
             <div class="carousel-item imagencarousel">
                 <img class="d-block w-100" src="/public/images/indexfoto4.png" alt="Third slide">
@@ -51,8 +53,7 @@
         <hr>
         <div class="row my-5">
             <div class="col-md-4">
-                <div class="card choferes"
-                ">
+                <div class="card choferes">
                 <img src="/public/images/logoQ.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chofer</h5>
