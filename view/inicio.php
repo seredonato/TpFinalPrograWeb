@@ -13,7 +13,10 @@
             </div>
             <div class="carousel-item imagencarousel">
                 <img class="d-block w-100" src="/public/images/indexfoto3.png" alt="Third slide">
-                <h4 class="text-center">Con seguimiento de carga online. Una clave, una contraseña y es como si estuvieras en el asiento del acompañante</h4>
+
+                <h4 class="text-center">Con seguimiento de carga online. Una clave, una contraseña y es como si
+                    estuvieras en el asiento del acompañante</h4>
+
             </div>
             <div class="carousel-item imagencarousel">
                 <img class="d-block w-100" src="/public/images/indexfoto4.png" alt="Third slide">
@@ -50,7 +53,7 @@
         <hr>
         <div class="row my-5">
             <div class="col-md-4">
-                <div class="card choferes"">
+                <div class="card choferes">
                 <img src="/public/images/logoQ.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chofer</h5>
@@ -83,35 +86,35 @@
             </div>
         </div>
     </div>
+
+    <div class="container mt-2" id="contacto">
+        <h3 class="titulosindex">Contacto</h3>
+        <hr>
+        <form action="#" enctype="multipart/form-data" method="post" class="mt-3">
+            <div class="form-row mt-4 mb-3">
+                <div class="col">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" placeholder="Ingrese su Nombre" required name="email">
+                </div>
+                <div class="col">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" placeholder="Ingrese su Email" required name="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="asunto">Asunto:</label>
+                <input class="form-control" placeholder="Ingrese el Asunto" required name="asunto">
+            </div>
+            <div class="form-group">
+                <label for="consulta">Consulta:</label>
+                <textarea class="form-control" placeholder="Realice su Consulta" required
+                          name="consulta" rows="4"></textarea>
+            </div>
+            <div class="d-flex justify-content-center" style="margin-bottom: 5px">
+                <button type="submit" class="btn btn-dark btn-lg">Enviar</button>
+            </div>
+        </form>
+    </div>
 </main>
 
-<div class="container mt-2" id="contacto">
-    <h3 class="titulosindex">Contacto</h3>
-    <hr>
-    <form action="#" enctype="multipart/form-data" method="post" class="mt-3">
-        <div class="form-row mt-4 mb-3">
-            <div class="col">
-                <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" placeholder="Ingrese su Nombre" required name="email">
-            </div>
-            <div class="col">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" placeholder="Ingrese su Email" required name="email">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="asunto">Asunto:</label>
-            <input class="form-control" placeholder="Ingrese el Asunto" required name="asunto">
-        </div>
-        <div class="form-group">
-            <label for="consulta">Consulta:</label>
-            <textarea class="form-control" placeholder="Realice su Consulta" required
-                      name="consulta" rows="4"></textarea>
-        </div>
-        <div class="d-flex justify-content-center" style="margin-bottom: 5px">
-            <button type="submit" class="btn btn-dark btn-lg">Enviar</button>
-        </div>
-    </form>
-</div>
-</main>
 {{> footer}}
