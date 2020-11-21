@@ -6,9 +6,13 @@ include_once("helper/UrlHelper.php");
 include_once("controller/TransaffController.php");
 include_once("controller/RegistroController.php");
 include_once("controller/LoginController.php");
+include_once("controller/AsignarRolesController.php");
+
 
 include_once ("model/LoginModel.php");
 include_once("model/RegistroModel.php");
+include_once("model/AsignarRolesModel.php");
+
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("Router.php");
@@ -74,6 +78,20 @@ class Configuration
         $registroModel = $this->getRegistroModel();
         return new RegistroController($this->getRender(), $registroModel);
     }
+
+    public function getAsignarRolesModel(){
+        $database = $this->getDatabase();
+        return new AsignarRolesModel($database);
+    }
+
+    public function getAsignarRolesController(){
+        $asignarRolesModel = $this->getAsignarRolesModel();
+        return new AsignarRolesController($this->getRender(), $asignarRolesModel);
+    }
+
+
+
+
 
 
 }

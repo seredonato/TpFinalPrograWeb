@@ -26,8 +26,6 @@ class RegistroController {
         $this->registroModel->registrarUsuario($dni, $email, $usuario, $contrasenia, $nombre, $apellido, $fecha_nacimiento);
 
         echo $this->render->render("view/inicio.php");
-
-
     }
 
 }

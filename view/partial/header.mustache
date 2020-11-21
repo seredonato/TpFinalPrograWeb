@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="icon" href="public/images/logoheader.png"/>
-    <link rel="stylesheet" href="public/css/bootstrap.css">
+    <link rel="icon" href="/public/images/logoheader.png"/>
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
           integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
           crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/estilos.css">
+    <link rel="stylesheet" href="/public/css/estilos.css">
     <title>TRANSAFF</title>
 </head>
 <body>
 <header>
     <nav class="navbar navbar-expand-md  navbar-light bg-light fixed-top">
         <a class="navbar-brand">
-            <img src="public/images/logoheader.png" class="d-inline-block align-top logonav" alt="TRANSAFF"
+            <img src="/public/images/logoheader.png" class="d-inline-block align-top logonav" alt="TRANSAFF"
                  loading="lazy">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -51,8 +51,12 @@
 
                     </li>
                     <li class="nav-item">
+                        <a href="/asignarRoles" class="nav-link"
+                          type="button">Ver usuarios</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="/login/desloguearse" class="nav-link"
-                          type="button">Cerrar
+                           type="button">Cerrar
                             Sesi&oacute;n</a>
                     </li>
                 {{/login}}
@@ -65,6 +69,8 @@
                         <a class="nav-link" href="/registro">Registro</a>
                     </li>
                 {{/login}}
+
+
             </ul>
         </div>
     </nav>

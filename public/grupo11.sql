@@ -43,7 +43,7 @@ año_fabricacion date not null,
 estado boolean not null,
 patente varchar(40) not null,
 nro_chasis int not null,
-id int AUTO_INCREMENT NOT NULL,
+id int not null,
 primary key (id));
 
 CREATE TABLE TRACTOR(
@@ -63,3 +63,4 @@ primary key (id),
 foreign key (id) references equipo(id));
 
 select * from usuario;
+
