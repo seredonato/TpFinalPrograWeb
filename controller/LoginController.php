@@ -33,15 +33,15 @@ class LoginController
 
     {
 
-        $email = $_POST["email"];
+        $nombreUsuario = $_POST["nombreUsuario"];
 
         $contrasenia = $_POST["contrasenia"];
 
-        $result = $this->loginModel->loguearUsuario($email, $contrasenia);
+        $result = $this->loginModel->loguearUsuario($nombreUsuario, $contrasenia);
 
-        $data["login"] = $result;
+        $_SESSION["logueado"] = $result;
 
-        $data["nombre"] = $_SESSION["nombreUsuario"];
+        $data["login"] = $_SESSION["logueado"];
 
         echo $this->render->render("view/inicio.php", $data);
 
@@ -49,9 +49,8 @@ class LoginController
 
 
     public function desloguearse()
-
     {
-        session_destroy();
+        $this->loginModel->desloguearUsuario();
         echo $this->render->render("view/inicio.php");
     }
 
