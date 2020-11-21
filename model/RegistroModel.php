@@ -23,7 +23,6 @@ class RegistroModel
 
             return $this->database->query($sql);
 
-
         }else if($this->usuarioExistente($usuario)){
 
             $value ="El usuario ya existe";

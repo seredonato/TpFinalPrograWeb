@@ -41,11 +41,14 @@ class LoginModel
 
     }
 
+
     public function ifSesionIniciada(){
         return isset($_SESSION["logueado"]);
     }
 
-    public function desloguearUsuario(){
+
+    public function desloguearUsuario()
+    {
         session_destroy();
     }
 }
