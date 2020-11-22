@@ -12,30 +12,10 @@ CREATE TABLE usuario (
   apellido varchar(180) NOT NULL,
   fecha_nacimiento date,
   rol varchar(100),
+  tipo_licencia varchar (100),
   PRIMARY KEY (id)
 );
 
-CREATE TABLE chofer(
-tipo_licencia varchar(100) not null,
-licencia varchar(100) not null,
-numero_usuario int not null,
-primary key (numero_usuario),
-foreign key (numero_usuario) references usuario(id));
-
-CREATE TABLE administrador (
-numero_usuario int not null,
-primary key (numero_usuario),
-foreign key (numero_usuario) references usuario(id));
-
-CREATE TABLE mecanico (
-numero_usuario int not null,
-primary key (numero_usuario),
-foreign key (numero_usuario) references usuario(id));
-
-CREATE TABLE supervisor (
-numero_usuario int not null,
-primary key (numero_usuario),
-foreign key (numero_usuario) references usuario(id));
 
 CREATE TABLE equipo(
 año_fabricacion date not null,
@@ -61,4 +41,3 @@ id int not null,
 primary key (id),
 foreign key (id) references equipo(id));
 
-select * from usuario;
