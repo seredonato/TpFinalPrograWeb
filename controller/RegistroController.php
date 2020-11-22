@@ -1,19 +1,23 @@
 <?php
 
-class RegistroController {
+class RegistroController
+{
     private $render;
     private $registroModel;
 
-    public function __construct($render, $registroModel){
-        $this->registroModel = $registroModel;
+    public function __construct($render, $registroModel)
+    {
         $this->render = $render;
+        $this->registroModel = $registroModel;
     }
 
-    public function execute(){
+    public function execute()
+    {
         echo $this->render->render("view/registroView.php");
     }
 
-    public function registroUsuario(){
+    public function registroUsuario()
+    {
 
         $dni = $_POST["dni"];
         $email = $_POST["email"];
@@ -25,28 +29,28 @@ class RegistroController {
         $fecha_nacimiento = $_POST["fechaNacimiento"];
 
         $result = $this->registroModel->registrarUsuario($dni, $email, $usuario, $contrasenia, $contrasenia2, $nombre, $apellido, $fecha_nacimiento);
-        if($result == "Las contraseñas no coinciden"){
+        if ($result == "Las contraseñas no coinciden") {
 
             $data["contraseñaDiferente"] = $result;
 
             echo $this->render->render("view/registroView.php", $data);
 
 
-        }else if($result == "El usuario ya existe"){
+        } else if ($result == "El usuario ya existe") {
 
             $data["usuarioExistente"] = $result;
 
             echo $this->render->render("view/registroView.php", $data);
 
 
-        }else if($result == "Ya hay una cuenta asociada a este email"){
+        } else if ($result == "Ya hay una cuenta asociada a este email") {
 
             $data["emailAsociado"] = $result;
 
             echo $this->render->render("view/registroView.php", $data);
 
 
-        }else if ($result) {
+        } else if ($result) {
 
             echo $this->render->render("view/inicio.php");
 

@@ -49,6 +49,25 @@ class MysqlDatabase
 
     }
 
+    public function devolverUsuarioPorUsuario($usuario){
+
+        $sql = 'SELECT usuario FROM usuario WHERE usuario = "' . $usuario . '"';
+        $resultado = $this->connection->query($sql);
+        $usuarioObtenido = $resultado->fetch_assoc();
+
+        return $usuarioObtenido["usuario"];
+    }
+
+    public function devolverEmailPorEmail($email)
+    {
+        $sql = 'SELECT email FROM usuario WHERE email = "' . $email . '"';
+        $resultado = $this->connection->query($sql);
+        $emailObtenido = $resultado->fetch_assoc();
+
+        return $emailObtenido["email"];
+
+    }
+
     public function modificarRolUsuario($idUsuario, $rol){
 
         $sql = 'UPDATE usuario SET rol = "'. $rol .'" WHERE id = ' . $idUsuario;
