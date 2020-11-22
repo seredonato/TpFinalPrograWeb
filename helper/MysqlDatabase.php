@@ -57,6 +57,14 @@ class MysqlDatabase
 
     }
 
+    public function eliminarUsuario($id){
+
+        $sql = 'DELETE FROM usuario WHERE id = ' . $id;
+
+        return $this->connection->query($sql);
+
+    }
+
     public function execute($sql)
     {
         mysqli_query($this->connection, $sql);

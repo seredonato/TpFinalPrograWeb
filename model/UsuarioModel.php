@@ -23,4 +23,10 @@ class UsuarioModel
 
     }
 
+    public function eliminarUsuario($id){
+
+        return $this->database->eliminarUsuario($id);
+
+    }
+
 }

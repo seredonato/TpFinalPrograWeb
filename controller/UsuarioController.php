@@ -35,4 +35,17 @@ class UsuarioController
 
 
     }
+
+    public function eliminarUsuario(){
+
+        $data["login"] = $this->loginModel->ifSesionIniciada();
+        $id = $_GET["id"];
+
+        $this->usuarioModel->eliminarUsuario($id);
+
+        $data["usuarios"] = $this->usuarioModel->mostrarUsuarios();
+
+        echo $this->render->render("view/listaUsuariosView.php", $data);
+
+    }
 }

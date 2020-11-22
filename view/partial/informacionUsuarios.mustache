@@ -12,7 +12,7 @@
                 <p class="card-text">ROL: {{rol}}</p>
                 <div style="text-align: center">
                 <a data-toggle="modal" data-target="#{{usuario}}" type="button" class="btn btn-outline-dark" style="float: left">Modificar</a>
-                <a href="#" class="btn btn-outline-dark" style="float: right">Eliminar</a>
+                <a data-toggle="modal" data-target="#{{usuario}}eliminar" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
                 </div>
             </div>
         </div>
@@ -43,6 +43,25 @@
                         </select>
                     </div>
                     <button type="submit" class="btn btn-dark btn-lg btn-block">Asignar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="{{usuario}}eliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de querer eliminar a {{nombre}} {{apellido}}?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/usuario/eliminarUsuario/id={{id}}" enctype="multipart/form-data" method="get" >
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">SI</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
                 </form>
             </div>
         </div>
