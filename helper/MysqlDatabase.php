@@ -49,6 +49,14 @@ class MysqlDatabase
 
     }
 
+    public function modificarRolUsuario($idUsuario, $rol){
+
+        $sql = 'UPDATE usuario SET rol = "'. $rol .'" WHERE id = ' . $idUsuario;
+
+        return $this->connection->query($sql);
+
+    }
+
     public function execute($sql)
     {
         mysqli_query($this->connection, $sql);

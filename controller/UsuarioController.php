@@ -1,6 +1,7 @@
 <?php
 
-class ListaUsuarioController
+
+class UsuarioController
 {
     private $render;
     private $usuarioModel;
@@ -20,16 +21,18 @@ class ListaUsuarioController
 
     }
 
-    public function mostrarUsuarios()
-    {
+    public function modificarRolUsuario(){
 
         $data["login"] = $this->loginModel->ifSesionIniciada();
+        $idUsuario = $_POST["id"];
+        $rol = $_POST["rol"];
+
+        $this->usuarioModel->modificarRolUsuario($idUsuario, $rol);
+
         $data["usuarios"] = $this->usuarioModel->mostrarUsuarios();
 
         echo $this->render->render("view/listaUsuariosView.php", $data);
 
 
     }
-
-
 }

@@ -11,9 +11,15 @@ class UsuarioModel
         $this->database = $database;
     }
 
-    public function mostrarTodosLosUsuarios(){
+    public function mostrarUsuarios(){
 
         return $this->database->devolverUsuarios();
+
+    }
+
+    public function modificarRolUsuario($idUsuario, $rol){
+
+        return $this->database->modificarRolUsuario($idUsuario, $rol);
 
     }
 

@@ -1,17 +1,17 @@
 <div class="col-md-4">
     <div class="card choferes">
         <div class="card-body">
-            <h5 class="card-title">Nombre y Apellido</h5>
+            <h5 class="card-title">{{nombre}} {{apellido}}</h5>
             <div style="text-align: left">
-                <p class="card-text" style="float: left">ID: id</p>
-                <p class="card-text" style="margin-left: 50%">DNI: dni</p>
-                <p class="card-text">EMAIL: email</p>
-                <p class="card-text">USUARIO: usuario</p>
-                <p class="card-text">FECHA NACIMIENTO: 00/00/00</p>
-                <p class="card-text">TIPO DE LICENCIA: tipo</p>
-                <p class="card-text">ROL: rol</p>
+                <p class="card-text" style="float: left">ID: {{id}}</p>
+                <p class="card-text" style="margin-left: 50%">DNI: {{dni}}</p>
+                <p class="card-text">EMAIL: {{email}}</p>
+                <p class="card-text">USUARIO: {{usuario}}</p>
+                <p class="card-text">FECHA NACIMIENTO: {{fecha_nacimiento}}</p>
+                <p class="card-text">TIPO DE LICENCIA: {{tipo_licencia}}</p>
+                <p class="card-text">ROL: {{rol}}</p>
                 <div style="text-align: center">
-                <a data-toggle="modal" data-target="#modificar" type="button" class="btn btn-outline-dark" style="float: left">Modificar</a>
+                <a data-toggle="modal" data-target="#{{usuario}}" type="button" class="btn btn-outline-dark" style="float: left">Modificar</a>
                 <a href="#" class="btn btn-outline-dark" style="float: right">Eliminar</a>
                 </div>
             </div>
@@ -19,25 +19,27 @@
     </div>
 </div>
 
-<div class="modal fade" id="modificar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="{{usuario}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modificar el rol de Usuario</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modificar el rol de {{usuario}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/login/login">
+                <form action="/usuario/modificarRolUsuario" enctype="multipart/form-data" method="post" >
+                    <label for="id">Id del usuario a asignar</label>
+                    <textarea class="form-control" style="height: 36px" name="id" id="id" >{{id}}</textarea>
                     <div class="form-group">
                         <label for="rol">Seleccionar el rol que desea asignar</label>
                         <select id="rol" name="rol" class="form-control">
                             <option value="0"selected>rol</option>
-                            <option value="1">Administrador</option>
-                            <option value="2">Chofer</option>
-                            <option value="3">Mecanico</option>
-                            <option value="4">Supervisor</option>
+                            <option value="admin">Administrador</option>
+                            <option value="chofer">Chofer</option>
+                            <option value="mecanico">Mecanico</option>
+                            <option value="supervisor">Supervisor</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-dark btn-lg btn-block">Asignar</button>

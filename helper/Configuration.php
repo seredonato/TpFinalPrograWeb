@@ -7,6 +7,7 @@ include_once("controller/TransaffController.php");
 include_once("controller/RegistroController.php");
 include_once("controller/LoginController.php");
 include_once ("controller/ListaUsuarioController.php");
+include_once ("controller/UsuarioController.php");
 
 include_once("model/LoginModel.php");
 include_once("model/RegistroModel.php");
@@ -89,6 +90,12 @@ class Configuration
         $usuarioModel = $this->getUsuarioModel();
         $loginModel = $this->getLoginModel();
         return new ListaUsuarioController($this->getRender(), $usuarioModel, $loginModel);
+    }
+
+    public function getUsuarioController(){
+        $usuarioModel = $this->getUsuarioModel();
+        $loginModel = $this->getLoginModel();
+        return new UsuarioController($this->getRender(), $usuarioModel, $loginModel);
     }
 
 
