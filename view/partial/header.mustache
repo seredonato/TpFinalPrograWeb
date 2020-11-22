@@ -43,6 +43,19 @@
 
             <ul class="navbar-nav">
                 {{#login}}
+                    {{#valorAdmin}}
+                    <li class="nav-item">
+                        <a href="/listaUsuario/mostrarTodosLosUsuarios" class="nav-link"
+                           type="button">Ver lista de Usuarios</a>
+                    </li>
+                    {{/valorAdmin}}
+                    {{#valorSupervisor}}
+                        <li class="nav-item">
+                            <a href="/listaUsuario" class="nav-link"
+                               type="button">Ver lista de Usuarios</a>
+                        </li>
+                    {{/valorSupervisor}}
+
                     <li class="nav-item">
                         <a href="/login/desloguearse" class="nav-link"
                           type="button">Cerrar

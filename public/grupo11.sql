@@ -11,7 +11,7 @@ CREATE TABLE usuario (
   nombre varchar(180) NOT NULL,
   apellido varchar(180) NOT NULL,
   fecha_nacimiento date,
-  tipo varchar(100),
+  rol varchar(100),
   PRIMARY KEY (id)
 );
 

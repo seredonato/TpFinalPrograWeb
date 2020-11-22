@@ -37,6 +37,18 @@ class MysqlDatabase
         return $datos;
     }
 
+    public function devolverUnUsuarioPorNombreDeUsuario($nombreDeUsuario){
+
+        $sql = 'SELECT rol FROM usuario WHERE usuario = "' . $nombreDeUsuario . '" ';
+
+        $resultado = $this->connection->query($sql);
+        $rol = $resultado->fetch_assoc();
+
+
+        return $rol["rol"];
+
+    }
+
     public function execute($sql)
     {
         mysqli_query($this->connection, $sql);

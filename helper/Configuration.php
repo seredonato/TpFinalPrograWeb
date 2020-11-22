@@ -6,9 +6,11 @@ include_once("helper/UrlHelper.php");
 include_once("controller/TransaffController.php");
 include_once("controller/RegistroController.php");
 include_once("controller/LoginController.php");
+include_once ("controller/ListaUsuarioController.php");
 
 include_once("model/LoginModel.php");
 include_once("model/RegistroModel.php");
+include_once("model/UsuarioModel.php");
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("Router.php");
@@ -76,6 +78,17 @@ class Configuration
     {
         $registroModel = $this->getRegistroModel();
         return new RegistroController($this->getRender(), $registroModel);
+    }
+
+    public function getUsuarioModel(){
+        $database = $this->getDatabase();
+        return new UsuarioModel($database);
+    }
+
+    public function getListaUsuarioController(){
+        $usuarioModel = $this->getUsuarioModel();
+        $loginModel = $this->getLoginModel();
+        return new ListaUsuarioController($this->getRender(), $usuarioModel, $loginModel);
     }
 
 
