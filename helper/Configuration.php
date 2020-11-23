@@ -6,13 +6,12 @@ include_once("helper/UrlHelper.php");
 include_once("controller/TransaffController.php");
 include_once("controller/RegistroController.php");
 include_once("controller/LoginController.php");
-include_once("controller/AsignarRolesController.php");
-
+include_once ("controller/ListaUsuarioController.php");
+include_once ("controller/UsuarioController.php");
 
 include_once("model/LoginModel.php");
 include_once("model/RegistroModel.php");
-include_once("model/AsignarRolesModel.php");
-
+include_once("model/UsuarioModel.php");
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("Router.php");
@@ -82,19 +81,22 @@ class Configuration
         return new RegistroController($this->getRender(), $registroModel);
     }
 
-    public function getAsignarRolesModel(){
+    public function getUsuarioModel(){
         $database = $this->getDatabase();
-        return new AsignarRolesModel($database);
+        return new UsuarioModel($database);
     }
 
-    public function getAsignarRolesController(){
-        $asignarRolesModel = $this->getAsignarRolesModel();
-        return new AsignarRolesController($this->getRender(), $asignarRolesModel);
+    public function getListaUsuarioController(){
+        $usuarioModel = $this->getUsuarioModel();
+        $loginModel = $this->getLoginModel();
+        return new ListaUsuarioController($this->getRender(), $usuarioModel, $loginModel);
     }
 
-
-
-
+    public function getUsuarioController(){
+        $usuarioModel = $this->getUsuarioModel();
+        $loginModel = $this->getLoginModel();
+        return new UsuarioController($this->getRender(), $usuarioModel, $loginModel);
+    }
 
 
 }

@@ -11,7 +11,7 @@ CREATE TABLE usuario (
   nombre varchar(180) NOT NULL,
   apellido varchar(180) NOT NULL,
   fecha_nacimiento date,
-  tipo varchar(100),
+  rol varchar(100),
   PRIMARY KEY (id)
 );
 
@@ -42,7 +42,7 @@ año_fabricacion date not null,
 estado boolean not null,
 patente varchar(40) not null,
 nro_chasis int not null,
-id int not null,
+id int AUTO_INCREMENT NOT NULL,
 primary key (id));
 
 CREATE TABLE TRACTOR(
@@ -62,4 +62,3 @@ primary key (id),
 foreign key (id) references equipo(id));
 
 select * from usuario;
-

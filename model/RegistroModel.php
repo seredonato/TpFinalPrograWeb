@@ -15,7 +15,6 @@ class RegistroModel
             !($this->usuarioExistente($usuario))&&
             !($this->emailExistente($email))){
 
-
             $contraseniaEncriptada = md5($contrasenia);
 
 

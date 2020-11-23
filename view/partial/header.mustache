@@ -43,13 +43,22 @@
 
             <ul class="navbar-nav">
                 {{#login}}
+                    {{#valorAdmin}}
                     <li class="nav-item">
-                        <a href="/asignarRoles" class="nav-link"
-                          type="button">Ver usuarios</a>
+                        <a href="/listaUsuario/mostrarUsuarios" class="nav-link"
+                           type="button">Ver lista de Usuarios</a>
                     </li>
+                    {{/valorAdmin}}
+                    {{#valorSupervisor}}
+                        <li class="nav-item">
+                            <a href="/listaUsuario/mostrarUsuarios" class="nav-link"
+                               type="button">Ver lista de Usuarios</a>
+                        </li>
+                    {{/valorSupervisor}}
+
                     <li class="nav-item">
                         <a href="/login/desloguearse" class="nav-link"
-                           type="button">Cerrar
+                          type="button">Cerrar
                             Sesi&oacute;n</a>
                     </li>
                 {{/login}}
@@ -62,8 +71,6 @@
                         <a class="nav-link" href="/registro">Registro</a>
                     </li>
                 {{/login}}
-
-
             </ul>
         </div>
     </nav>
