@@ -1,0 +1,71 @@
+<div class="d-flex p-2 justify-content-center">
+
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalRegistrarEquipo" >
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg> Agregar Equipo</button>
+</div>
+
+<div class="modal fade" id="modalRegistrarEquipo">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Equipos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/ListaEquipo/registroEquipo">
+
+                    <div class="d-flex p-2 justify-content-center"><h5>Equipo:</h5></div>
+
+                    <label for="EstadoEquipo">Fecha de fabricación</label>
+                    <div class="form-group">
+                        <input type="date" class="form-control" id="año_fabricacion" name=año_fabricacion required>
+                    </div>
+                    <div class="form-group">
+                        <label for="EstadoEquipo">Estado</label>
+                        <select class="form-control" id="estadoEquipo" name="estadoEquipo" required>
+                            <option value="true">Disponible</option>
+                            <option value="false" >No disponible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="patente" name=patente
+                               placeholder="Patente" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="nro_chasis" name=nro_chasis
+                               placeholder="Número de chasis" required>
+                    </div>
+                    <div class="d-flex p-2 justify-content-center"><h5>Tractor:</h5></div>
+
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="nro_motor" name=nro_motor
+                               placeholder="Número de motor">
+                    </div> <div class="form-group">
+                    <input type="text" class="form-control" id="marca" name=marca
+                           placeholder="Marca" required>
+                </div> <div class="form-group">
+                    <input type="text" class="form-control" id="modelo" name=modelo
+                           placeholder="Modelo" required>
+                </div> <div class="form-group">
+                    <label for="Calendario">Fecha de fabricación</label>
+                    <input type="date" class="form-control" id="calendario" name=calendario required>
+                </div> <div class="form-group">
+                    <input type="number" class="form-control" id="kilometraje" name=kilometraje
+                           placeholder="kilometraje" required>
+                </div>
+
+                    <div class="d-flex p-2 justify-content-center"><h5>Acoplado:</h5></div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="acoplado" name=acoplado  placeholder="Tipo de acoplado" required>                       
+                    </div>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Iniciar Sesi&oacute;n</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

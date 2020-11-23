@@ -8,10 +8,14 @@ include_once("controller/RegistroController.php");
 include_once("controller/LoginController.php");
 include_once ("controller/ListaUsuarioController.php");
 include_once ("controller/UsuarioController.php");
+include_once ("controller/ListaEquipoController.php");
+
 
 include_once("model/LoginModel.php");
 include_once("model/RegistroModel.php");
 include_once("model/UsuarioModel.php");
+include_once("model/EquipoModel.php");
+
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("Router.php");
@@ -98,5 +102,16 @@ class Configuration
         return new UsuarioController($this->getRender(), $usuarioModel, $loginModel);
     }
 
+
+    public function getEquipoModel(){
+        $database = $this->getDatabase();
+        return new EquipoModel($database);
+    }
+
+    public function getListaEquipoController(){
+        $loginModel = $this->getLoginModel();
+        $equipoModel = $this->getEquipoModel();
+        return new ListaEquipoController($this->getRender(),$loginModel,$equipoModel);
+    }
 
 }
