@@ -1,6 +1,7 @@
-
+DROP DATABASE grupo11;
 CREATE DATABASE grupo11;
 USE grupo11;
+
 
 CREATE TABLE usuario (
   id int AUTO_INCREMENT NOT NULL,
@@ -12,53 +13,43 @@ CREATE TABLE usuario (
   apellido varchar(180) NOT NULL,
   fecha_nacimiento date,
   rol varchar(100),
+  tipo_licencia varchar (100),
   PRIMARY KEY (id)
 );
 
-CREATE TABLE chofer(
-tipo_licencia varchar(100) not null,
-licencia varchar(100) not null,
-numero_usuario int not null,
-primary key (numero_usuario),
-foreign key (numero_usuario) references usuario(id));
-
-CREATE TABLE administrador (
-numero_usuario int not null,
-primary key (numero_usuario),
-foreign key (numero_usuario) references usuario(id));
-
-CREATE TABLE mecanico (
-numero_usuario int not null,
-primary key (numero_usuario),
-foreign key (numero_usuario) references usuario(id));
-
-CREATE TABLE supervisor (
-numero_usuario int not null,
-primary key (numero_usuario),
-foreign key (numero_usuario) references usuario(id));
-
 CREATE TABLE equipo(
-año_fabricacion date not null,
+año_fabricacion date,
 estado boolean not null,
 patente varchar(40) not null,
 nro_chasis int not null,
 id int AUTO_INCREMENT NOT NULL,
 primary key (id));
 
-CREATE TABLE TRACTOR(
+CREATE TABLE tractor(
 marca varchar(100) not null,
 modelo varchar(100) not null,
 calendario_service date,
 nro_motor int not null,
 kilometraje int not null,
-id int not null,
+id int AUTO_INCREMENT NOT NULL,
+id_equipo int,
 primary key (id),
-foreign key (id) references equipo(id));
+foreign key (id_equipo) references equipo(id));
 
-CREATE TABLE ACOPLADO (
+CREATE TABLE acoplado (
 tipo_acoplado varchar(100),
-id int not null,
+id int AUTO_INCREMENT NOT NULL,
+id_equipo int,
 primary key (id),
-foreign key (id) references equipo(id));
+foreign key (id_equipo) references equipo(id));
 
-select * from usuario;
+select * from equipo;
+drop table equipo;
+drop table acoplado;
+drop table tractor;
+
+INSERT INTO equipo (año_fabricacion,estado,patente,nro_chasis)
+VALUES ('20120101',true,'AAABBB',123);
+
+
+update usuario set rol = "admin" where nombre  = "sere";

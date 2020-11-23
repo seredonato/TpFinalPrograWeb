@@ -27,14 +27,27 @@ class ListaEquipoController
         $estadoEquipo = $_POST["estadoEquipo"];
         $patente = $_POST["patente"];
         $nro_chasis = $_POST["nro_chasis"];
+
+        $result = $this->equipoModel->registrarEquipo($año_fabricacion,$estadoEquipo,$patente,$nro_chasis);
+        echo $this->render->render("view/listaEquipoView.php");
+    }
+
+    public function registroTractor(){
         $nro_motor = $_POST["nro_motor"];
         $marca = $_POST["marca"];
         $modelo = $_POST["modelo"];
         $calendario = $_POST["calendario"];
         $kilometraje = $_POST["kilometraje"];
+
+        $result = $this->equipoModel->registrarTractor($nro_motor,$marca,$modelo,$calendario,$kilometraje);
+        echo $this->render->render("view/listaEquipoView.php");
+    }
+
+    public function registroAcoplado(){
         $acoplado = $_POST["acoplado"];
 
-        $result = $this->equipoModel->registrarEquipo($año_fabricacion,$estadoEquipo,$patente,$nro_chasis,$nro_motor,$marca,$modelo,$calendario,$kilometraje,$acoplado);
+        $result = $this->equipoModel->registrarAcoplado( $acoplado);
         echo $this->render->render("view/listaEquipoView.php");
+
     }
 }

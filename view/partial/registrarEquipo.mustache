@@ -36,10 +36,16 @@
                                placeholder="Patente" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="nro_chasis" name=nro_chasis
+                        <input type="number" class="form-control" id="nro_chasis" name=nro_chasis
                                placeholder="Número de chasis" required>
                     </div>
-                    <div class="d-flex p-2 justify-content-center"><h5>Tractor:</h5></div>
+
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Agregar Equipo</button>
+                    </form>
+
+                <form method="POST" action="/ListaEquipo/registroTractor">
+
+                <div class="d-flex p-2 justify-content-center"><h5>Tractor:</h5></div>
 
                     <div class="form-group">
                         <input type="number" class="form-control" id="nro_motor" name=nro_motor
@@ -58,13 +64,20 @@
                            placeholder="kilometraje" required>
                 </div>
 
-                    <div class="d-flex p-2 justify-content-center"><h5>Acoplado:</h5></div>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Agregar Tractor</button>
+                </form>
+
+                <form method="POST" action="/ListaEquipo/registroAcoplado">
+
+                <div class="d-flex p-2 justify-content-center"><h5>Acoplado:</h5></div>
 
                     <div class="form-group">
                         <input type="text" class="form-control" id="acoplado" name=acoplado  placeholder="Tipo de acoplado" required>                       
                     </div>
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">Iniciar Sesi&oacute;n</button>
+
+                <button type="submit" class="btn btn-dark btn-lg btn-block">Agregar Acoplado</button>
                 </form>
+
             </div>
         </div>
     </div>
