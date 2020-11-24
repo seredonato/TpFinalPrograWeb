@@ -114,4 +114,5 @@ class Configuration
         return new ListaEquipoController($this->getRender(),$loginModel,$equipoModel);
     }
 
+
 }

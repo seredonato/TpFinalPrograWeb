@@ -1,4 +1,3 @@
-DROP DATABASE grupo11;
 CREATE DATABASE grupo11;
 USE grupo11;
 
@@ -31,6 +30,7 @@ tipo_acoplado varchar(100),
 id int AUTO_INCREMENT NOT NULL,
 primary key (id));
 
+
 CREATE TABLE equipo(
 año_fabricacion date,
 estado boolean not null,
@@ -60,4 +60,7 @@ VALUES ('20120101',true,'AAABBB',123);
  select * from equipo;
 
 
-update usuario set rol = "admin" where nombre  = "sere";
+INSERT INTO usuario (dni, email, usuario, contrasenia, nombre, apellido, fecha_nacimiento, rol)
+VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "franco", "reynoso", 111111, "admin"),
+		(123, "sere@email.com", "sere", "202cb962ac59075b964b07152d234b70", "sere", "donato", 111111, "admin"),
+		(123, "fiore@email.com", "fiore", "202cb962ac59075b964b07152d234b70", "fiore", "coloca", 111111, "admin");
