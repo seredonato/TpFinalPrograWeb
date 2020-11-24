@@ -109,6 +109,18 @@ class MysqlDatabase
         return $datos;
     }
 
+    public function mostrarChoferes(){
+        $sql = 'SELECT * FROM chofer';
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+
+    }
+
     public function mostrarPedidoPorId($id){
 
         $sql = 'SELECT * FROM pedido WHERE id = '. $id;

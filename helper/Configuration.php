@@ -21,6 +21,7 @@ include_once("model/RegistroModel.php");
 include_once("model/UsuarioModel.php");
 include_once("model/EquipoModel.php");
 include_once("model/PedidoModel.php");
+include_once("model/ChoferModel.php");
 
 
 
@@ -149,6 +150,11 @@ class Configuration
 
     }
 
+    public function getChoferModel(){
+        $database = $this->getDatabase();
+        return new ChoferModel($database);
+    }
+
     public function getListaAcopladoController(){
         $loginModel = $this->getLoginModel();
         $equipoModel = $this->getEquipoModel();
@@ -158,9 +164,11 @@ class Configuration
     public function getProformaController(){
         $loginModel = $this->getLoginModel();
         $pedidoModel = $this->getPedidoModel();
-        return new ProformaController($this->getRender(),$loginModel,$pedidoModel);
+        $choferModel = $this->getChoferModel();
+        return new ProformaController($this->getRender(),$loginModel,$pedidoModel, $choferModel);
 
     }
+
 
 
 }
