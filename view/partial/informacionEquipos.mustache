@@ -8,15 +8,15 @@
                 <p class="card-text">Disponible: {{estado}}</p>
                 <p class="card-text">Número de chasis: {{nro_chasis}}</p>
                 <div style="text-align: center">
-                    <a data-toggle="modal" data-target="#{{a}}" type="button" class="btn btn-outline-dark" style="float: left">Asignar</a>
-                    <a data-toggle="modal" data-target="#{{a}}eliminar" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
+                    <a data-toggle="modal" data-target="#asignar{{id}}" type="button" class="btn btn-outline-dark" style="float: left">Asignar</a>
+                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="{{a}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="asignar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -57,7 +57,7 @@
 </div>
 
 
-<div class="modal fade" id="{{id}}eliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="eliminar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">

@@ -90,31 +90,52 @@
     <div class="container mt-2" id="contacto">
         <h3 class="titulosindex">Contacto</h3>
         <hr>
-        <form action="#" enctype="multipart/form-data" method="post" class="mt-3">
+        <form action="/pedido/guardarPedido" enctype="multipart/form-data" method="post" class="mt-3">
+            <div class="form-group">
+                <label for="nombreCompleto">Nombre Completo</label>
+                <input type="nombre" class="form-control" placeholder="Ingrese su nombre completo" required name="nombreCompleto">
+            </div>
             <div class="form-row mt-4 mb-3">
                 <div class="col">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" placeholder="Ingrese su Nombre" required name="email">
+                    <label for="cuit">CUIT:</label>
+                    <input type="number" class="form-control" placeholder="xx-xxxxxxxx-x" required name="cuit">
                 </div>
                 <div class="col">
                     <label for="email">Email:</label>
                     <input type="email" class="form-control" placeholder="Ingrese su Email" required name="email">
                 </div>
             </div>
-            <div class="form-group">
-                <label for="asunto">Asunto:</label>
-                <input class="form-control" placeholder="Ingrese el Asunto" required name="asunto">
+            <div class="form-row mt-4 mb-3">
+                <div class="col">
+                    <label for="telefono">Telefono:</label>
+                    <input type="tel" class="form-control" placeholder="xxxx-xxxx" required name="telefono">
+                </div>
+                <div class="col">
+                    <label for="direccion">Direccion:</label>
+                    <input type="text" class="form-control" placeholder="Direccion xxxx" required name="direccion">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="consulta">Consulta:</label>
-                <textarea class="form-control" placeholder="Realice su Consulta" required
-                          name="consulta" rows="4"></textarea>
+            <div class="form-row mt-4 mb-3">
+                <div class="col">
+                    <label for="contacto1">Contacto1:</label>
+                    <input type="text" class="form-control" placeholder="Direccion de origen de envio" required name="contacto1">
+                </div>
+                <div class="col">
+                    <label for="contacto2">Contacto2:</label>
+                    <input type="text" class="form-control" placeholder="Direccion de destino" required name="contacto2">
+                </div>
             </div>
             <div class="d-flex justify-content-center" style="margin-bottom: 5px">
                 <button type="submit" class="btn btn-dark btn-lg">Enviar</button>
             </div>
         </form>
     </div>
+        {{#valorPedido}}
+        {{> pedidoGuardado}}
+        {{/valorPedido}}
+
 </main>
+
+
 
 {{> footer}}

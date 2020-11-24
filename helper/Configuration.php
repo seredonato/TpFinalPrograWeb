@@ -9,12 +9,15 @@ include_once("controller/LoginController.php");
 include_once ("controller/ListaUsuarioController.php");
 include_once ("controller/UsuarioController.php");
 include_once ("controller/ListaEquipoController.php");
+include_once ("controller/PedidoController.php");
 
 
 include_once("model/LoginModel.php");
 include_once("model/RegistroModel.php");
 include_once("model/UsuarioModel.php");
 include_once("model/EquipoModel.php");
+include_once("model/PedidoModel.php");
+
 
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
@@ -112,6 +115,17 @@ class Configuration
         $loginModel = $this->getLoginModel();
         $equipoModel = $this->getEquipoModel();
         return new ListaEquipoController($this->getRender(),$loginModel,$equipoModel);
+    }
+
+    public function getPedidoModel(){
+        $database = $this->getDatabase();
+        return new PedidoModel($database);
+    }
+
+    public function getPedidoController(){
+        $pedidoModel = $this->getPedidoModel();
+        return new PedidoController($this->getRender(), $pedidoModel);
+
     }
 
 

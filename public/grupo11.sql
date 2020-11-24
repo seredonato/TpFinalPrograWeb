@@ -16,6 +16,16 @@ CREATE TABLE usuario (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE pedido (
+nombre varchar(100) not null,
+cuit int not null,
+email varchar(100) not null,
+telefono int not null,
+direccion_cliente varchar(100) not null,
+direccion_1 varchar(100) not null,
+direccion_2 varchar(100) not null
+);
+
 CREATE TABLE tractor(
 marca varchar(100) not null,
 modelo varchar(100) not null,
