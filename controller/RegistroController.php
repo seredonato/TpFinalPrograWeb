@@ -50,7 +50,7 @@ class RegistroController
             echo $this->render->render("view/registroView.php", $data);
 
 
-        } else if ($result) {
+        } else {
 
             echo $this->render->render("view/inicio.php");
 

@@ -37,7 +37,8 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function devolverUnUsuarioPorNombreDeUsuario($nombreDeUsuario){
+    public function devolverUnUsuarioPorNombreDeUsuario($nombreDeUsuario)
+    {
 
         $sql = 'SELECT rol FROM usuario WHERE usuario = "' . $nombreDeUsuario . '" ';
 
@@ -49,13 +50,16 @@ class MysqlDatabase
 
     }
 
-    public function devolverUsuarioPorUsuario($usuario){
+    public function devolverUsuarioPorUsuario($usuario)
+    {
 
         $sql = 'SELECT usuario FROM usuario WHERE usuario = "' . $usuario . '"';
         $resultado = $this->connection->query($sql);
         $usuarioObtenido = $resultado->fetch_assoc();
 
-        return $usuarioObtenido["usuario"];
+        if (isset($usuarioObtenido["usuario"])) {
+            return $usuarioObtenido["usuario"];
+        }
     }
 
     public function devolverEmailPorEmail($email)
@@ -63,20 +67,22 @@ class MysqlDatabase
         $sql = 'SELECT email FROM usuario WHERE email = "' . $email . '"';
         $resultado = $this->connection->query($sql);
         $emailObtenido = $resultado->fetch_assoc();
-
-        return $emailObtenido["email"];
-
+        if (isset($emailObtenido["email"])) {
+            return $emailObtenido["email"];
+        }
     }
 
-    public function modificarRolUsuario($idUsuario, $rol){
+    public function modificarRolUsuario($idUsuario, $rol)
+    {
 
-        $sql = 'UPDATE usuario SET rol = "'. $rol .'" WHERE id = ' . $idUsuario;
+        $sql = 'UPDATE usuario SET rol = "' . $rol . '" WHERE id = ' . $idUsuario;
 
         return $this->connection->query($sql);
 
     }
 
-    public function eliminarUsuario($id){
+    public function eliminarUsuario($id)
+    {
 
         $sql = 'DELETE FROM usuario WHERE id = ' . $id;
 
