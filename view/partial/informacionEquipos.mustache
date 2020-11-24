@@ -8,15 +8,16 @@
                 <p class="card-text">Disponible: {{estado}}</p>
                 <p class="card-text">Número de chasis: {{nro_chasis}}</p>
                 <div style="text-align: center">
-                    <a data-toggle="modal" data-target="#{{a}}" type="button" class="btn btn-outline-dark" style="float: left">Asignar</a>
-                    <a data-toggle="modal" data-target="#{{a}}eliminar" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
+                    <a data-toggle="modal" data-target="#asignar{{id}}" type="button" class="btn btn-outline-dark" style="float: left">Asignar</a>
+                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
+                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" >Modificar</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="{{a}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="asignar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -57,7 +58,7 @@
 </div>
 
 
-<div class="modal fade" id="{{id}}eliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="eliminar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -70,6 +71,48 @@
                 <form action="/listaEquipo/eliminarEquipo/id={{id}}" enctype="multipart/form-data" method="get" >
                 <button type="submit" class="btn btn-dark btn-lg btn-block">SI</button>
                 <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modificar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modificar equipo de patente:{{patente}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/listaEquipo/modificarEquipo" enctype="multipart/form-data" method="post" >
+                    <label for="id">Id del equipo</label>
+                    <textarea class="form-control" style="height: 36px" name="id" id="id" >{{id}}</textarea>
+
+                    <div class="form-group">
+                        <label for="tractor">Estado del vehículo</label>
+                        <select class="form-control" id="estadoEquipo" name="estadoEquipo">
+                            <option value="true">Disponible</option>
+                            <option value="false" >No disponible</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tractor">Patente</label>
+                        <input type="text" class="form-control" id="patente" name=patente value="{{patente}}"
+                               placeholder="Patente" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tractor">Número de chasis</label>
+                        <input type="text" class="form-control" id="nro_chasis" name=nro_chasis value="{{nro_chasis}}"
+                               placeholder="Número de chasis" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Modificar</button>
                 </form>
             </div>
         </div>

@@ -9,6 +9,10 @@ include_once("controller/LoginController.php");
 include_once ("controller/ListaUsuarioController.php");
 include_once ("controller/UsuarioController.php");
 include_once ("controller/ListaEquipoController.php");
+include_once ("controller/ListaTractorController.php");
+include_once ("controller/ListaAcopladoController.php");
+
+
 
 
 include_once("model/LoginModel.php");
@@ -114,5 +118,16 @@ class Configuration
         return new ListaEquipoController($this->getRender(),$loginModel,$equipoModel);
     }
 
+    public function getListaTractorController(){
+        $loginModel = $this->getLoginModel();
+        $equipoModel = $this->getEquipoModel();
+        return new ListaTractorController($this->getRender(),$loginModel,$equipoModel);
+    }
+
+    public function getListaAcopladoController(){
+        $loginModel = $this->getLoginModel();
+        $equipoModel = $this->getEquipoModel();
+        return new ListaAcopladoController($this->getRender(),$loginModel,$equipoModel);
+    }
 
 }
