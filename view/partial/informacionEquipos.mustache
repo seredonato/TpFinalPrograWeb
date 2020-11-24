@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label for="tractor">Asignar tipo de tractor</label>
                         <select id="tractor" name="tractor" class="form-control">
-                            <option value="null"selected>Ninguno</option>
+                            <option value="0" selected>Ninguno</option>
                             {{#tractores}}
                                 <option value="{{id}}">TRACTOR: marca: {{marca}}, modelo: {{modelo}}, número de motor: {{nro_motor}}, kilometraje: {{kilometraje}}</option>
                             {{/tractores}}
