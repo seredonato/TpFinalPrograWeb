@@ -43,7 +43,6 @@ class listaTractorController
     public function eliminarTractor(){
 
         $id = $_GET["id"];
-
         $this->equipoModel->eliminarTractor($id);
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["tractores"] = $this->equipoModel->mostrarTractor();

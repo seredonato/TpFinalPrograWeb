@@ -75,4 +75,6 @@ class EquipoModel
     public function eliminarTractor($id){
         return $this->database->eliminarTractor($id);
     }
+
+
 }
