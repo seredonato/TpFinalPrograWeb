@@ -55,4 +55,26 @@ class EquipoModel
     public function asginarAcopladoTractor($id_acoplado,$id_tractor,$id_equipo){
         return $this->database->asignarAcopladoTractor($id_acoplado,$id_tractor,$id_equipo);
     }
+
+    public function modificaEquipo($id,$patente,$nro_chasis,$estadoEquipo){
+        return $this->database->modificarEquipo($id,$patente,$nro_chasis,$estadoEquipo);
+    }
+
+    public function modificarAcoplado($id,$tipo){
+        return $this->database->modificarAcoplado($id,$tipo);
+    }
+
+    public function eliminarAcoplado($id){
+        return $this->database->eliminarAcoplado($id);
+    }
+
+    public function modificarTractor($id,$marca,$modelo,$nro_motor){
+        return $this->database->modificarTractor($id,$marca,$modelo,$nro_motor);
+    }
+
+    public function eliminarTractor($id){
+        return $this->database->eliminarTractor($id);
+    }
+
+
 }

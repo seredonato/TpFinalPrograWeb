@@ -145,4 +145,34 @@ class MysqlDatabase
         SET id_tractor='$id_tractor',id_acoplado='$id_acoplado' WHERE id='$id_equipo'";
         return $this->connection->query($sql);
     }
+
+    public function modificarEquipo($id,$patente,$nro_chasis,$estadoEquipo){
+        $sql = 'UPDATE equipo SET patente = "' . $patente . '", nro_chasis = '.$nro_chasis.', estado = '.$estadoEquipo.' WHERE id = ' . $id;
+        return $this->connection->query($sql);
+    }
+
+
+    public function eliminarAcoplado($id){
+
+        $sql = 'DELETE FROM acoplado WHERE id = ' . $id;
+        return $this->connection->query($sql);
+
+    }
+
+    public function modificarAcoplado($id,$tipo){
+        $sql = 'UPDATE acoplado SET tipo_acoplado = "' . $tipo . '"WHERE id = ' . $id;
+        return $this->connection->query($sql);
+    }
+
+    public function modificarTractor($id,$marca,$modelo,$nro_motor){
+        $sql = 'UPDATE tractor SET marca = "' . $marca . '", modelo = "'.$modelo.'", nro_motor = '.$nro_motor.' WHERE id = ' . $id;
+        return $this->connection->query($sql);
+    }
+
+    public function eliminarTractor($id){
+
+        $sql = 'DELETE FROM tractor WHERE id = ' . $id;
+        return $this->connection->query($sql);
+
+    }
 }
