@@ -69,4 +69,52 @@ class MysqlDatabase
     {
         mysqli_query($this->connection, $sql);
     }
+
+
+    public function devolverEquipos()
+    {
+        $sql = "SELECT * FROM equipo";
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function devolverTractor()
+    {
+        $sql = "SELECT * FROM tractor";
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function devolverAcoplado()
+    {
+        $sql = "SELECT * FROM acoplado";
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function eliminarEquipo($id){
+
+        $sql = 'DELETE FROM equipo WHERE id = ' . $id;
+        return $this->connection->query($sql);
+
+    }
+
+    public function asignarAcopladoTractor($id_acoplado,$id_tractor,$id_equipo)
+    {
+        $sql = "UPDATE equipo 
+        SET id_tractor='$id_tractor',id_acoplado='$id_acoplado' WHERE id='$id_equipo'";
+        return $this->connection->query($sql);
+    }
 }

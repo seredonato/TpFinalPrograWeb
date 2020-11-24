@@ -35,4 +35,24 @@ class EquipoModel
 
         return $this->database->query($sql);
     }
+
+    public function mostrarEquipos(){
+        return $this->database->devolverEquipos();
+    }
+    public function mostrarTractor(){
+        return $this->database->devolverTractor();
+    }
+
+    public function mostrarAcoplado(){
+        return $this->database->devolverAcoplado();
+    }
+
+
+    public function eliminarEquipo($id){
+        return $this->database->eliminarEquipo($id);
+    }
+
+    public function asginarAcopladoTractor($id_acoplado,$id_tractor,$id_equipo){
+        return $this->database->asignarAcopladoTractor($id_acoplado,$id_tractor,$id_equipo);
+    }
 }

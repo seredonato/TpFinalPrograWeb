@@ -17,14 +17,6 @@ CREATE TABLE usuario (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE equipo(
-año_fabricacion date,
-estado boolean not null,
-patente varchar(40) not null,
-nro_chasis int not null,
-id int AUTO_INCREMENT NOT NULL,
-primary key (id));
-
 CREATE TABLE tractor(
 marca varchar(100) not null,
 modelo varchar(100) not null,
@@ -32,16 +24,26 @@ calendario_service date,
 nro_motor int not null,
 kilometraje int not null,
 id int AUTO_INCREMENT NOT NULL,
-id_equipo int,
-primary key (id),
-foreign key (id_equipo) references equipo(id));
+primary key (id));
 
 CREATE TABLE acoplado (
 tipo_acoplado varchar(100),
 id int AUTO_INCREMENT NOT NULL,
-id_equipo int,
+primary key (id));
+
+CREATE TABLE equipo(
+año_fabricacion date,
+estado boolean not null,
+patente varchar(40) not null,
+nro_chasis int not null,
+id int AUTO_INCREMENT NOT NULL,
+id_tractor int,
+id_acoplado int,
 primary key (id),
-foreign key (id_equipo) references equipo(id));
+foreign key (id_Tractor) references tractor(id),
+foreign key (id_acoplado) references acoplado(id));
+
+
 
 select * from equipo;
 drop table equipo;
@@ -50,6 +52,12 @@ drop table tractor;
 
 INSERT INTO equipo (año_fabricacion,estado,patente,nro_chasis)
 VALUES ('20120101',true,'AAABBB',123);
+
+
+ select * from acoplado;
+ select * from tractor;
+ select * from usuario;
+ select * from equipo;
 
 
 update usuario set rol = "admin" where nombre  = "sere";
