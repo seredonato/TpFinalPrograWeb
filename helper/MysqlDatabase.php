@@ -109,6 +109,13 @@ class MysqlDatabase
         return $datos;
     }
 
+    public function mostrarPedidoPorId($id){
+
+        $sql = 'SELECT * FROM pedido WHERE id = '. $id;
+        $pedido = $this->connection->query($sql);
+        return $pedido->fetch_assoc();
+
+    }
 
     public function devolverEquipos()
     {

@@ -6,7 +6,7 @@
         <div class="form-row mt-4 mb-3">
             <div class="col">
                 <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" placeholder="Ingrese su Nombre" required name="nombre">
+                <input type="text" class="form-control"placeholder="Ingrese su Nombre" required name="nombre">
             </div>
             <div class="col">
                 <label for="apellido">Apellido:</label>

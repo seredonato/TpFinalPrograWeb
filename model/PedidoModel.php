@@ -19,6 +19,13 @@ class PedidoModel
         return $this->database->query($sql);
     }
 
+    public function mostrarPedidoPorId($id)
+    {
+
+        return $this->database->mostrarPedidoPorId($id);
+
+    }
+
     public function mostrarPedidos()
     {
         return $this->database->mostrarPedidos();
