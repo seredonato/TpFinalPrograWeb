@@ -98,10 +98,22 @@ class MysqlDatabase
         mysqli_query($this->connection, $sql);
     }
 
+    public function mostrarPedidos(){
+        $sql = 'SELECT * FROM pedido';
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
 
     public function devolverEquipos()
     {
         $sql = "SELECT * FROM equipo";
+
         $resultado = $this->connection->query($sql);
         $datos = array();
         while ($fila = $resultado->fetch_assoc()) {

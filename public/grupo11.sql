@@ -23,8 +23,11 @@ email varchar(100) not null,
 telefono int not null,
 direccion_cliente varchar(100) not null,
 direccion_1 varchar(100) not null,
-direccion_2 varchar(100) not null
+direccion_2 varchar(100) not null,
+id int AUTO_INCREMENT NOT NULL,
+primary key (id)
 );
+
 
 CREATE TABLE tractor(
 marca varchar(100) not null,
@@ -52,13 +55,6 @@ id_acoplado int,
 primary key (id),
 foreign key (id_Tractor) references tractor(id),
 foreign key (id_acoplado) references acoplado(id));
-
-
-
-select * from equipo;
-drop table equipo;
-drop table acoplado;
-drop table tractor;
 
 INSERT INTO equipo (año_fabricacion,estado,patente,nro_chasis)
 VALUES ('20120101',true,'AAABBB',123);

@@ -12,9 +12,7 @@ include_once ("controller/ListaEquipoController.php");
 include_once ("controller/PedidoController.php");
 include_once ("controller/ListaTractorController.php");
 include_once ("controller/ListaAcopladoController.php");
-
-
-
+include_once ("controller/ListaPedidosController.php");
 
 
 include_once("model/LoginModel.php");
@@ -22,6 +20,7 @@ include_once("model/RegistroModel.php");
 include_once("model/UsuarioModel.php");
 include_once("model/EquipoModel.php");
 include_once("model/PedidoModel.php");
+
 
 
 
@@ -138,6 +137,13 @@ class Configuration
         $loginModel = $this->getLoginModel();
         $equipoModel = $this->getEquipoModel();
         return new ListaTractorController($this->getRender(),$loginModel,$equipoModel);
+    }
+
+    public function getListaPedidosController(){
+        $loginModel = $this->getLoginModel();
+        $pedidoModel = $this->getPedidoModel();
+        return new ListaPedidosController($this->getRender(),$loginModel,$pedidoModel);
+
     }
 
     public function getListaAcopladoController(){

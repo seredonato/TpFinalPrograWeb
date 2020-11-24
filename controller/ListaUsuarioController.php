@@ -16,20 +16,12 @@ class ListaUsuarioController
     public function execute()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        echo $this->render->render("view/listaUsuariosView.php", $data);
-
-    }
-
-    public function mostrarUsuarios()
-    {
-
-        $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["usuarios"] = $this->usuarioModel->mostrarUsuarios();
 
         echo $this->render->render("view/listaUsuariosView.php", $data);
 
-
     }
+
 
 
 }
