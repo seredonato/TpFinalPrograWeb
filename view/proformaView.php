@@ -3,7 +3,7 @@
 <main class="cuerpoindex">
 
     <div class="container text-center">
-        <h2 class="titulosindex">Realize proforma</h2>
+        <h2 class="titulosindex">Realice proforma</h2>
         <form method="post" enctype="multipart/form-data" class="mt-3">
             <div class="row" style="margin-bottom: 2%">
                 <div class="card-body my-5" style="width: 45%; margin-bottom: 2%!important;">
@@ -38,8 +38,8 @@
                                 <input type="date" class="form-control" style="margin-bottom: 2%"
                                        placeholder="Fecha de Carga" required name="fechaCarga">
 
-                                <label for="eta">ETA</label>
-                                <input type="text" class="form-control" style="margin-bottom: 2%" placeholder="ETA"
+                                <label for="eta">Tiempo estimado de llegada</label>
+                                <input type="time" class="form-control" style="margin-bottom: 2%" placeholder="ETA"
                                        required name="eta">
 
                             </div>
@@ -66,12 +66,12 @@
                                        placeholder="Combustible estimado"
                                        required name="combustible">
 
-                                <label for="etd">ETD</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%" placeholder="ETD estimado"
+                                <label for="etd">Tiempo estimado de salida</label>
+                                <input type="time" class="form-control" style="margin-bottom: 2%" placeholder="ETD estimado"
                                        required name="etd">
 
-                                <label for="etaCosto">ETA</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%"
+                                <label for="etaCosto">Tiempo estimado de llegada</label>
+                                <input type="time" class="form-control" style="margin-bottom: 2%"
                                        placeholder="ETA estimado"
                                        required name="etaCosto">
 
@@ -135,7 +135,21 @@
                                 <select id="hazard" name="hazard" class="form-control" style="margin-bottom: 2%"
                                         required>
                                     <option value="" selected>SI/NO</option>
-                                    <option value="true">SI</option>
+                                    <option class="hazardSi" value="true">SI</option>
+                                    <option value="false">NO</option>
+                                </select>
+
+                                <select id="imoclass" name="imoclass" class="form-control" style="margin-bottom: 2%"
+                                        required>
+                                    <option value="" selected>SI/NO</option>
+                                    <option class="imo" value="true">SI</option>
+                                    <option value="false">NO</option>
+                                </select>
+
+                                <select id="hazard" name="hazard" class="form-control" style="margin-bottom: 2%"
+                                        required>
+                                    <option value="" selected>SI/NO</option>
+                                    <option class="hazardSi" value="true">SI</option>
                                     <option value="false">NO</option>
                                 </select>
 
@@ -147,20 +161,25 @@
                                     <option value="false">NO</option>
                                 </select>
                             </div>
+                            <div>
+                                <h5 class="card-title" style="text-align: center">Chofer</h5>
+                                <div class="container mt-2 justify-content-center">
+                                    <div class="row my-5">
+
+                                        {{#choferes}}
+                                        {{> informacionChoferes}}
+                                        {{/choferes}}
+
+
+                                    </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="container mt-2 justify-content-center">
-                <div class="row my-5">
 
-                    {{#choferes}}
-                    {{> informacionChoferes}}
-                    {{/choferes}}
-
-
-                </div>
 
 
 
