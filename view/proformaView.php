@@ -67,7 +67,8 @@
                                        required name="combustible">
 
                                 <label for="etd">Tiempo estimado de salida</label>
-                                <input type="time" class="form-control" style="margin-bottom: 2%" placeholder="ETD estimado"
+                                <input type="time" class="form-control" style="margin-bottom: 2%"
+                                       placeholder="ETD estimado"
                                        required name="etd">
 
                                 <label for="etaCosto">Tiempo estimado de llegada</label>
@@ -81,11 +82,13 @@
                                        required name="viaticos">
 
                                 <label for="peajes">Peajes y pesajes</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%" placeholder="Peajes y Pesajes estimado"
+                                <input type="number" class="form-control" style="margin-bottom: 2%"
+                                       placeholder="Peajes y Pesajes estimado"
                                        required name="peajes">
 
                                 <label for="extras">Extras</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%" placeholder="Extras estimado"
+                                <input type="number" class="form-control" style="margin-bottom: 2%"
+                                       placeholder="Extras estimado"
                                        required name="extras">
 
                                 <label for="hazardCosto">Hazard</label>
@@ -99,11 +102,13 @@
                                        required name="reeferCosto">
 
                                 <label for="fee">Fee</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%" placeholder="Fee estimado"
+                                <input type="number" class="form-control" style="margin-bottom: 2%"
+                                       placeholder="Fee estimado"
                                        required name="fee">
 
                                 <label for="total">Total</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%" placeholder="Total estimado"
+                                <input type="number" class="form-control" style="margin-bottom: 2%"
+                                       placeholder="Total estimado"
                                        required name="total">
                             </div>
                         </div>
@@ -131,14 +136,20 @@
                                 <input type="number" class="form-control" style="margin-bottom: 2%" placeholder="peso"
                                        required name="peso">
 
-                                <label for="hazard">Hazard</label>
-                                <select id="hazard" name="hazard" class="form-control" style="margin-bottom: 2%"
-                                        required>
-                                    <option value="" selected>SI/NO</option>
-                                    <option class="hazardSi" value="true">SI</option>
-                                    <option value="false">NO</option>
-                                </select>
+                                <label for="hazardSi">Hazard</label>
+                                <div>
+                                    <label for="hazardSi">SI</label>
+                                    <input value="si" type="radio" onclick="mostrarSelectHazard()"
+                                           style="margin-bottom: 2%; margin-right: 5%"
+                                           required name="hazardSi">
 
+                                    <label for="hazardSi">NO</label>
+                                    <input value="no" type="radio" onclick="ocultarSelectHazard()"
+                                           style="margin-bottom: 2%"
+                                           required name="hazardSi">
+                                </div>
+
+                                <div id="hazard" style="display: none">
                                 <select id="imoclass" name="imoclass" class="form-control" style="margin-bottom: 2%"
                                         required>
                                     <option value="" selected>SI/NO</option>
@@ -153,13 +164,27 @@
                                     <option value="false">NO</option>
                                 </select>
 
-                                <label for="Reefer">Reefer</label>
-                                <select id="Reefer" name="Reefer" class="form-control" style="margin-bottom: 2%"
-                                        required>
-                                    <option value="" selected>SI/NO</option>
-                                    <option value="true">SI</option>
-                                    <option value="false">NO</option>
-                                </select>
+                                </div>
+
+                                <label>Reefer</label>
+                                <div>
+                                <label for="temperaturaSi">SI</label>
+                                <input value="si" type="radio" onclick="mostrarSelectTemperatura()"
+                                       style="margin-bottom: 2%; margin-right: 5%"
+                                       required name="temperaturaSi">
+
+                                    <label for="temperaturaSi">NO</label>
+                                    <input value="no" type="radio" onclick="ocultarSelectTemperatura()"
+                                           style="margin-bottom: 2%"
+                                           required name="temperaturaSi">
+                                </div>
+
+                                <div id="temperatura" style="display: none">
+                                    <label for="temperatura">Temperatura</label>
+                                    <input type="number" class="form-control"
+                                           style="margin-bottom: 2%" placeholder="Temperatura en Cº"
+                                           required name="temperatura">
+                                </div>
                             </div>
                             <div>
                                 <h5 class="card-title" style="text-align: center">Chofer</h5>
@@ -173,19 +198,16 @@
 
                                     </div>
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-
-
-
-            <div class="mt-4 mb-4 text-center">
-                <button type="submit" class="btn btn-dark btn-lg btn-block">Realizar Proforma</button>
-            </div>
+                <div class="mt-4 mb-4 text-center">
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Realizar Proforma</button>
+                </div>
 
         </form>
     </div>
