@@ -22,6 +22,8 @@ include_once("model/UsuarioModel.php");
 include_once("model/EquipoModel.php");
 include_once("model/PedidoModel.php");
 include_once("model/ChoferModel.php");
+include_once("model/TractorModel.php");
+include_once("model/AcopladoModel.php");
 
 
 
@@ -119,12 +121,6 @@ class Configuration
         return new EquipoModel($database);
     }
 
-    public function getListaEquipoController(){
-        $loginModel = $this->getLoginModel();
-        $equipoModel = $this->getEquipoModel();
-        return new ListaEquipoController($this->getRender(),$loginModel,$equipoModel);
-    }
-
 
     public function getPedidoModel(){
         $database = $this->getDatabase();
@@ -137,11 +133,6 @@ class Configuration
 
     }
 
-    public function getListaTractorController(){
-        $loginModel = $this->getLoginModel();
-        $equipoModel = $this->getEquipoModel();
-        return new ListaTractorController($this->getRender(),$loginModel,$equipoModel);
-    }
 
     public function getListaPedidosController(){
         $loginModel = $this->getLoginModel();
@@ -155,10 +146,35 @@ class Configuration
         return new ChoferModel($database);
     }
 
+    public function getTractorModel(){
+        $database = $this->getDatabase();
+        return new TractorModel($database);
+    }
+
+    public function getListaTractorController(){
+        $loginModel = $this->getLoginModel();
+        $tractorModel = $this->getTractorModel();
+        return new ListaTractorController($this->getRender(),$loginModel,$tractorModel);
+    }
+
+    public function getAcopladoModel(){
+        $database = $this->getDatabase();
+        return new AcopladoModel($database);
+    }
+
     public function getListaAcopladoController(){
         $loginModel = $this->getLoginModel();
+        $acopladoModel = $this->getAcopladoModel();
+        return new ListaAcopladoController($this->getRender(),$loginModel,$acopladoModel);
+    }
+
+    public function getListaEquipoController(){
+        $loginModel = $this->getLoginModel();
         $equipoModel = $this->getEquipoModel();
-        return new ListaAcopladoController($this->getRender(),$loginModel,$equipoModel);
+        $acopladoModel = $this->getAcopladoModel();
+        $tractorModel = $this->getTractorModel();
+
+        return new ListaEquipoController($this->getRender(),$loginModel,$equipoModel,$acopladoModel,$tractorModel);
     }
 
     public function getProformaController(){

@@ -6,13 +6,17 @@ class ListaEquipoController
     private $render;
     private $loginModel;
     private $equipoModel;
+    private $acopladoModel;
+    private $tractorModel;
 
 
-    public function __construct($render,$loginModel,$equipoModel)
+    public function __construct($render,$loginModel,$equipoModel,$acopladoModel,$tractorModel)
     {
         $this->render = $render;
         $this->loginModel = $loginModel;
         $this->equipoModel = $equipoModel;
+        $this->acopladoModel = $acopladoModel;
+        $this->tractorModel = $tractorModel;
 
     }
 
@@ -20,8 +24,8 @@ class ListaEquipoController
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["equipos"] = $this->equipoModel->mostrarEquipos();
-        $data["acoplados"] = $this->equipoModel->mostrarAcoplado();
-        $data["tractores"] = $this->equipoModel->mostrarTractor();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
+        $data["tractores"] = $this->tractorModel->mostrarTractor();
 
         echo $this->render->render("view/listaEquipoView.php", $data);
 
@@ -36,8 +40,8 @@ class ListaEquipoController
         $result = $this->equipoModel->registrarEquipo($año_fabricacion,$estadoEquipo,$patente,$nro_chasis);
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["equipos"] = $this->equipoModel->mostrarEquipos();
-        $data["acoplados"] = $this->equipoModel->mostrarAcoplado();
-        $data["tractores"] = $this->equipoModel->mostrarTractor();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
+        $data["tractores"] = $this->tractorModel->mostrarTractor();
 
         echo $this->render->render("view/listaEquipoView.php",$data);
     }
@@ -49,22 +53,22 @@ class ListaEquipoController
         $calendario = $_POST["calendario"];
         $kilometraje = $_POST["kilometraje"];
 
-        $result = $this->equipoModel->registrarTractor($nro_motor,$marca,$modelo,$calendario,$kilometraje);
+        $result = $this->tractorModel->registrarTractor($nro_motor,$marca,$modelo,$calendario,$kilometraje);
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["equipos"] = $this->equipoModel->mostrarEquipos();
-        $data["acoplados"] = $this->equipoModel->mostrarAcoplado();
-        $data["tractores"] = $this->equipoModel->mostrarTractor();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
+        $data["tractores"] = $this->tractorModel->mostrarTractor();
         echo $this->render->render("view/listaTractoresView.php",$data);
     }
 
     public function registroAcoplado(){
         $acoplado = $_POST["acoplado"];
 
-        $result = $this->equipoModel->registrarAcoplado( $acoplado);
+        $result = $this->acopladoModel->registrarAcoplado( $acoplado);
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["equipos"] = $this->equipoModel->mostrarEquipos();
-        $data["acoplados"] = $this->equipoModel->mostrarAcoplado();
-        $data["tractores"] = $this->equipoModel->mostrarTractor();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
+        $data["tractores"] = $this->tractorModel->mostrarTractor();
 
         echo $this->render->render("view/listaAcopladosView.php",$data);
 
@@ -79,8 +83,8 @@ class ListaEquipoController
         $this->equipoModel->eliminarEquipo($id);
         $data["equipos"] = $this->equipoModel->mostrarEquipos();
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $data["acoplados"] = $this->equipoModel->mostrarAcoplado();
-        $data["tractores"] = $this->equipoModel->mostrarTractor();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
+        $data["tractores"] = $this->tractorModel->mostrarTractor();
 
         echo $this->render->render("view/listaEquipoView.php", $data);
     }
@@ -93,8 +97,8 @@ class ListaEquipoController
         $result = $this->equipoModel->asginarAcopladoTractor($acoplado_id,$tractor_id,$equipo_id);
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["equipos"] = $this->equipoModel->mostrarEquipos();
-        $data["acoplados"] = $this->equipoModel->mostrarAcoplado();
-        $data["tractores"] = $this->equipoModel->mostrarTractor();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
+        $data["tractores"] = $this->tractorModel->mostrarTractor();
         echo $this->render->render("view/listaEquipoView.php",$data);
     }
 
@@ -108,8 +112,8 @@ class ListaEquipoController
 
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["equipos"] = $this->equipoModel->mostrarEquipos();
-        $data["acoplados"] = $this->equipoModel->mostrarAcoplado();
-        $data["tractores"] = $this->equipoModel->mostrarTractor();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
+        $data["tractores"] = $this->tractorModel->mostrarTractor();
 
         echo $this->render->render("view/listaEquipoView.php",$data);
     }

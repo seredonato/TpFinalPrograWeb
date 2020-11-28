@@ -5,21 +5,21 @@ class ListaAcopladoController
 {
     private $render;
     private $loginModel;
-    private $equipoModel;
+    private $acopladoModel;
 
 
-    public function __construct($render,$loginModel,$equipoModel)
+    public function __construct($render,$loginModel,$acopladoModel)
     {
         $this->render = $render;
         $this->loginModel = $loginModel;
-        $this->equipoModel = $equipoModel;
+        $this->acopladoModel = $acopladoModel;
 
     }
 
     public function execute()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $data["acoplados"] = $this->equipoModel->mostrarAcoplado();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
         echo $this->render->render("view/listaAcopladosView.php", $data);
     }
 
@@ -27,10 +27,10 @@ class ListaAcopladoController
         $tipo = $_POST["tipo"];
         $id = $_POST["id"];
 
-        $result = $this->equipoModel->modificarAcoplado($id,$tipo);
+        $result = $this->acopladoModel->modificarAcoplado($id,$tipo);
 
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $data["acoplados"] = $this->equipoModel->mostrarAcoplado();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
 
         echo $this->render->render("view/listaAcopladosView.php",$data);
     }
@@ -39,9 +39,9 @@ class ListaAcopladoController
 
         $id = $_GET["id"];
 
-        $this->equipoModel->eliminarAcoplado($id);
+        $this->acopladoModel->eliminarAcoplado($id);
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $data["acoplados"] = $this->equipoModel->mostrarAcoplado();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
 
         echo $this->render->render("view/listaAcopladosView.php", $data);
     }

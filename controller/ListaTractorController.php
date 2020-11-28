@@ -5,21 +5,21 @@ class listaTractorController
 {
     private $render;
     private $loginModel;
-    private $equipoModel;
+    private $tractorModel;
 
 
-    public function __construct($render,$loginModel,$equipoModel)
+    public function __construct($render,$loginModel,$tractorModel)
     {
         $this->render = $render;
         $this->loginModel = $loginModel;
-        $this->equipoModel = $equipoModel;
+        $this->tractorModel = $tractorModel;
 
     }
 
     public function execute()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $data["tractores"] = $this->equipoModel->mostrarTractor();
+        $data["tractores"] = $this->tractorModel->mostrarTractor();
         echo $this->render->render("view/listaTractoresView.php", $data);
     }
 
@@ -31,10 +31,10 @@ class listaTractorController
         $nro_motor= $_POST["nro_motor"];
 
 
-        $result = $this->equipoModel->modificarTractor($id,$marca,$modelo,$nro_motor);
+        $result = $this->tractorModel->modificarTractor($id,$marca,$modelo,$nro_motor);
 
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $data["tractores"] = $this->equipoModel->mostrarTractor();
+        $data["tractores"] = $this->tractorModel->mostrarTractor();
 
         echo $this->render->render("view/listaTractoresView.php",$data);
     }
@@ -43,9 +43,9 @@ class listaTractorController
     public function eliminarTractor(){
 
         $id = $_GET["id"];
-        $this->equipoModel->eliminarTractor($id);
+        $this->tractorModel->eliminarTractor($id);
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $data["tractores"] = $this->equipoModel->mostrarTractor();
+        $data["tractores"] = $this->tractorModel->mostrarTractor();
 
         echo $this->render->render("view/listaTractoresView.php", $data);
     }

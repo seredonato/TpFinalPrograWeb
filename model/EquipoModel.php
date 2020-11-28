@@ -39,14 +39,6 @@ class EquipoModel
     public function mostrarEquipos(){
         return $this->database->devolverEquipos();
     }
-    public function mostrarTractor(){
-        return $this->database->devolverTractor();
-    }
-
-    public function mostrarAcoplado(){
-        return $this->database->devolverAcoplado();
-    }
-
 
     public function eliminarEquipo($id){
         return $this->database->eliminarEquipo($id);
@@ -60,21 +52,8 @@ class EquipoModel
         return $this->database->modificarEquipo($id,$patente,$nro_chasis,$estadoEquipo);
     }
 
-    public function modificarAcoplado($id,$tipo){
-        return $this->database->modificarAcoplado($id,$tipo);
-    }
 
-    public function eliminarAcoplado($id){
-        return $this->database->eliminarAcoplado($id);
-    }
 
-    public function modificarTractor($id,$marca,$modelo,$nro_motor){
-        return $this->database->modificarTractor($id,$marca,$modelo,$nro_motor);
-    }
-
-    public function eliminarTractor($id){
-        return $this->database->eliminarTractor($id);
-    }
 
 
 }
