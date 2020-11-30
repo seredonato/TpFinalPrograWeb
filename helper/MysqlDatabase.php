@@ -99,7 +99,7 @@ class MysqlDatabase
     }
 
     public function mostrarPedidos(){
-        $sql = 'SELECT * FROM pedido';
+        $sql = 'SELECT * FROM pedido_cliente';
 
         $resultado = $this->connection->query($sql);
         $datos = array();
@@ -158,7 +158,7 @@ class MysqlDatabase
 
     public function mostrarPedidoPorId($id){
 
-        $sql = 'SELECT * FROM pedido WHERE id = '. $id;
+        $sql = 'SELECT * FROM pedido_cliente WHERE id = '. $id;
         $pedido = $this->connection->query($sql);
         return $pedido->fetch_assoc();
 

@@ -27,13 +27,14 @@ class ProformaController
         $id = $_GET["id"];
         $pedido = $this->pedidoModel->mostrarPedidoPorId($id);
         $data["pedidoId"] = $pedido["id"];
-        $data["pedidoNombre"] = $pedido["nombre"];
-        $data["pedidoCuit"] = $pedido["cuit"];
-        $data["pedidoEmail"] = $pedido["email"];
-        $data["pedidoTelefono"] = $pedido["telefono"];
+        $data["pedidoNombre"] = $pedido["nombre_cliente"];
+        $data["pedidoFecha"] = $pedido["fecha_pedido"];
+        $data["pedidoCuit"] = $pedido["cuit_cliente"];
+        $data["pedidoEmail"] = $pedido["email_cliente"];
+        $data["pedidoTelefono"] = $pedido["telefono_cliente"];
         $data["pedidoDireccion"] = $pedido["direccion_cliente"];
-        $data["pedidoContacto1"] = $pedido["direccion_1"];
-        $data["pedidocontacto2"] = $pedido["direccion_2"];
+        $data["pedidoContacto1"] = $pedido["contacto1"];
+        $data["pedidocontacto2"] = $pedido["contacto2"];
 
         $data["choferes"] = $this->choferModel->mostrarChoferes();
 
@@ -43,5 +44,11 @@ class ProformaController
 
 
         echo $this->render->render("view/proformaView.php", $data);
+    }
+
+    public function guardarProforma(){
+
+
+
     }
 }
