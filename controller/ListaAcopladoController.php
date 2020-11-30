@@ -16,6 +16,23 @@ class ListaAcopladoController
 
     }
 
+    public function registroAcoplado(){
+        $acoplado = $_POST["acoplado"];
+        $data["login"] = $this->loginModel->ifSesionIniciada();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
+
+        $result = $this->acopladoModel->registrarAcoplado( $acoplado);
+        if ($result === "Ingrese contenido en el campo requerido"){
+            $data["registroAcopladoError"] = $result;
+            echo $this->render->render("view/listaAcopladosView.php", $data);
+        }
+        $data["login"] = $this->loginModel->ifSesionIniciada();
+        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
+        echo $this->render->render("view/listaAcopladosView.php",$data);
+
+    }
+
+
     public function execute()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();

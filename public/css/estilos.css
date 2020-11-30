@@ -56,11 +56,40 @@ body {
     top: 1.5em;
 }
 
-.choferes {
-    width: 90%;
+.choferesProforma {
+    width: 150px;
+    height: 200px;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.4);
 }
+
+.choferes_input{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    box-sizing: border-box;
+}
+
+.choferes img{
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.contenedorChoferes{
+    overflow: scroll;
+    width: 530px;
+    max-height: 550px;
+}
+
+
 
 .miembrosydireccion {
     position: relative;
@@ -69,10 +98,6 @@ body {
 
 .miembrosydireccion p {
     font-size: 0.7em;
-
-}
-
-.reeferSi{
 
 }
 

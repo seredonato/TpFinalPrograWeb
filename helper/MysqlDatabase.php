@@ -99,7 +99,7 @@ class MysqlDatabase
     }
 
     public function mostrarPedidos(){
-        $sql = 'SELECT * FROM pedido';
+        $sql = 'SELECT * FROM pedido_cliente';
 
         $resultado = $this->connection->query($sql);
         $datos = array();
@@ -121,9 +121,44 @@ class MysqlDatabase
 
     }
 
+    public function mostrarImoSubClass(){
+        $sql = 'SELECT * FROM imosubclass';
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function mostrarImoSubClassPorClase($clase){
+
+        $sql = 'SELECT * FROM imosubclass WHERE clase =' . $clase;
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+
+    }
+
+    public function mostrarImoClases(){
+        $sql = 'SELECT * FROM imoclass';
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
     public function mostrarPedidoPorId($id){
 
-        $sql = 'SELECT * FROM pedido WHERE id = '. $id;
+        $sql = 'SELECT * FROM pedido_cliente WHERE id = '. $id;
         $pedido = $this->connection->query($sql);
         return $pedido->fetch_assoc();
 
@@ -170,6 +205,15 @@ class MysqlDatabase
 
     }
 
+    public function devolverEquipoPorPatente($patente){
+        $sql = 'SELECT patente FROM equipo WHERE patente = "' . $patente . '"';
+        $resultado = $this->connection->query($sql);
+        $patenteObtenida = $resultado->fetch_assoc();
+        if (isset($patenteObtenida["patente"])) {
+            return $patenteObtenida["patente"];
+        }
+    }
+
     public function asignarAcopladoTractor($id_acoplado,$id_tractor,$id_equipo)
     {
         $sql = "UPDATE equipo 
@@ -178,7 +222,7 @@ class MysqlDatabase
     }
 
     public function modificarEquipo($id,$patente,$nro_chasis,$estadoEquipo){
-        $sql = 'UPDATE equipo SET patente = "' . $patente . '", nro_chasis = '.$nro_chasis.', estado = '.$estadoEquipo.' WHERE id = ' . $id;
+        $sql = 'UPDATE equipo SET patente = "' . $patente . '", nro_chasis = '.$nro_chasis.', estado = "'.$estadoEquipo.'" WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 

@@ -16,6 +16,7 @@ include_once ("controller/ListaPedidosController.php");
 include_once ("controller/ProformaController.php");
 
 
+
 include_once("model/LoginModel.php");
 include_once("model/RegistroModel.php");
 include_once("model/UsuarioModel.php");
@@ -24,6 +25,9 @@ include_once("model/PedidoModel.php");
 include_once("model/ChoferModel.php");
 include_once("model/TractorModel.php");
 include_once("model/AcopladoModel.php");
+include_once("model/ImoClassModel.php");
+include_once("model/ImoSubClassModel.php");
+
 
 
 
@@ -162,6 +166,16 @@ class Configuration
         return new AcopladoModel($database);
     }
 
+    public function getImoClassModel(){
+        $database = $this->getDatabase();
+        return new ImoClassModel($database);
+    }
+
+    public function getImoSubClassModel(){
+        $database = $this->getDatabase();
+        return new ImoSubClassModel($database);
+    }
+
     public function getListaAcopladoController(){
         $loginModel = $this->getLoginModel();
         $acopladoModel = $this->getAcopladoModel();
@@ -177,11 +191,14 @@ class Configuration
         return new ListaEquipoController($this->getRender(),$loginModel,$equipoModel,$acopladoModel,$tractorModel);
     }
 
+
     public function getProformaController(){
         $loginModel = $this->getLoginModel();
         $pedidoModel = $this->getPedidoModel();
         $choferModel = $this->getChoferModel();
-        return new ProformaController($this->getRender(),$loginModel,$pedidoModel, $choferModel);
+        $imoClassModel = $this->getImoClassModel();
+        $imoSubClassModel = $this->getImoSubClassModel();
+        return new ProformaController($this->getRender(),$loginModel,$pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel);
 
     }
 

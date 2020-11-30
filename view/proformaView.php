@@ -11,6 +11,7 @@
                     <div style="text-align: left">
                         <p class="card-text">ID PEDIDO: {{pedidoId}}</p>
                         <p class="card-text">NOMBRE: {{pedidoNombre}}</p>
+                        <p class="card-text">FECHA PEDIDO: {{pedidoFecha}}</p>
                         <p class="card-text">CUIT: {{pedidoCuit}}</p>
                         <p class="card-text">EMAIL: {{pedidoEmail}}</p>
                         <p class="card-text">TELEFONO: {{pedidoTelefono}}</p>
@@ -50,6 +51,98 @@
             </div>
 
             <div class="row">
+                <div class="card-body my-5" style="width: 45%; margin-top: 2%!important;">
+                    <h5 class="card-title">Carga</h5>
+                    <div style="text-align: left">
+                        <div class="form-row mt-4 mb-3">
+                            <div class="col">
+
+                                <label for="tipo">Tipo de carga</label>
+                                <select id="tipo" name="tipo" class="form-control" style="margin-bottom: 2%" required>
+                                    <option value="" selected>Tipo de cargas</option>
+                                    <option value="granel">Granel</option>
+                                    <option value="liquida">Liquida</option>
+                                    <option value="container20">Container 20''</option>
+                                    <option value="container40">Container 40''</option>
+                                    <option value="jaula">Jaula</option>
+                                    <option value="carCarrier">Car Carrier</option>
+                                </select>
+
+                                <label for="peso">Peso neto</label>
+                                <input type="number" class="form-control" style="margin-bottom: 2%" placeholder="peso"
+                                       required name="peso">
+
+                                <label for="hazardSi">Hazard</label>
+                                <div>
+                                    <label for="hazardSi">SI</label>
+                                    <input value="si" type="radio" onclick="mostrarSelectHazard()"
+                                           style="margin-bottom: 2%; margin-right: 5%"
+                                           required name="hazardSi">
+
+                                    <label for="hazardSi">NO</label>
+                                    <input value="no" type="radio" onclick="ocultarSelectHazard()"
+                                           style="margin-bottom: 2%"
+                                           required name="hazardSi">
+                                </div>
+
+                                <div id="hazard" style="display: none">
+                                    <select id="imoclass" name="imoclass" class="form-control" style="margin-bottom: 2%"
+                                            required>
+                                        <option value="" selected>Clases - Descripcion</option>
+                                        {{#imoClases}}
+                                        <option value="{{clase}}">{{clase}} - {{descripcion}}</option>
+                                        {{/imoClases}}
+                                    </select>
+
+                                    <select id="imoSubClases" name="hazard" class="form-control"
+                                            style="margin-bottom: 2%"
+                                            required>
+                                        <option value="" selected>Clases - Subclase - Descripcion de subclase</option>
+                                        {{#imoSubClases}}
+                                        <option value="{{subclase}}">{{clase}} - {{subclase}} - {{descripcion}}</option>
+                                        {{/imoSubClases}}
+                                    </select>
+
+                                </div>
+
+                                <label>Reefer</label>
+                                <div>
+                                    <label for="temperaturaSi">SI</label>
+                                    <input value="si" type="radio" onclick="mostrarSelectTemperatura()"
+                                           style="margin-bottom: 2%; margin-right: 5%"
+                                           required name="temperaturaSi">
+
+                                    <label for="temperaturaSi">NO</label>
+                                    <input value="no" type="radio" onclick="ocultarSelectTemperatura()"
+                                           style="margin-bottom: 2%"
+                                           required name="temperaturaSi">
+                                </div>
+
+                                <div id="temperatura" style="display: none">
+                                    <label for="temperatura">Temperatura</label>
+                                    <input type="number" class="form-control"
+                                           style="margin-bottom: 2%" placeholder="Temperatura en Cº"
+                                           required name="temperatura">
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="card-title" style="text-align: center">Seleccionar Chofer</h5>
+                                <div class="container mt-2 justify-content-center" style="margin-left: 0;margin-right: 0">
+                                    <div class="row my-5 contenedorChoferes">
+
+                                        {{#choferes}}
+                                        {{> informacionChoferes}}
+                                        {{/choferes}}
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-body my-5" style="width: 45%; margin-top: 2%!important;">
                     <h5 class="card-title">Viaje</h5>
                     <div style="text-align: left">
@@ -115,99 +208,13 @@
                     </div>
                 </div>
 
-                <div class="card-body my-5" style="width: 45%; margin-top: 2%!important;">
-                    <h5 class="card-title">Carga</h5>
-                    <div style="text-align: left">
-                        <div class="form-row mt-4 mb-3">
-                            <div class="col">
 
-                                <label for="tipo">Tipo de carga</label>
-                                <select id="tipo" name="tipo" class="form-control" style="margin-bottom: 2%" required>
-                                    <option value="" selected>Tipo de cargas</option>
-                                    <option value="granel">Granel</option>
-                                    <option value="liquida">Liquida</option>
-                                    <option value="container20">Container 20''</option>
-                                    <option value="container40">Container 40''</option>
-                                    <option value="jaula">Jaula</option>
-                                    <option value="carCarrier">Car Carrier</option>
-                                </select>
-
-                                <label for="peso">Peso neto</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%" placeholder="peso"
-                                       required name="peso">
-
-                                <label for="hazardSi">Hazard</label>
-                                <div>
-                                    <label for="hazardSi">SI</label>
-                                    <input value="si" type="radio" onclick="mostrarSelectHazard()"
-                                           style="margin-bottom: 2%; margin-right: 5%"
-                                           required name="hazardSi">
-
-                                    <label for="hazardSi">NO</label>
-                                    <input value="no" type="radio" onclick="ocultarSelectHazard()"
-                                           style="margin-bottom: 2%"
-                                           required name="hazardSi">
-                                </div>
-
-                                <div id="hazard" style="display: none">
-                                <select id="imoclass" name="imoclass" class="form-control" style="margin-bottom: 2%"
-                                        required>
-                                    <option value="" selected>SI/NO</option>
-                                    <option class="imo" value="true">SI</option>
-                                    <option value="false">NO</option>
-                                </select>
-
-                                <select id="hazard" name="hazard" class="form-control" style="margin-bottom: 2%"
-                                        required>
-                                    <option value="" selected>SI/NO</option>
-                                    <option class="hazardSi" value="true">SI</option>
-                                    <option value="false">NO</option>
-                                </select>
-
-                                </div>
-
-                                <label>Reefer</label>
-                                <div>
-                                <label for="temperaturaSi">SI</label>
-                                <input value="si" type="radio" onclick="mostrarSelectTemperatura()"
-                                       style="margin-bottom: 2%; margin-right: 5%"
-                                       required name="temperaturaSi">
-
-                                    <label for="temperaturaSi">NO</label>
-                                    <input value="no" type="radio" onclick="ocultarSelectTemperatura()"
-                                           style="margin-bottom: 2%"
-                                           required name="temperaturaSi">
-                                </div>
-
-                                <div id="temperatura" style="display: none">
-                                    <label for="temperatura">Temperatura</label>
-                                    <input type="number" class="form-control"
-                                           style="margin-bottom: 2%" placeholder="Temperatura en Cº"
-                                           required name="temperatura">
-                                </div>
-                            </div>
-                            <div>
-                                <h5 class="card-title" style="text-align: center">Chofer</h5>
-                                <div class="container mt-2 justify-content-center">
-                                    <div class="row my-5">
-
-                                        {{#choferes}}
-                                        {{> informacionChoferes}}
-                                        {{/choferes}}
+            </div>
 
 
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="mt-4 mb-4 text-center">
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">Realizar Proforma</button>
-                </div>
+            <div class="mt-4 mb-4 text-center">
+                <button type="submit" class="btn btn-dark btn-lg btn-block">Realizar Proforma</button>
+            </div>
 
         </form>
     </div>

@@ -31,49 +31,34 @@ class ListaEquipoController
 
     }
 
-    public function registroEquipo(){
+    public function registroEquipo()
+    {
         $año_fabricacion = $_POST["año_fabricacion"];
         $estadoEquipo = $_POST["estadoEquipo"];
         $patente = $_POST["patente"];
         $nro_chasis = $_POST["nro_chasis"];
-
-        $result = $this->equipoModel->registrarEquipo($año_fabricacion,$estadoEquipo,$patente,$nro_chasis);
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["equipos"] = $this->equipoModel->mostrarEquipos();
         $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
         $data["tractores"] = $this->tractorModel->mostrarTractor();
 
-        echo $this->render->render("view/listaEquipoView.php",$data);
+        $result = $this->equipoModel->registrarEquipo($año_fabricacion, $estadoEquipo, $patente, $nro_chasis);
+        if ($result == "Patente ya existente") {
+            $data["registroEquipoError"] = $result;
+            echo $this->render->render("view/listaEquipoView.php", $data);
+        }if ($result == "Ingrese todos los requerimientos"){
+            $data["registroEquipoError"] = $result;
+            echo $this->render->render("view/listaEquipoView.php", $data);
+        }
+        if ($result == "Ingrese sólo números en el campo número de chasis" ){
+            $data["registroEquipoError"] = $result;
+            echo $this->render->render("view/listaEquipoView.php", $data);
+        }
+        else {
+            $data["equipos"] = $this->equipoModel->mostrarEquipos();
+            echo $this->render->render("view/listaEquipoView.php", $data);
+        }
     }
-
-    public function registroTractor(){
-        $nro_motor = $_POST["nro_motor"];
-        $marca = $_POST["marca"];
-        $modelo = $_POST["modelo"];
-        $calendario = $_POST["calendario"];
-        $kilometraje = $_POST["kilometraje"];
-
-        $result = $this->tractorModel->registrarTractor($nro_motor,$marca,$modelo,$calendario,$kilometraje);
-        $data["login"] = $this->loginModel->ifSesionIniciada();
-        $data["equipos"] = $this->equipoModel->mostrarEquipos();
-        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
-        $data["tractores"] = $this->tractorModel->mostrarTractor();
-        echo $this->render->render("view/listaTractoresView.php",$data);
-    }
-
-    public function registroAcoplado(){
-        $acoplado = $_POST["acoplado"];
-
-        $result = $this->acopladoModel->registrarAcoplado( $acoplado);
-        $data["login"] = $this->loginModel->ifSesionIniciada();
-        $data["equipos"] = $this->equipoModel->mostrarEquipos();
-        $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
-        $data["tractores"] = $this->tractorModel->mostrarTractor();
-
-        echo $this->render->render("view/listaAcopladosView.php",$data);
-
-    }
-
 
     public function eliminarEquipo(){
 
