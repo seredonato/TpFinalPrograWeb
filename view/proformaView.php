@@ -187,7 +187,7 @@
                                 </div>
                             </div>
                             <div>
-                                <h5 class="card-title" style="text-align: center">Chofer</h5>
+                                <h5 class="card-title" style="text-align: center">Seleccionar Chofer</h5>
                                 <div class="container mt-2 justify-content-center">
                                     <div class="row my-5 contenedorChoferes">
 
