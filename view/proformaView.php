@@ -150,28 +150,28 @@
                                 </div>
 
                                 <div id="hazard" style="display: none">
-                                <select id="imoclass" name="imoclass" class="form-control" style="margin-bottom: 2%"
-                                        required>
-                                    <option value="" selected>SI/NO</option>
-                                    <option class="imo" value="true">SI</option>
-                                    <option value="false">NO</option>
-                                </select>
+                                    <select id="imoclass" name="imoclass" class="form-control" style="margin-bottom: 2%"
+                                            required>
+                                        <option value="" selected>SI/NO</option>
+                                        <option class="imo" value="true">SI</option>
+                                        <option value="false">NO</option>
+                                    </select>
 
-                                <select id="hazard" name="hazard" class="form-control" style="margin-bottom: 2%"
-                                        required>
-                                    <option value="" selected>SI/NO</option>
-                                    <option class="hazardSi" value="true">SI</option>
-                                    <option value="false">NO</option>
-                                </select>
+                                    <select id="hazard" name="hazard" class="form-control" style="margin-bottom: 2%"
+                                            required>
+                                        <option value="" selected>SI/NO</option>
+                                        <option class="hazardSi" value="true">SI</option>
+                                        <option value="false">NO</option>
+                                    </select>
 
                                 </div>
 
                                 <label>Reefer</label>
                                 <div>
-                                <label for="temperaturaSi">SI</label>
-                                <input value="si" type="radio" onclick="mostrarSelectTemperatura()"
-                                       style="margin-bottom: 2%; margin-right: 5%"
-                                       required name="temperaturaSi">
+                                    <label for="temperaturaSi">SI</label>
+                                    <input value="si" type="radio" onclick="mostrarSelectTemperatura()"
+                                           style="margin-bottom: 2%; margin-right: 5%"
+                                           required name="temperaturaSi">
 
                                     <label for="temperaturaSi">NO</label>
                                     <input value="no" type="radio" onclick="ocultarSelectTemperatura()"
@@ -189,7 +189,7 @@
                             <div>
                                 <h5 class="card-title" style="text-align: center">Chofer</h5>
                                 <div class="container mt-2 justify-content-center">
-                                    <div class="row my-5">
+                                    <div class="row my-5 contenedorChoferes">
 
                                         {{#choferes}}
                                         {{> informacionChoferes}}
@@ -197,6 +197,8 @@
 
 
                                     </div>
+
+
 
                                 </div>
                             </div>

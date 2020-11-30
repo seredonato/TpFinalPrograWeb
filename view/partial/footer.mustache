@@ -52,7 +52,7 @@
 
     function mostrarSelectTemperatura() {
 
-$("#temperatura").show();
+        $("#temperatura").show();
 
     }
 
@@ -74,7 +74,18 @@ $("#temperatura").show();
 
     }
 
+    $(document).ready(function() {
+        $('#autoWidth').lightSlider({
+            autoWidth:true,
+            loop:true,
+            onSliderLoad: function() {
+                $('#autoWidth').removeClass('cS-hidden');
+            }
+        });
+    });
+
 </script>
+
 
 
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
