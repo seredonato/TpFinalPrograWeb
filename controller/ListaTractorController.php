@@ -23,10 +23,23 @@ class listaTractorController
         $calendario = $_POST["calendario"];
         $kilometraje = $_POST["kilometraje"];
 
-        $result = $this->tractorModel->registrarTractor($nro_motor,$marca,$modelo,$calendario,$kilometraje);
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["tractores"] = $this->tractorModel->mostrarTractor();
-        echo $this->render->render("view/listaTractoresView.php",$data);
+
+        $result = $this->tractorModel->registrarTractor($nro_motor,$marca,$modelo,$calendario,$kilometraje);
+
+        if ($result == "Ingrese todos los requerimientos"){
+            $data["registroTractorError"] = $result;
+            echo $this->render->render("view/listaTractoresView.php", $data);
+        }
+        if($result == "Ingrese sólo números en los campos Kilometraje y Número de motor.") {
+            $data["registroTractorError"] = $result;
+            echo $this->render->render("view/listaTractoresView.php", $data);
+        }else {
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            $data["tractores"] = $this->tractorModel->mostrarTractor();
+            echo $this->render->render("view/listaTractoresView.php", $data);
+        }
     }
 
     public function execute()

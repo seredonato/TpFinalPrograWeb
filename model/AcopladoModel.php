@@ -12,10 +12,18 @@ class AcopladoModel
 
     public function registrarAcoplado($acoplado)
     {
-        $sql = "INSERT INTO acoplado (tipo_acoplado)
-        VALUES ('". $acoplado."')";
-
-        return $this->database->query($sql);
+        if ($acoplado != null) {
+            if ($acoplado != " "){
+                $sql = "INSERT INTO acoplado (tipo_acoplado)
+                VALUES ('" . $acoplado . "')";
+                return $this->database->query($sql);
+            }
+            else {
+                return "Ingrese contenido en el campo requerido";
+            }
+        } else {
+            return "Ingrese contenido en el campo requerido";
+        }
     }
 
 

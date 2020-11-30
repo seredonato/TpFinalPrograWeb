@@ -4,8 +4,11 @@
 
     {{>registrarAcoplado}}
 
+    {{#registroAcopladoError}}
+    <label class="text-danger m-3" for="acoplado">{{registroAcopladoError}}</label>
+    {{/registroAcopladoError}}
 
-    <div class="row my-5 p-3">
+    <div class="row my-5 p-4">
     {{#acoplados}}
     {{>informacionAcoplados}}
     {{/acoplados}}

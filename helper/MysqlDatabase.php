@@ -170,6 +170,15 @@ class MysqlDatabase
 
     }
 
+    public function devolverEquipoPorPatente($patente){
+        $sql = 'SELECT patente FROM equipo WHERE patente = "' . $patente . '"';
+        $resultado = $this->connection->query($sql);
+        $patenteObtenida = $resultado->fetch_assoc();
+        if (isset($patenteObtenida["patente"])) {
+            return $patenteObtenida["patente"];
+        }
+    }
+
     public function asignarAcopladoTractor($id_acoplado,$id_tractor,$id_equipo)
     {
         $sql = "UPDATE equipo 
