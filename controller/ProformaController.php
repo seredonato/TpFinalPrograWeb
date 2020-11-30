@@ -9,8 +9,9 @@ class ProformaController
     private $choferModel;
     private $imoClassModel;
     private $imoSubClassModel;
+    private $proformaModel;
 
-    public function __construct($render, $loginModel, $pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel)
+    public function __construct($render, $loginModel, $pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $proformaModel)
     {
         $this->render = $render;
         $this->loginModel = $loginModel;
@@ -18,6 +19,7 @@ class ProformaController
         $this->choferModel = $choferModel;
         $this->imoClassModel = $imoClassModel;
         $this->imoSubClassModel = $imoSubClassModel;
+        $this->proformaModel = $proformaModel;
     }
 
     public function execute()
@@ -38,7 +40,7 @@ class ProformaController
 
         $data["choferes"] = $this->choferModel->mostrarChoferes();
 
-        $data["imoClases"]  = $this->imoClassModel->mostrarImoClases();
+        $data["imoClases"] = $this->imoClassModel->mostrarImoClases();
 
         $data["imoSubClases"] = $this->imoSubClassModel->mostrarImoSubClass();
 
@@ -46,9 +48,12 @@ class ProformaController
         echo $this->render->render("view/proformaView.php", $data);
     }
 
-    public function guardarProforma(){
-
-
-
+    public function guardarProforma()
+    {
+        $this->proformaModel->guardarViaje($_POST["origen"], $_POST["destino"], $_POST["fechaCarga"], $_POST["horaCarga"], $_POST["fechaLlegada"], $_POST["horaLlegada"]);
+        $this->proformaModel->guardarCarga($_POST["tipo"], $_POST["peso"], $_POST["hazardSi"], $_POST["imoClass"], $_POST["imoSubClass"], $_POST["temperaturaSi"], $_POST["temperatura"]);
+        $this->proformaModel->guardarCosteoEstimado($_POST["kilometros"], $_POST["combustible"], $_POST["horaSalida"], $_POST["horaLlegada"], $_POST["viaticos"], $_POST["peajes"], $_POST["extras"], $_POST["hazardClass"], $_POST["reeferCosto"], $_POST["total"]);
+        $this->proformaModel->guardarProforma();
     }
+
 }
