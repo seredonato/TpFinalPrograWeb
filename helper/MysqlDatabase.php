@@ -121,6 +121,41 @@ class MysqlDatabase
 
     }
 
+    public function mostrarImoSubClass(){
+        $sql = 'SELECT * FROM imosubclass';
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function mostrarImoSubClassPorClase($clase){
+
+        $sql = 'SELECT * FROM imosubclass WHERE clase =' . $clase;
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+
+    }
+
+    public function mostrarImoClases(){
+        $sql = 'SELECT * FROM imoclass';
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
     public function mostrarPedidoPorId($id){
 
         $sql = 'SELECT * FROM pedido WHERE id = '. $id;
