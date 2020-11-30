@@ -178,7 +178,7 @@ class MysqlDatabase
     }
 
     public function modificarEquipo($id,$patente,$nro_chasis,$estadoEquipo){
-        $sql = 'UPDATE equipo SET patente = "' . $patente . '", nro_chasis = '.$nro_chasis.', estado = '.$estadoEquipo.' WHERE id = ' . $id;
+        $sql = 'UPDATE equipo SET patente = "' . $patente . '", nro_chasis = '.$nro_chasis.', estado = "'.$estadoEquipo.'" WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
