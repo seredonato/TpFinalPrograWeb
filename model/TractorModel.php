@@ -12,10 +12,22 @@ class TractorModel
 
     public function registrarTractor($nro_motor,$marca,$modelo,$calendario,$kilometraje)
     {
-        $sql = "INSERT INTO tractor (marca,modelo,calendario_service,nro_motor,kilometraje)
+
+        if ($nro_motor == null || $marca == null || $modelo == null || $calendario == null || $kilometraje == null){
+            return "Ingrese todos los requerimientos";
+        }else
+            if($nro_motor == " " || $marca == " " || $modelo == " " || $calendario == " "  || $kilometraje == " ") {
+                return "Ingrese todos los requerimientos";
+            }else{
+                if(is_numeric($nro_motor) && is_numeric($kilometraje)){
+                $sql = "INSERT INTO tractor (marca,modelo,calendario_service,nro_motor,kilometraje)
         VALUES ('". $marca."','". $modelo."','".$calendario."',". $nro_motor.",". $kilometraje.")";
 
-        return $this->database->query($sql);
+                return $this->database->query($sql);
+                }else {
+                    return "Ingrese sólo números en los campos Kilometraje y Número de motor.";
+                }
+            }
 
     }
 

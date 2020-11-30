@@ -4,8 +4,11 @@
 
     {{>registrarEquipo}}
 
+    {{#registroEquipoError}}
+    <label class="text-danger m-3" for="patente">{{registroEquipoError}}</label>
+    {{/registroEquipoError}}
 
-    <div class="row my-5">
+    <div class="row my-5 p-4">
         {{#equipos}}
         {{>informacionEquipos}}
         {{/equipos}}
