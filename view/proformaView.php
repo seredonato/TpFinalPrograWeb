@@ -11,6 +11,7 @@
                     <div style="text-align: left">
                         <p class="card-text">ID PEDIDO: {{pedidoId}}</p>
                         <p class="card-text">NOMBRE: {{pedidoNombre}}</p>
+                        <p class="card-text">FECHA PEDIDO: {{pedidoFecha}}</p>
                         <p class="card-text">CUIT: {{pedidoCuit}}</p>
                         <p class="card-text">EMAIL: {{pedidoEmail}}</p>
                         <p class="card-text">TELEFONO: {{pedidoTelefono}}</p>

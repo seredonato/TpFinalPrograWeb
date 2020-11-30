@@ -16,18 +16,6 @@ CREATE TABLE usuario (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE pedido (
-nombre varchar(100) not null,
-cuit int not null,
-email varchar(100) not null,
-telefono int not null,
-direccion_cliente varchar(100) not null,
-direccion_1 varchar(100) not null,
-direccion_2 varchar(100) not null,
-id int AUTO_INCREMENT NOT NULL,
-primary key (id)
-);
-
 CREATE TABLE chofer (
   id int AUTO_INCREMENT NOT NULL,
   dni int NOT NULL,
@@ -54,6 +42,20 @@ PRIMARY KEY (subclase),
 FOREIGN KEY (clase) REFERENCES imoclass(clase)
 );
 
+CREATE TABLE carga (
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+tipo varchar(600) NOT NULL,
+peso_neto float NOT NULL,
+hazard boolean NOT NULL,
+clase_imoclass float,
+subclase_imosubclass float,
+foreign key (clase_imoclass) references imoclass(clase),
+foreign key (subclase_imosubclass) references imosubclass(subclase),
+reefer boolean NOT NULL,
+temperatura int
+);
+
 
 CREATE TABLE tractor(
 marca varchar(100) not null,
@@ -69,6 +71,69 @@ tipo_acoplado varchar(100),
 id int AUTO_INCREMENT NOT NULL,
 primary key (id));
 
+CREATE TABLE pedido_cliente (
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+fecha_pedido date NOT NULL,
+nombre_cliente varchar (600) NOT NULL,
+cuit_cliente long NOT NULL,
+direccion_cliente varchar(600) NOT NULL,
+telefono_cliente int NOT NULL,
+email_cliente varchar(600) NOT NULL,
+contacto1 varchar(600) NOT NULL,
+contacto2 varchar(600) NOT NULL
+);
+
+CREATE TABLE viaje (
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+origen varchar (600) NOT NULL,
+destino varchar (600) NOT NULL,
+fecha_Carga date NOT NULL,
+tiempo_llegada time NOT NULL
+);
+
+CREATE TABLE costeo_estimado (
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+kilometros int NOT NULL,
+combustible int NOT NULL,
+tiempo_salida time NOT NULL,
+tiempo_llegada time NOT NULL,
+viaticos int NOT NULL,
+peajes_pesajes int,
+extras int,
+hazard boolean,
+clase_imoclass float,
+subclase_imosubclass float,
+foreign key (clase_imoclass) references imoclass(clase),
+foreign key (subclase_imosubclass) references imosubclass(subclase),
+reefer boolean,
+fee int,
+total long
+);
+
+CREATE TABLE costeo_final (
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+id_costeo_estimado int,
+foreign key (id_costeo_estimado) references costeo_estimado(id),
+kilometros int,
+combustible int,
+tiempo_salida time,
+tiempo_llegada time,
+viaticos int,
+peajes_pesajes int,
+extras int,
+hazard boolean,
+clase_imoclass float,
+subclase_imosubclass float,
+foreign key (clase_imoclass) references imoclass(clase),
+foreign key (subclase_imosubclass) references imosubclass(subclase),
+reefer boolean,
+fee int,
+total long
+);
 
 CREATE TABLE equipo(
 año_fabricacion date,
@@ -82,6 +147,28 @@ primary key (id),
 foreign key (id_Tractor) references tractor(id),
 foreign key (id_acoplado) references acoplado(id));
 
+CREATE TABLE proforma(
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+id_pedido_cliente int,
+id_viaje int,
+id_carga int,
+id_costeo_estimado int,
+id_costeo_final int,
+id_chofer int,
+foreign key (id_pedido_cliente) references pedido_cliente(id),
+foreign key (id_viaje) references viaje(id),
+foreign key (id_carga) references carga(id),
+foreign key (id_costeo_estimado) references costeo_estimado(id),
+foreign key (id_costeo_final) references costeo_final(id),
+foreign key (id_chofer) references chofer(id)
+);
+
+INSERT INTO pedido_cliente (fecha_pedido, nombre_cliente, cuit_cliente ,email_cliente ,telefono_cliente ,direccion_cliente ,contacto1 ,contacto2)
+                VALUES 	( curdate(), "Franco Reynoso", 20123456781, "franco@email.com", 1123569658, "Larrea 2458", "Larrea 5000", "San Martin 2693"),
+						( curdate(), "Serena Donato", 20365894161, "sere@email.com", 1123569658, "Pedro Algo 2878", "Nose 2600", "San Juan 2113"),
+						( curdate(), "Fiorella Coloca", 20254781021, "fiore@email.com", 1123569658, "Jujuy 158", "Algo 200", "San Telmo 93"),
+						( curdate(), "Juan Perez", 20123456781, "juan@email.com", 1123569658, "Jejox 58", "Pepe 69", "Martinez 23");
 
 INSERT INTO equipo (año_fabricacion,estado,patente,nro_chasis)
 VALUES ('20120101',true,'AAABBB',123);
