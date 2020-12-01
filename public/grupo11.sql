@@ -29,14 +29,14 @@ CREATE TABLE chofer (
 );
 
 CREATE TABLE imoclass (
-clase float,
+clase dec(5,1),
 descripcion varchar(600),
 PRIMARY KEY (clase)
 );
 
 CREATE TABLE imosubclass (
-clase float,
-subclase float,
+clase dec(5,1),
+subclase dec(5,1),
 descripcion varchar (900),
 PRIMARY KEY (subclase),
 FOREIGN KEY (clase) REFERENCES imoclass(clase)
@@ -46,27 +46,28 @@ CREATE TABLE carga (
 id int AUTO_INCREMENT NOT NULL,
 primary key (id),
 tipo varchar(600) NOT NULL,
-peso_neto float NOT NULL,
+peso_neto decimal NOT NULL,
 hazard varchar(200) NOT NULL,
-clase_imoclass float,
-subclase_imosubclass float,
+clase_imoclass dec(5,1),
+subclase_imosubclass dec(5,1),
 foreign key (clase_imoclass) references imoclass(clase),
 foreign key (subclase_imosubclass) references imosubclass(subclase),
 reefer varchar(200) NOT NULL,
 temperatura int
 );
 
-
 CREATE TABLE tractor(
 marca varchar(100) not null,
 modelo varchar(100) not null,
 nro_motor int not null,
 kilometraje int not null,
+eliminado varchar(40),
 id int AUTO_INCREMENT NOT NULL,
 primary key (id));
 
 CREATE TABLE acoplado (
 tipo_acoplado varchar(100),
+eliminado varchar(40),
 id int AUTO_INCREMENT NOT NULL,
 primary key (id));
 
@@ -75,6 +76,7 @@ año_fabricacion date,
 estado varchar(40) not null,
 patente varchar(40) not null,
 nro_chasis int not null,
+eliminado varchar(40),
 id_tractor int,
 id_acoplado int,
 id int AUTO_INCREMENT NOT NULL,
@@ -87,7 +89,9 @@ CREATE TABLE calendarioServicio(
 fecha date not null,
 id_tractor int not null,
 descripcion varchar(500),
+estado varchar(400),
 id int auto_increment not null,
+eliminado varchar(2),
 primary key(id),
 foreign key (id_tractor) references tractor(id));
 
@@ -126,7 +130,7 @@ viaticos int NOT NULL,
 peajes_pesajes int,
 extras int,
 hazard varchar(200),
-clase_imoclass float,
+clase_imoclass dec(5,1),
 foreign key (clase_imoclass) references imoclass(clase),
 reefer varchar(200),
 fee int,
@@ -146,14 +150,16 @@ viaticos int,
 peajes_pesajes int,
 extras int,
 hazard varchar(200),
-clase_imoclass float,
-subclase_imosubclass float,
+clase_imoclass dec(5,1),
+subclase_imosubclass dec(5,1),
 foreign key (clase_imoclass) references imoclass(clase),
 foreign key (subclase_imosubclass) references imosubclass(subclase),
 reefer varchar(200),
 fee int,
 total long
 );
+
+
 
 
 CREATE TABLE proforma(

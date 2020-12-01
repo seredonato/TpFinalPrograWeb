@@ -106,7 +106,10 @@
                     </div>
 
                     <button type="submit" class="btn btn-dark btn-lg btn-block">Agregar</button>
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">Ver calendario</button>
+                </form>
+                <form action="/listaTractor/verCalendario">
+                <input type="hidden" value="{{id}}" name="id" id="id">
+                <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Ver calendario</button>
                 </form>
             </div>
         </div>

@@ -12,7 +12,7 @@
 
                 <div style="text-align: center">
                     <a data-toggle="modal" data-target="#asignar{{id}}" type="button" class="btn btn-outline-dark" style="float: left">Asignar</a>
-                    <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Inactivar</a>
+                    <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
                     <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" >Modificar</a>
                 </div>
             </div>
@@ -113,6 +113,11 @@
                         <label for="tractor">Número de chasis</label>
                         <input type="text" class="form-control" id="nro_chasis" name=nro_chasis value="{{nro_chasis}}"
                                placeholder="Número de chasis" required>
+                    </div>
+
+                    <div>
+                        <label for="tractor" class="mt-3">Fecha del Control del servicio</label>
+                        <input type="date" class="form-control mb-3" id="fecha" name=fecha value="{{año_fabricacion}}" required>
                     </div>
 
                     <button type="submit" class="btn btn-dark btn-lg btn-block">Modificar</button>

@@ -1,18 +1,79 @@
 <div class="col-md-4 mb-4">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title"> id : {{id}}</h5>
+            <h4 class="card-title text-center"> Calendario </h4>
             <div style="text-align: left">
-                <p class="card-text">Id del tractor correspondido: {{id_tractor}}</p>
-                <p class="card-text">Fecha: {{fecha}}</p>
+                <form  method="POST" action="/ListaTractor/cambiarEstado/id_tractor={{id_tractor}}">
                 <p class="card-text">Descripcion: {{descripcion}}</p>
+                <h5 class="card-text">Fecha: {{fecha}}</h5>
+                <input type="hidden" value="{{id_tractor}}" name="id_tractor" id="id_tractor">
+                <label for="id">Id del calendario</label>
+                <textarea class="form-control" style="height: 36px" name="id" id="id" >{{id}}</textarea>
+                    <select id="estado" name="estado" class="form-control mt-3">
+                        <option value="{{estado}}"selected>Estado: {{estado}}</option>
+                        <option value="cumplido">Estado: cumplido</option>
+                        <option value="En espera">Estado: En espera</option>
+                    </select>
 
-                <div style="text-align: center">
-                    <a data-toggle="modal" data-target="#asignar{{id}}" type="button" class="btn btn-outline-dark" style="float: left">Asignar</a>
-                    <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Inactivar</a>
-                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" >Modificar</a>
+                <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Enviar</button>
+                </form>
+
+                <div style="text-align: center" class="mt-3">
+                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark">Modificar</a>
+                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark">Eliminar</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="eliminar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de querer eliminar el calendario de servicio del dia {{fecha}} ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/listaTractor/eliminarCalendario/id={{id}}&idTractor={{id_tractor}}" enctype="multipart/form-data" method="get" >
+                <button type="submit" class="btn btn-dark btn-lg btn-block">SI</button>
+                <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modificar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modificar calendario de fecha {{fecha}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/listaTractor/editarCalendario/idTractor={{id_tractor}}" enctype="multipart/form-data" method="post" >
+                    <label for="id" class="mt-3">Id del Servicio</label>
+                    <textarea class="form-control" style="height: 36px" name="id" id="id" >{{id}}</textarea>
+
+                    <div class="form-group">
+                        <label for="tractor">Descripcion</label>
+                        <input type="text" class="form-control" id="descripcion" name=descripcion value="{{descripcion}}" required>
+                        <label for="tractor" class="mt-3">Fecha del Control del servicio</label>
+                        <input type="date" class="form-control" id="fecha" name=fecha value="{{fecha}}" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Modificar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

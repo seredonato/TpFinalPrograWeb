@@ -73,4 +73,8 @@ class ProformaModel
         QRcode::png("localhost/cargarDatos.php?idViaje=$idViaje", $direccion . $nombre);
     }
 
+    public function mostrarProformaPorId($id){
+        return $this->database->mostrarProformaPorId($id);
+    }
+
 }

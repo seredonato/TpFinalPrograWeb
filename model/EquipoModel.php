@@ -12,6 +12,7 @@ class EquipoModel
 
     public function registrarEquipo($año_fabricacion, $estadoEquipo, $patente, $nro_chasis)
     {
+        $eliminado = "no";
         $equipoObtenidoPatente = $this->database->devolverEquipoPorPatente($patente);
 
         if ($año_fabricacion == null || $estadoEquipo == null || $patente == null || $nro_chasis == null) {
@@ -22,8 +23,8 @@ class EquipoModel
         } else
             if (is_null($equipoObtenidoPatente)) {
                 if (is_numeric($nro_chasis)) {
-                    $sql = "INSERT INTO equipo (año_fabricacion,estado,patente,nro_chasis)
-        VALUES ('" . $año_fabricacion . "','" . $estadoEquipo . "','" . $patente . "'," . $nro_chasis . ")";
+                    $sql = "INSERT INTO equipo (año_fabricacion,estado,patente,nro_chasis,eliminado)
+        VALUES ('" . $año_fabricacion . "','" . $estadoEquipo . "','" . $patente . "'," . $nro_chasis . ",'" . $eliminado . "')";
 
                     return $this->database->query($sql);
                 } else {
@@ -50,9 +51,9 @@ class EquipoModel
         return $this->database->asignarAcopladoTractor($id_acoplado, $id_tractor, $id_equipo);
     }
 
-    public function modificaEquipo($id, $patente, $nro_chasis, $estadoEquipo)
+    public function modificaEquipo($id, $patente, $nro_chasis, $estadoEquipo,$fecha)
     {
-        return $this->database->modificarEquipo($id, $patente, $nro_chasis, $estadoEquipo);
+        return $this->database->modificarEquipo($id, $patente, $nro_chasis, $estadoEquipo,$fecha);
     }
 
 
