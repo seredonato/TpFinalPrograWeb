@@ -14,7 +14,7 @@ class ImoSubClassModel
         return $this->database->mostrarImoSubClass();
     }
 
-    public function mostrarImoSubClassPorClase($clase){
-        return $this->database->mostrarImoSubClassPorClase($clase);
+    public function mostrarImoSubClassPorSubClase($clase){
+        return $this->database->mostrarImoSubClassPorSubClase($clase);
     }
 }

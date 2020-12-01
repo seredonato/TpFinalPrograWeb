@@ -14,6 +14,7 @@ include_once ("controller/ListaTractorController.php");
 include_once ("controller/ListaAcopladoController.php");
 include_once ("controller/ListaPedidosController.php");
 include_once ("controller/ProformaController.php");
+include_once ("controller/PdfProformaController.php");
 
 
 
@@ -28,6 +29,9 @@ include_once("model/AcopladoModel.php");
 include_once("model/ImoClassModel.php");
 include_once("model/ImoSubClassModel.php");
 include_once("model/ProformaModel.php");
+include_once("model/CargaModel.php");
+include_once("model/ViajeModel.php");
+
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("Router.php");
@@ -144,6 +148,14 @@ class Configuration
         $database = $this->getDatabase();
         return new ChoferModel($database);
     }
+    public function getCargaModel(){
+        $database = $this->getDatabase();
+        return new CargaModel($database);
+    }
+    public function getViajeModel(){
+        $database = $this->getDatabase();
+        return new ViajeModel($database);
+    }
 
     public function getTractorModel(){
         $database = $this->getDatabase();
@@ -201,6 +213,17 @@ class Configuration
         $proformaModel = $this->getProformaModel();
         return new ProformaController($this->getRender(),$loginModel,$pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $proformaModel);
 
+    }
+
+    public function getPdfProformaController(){
+        $pedidoModel = $this->getPedidoModel();
+        $choferModel = $this->getChoferModel();
+        $imoClassModel = $this->getImoClassModel();
+        $imoSubClassModel = $this->getImoSubClassModel();
+        $cargaModel = $this->getCargaModel();
+        $viajeModel = $this->getViajeModel();
+        $proformaModel = $this->getProformaModel();
+        return new PdfProformaController($pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $proformaModel);
     }
 
 
