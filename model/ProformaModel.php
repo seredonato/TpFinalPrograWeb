@@ -62,4 +62,8 @@ class ProformaModel
     public function mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer){
         return $this->database->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
 }
+
+    public function mostrarProformaPorId($id){
+        return $this->database->mostrarProformaPorId($id);
+    }
 }
