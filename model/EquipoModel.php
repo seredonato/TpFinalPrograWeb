@@ -12,6 +12,7 @@ class EquipoModel
 
     public function registrarEquipo($año_fabricacion, $estadoEquipo, $patente, $nro_chasis)
     {
+
         $equipoObtenidoPatente = $this->database->devolverEquipoPorPatente($patente);
 
         if ($año_fabricacion == null || $estadoEquipo == null || $patente == null || $nro_chasis == null) {
@@ -24,7 +25,6 @@ class EquipoModel
                 if (is_numeric($nro_chasis)) {
                     $sql = "INSERT INTO equipo (año_fabricacion,estado,patente,nro_chasis)
         VALUES ('" . $año_fabricacion . "','" . $estadoEquipo . "','" . $patente . "'," . $nro_chasis . ")";
-
                     return $this->database->query($sql);
                 } else {
                     return "Ingrese sólo números en el campo número de chasis";

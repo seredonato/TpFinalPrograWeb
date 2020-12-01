@@ -28,6 +28,7 @@ include_once("model/AcopladoModel.php");
 include_once("model/ImoClassModel.php");
 include_once("model/ImoSubClassModel.php");
 include_once("model/ProformaModel.php");
+include_once("model/CalendarioModel.php");
 
 
 
@@ -159,12 +160,18 @@ class Configuration
     public function getListaTractorController(){
         $loginModel = $this->getLoginModel();
         $tractorModel = $this->getTractorModel();
-        return new ListaTractorController($this->getRender(),$loginModel,$tractorModel);
+        $calendario = $this->getCalendarioModel();
+        return new ListaTractorController($this->getRender(),$loginModel,$tractorModel,$calendario);
     }
 
     public function getAcopladoModel(){
         $database = $this->getDatabase();
         return new AcopladoModel($database);
+    }
+
+    public function getCalendarioModel(){
+        $database = $this->getDatabase();
+        return new CalendarioModel($database);
     }
 
     public function getImoClassModel(){

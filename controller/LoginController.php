@@ -41,7 +41,6 @@ class LoginController
 
         $rol = $this->loginModel->getRolDeUsuario($nombreUsuario);
 
-        $_SESSION["nombreUsuario"] = $nombreUsuario;
         $_SESSION["logueado"] = $result;
 
         $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);

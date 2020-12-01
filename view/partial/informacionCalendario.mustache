@@ -1,0 +1,18 @@
+<div class="col-md-4 mb-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"> id : {{id}}</h5>
+            <div style="text-align: left">
+                <p class="card-text">Id del tractor correspondido: {{id_tractor}}</p>
+                <p class="card-text">Fecha: {{fecha}}</p>
+                <p class="card-text">Descripcion: {{descripcion}}</p>
+
+                <div style="text-align: center">
+                    <a data-toggle="modal" data-target="#asignar{{id}}" type="button" class="btn btn-outline-dark" style="float: left">Asignar</a>
+                    <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Inactivar</a>
+                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" >Modificar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

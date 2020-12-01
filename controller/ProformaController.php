@@ -50,40 +50,10 @@ class ProformaController
 
     public function guardarProforma()
     {
-        $idPedido = $_GET["id"];
-        $origen = $_POST["origen"];
-        $destino = $_POST["destino"];
-        $fechaCarga = $_POST["fechaCarga"];
-        $horaCarga = $_POST["horaCarga"];
-        $fechaLlegada = $_POST["fechaLlegada"];
-        $horaLlegada = $_POST["horaLlegada"];
-        $tipo = $_POST["tipo"];
-        $peso = $_POST["peso"];
-        $hazardSi = $_POST["hazardSi"];
-        $imoClass = $_POST["imoClass"];
-        $imoSubClass = $_POST["imoSubClass"];
-        $temperaturaSi = $_POST["temperaturaSi"];
-        $temperatura =$_POST["temperatura"];
-        $kilometros = $_POST["kilometros"];
-        $combustible = $_POST["combustible"];
-        $horaSalida = $_POST["horaSalida"];
-        $viaticos = $_POST["viaticos"];
-        $peajes = $_POST["peajes"];
-        $extras = $_POST["extras"];
-        $hazardClass = $_POST["hazardClass"];
-        $reeferCosto = $_POST["reeferCosto"];
-        $fee = $_POST["fee"];
-        $total = $_POST["total"];
-
-        $idViaje = $this->proformaModel->guardarViajeReturneaId($origen, $destino, $fechaCarga, $horaCarga, $fechaLlegada, $horaLlegada);
-        $idCarga = $this->proformaModel->guardarCargaReturneaId($tipo, $peso, $hazardSi, $imoClass, $imoSubClass, $temperaturaSi, $temperatura);
-        $idCosteoEstimado = $this->proformaModel->guardarCosteoEstimadoReturneaId($kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $hazardClass, $reeferCosto, $fee, $total);
-        $idChofer = $_POST["choferElegido"];
-        $this->proformaModel->enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
-
-        $data["pedidos"] = $this->pedidoModel->mostrarPedidos();
-
-        echo $this->render->render("view/listaPedidosView.php", $data);
+        $this->proformaModel->guardarViaje($_POST["origen"], $_POST["destino"], $_POST["fechaCarga"], $_POST["horaCarga"], $_POST["fechaLlegada"], $_POST["horaLlegada"]);
+        $this->proformaModel->guardarCarga($_POST["tipo"], $_POST["peso"], $_POST["hazardSi"], $_POST["imoClass"], $_POST["imoSubClass"], $_POST["temperaturaSi"], $_POST["temperatura"]);
+        $this->proformaModel->guardarCosteoEstimado($_POST["kilometros"], $_POST["combustible"], $_POST["horaSalida"], $_POST["horaLlegada"], $_POST["viaticos"], $_POST["peajes"], $_POST["extras"], $_POST["hazardClass"], $_POST["reeferCosto"], $_POST["total"]);
+        $this->proformaModel->guardarProforma();
     }
 
 }

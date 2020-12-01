@@ -7,16 +7,16 @@
                 <p class="card-text" style="float: left" >Modelo: {{modelo}}</p>
                 <p class="card-text" style="margin-left: 50%">Marca: {{marca}}</p>
                 <p class="card-text">Kilometraje: {{kilometraje}}</p>
-                <p class="card-text">Calendario servicio: {{calendario_service}}</p>
-
                 <div style="text-align: center">
-                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
-                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" style="float: left" >Modificar</a>
+                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark" style="float: right; font-size: 15px;">Eliminar</a>
+                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" style="float: left;font-size: 15px;" >Modificar</a>
+                    <a data-toggle="modal" data-target="#calendario{{id}}" type="button" class="btn btn-outline-dark ml-1" style="font-size: 15px;" >Calendario</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 <div class="modal fade" id="eliminar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -66,12 +66,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tractor">Modificar próximo servicio</label>
-                        <input type="date" class="form-control" id="calendario" name=calendario value="{{calendario_service}}"
-                               required>
-                    </div>
-
-                    <div class="form-group">
                         <label for="tractor">Número de motor</label>
                         <input type="number" class="form-control" id="nro_motor" name=nro_motor value="{{nro_motor}}"
                                required>
@@ -83,3 +77,39 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="calendario{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar calendario a tractor de id :{{id}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/listaTractor/registrarCalendarioTractor" enctype="multipart/form-data" method="post" >
+                    <label for="id">Id del Tractor</label>
+                    <textarea class="form-control" style="height: 36px" name="id" id="id" >{{id}}</textarea>
+
+                    <div class="form-group">
+                        <label for="tractor">Día</label>
+                        <input type="date" class="form-control" id="dia" name="dia"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tractor">Descripcion</label>
+                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ingresar descripcion.."
+                               required>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Agregar</button>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Ver calendario</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

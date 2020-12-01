@@ -10,18 +10,18 @@ class TractorModel
         $this->database = $database;
     }
 
-    public function registrarTractor($nro_motor,$marca,$modelo,$calendario,$kilometraje)
+    public function registrarTractor($nro_motor,$marca,$modelo,$kilometraje)
     {
 
-        if ($nro_motor == null || $marca == null || $modelo == null || $calendario == null || $kilometraje == null){
+        if ($nro_motor == null || $marca == null || $modelo == null  || $kilometraje == null){
             return "Ingrese todos los requerimientos";
         }else
-            if($nro_motor == " " || $marca == " " || $modelo == " " || $calendario == " "  || $kilometraje == " ") {
+            if($nro_motor == " " || $marca == " " || $modelo == " " || $kilometraje == " ") {
                 return "Ingrese todos los requerimientos";
             }else{
                 if(is_numeric($nro_motor) && is_numeric($kilometraje)){
-                $sql = "INSERT INTO tractor (marca,modelo,calendario_service,nro_motor,kilometraje)
-        VALUES ('". $marca."','". $modelo."','".$calendario."',". $nro_motor.",". $kilometraje.")";
+                $sql = "INSERT INTO tractor (marca,modelo,nro_motor,kilometraje)
+        VALUES ('". $marca."','". $modelo."',". $nro_motor.",". $kilometraje.")";
 
                 return $this->database->query($sql);
                 }else {
@@ -41,6 +41,10 @@ class TractorModel
 
     public function eliminarTractor($id){
         return $this->database->eliminarTractor($id);
+    }
+
+    public function mostrarTractorPorId($id){
+        return $this->database->mostrarTractorPorId($id);
     }
 
 }
