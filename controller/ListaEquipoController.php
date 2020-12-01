@@ -47,9 +47,9 @@ class ListaEquipoController
             $data["registroEquipoError"] = $result;
             echo $this->render->render("view/listaEquipoView.php", $data);
         }if ($result == "Ingrese todos los requerimientos"){
-            $data["registroEquipoError"] = $result;
-            echo $this->render->render("view/listaEquipoView.php", $data);
-        }
+        $data["registroEquipoError"] = $result;
+        echo $this->render->render("view/listaEquipoView.php", $data);
+    }
         if ($result == "Ingrese sólo números en el campo número de chasis" ){
             $data["registroEquipoError"] = $result;
             echo $this->render->render("view/listaEquipoView.php", $data);

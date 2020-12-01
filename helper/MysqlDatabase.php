@@ -304,4 +304,25 @@ class MysqlDatabase
         return $this->connection->query($sql);
 
     }
+
+
+    public function mostrarTractorPorId($id){
+        $sql = 'SELECT * FROM tractor WHERE id = "' . $id . '"';
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function mostrarCalendarioPorIdTractor($id){
+        $sql = 'SELECT * FROM calendarioServicio WHERE id_tractor = "' . $id . '"';
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
 }

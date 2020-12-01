@@ -60,7 +60,6 @@ temperatura int
 CREATE TABLE tractor(
 marca varchar(100) not null,
 modelo varchar(100) not null,
-calendario_service date,
 nro_motor int not null,
 kilometraje int not null,
 id int AUTO_INCREMENT NOT NULL,
@@ -70,6 +69,27 @@ CREATE TABLE acoplado (
 tipo_acoplado varchar(100),
 id int AUTO_INCREMENT NOT NULL,
 primary key (id));
+
+CREATE TABLE equipo(
+año_fabricacion date,
+estado varchar(40) not null,
+patente varchar(40) not null,
+nro_chasis int not null,
+id_tractor int,
+id_acoplado int,
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+foreign key (id_Tractor) references tractor(id),
+foreign key (id_acoplado) references acoplado(id));
+
+
+CREATE TABLE calendarioServicio(
+fecha date not null,
+id_tractor int not null,
+descripcion varchar(500),
+id int auto_increment not null,
+primary key(id),
+foreign key (id_tractor) references tractor(id));
 
 CREATE TABLE pedido_cliente (
 id int AUTO_INCREMENT NOT NULL,
@@ -135,17 +155,6 @@ fee int,
 total long
 );
 
-CREATE TABLE equipo(
-año_fabricacion date,
-estado boolean not null,
-patente varchar(40) not null,
-nro_chasis int not null,
-id int AUTO_INCREMENT NOT NULL,
-id_tractor int,
-id_acoplado int,
-primary key (id),
-foreign key (id_Tractor) references tractor(id),
-foreign key (id_acoplado) references acoplado(id));
 
 CREATE TABLE proforma(
 id int AUTO_INCREMENT NOT NULL,
