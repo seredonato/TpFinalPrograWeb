@@ -58,4 +58,8 @@ class ProformaModel
 
         return $this->database->query($sql);
     }
+
+    public function mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer){
+        return $this->database->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
+}
 }

@@ -26,6 +26,13 @@ class PedidoModel
 
     }
 
+    public function agregarIdDeLaProforma($idPedido, $idProforma){
+        $sql = 'UPDATE pedido_cliente
+                SET id_proforma = ' . $idProforma . ' WHERE id=' . $idPedido;
+
+        return $this->database->query($sql);
+    }
+
     public function mostrarPedidos()
     {
         return $this->database->mostrarPedidos();

@@ -173,6 +173,8 @@ foreign key (id_costeo_final) references costeo_final(id),
 foreign key (id_chofer) references chofer(id)
 );
 
+ALTER TABLE pedido_cliente add id_proforma int AFTER contacto2;
+
 INSERT INTO pedido_cliente (fecha_pedido, nombre_cliente, cuit_cliente ,email_cliente ,telefono_cliente ,direccion_cliente ,contacto1 ,contacto2)
                 VALUES 	( curdate(), "Franco Reynoso", 20123456781, "franco@email.com", 1123569658, "Larrea 2458", "Larrea 5000", "San Martin 2693"),
 						( curdate(), "Serena Donato", 20365894161, "sere@email.com", 1123569658, "Pedro Algo 2878", "Nose 2600", "San Juan 2113"),
