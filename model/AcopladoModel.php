@@ -12,10 +12,11 @@ class AcopladoModel
 
     public function registrarAcoplado($acoplado)
     {
+        $estado="no";
         if ($acoplado != null) {
             if ($acoplado != " "){
-                $sql = "INSERT INTO acoplado (tipo_acoplado)
-                VALUES ('" . $acoplado . "')";
+                $sql = "INSERT INTO acoplado (tipo_acoplado,eliminado)
+                VALUES ('" . $acoplado . "','" . $estado . "')";
                 return $this->database->query($sql);
             }
             else {

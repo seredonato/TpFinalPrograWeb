@@ -82,6 +82,7 @@ class ProformaController
         $this->proformaModel->enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
         $idProforma = $this->proformaModel->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
 
+        $this->proformaModel->generarQR($idViaje);
         $this->pedidoModel->agregarIdDeLaProforma($idPedido, $idProforma);
 
         $data["pedidos"] = $this->pedidoModel->mostrarPedidos();

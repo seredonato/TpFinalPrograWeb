@@ -113,6 +113,7 @@ class LoginModel
         return isset($_SESSION["logueado"]);
     }
 
+
     public function desloguearUsuario()
     {
         session_destroy();

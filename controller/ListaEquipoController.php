@@ -47,9 +47,9 @@ class ListaEquipoController
             $data["registroEquipoError"] = $result;
             echo $this->render->render("view/listaEquipoView.php", $data);
         }if ($result == "Ingrese todos los requerimientos"){
-            $data["registroEquipoError"] = $result;
-            echo $this->render->render("view/listaEquipoView.php", $data);
-        }
+        $data["registroEquipoError"] = $result;
+        echo $this->render->render("view/listaEquipoView.php", $data);
+    }
         if ($result == "Ingrese sólo números en el campo número de chasis" ){
             $data["registroEquipoError"] = $result;
             echo $this->render->render("view/listaEquipoView.php", $data);
@@ -67,7 +67,6 @@ class ListaEquipoController
 
         $this->equipoModel->eliminarEquipo($id);
         $data["equipos"] = $this->equipoModel->mostrarEquipos();
-        $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
         $data["tractores"] = $this->tractorModel->mostrarTractor();
 
@@ -92,8 +91,9 @@ class ListaEquipoController
         $patente = $_POST["patente"];
         $nro_chasis = $_POST["nro_chasis"];
         $estadoEquipo= $_POST["estadoEquipo"];
+        $fecha = $_POST["fecha"];
 
-        $result = $this->equipoModel->modificaEquipo($id,$patente,$nro_chasis,$estadoEquipo);
+        $result = $this->equipoModel->modificaEquipo($id,$patente,$nro_chasis,$estadoEquipo,$fecha);
 
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["equipos"] = $this->equipoModel->mostrarEquipos();
@@ -102,4 +102,5 @@ class ListaEquipoController
 
         echo $this->render->render("view/listaEquipoView.php",$data);
     }
+
 }

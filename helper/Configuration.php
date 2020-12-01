@@ -17,7 +17,7 @@ include_once ("controller/ProformaController.php");
 include_once ("controller/PdfProformaController.php");
 
 
-
+include_once("model/CalendarioModel.php");
 include_once("model/LoginModel.php");
 include_once("model/RegistroModel.php");
 include_once("model/UsuarioModel.php");
@@ -162,10 +162,16 @@ class Configuration
         return new TractorModel($database);
     }
 
+    public function getCalendarioModel(){
+        $database = $this->getDatabase();
+        return new CalendarioModel($database);
+    }
+
     public function getListaTractorController(){
         $loginModel = $this->getLoginModel();
         $tractorModel = $this->getTractorModel();
-        return new ListaTractorController($this->getRender(),$loginModel,$tractorModel);
+        $calendario = $this->getCalendarioModel();
+        return new ListaTractorController($this->getRender(),$loginModel,$tractorModel,$calendario);
     }
 
     public function getAcopladoModel(){
