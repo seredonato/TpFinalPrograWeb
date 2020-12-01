@@ -213,6 +213,7 @@ class MysqlDatabase
 
     public function devolverEquipos()
     {
+
         $sql = "SELECT * FROM equipo";
 
         $resultado = $this->connection->query($sql);
@@ -270,9 +271,9 @@ class MysqlDatabase
         return $this->connection->query($sql);
     }
 
-    public function modificarEquipo($id, $patente, $nro_chasis, $estadoEquipo)
+    public function modificarEquipo($id, $patente, $nro_chasis, $estadoEquipo,$fecha)
     {
-        $sql = 'UPDATE equipo SET patente = "' . $patente . '", nro_chasis = ' . $nro_chasis . ', estado = "' . $estadoEquipo . '" WHERE id = ' . $id;
+        $sql = 'UPDATE equipo SET patente = "' . $patente . '", nro_chasis = ' . $nro_chasis . ', estado = "' . $estadoEquipo . '" , año_fabricacion = "' . $fecha . '"WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
@@ -299,10 +300,8 @@ class MysqlDatabase
 
     public function eliminarTractor($id)
     {
-
         $sql = 'DELETE FROM tractor WHERE id = ' . $id;
         return $this->connection->query($sql);
-
     }
 
 
@@ -324,5 +323,21 @@ class MysqlDatabase
             $datos[] = $fila;
         }
         return $datos;
+    }
+
+    public function cambiarEstado($id,$estado){
+        $sql = 'UPDATE calendarioServicio SET estado = "' . $estado . '"WHERE id = ' . $id;
+        return $this->connection->query($sql);
+    }
+
+    public function eliminarCalendario($id)
+    {
+        $sql = 'DELETE FROM calendarioServicio WHERE id = ' . $id;
+        return $this->connection->query($sql);
+    }
+
+    public function editarCalendario($id,$descripcion,$fecha){
+        $sql = 'UPDATE calendarioServicio SET descripcion = "' . $descripcion . '", fecha = "' . $fecha . '"WHERE id = ' . $id;
+        return $this->connection->query($sql);
     }
 }

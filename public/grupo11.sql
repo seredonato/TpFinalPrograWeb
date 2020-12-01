@@ -87,6 +87,7 @@ CREATE TABLE calendarioServicio(
 fecha date not null,
 id_tractor int not null,
 descripcion varchar(500),
+estado varchar(400),
 id int auto_increment not null,
 primary key(id),
 foreign key (id_tractor) references tractor(id));

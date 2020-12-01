@@ -10,8 +10,10 @@ class CalendarioModel
 
     public function registrarCalendarioTractor($id, $dia, $descripcion)
     {
-        $sql = "INSERT INTO calendarioServicio(fecha,id_tractor,descripcion)
-                VALUES ('" . $dia . "'," . $id . ",'" . $descripcion . "')";
+        $estado = "En espera";
+
+        $sql = "INSERT INTO calendarioServicio(fecha,id_tractor,descripcion,estado)
+                VALUES ('" . $dia . "'," . $id . ",'" . $descripcion . "','" . $estado . "')";
         return $this->database->query($sql);
 
     }
@@ -20,5 +22,19 @@ class CalendarioModel
     {
         return $this->database->mostrarCalendarioPorIdTractor($id);
     }
+
+    public function cambiarEstado($id,$estado){
+        return $this->database->cambiarEstado($id,$estado);
+    }
+
+    public function eliminarCalendario($id){
+        return $this->database->eliminarCalendario($id);
+    }
+
+    public function editarCalendario($id,$descripcion,$fecha){
+        return $this->database->editarCalendario($id,$descripcion,$fecha);
+    }
+
+
 
 }
