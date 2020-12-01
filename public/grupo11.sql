@@ -95,8 +95,6 @@ fecha_llegada date NOT NULL,
 tiempo_llegada time NOT NULL
 );
 
-INSERT INTO costeo_estimado (kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, clase_imoclass, subclase_imosubclass, reefer, fee, total);
-
 CREATE TABLE costeo_estimado (
 id int AUTO_INCREMENT NOT NULL,
 primary key (id),
