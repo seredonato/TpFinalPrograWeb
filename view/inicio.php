@@ -47,53 +47,15 @@
             atención personalizada y tarifas competitivas.
         </p>
     </div>
-
-    <div class="container mt-2 justify-content-center">
-        <h3 class="titulosindex">Choferes Destacados de la Semana</h3>
-        <hr>
-        <div class="row my-5">
-            <div class="col-md-4">
-                <div class="card choferes">
-                <img src="/public/images/logoQ.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Chofer</h5>
-                    <p class="card-text">Holaaaaa,
-                        soy chofer de TRANSAFF, la mejor empresa.</p>
-                    <a href="#" class="btn btn-outline-dark">Contactar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card choferes">
-                <img src="/public/images/logoQ.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Chofer</h5>
-                    <p class="card-text">Holaaaaa,
-                        soy chofer de TRANSAFF, la mejor empresa.</p>
-                    <a href="#" class="btn btn-outline-dark">Contactar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card choferes">
-                <img src="/public/images/logoQ.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Chofer</h5>
-                    <p class="card-text">Holaaaaa,
-                        soy chofer de TRANSAFF, la mejor empresa.</p>
-                    <a href="#" class="btn btn-outline-dark">Contactar</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
     <div class="container mt-2" id="contacto">
         <h3 class="titulosindex">Contacto</h3>
         <hr>
         <form action="/pedido/guardarPedido" enctype="multipart/form-data" method="post" class="mt-3">
             <div class="form-group">
                 <label for="nombreCompleto">Nombre Completo</label>
-                <input type="nombre" class="form-control" placeholder="Ingrese su nombre completo" required name="nombreCompleto">
+                <input type="nombre" class="form-control" placeholder="Ingrese su nombre completo" required
+                       name="nombreCompleto">
             </div>
             <div class="form-row mt-4 mb-3">
                 <div class="col">
@@ -118,11 +80,13 @@
             <div class="form-row mt-4 mb-3">
                 <div class="col">
                     <label for="contacto1">Contacto1:</label>
-                    <input type="text" class="form-control" placeholder="Direccion de origen de envio" required name="contacto1">
+                    <input type="text" class="form-control" placeholder="Direccion de origen de envio" required
+                           name="contacto1">
                 </div>
                 <div class="col">
                     <label for="contacto2">Contacto2:</label>
-                    <input type="text" class="form-control" placeholder="Direccion de destino" required name="contacto2">
+                    <input type="text" class="form-control" placeholder="Direccion de destino" required
+                           name="contacto2">
                 </div>
             </div>
             <div class="d-flex justify-content-center" style="margin-bottom: 5px">
@@ -130,12 +94,11 @@
             </div>
         </form>
     </div>
-        {{#valorPedido}}
-        {{> pedidoGuardado}}
-        {{/valorPedido}}
+    {{#valorPedido}}
+    {{> pedidoGuardado}}
+    {{/valorPedido}}
 
 </main>
-
 
 
 {{> footer}}
