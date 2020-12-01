@@ -98,7 +98,8 @@ class MysqlDatabase
         mysqli_query($this->connection, $sql);
     }
 
-    public function mostrarPedidos(){
+    public function mostrarPedidos()
+    {
         $sql = 'SELECT * FROM pedido_cliente';
 
         $resultado = $this->connection->query($sql);
@@ -109,7 +110,8 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function mostrarChoferes(){
+    public function mostrarChoferes()
+    {
         $sql = 'SELECT * FROM chofer';
 
         $resultado = $this->connection->query($sql);
@@ -121,7 +123,8 @@ class MysqlDatabase
 
     }
 
-    public function mostrarImoSubClass(){
+    public function mostrarImoSubClass()
+    {
         $sql = 'SELECT * FROM imosubclass';
 
         $resultado = $this->connection->query($sql);
@@ -132,7 +135,8 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function mostrarImoSubClassPorClase($clase){
+    public function mostrarImoSubClassPorClase($clase)
+    {
 
         $sql = 'SELECT * FROM imosubclass WHERE clase =' . $clase;
 
@@ -145,7 +149,8 @@ class MysqlDatabase
 
     }
 
-    public function mostrarImoClases(){
+    public function mostrarImoClases()
+    {
         $sql = 'SELECT * FROM imoclass';
 
         $resultado = $this->connection->query($sql);
@@ -156,12 +161,54 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function mostrarPedidoPorId($id){
+    public function mostrarPedidoPorId($id)
+    {
 
-        $sql = 'SELECT * FROM pedido_cliente WHERE id = '. $id;
+        $sql = 'SELECT * FROM pedido_cliente WHERE id = ' . $id;
         $pedido = $this->connection->query($sql);
         return $pedido->fetch_assoc();
 
+    }
+
+    public function viajeReturneaId($origen, $destino, $fechaCarga, $fechaLlegada)
+    {
+
+        $sql = 'SELECT id FROM viaje WHERE (origen = "' . $origen . '") AND (destino = "' . $destino . '") AND (fecha_carga = "' . $fechaCarga . '") AND (fecha_llegada = "' . $fechaLlegada . '")';
+
+        $resultado = $this->connection->query($sql);
+        $id = $resultado->fetch_assoc();
+
+        if (isset($id["id"])) {
+            return $id["id"];
+        }
+
+    }
+
+    public function cargaReturneaId($tipo, $peso, $hazardSi)
+    {
+
+        $sql = 'SELECT id FROM carga WHERE (tipo = "' . $tipo . '") AND (peso_neto = ' . $peso . ')AND (hazard = "' . $hazardSi . '")';
+
+        $resultado = $this->connection->query($sql);
+
+        $id = $resultado->fetch_assoc();
+        if (isset($id["id"])) {
+            return $id["id"];
+        }
+    }
+
+    public function costeoEstimadoReturneaId($kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $hazardSi)
+    {
+
+        $sql = 'SELECT id FROM costeo_estimado WHERE (kilometros = ' . $kilometros . ') AND (combustible =  ' . $combustible . ') AND (tiempo_salida = "' . $horaSalida . '") AND (tiempo_llegada = "' . $horaLlegada . '") AND (viaticos = ' . $viaticos . ') AND (peajes_pesajes = ' . $peajes . ') AND (hazard = "' . $hazardSi . '")';
+
+        $resultado = $this->connection->query($sql);
+
+        $id = $resultado->fetch_assoc();
+
+        if (isset($id["id"])) {
+            return $id["id"];
+        }
     }
 
     public function devolverEquipos()
@@ -198,14 +245,16 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function eliminarEquipo($id){
+    public function eliminarEquipo($id)
+    {
 
         $sql = 'DELETE FROM equipo WHERE id = ' . $id;
         return $this->connection->query($sql);
 
     }
 
-    public function devolverEquipoPorPatente($patente){
+    public function devolverEquipoPorPatente($patente)
+    {
         $sql = 'SELECT patente FROM equipo WHERE patente = "' . $patente . '"';
         $resultado = $this->connection->query($sql);
         $patenteObtenida = $resultado->fetch_assoc();
@@ -214,60 +263,45 @@ class MysqlDatabase
         }
     }
 
-    public function asignarAcopladoTractor($id_acoplado,$id_tractor,$id_equipo)
+    public function asignarAcopladoTractor($id_acoplado, $id_tractor, $id_equipo)
     {
         $sql = "UPDATE equipo 
         SET id_tractor='$id_tractor',id_acoplado='$id_acoplado' WHERE id='$id_equipo'";
         return $this->connection->query($sql);
     }
 
-    public function modificarEquipo($id,$patente,$nro_chasis,$estadoEquipo){
-        $sql = 'UPDATE equipo SET patente = "' . $patente . '", nro_chasis = '.$nro_chasis.', estado = "'.$estadoEquipo.'" WHERE id = ' . $id;
+    public function modificarEquipo($id, $patente, $nro_chasis, $estadoEquipo)
+    {
+        $sql = 'UPDATE equipo SET patente = "' . $patente . '", nro_chasis = ' . $nro_chasis . ', estado = "' . $estadoEquipo . '" WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
 
-    public function eliminarAcoplado($id){
+    public function eliminarAcoplado($id)
+    {
 
         $sql = 'DELETE FROM acoplado WHERE id = ' . $id;
         return $this->connection->query($sql);
 
     }
 
-    public function modificarAcoplado($id,$tipo){
+    public function modificarAcoplado($id, $tipo)
+    {
         $sql = 'UPDATE acoplado SET tipo_acoplado = "' . $tipo . '"WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
-    public function modificarTractor($id,$marca,$modelo,$nro_motor){
-        $sql = 'UPDATE tractor SET marca = "' . $marca . '", modelo = "'.$modelo.'", nro_motor = '.$nro_motor.' WHERE id = ' . $id;
+    public function modificarTractor($id, $marca, $modelo, $nro_motor)
+    {
+        $sql = 'UPDATE tractor SET marca = "' . $marca . '", modelo = "' . $modelo . '", nro_motor = ' . $nro_motor . ' WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
-    public function eliminarTractor($id){
+    public function eliminarTractor($id)
+    {
 
         $sql = 'DELETE FROM tractor WHERE id = ' . $id;
         return $this->connection->query($sql);
-    }
 
-    public function mostrarTractorPorId($id){
-        $sql = 'SELECT * FROM tractor WHERE id = "' . $id . '"';
-        $resultado = $this->connection->query($sql);
-        $datos = array();
-        while ($fila = $resultado->fetch_assoc()) {
-            $datos[] = $fila;
-        }
-        return $datos;
     }
-
-    public function mostrarCalendarioPorIdTractor($id){
-        $sql = 'SELECT * FROM calendarioServicio WHERE id_tractor = "' . $id . '"';
-        $resultado = $this->connection->query($sql);
-        $datos = array();
-        while ($fila = $resultado->fetch_assoc()) {
-            $datos[] = $fila;
-        }
-        return $datos;
-    }
-
 }
