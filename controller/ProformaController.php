@@ -80,6 +80,9 @@ class ProformaController
         $idCosteoEstimado = $this->proformaModel->guardarCosteoEstimadoReturneaId($kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $hazardClass, $reeferCosto, $fee, $total);
         $idChofer = $_POST["choferElegido"];
         $this->proformaModel->enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
+        $idProforma = $this->proformaModel->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
+
+        $this->pedidoModel->agregarIdDeLaProforma($idPedido, $idProforma);
 
         $data["pedidos"] = $this->pedidoModel->mostrarPedidos();
 
