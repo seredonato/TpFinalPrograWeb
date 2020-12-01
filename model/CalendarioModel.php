@@ -11,11 +11,11 @@ class CalendarioModel
     public function registrarCalendarioTractor($id, $dia, $descripcion)
     {
         $estado = "En espera";
+        $eliminado = "no";
 
-        $sql = "INSERT INTO calendarioServicio(fecha,id_tractor,descripcion,estado)
-                VALUES ('" . $dia . "'," . $id . ",'" . $descripcion . "','" . $estado . "')";
+        $sql = "INSERT INTO calendarioServicio(fecha,id_tractor,descripcion,estado,eliminado)
+                VALUES ('" . $dia . "'," . $id . ",'" . $descripcion . "','" . $estado . "','" . $eliminado . "')";
         return $this->database->query($sql);
-
     }
 
     public function mostrarCalendarioPorIdTractor($id)

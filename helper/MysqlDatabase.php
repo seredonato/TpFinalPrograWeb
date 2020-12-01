@@ -225,8 +225,8 @@ class MysqlDatabase
 
     public function devolverEquipos()
     {
-
-        $sql = "SELECT * FROM equipo";
+        $estado = "no";
+        $sql = "SELECT * FROM equipo WHERE eliminado = '".$estado."'";
 
         $resultado = $this->connection->query($sql);
         $datos = array();
@@ -238,7 +238,8 @@ class MysqlDatabase
 
     public function devolverTractor()
     {
-        $sql = "SELECT * FROM tractor";
+        $estado = "no";
+        $sql = "SELECT * FROM tractor WHERE eliminado ='" . $estado . "'";
         $resultado = $this->connection->query($sql);
         $datos = array();
         while ($fila = $resultado->fetch_assoc()) {
@@ -249,7 +250,8 @@ class MysqlDatabase
 
     public function devolverAcoplado()
     {
-        $sql = "SELECT * FROM acoplado";
+        $estado = "no";
+        $sql = "SELECT * FROM acoplado WHERE eliminado ='" . $estado . "'";
         $resultado = $this->connection->query($sql);
         $datos = array();
         while ($fila = $resultado->fetch_assoc()) {
@@ -260,15 +262,15 @@ class MysqlDatabase
 
     public function eliminarEquipo($id)
     {
-
-        $sql = 'DELETE FROM equipo WHERE id = ' . $id;
+        $estado= "si";
+        $sql = 'UPDATE equipo SET eliminado = "' . $estado . '" WHERE id = ' . $id;
         return $this->connection->query($sql);
-
     }
 
     public function devolverEquipoPorPatente($patente)
     {
-        $sql = 'SELECT patente FROM equipo WHERE patente = "' . $patente . '"';
+        $estado="no";
+        $sql = 'SELECT patente FROM equipo WHERE patente = "' . $patente . '" AND eliminado ="' . $estado . '"';
         $resultado = $this->connection->query($sql);
         $patenteObtenida = $resultado->fetch_assoc();
         if (isset($patenteObtenida["patente"])) {
@@ -292,10 +294,9 @@ class MysqlDatabase
 
     public function eliminarAcoplado($id)
     {
-
-        $sql = 'DELETE FROM acoplado WHERE id = ' . $id;
+        $estado= "si";
+        $sql = 'UPDATE acoplado SET eliminado = "' . $estado . '" WHERE id = ' . $id;
         return $this->connection->query($sql);
-
     }
 
     public function modificarAcoplado($id, $tipo)
@@ -312,13 +313,15 @@ class MysqlDatabase
 
     public function eliminarTractor($id)
     {
-        $sql = 'DELETE FROM tractor WHERE id = ' . $id;
+        $estado= "si";
+        $sql = 'UPDATE tractor SET eliminado = "' . $estado . '" WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
 
     public function mostrarTractorPorId($id){
-        $sql = 'SELECT * FROM tractor WHERE id = "' . $id . '"';
+        $estado="no";
+        $sql = 'SELECT * FROM tractor WHERE id = "' . $id . '" AND eliminado = "' . $estado . '" ';
         $resultado = $this->connection->query($sql);
         $datos = array();
         while ($fila = $resultado->fetch_assoc()) {
@@ -328,7 +331,8 @@ class MysqlDatabase
     }
 
     public function mostrarCalendarioPorIdTractor($id){
-        $sql = 'SELECT * FROM calendarioServicio WHERE id_tractor = "' . $id . '"';
+        $estado= "no";
+        $sql = 'SELECT * FROM calendarioServicio WHERE id_tractor = "' . $id . '" AND eliminado = "' . $estado . '"';
         $resultado = $this->connection->query($sql);
         $datos = array();
         while ($fila = $resultado->fetch_assoc()) {
@@ -344,7 +348,8 @@ class MysqlDatabase
 
     public function eliminarCalendario($id)
     {
-        $sql = 'DELETE FROM calendarioServicio WHERE id = ' . $id;
+        $estado= "si";
+        $sql = 'UPDATE calendarioServicio SET eliminado = "' . $estado . '" WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
