@@ -47,12 +47,12 @@ id int AUTO_INCREMENT NOT NULL,
 primary key (id),
 tipo varchar(600) NOT NULL,
 peso_neto float NOT NULL,
-hazard boolean NOT NULL,
+hazard varchar(200) NOT NULL,
 clase_imoclass float,
 subclase_imosubclass float,
 foreign key (clase_imoclass) references imoclass(clase),
 foreign key (subclase_imosubclass) references imosubclass(subclase),
-reefer boolean NOT NULL,
+reefer varchar(200) NOT NULL,
 temperatura int
 );
 
@@ -89,9 +89,13 @@ id int AUTO_INCREMENT NOT NULL,
 primary key (id),
 origen varchar (600) NOT NULL,
 destino varchar (600) NOT NULL,
-fecha_Carga date NOT NULL,
+fecha_carga date NOT NULL,
+tiempo_carga time NOT NULL,
+fecha_llegada date NOT NULL,
 tiempo_llegada time NOT NULL
 );
+
+INSERT INTO costeo_estimado (kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, clase_imoclass, subclase_imosubclass, reefer, fee, total);
 
 CREATE TABLE costeo_estimado (
 id int AUTO_INCREMENT NOT NULL,
@@ -103,12 +107,10 @@ tiempo_llegada time NOT NULL,
 viaticos int NOT NULL,
 peajes_pesajes int,
 extras int,
-hazard boolean,
+hazard varchar(200),
 clase_imoclass float,
-subclase_imosubclass float,
 foreign key (clase_imoclass) references imoclass(clase),
-foreign key (subclase_imosubclass) references imosubclass(subclase),
-reefer boolean,
+reefer varchar(200),
 fee int,
 total long
 );
@@ -125,12 +127,12 @@ tiempo_llegada time,
 viaticos int,
 peajes_pesajes int,
 extras int,
-hazard boolean,
+hazard varchar(200),
 clase_imoclass float,
 subclase_imosubclass float,
 foreign key (clase_imoclass) references imoclass(clase),
 foreign key (subclase_imosubclass) references imosubclass(subclase),
-reefer boolean,
+reefer varchar(200),
 fee int,
 total long
 );

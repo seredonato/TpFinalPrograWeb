@@ -4,7 +4,7 @@
 
     <div class="container text-center">
         <h2 class="titulosindex">Realice proforma</h2>
-        <form method="post" enctype="multipart/form-data" class="mt-3">
+        <form action="/proforma/guardarProforma" method="post" enctype="multipart/form-data" class="mt-3">
             <div class="row" style="margin-bottom: 2%">
                 <div class="card-body my-5" style="width: 45%; margin-bottom: 2%!important;">
                     <h5 class="card-title">Pedido</h5>
@@ -39,9 +39,17 @@
                                 <input type="date" class="form-control" style="margin-bottom: 2%"
                                        placeholder="Fecha de Carga" required name="fechaCarga">
 
-                                <label for="eta">Tiempo estimado de llegada</label>
-                                <input type="time" class="form-control" style="margin-bottom: 2%" placeholder="ETA"
-                                       required name="eta">
+                                <label for="horaCarga">Tiempo estimado de carga</label>
+                                <input type="time" class="form-control" style="margin-bottom: 2%" placeholder="horaCarga"
+                                       required name="horaCarga">
+
+                                <label for="fechaLlegada">Fecha de Llegada</label>
+                                <input type="date" class="form-control" style="margin-bottom: 2%"
+                                       placeholder="Fecha de Llegada" required name="fechaLlegada">
+
+                                <label for="horaLlegada">Tiempo estimado de llegada</label>
+                                <input type="time" class="form-control" style="margin-bottom: 2%" placeholder="horaLlegada"
+                                       required name="horaLlegada">
 
                             </div>
                         </div>
@@ -86,17 +94,15 @@
                                 </div>
 
                                 <div id="hazard" style="display: none">
-                                    <select id="imoclass" name="imoclass" class="form-control" style="margin-bottom: 2%"
-                                            required>
+                                    <select id="imoclass" name="imoClass" class="form-control" style="margin-bottom: 2%">
                                         <option value="" selected>Clases - Descripcion</option>
                                         {{#imoClases}}
                                         <option value="{{clase}}">{{clase}} - {{descripcion}}</option>
                                         {{/imoClases}}
                                     </select>
 
-                                    <select id="imoSubClases" name="hazard" class="form-control"
-                                            style="margin-bottom: 2%"
-                                            required>
+                                    <select id="imoSubClases" name="imoSubClass" class="form-control"
+                                            style="margin-bottom: 2%">
                                         <option value="" selected>Clases - Subclase - Descripcion de subclase</option>
                                         {{#imoSubClases}}
                                         <option value="{{subclase}}">{{clase}} - {{subclase}} - {{descripcion}}</option>
@@ -115,7 +121,7 @@
                                     <label for="temperaturaSi">NO</label>
                                     <input value="no" type="radio" onclick="ocultarSelectTemperatura()"
                                            style="margin-bottom: 2%"
-                                           required name="temperaturaSi">
+                                           name="temperaturaSi">
                                 </div>
 
                                 <div id="temperatura" style="display: none">
@@ -144,7 +150,7 @@
                     </div>
                 </div>
                 <div class="card-body my-5" style="width: 45%; margin-top: 2%!important;">
-                    <h5 class="card-title">Viaje</h5>
+                    <h5 class="card-title">Costeo Estimado</h5>
                     <div style="text-align: left">
                         <div class="form-row mt-4 mb-3">
                             <div class="col">
@@ -159,15 +165,15 @@
                                        placeholder="Combustible estimado"
                                        required name="combustible">
 
-                                <label for="etd">Tiempo estimado de salida</label>
+                                <label for="horaSalida">Tiempo estimado de salida</label>
                                 <input type="time" class="form-control" style="margin-bottom: 2%"
                                        placeholder="ETD estimado"
-                                       required name="etd">
+                                       required name="horaSalida">
 
-                                <label for="etaCosto">Tiempo estimado de llegada</label>
+                                <label for="horaLlegada">Tiempo estimado de llegada</label>
                                 <input type="time" class="form-control" style="margin-bottom: 2%"
                                        placeholder="ETA estimado"
-                                       required name="etaCosto">
+                                       required name="horaLlegada">
 
                                 <label for="viaticos">Viaticos</label>
                                 <input type="number" class="form-control" style="margin-bottom: 2%"
@@ -184,10 +190,13 @@
                                        placeholder="Extras estimado"
                                        required name="extras">
 
-                                <label for="hazardCosto">Hazard</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%"
-                                       placeholder="Hazard estimado"
-                                       required name="hazardCosto">
+                                <label for="hazardClass">Hazard</label>
+                                <select id="hazardClass" name="hazardClass" class="form-control" style="margin-bottom: 2%">
+                                    <option value="" selected>Clases - Descripcion</option>
+                                    {{#imoClases}}
+                                    <option value="{{clase}}">{{clase}} - {{descripcion}}</option>
+                                    {{/imoClases}}
+                                </select>
 
                                 <label for="reeferCosto">Reefer</label>
                                 <input type="number" class="form-control" style="margin-bottom: 2%"
