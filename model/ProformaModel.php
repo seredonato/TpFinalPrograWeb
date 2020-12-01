@@ -1,5 +1,6 @@
 <?php
 
+include_once("phpqrcode/qrlib.php");
 
 class ProformaModel
 {
@@ -16,7 +17,7 @@ class ProformaModel
         $sql = 'INSERT INTO viaje (origen, destino, fecha_carga, tiempo_carga, fecha_llegada, tiempo_llegada)
                 VALUES ("' . $origen . '", "' . $destino . '", "' . $fechaCarga . '", "' . $horaCarga . '", "' . $fechaLlegada . '", "' . $horaLlegada . '")';
 
-         $this->database->query($sql);
+        $this->database->query($sql);
         return $this->database->viajeReturneaId($origen, $destino, $fechaCarga, $fechaLlegada);
 
     }
@@ -35,12 +36,12 @@ class ProformaModel
     public function guardarCosteoEstimadoReturneaId($kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $hazardClass, $reeferCosto, $fee, $total)
     {
 
-        if ($hazardSi=="si"){
+        if ($hazardSi == "si") {
 
             $sql = 'INSERT INTO costeo_estimado (kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, clase_imoclass, reefer, fee, total)
                 VALUES (' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ', "' . $hazardSi . '", "' . $hazardClass . '", ' . $reeferCosto . ',  ' . $fee . ', ' . $total . ')';
 
-        } elseif ($hazardSi=="no"){
+        } elseif ($hazardSi == "no") {
 
             $sql = 'INSERT INTO costeo_estimado (kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, reefer, fee, total)
                 VALUES (' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ', "' . $hazardSi . '", ' . $reeferCosto . ',  ' . $fee . ', ' . $total . ')';
@@ -59,7 +60,17 @@ class ProformaModel
         return $this->database->query($sql);
     }
 
-    public function mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer){
+    public function mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer)
+    {
         return $this->database->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
-}
+    }
+
+    public function generarQr($idViaje)
+    {
+        $direccion = 'public/imgQr/';
+        $nombre = $idViaje . '.png';
+
+        QRcode::png("localhost/cargarDatos.php?idViaje=$idViaje", $direccion . $nombre);
+    }
+
 }
