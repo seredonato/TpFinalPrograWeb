@@ -47,26 +47,74 @@ class PdfProformaController
         $pdf->SetLeftMargin(0);
         $pdf->SetRightMargin(0);
         $pdf->SetTopMargin(0);
+        $pdf->SetFillColor(200,200,200);
         $pdf->AddPage();
-        $pdf->SetFont('helvetica', '', 15);
+        $pdf->SetFont('helvetica', 'b', 15);
         $pdf->Cell(0,15,'        ' .
             $pdf->Image('public/images/logoheaderBlancoYNegro.png',12,1,0,13).
             'Fecha: '. $proforma["fecha"]. '                     '.
             'PROFORMA DE VIAJE',1,1,'C');
         $pdf->Ln(2);
-        $pdf->SetLeftMargin(3);
         $pdf->SetRightMargin(3);
-        $pdf->SetFontSize(10);
-        $pdf->Cell(90,10,'Pedido Del Cliente',1,1,'C');
-        $pdf->SetFontSize(8);
-        $pdf->Cell(90,10,'Nombre: '. $pedido["nombre_cliente"],0,1,'');
-        $pdf->Cell(90,10,'Fecha: '. $pedido["fecha_pedido"],0,1,'');
-        $pdf->Cell(90,10,'Cuit: '. $pedido["cuit_cliente"],0,1,'');
-        $pdf->Cell(90,10,'Direccion: '. $pedido["direccion_cliente"],0,1,'');
-        $pdf->Cell(90,10,'Telefono: '. $pedido["telefono_cliente"],0,1,'');
-        $pdf->Cell(90,10,'Email: '. $pedido["email_cliente"],0,1,'');
-        $pdf->Cell(90,10,'Direccion de carga: '. $pedido["contacto1"],0,1,'');
-        $pdf->Cell(90,10,'Direccion de llegada: '. $pedido["contacto2"],0,1,'');
+        $pdf->SetLeftMargin(3);
+        $pdf->SetFont('helvetica','b', 12);
+        $pdf->Cell(100,8,'Pedido',1,1,'C',6);
+        $pdf->SetFont('helvetica','', 9);
+        $pdf->Cell(40,5,'Nombre',1,0,'');
+        $pdf->Cell(60,5,$pedido["nombre_cliente"],1,1,'C');
+        $pdf->Cell(40,5,'Fecha',1,0,'');
+        $pdf->Cell(60,5,$pedido["fecha_pedido"],1,1,'C');
+        $pdf->Cell(40,5,'CUIT',1,0,'');
+        $pdf->Cell(60,5,$pedido["cuit_cliente"],1,1,'C');
+        $pdf->Cell(40,5,'Direccion',1,0,'');
+        $pdf->Cell(60,5,$pedido["direccion_cliente"],1,1,'C');
+        $pdf->Cell(40,5,'Telefono',1,0,'');
+        $pdf->Cell(60,5,$pedido["telefono_cliente"],1,1,'C');
+        $pdf->Cell(40,5,'Email',1,0,'');
+        $pdf->Cell(60,5,$pedido["email_cliente"],1,1,'C');
+        $pdf->Cell(40,5,'Direccion de carga',1,0,'');
+        $pdf->Cell(60,5,$pedido["contacto1"],1,1,'C');
+        $pdf->Cell(40,5,'Direccion de llegada',1,0,'');
+        $pdf->Cell(60,5,$pedido["contacto2"],1,1,'C');
+
+        $pdf->SetXY(106,17);
+        $pdf->SetRightMargin(0);
+        $pdf->SetLeftMargin(0);
+        $pdf->SetFont('helvetica','b', 12);
+        $pdf->Cell(100,8,'Viaje',1,1,'C',6);
+        $pdf->SetFont('helvetica','', 9);
+        $pdf->SetXY(106,25);
+        $pdf->Cell(40,5,'Origen',1,0,'');
+        $pdf->Cell(60,5,$viaje["origen"],1,1,'C');
+        $pdf->SetXY(106,30);
+        $pdf->Cell(40,5,'Destino',1,0,'');
+        $pdf->Cell(60,5,$viaje["destino"],1,1,'C');
+        $pdf->SetXY(106,35);
+        $pdf->Cell(40,5,'Fecha de carga',1,0,'');
+        $pdf->Cell(60,5,$viaje["fecha_carga"],1,1,'C');
+        $pdf->SetXY(106,40);
+        $pdf->Cell(40,5,'Horario de carga',1,0,'');
+        $pdf->Cell(60,5,$viaje["tiempo_carga"],1,1,'C');
+        $pdf->SetXY(106,45);
+        $pdf->Cell(40,5,'Fecha de llegada',1,0,'');
+        $pdf->Cell(60,5,$viaje["fecha_llegada"],1,1,'C');
+        $pdf->SetXY(106,50);
+        $pdf->Cell(40,5,'Horario de llegada',1,0,'');
+        $pdf->Cell(60,5,$viaje["tiempo_llegada"],1,1,'C');
+        $pdf->SetXY(106,55);
+        $pdf->Cell(40,5,'',1,0,'');
+        $pdf->Cell(60,5,'',1,1,'');
+        $pdf->SetXY(106,60);
+        $pdf->Cell(40,5,'',1,0,'');
+        $pdf->Cell(60,5,'',1,1,'');
+        $pdf->Ln(2);
+
+
+
+
+
+
+
 
 
 
