@@ -151,6 +151,7 @@ foreign key (id_acoplado) references acoplado(id));
 CREATE TABLE proforma(
 id int AUTO_INCREMENT NOT NULL,
 primary key (id),
+fecha date,
 id_pedido_cliente int,
 id_viaje int,
 id_carga int,

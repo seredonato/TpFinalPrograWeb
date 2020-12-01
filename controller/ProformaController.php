@@ -86,6 +86,8 @@ class ProformaController
 
         $data["pedidos"] = $this->pedidoModel->mostrarPedidos();
 
+
+
         echo $this->render->render("view/listaPedidosView.php", $data);
     }
 

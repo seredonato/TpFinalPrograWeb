@@ -200,6 +200,12 @@ class MysqlDatabase
         return $pedido->fetch_assoc();
     }
 
+    public function mostrarChoferPorId($id){
+        $sql = 'SELECT * FROM chofer WHERE id = ' . $id;
+        $pedido = $this->connection->query($sql);
+        return $pedido->fetch_assoc();
+    }
+
     public function viajeReturneaId($origen, $destino, $fechaCarga, $fechaLlegada)
     {
 
