@@ -60,6 +60,8 @@ CREATE TABLE tractor(
 marca varchar(100) not null,
 modelo varchar(100) not null,
 nro_motor int not null,
+patente int not null,
+chasis int not null,
 kilometraje int not null,
 eliminado varchar(40),
 id int AUTO_INCREMENT NOT NULL,
@@ -67,6 +69,8 @@ primary key (id));
 
 CREATE TABLE acoplado (
 tipo_acoplado varchar(100),
+patente int not null,
+chasis int not null,
 eliminado varchar(40),
 id int AUTO_INCREMENT NOT NULL,
 primary key (id));
@@ -83,7 +87,6 @@ id int AUTO_INCREMENT NOT NULL,
 primary key (id),
 foreign key (id_Tractor) references tractor(id),
 foreign key (id_acoplado) references acoplado(id));
-
 
 CREATE TABLE calendarioServicio(
 fecha date not null,
