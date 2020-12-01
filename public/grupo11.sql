@@ -60,7 +60,6 @@ temperatura int
 CREATE TABLE tractor(
 marca varchar(100) not null,
 modelo varchar(100) not null,
-calendario_service date,
 nro_motor int not null,
 kilometraje int not null,
 id int AUTO_INCREMENT NOT NULL,
@@ -70,6 +69,27 @@ CREATE TABLE acoplado (
 tipo_acoplado varchar(100),
 id int AUTO_INCREMENT NOT NULL,
 primary key (id));
+
+CREATE TABLE equipo(
+año_fabricacion date,
+estado varchar(40) not null,
+patente varchar(40) not null,
+nro_chasis int not null,
+id_tractor int,
+id_acoplado int,
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+foreign key (id_Tractor) references tractor(id),
+foreign key (id_acoplado) references acoplado(id));
+
+
+CREATE TABLE calendarioServicio(
+fecha date not null,
+id_tractor int not null,
+descripcion varchar(500),
+id int auto_increment not null,
+primary key(id),
+foreign key (id_tractor) references tractor(id));
 
 CREATE TABLE pedido_cliente (
 id int AUTO_INCREMENT NOT NULL,
@@ -94,8 +114,6 @@ tiempo_carga time NOT NULL,
 fecha_llegada date NOT NULL,
 tiempo_llegada time NOT NULL
 );
-
-INSERT INTO costeo_estimado (kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, clase_imoclass, subclase_imosubclass, reefer, fee, total);
 
 CREATE TABLE costeo_estimado (
 id int AUTO_INCREMENT NOT NULL,
@@ -137,17 +155,6 @@ fee int,
 total long
 );
 
-CREATE TABLE equipo(
-año_fabricacion date,
-estado boolean not null,
-patente varchar(40) not null,
-nro_chasis int not null,
-id int AUTO_INCREMENT NOT NULL,
-id_tractor int,
-id_acoplado int,
-primary key (id),
-foreign key (id_Tractor) references tractor(id),
-foreign key (id_acoplado) references acoplado(id));
 
 CREATE TABLE proforma(
 id int AUTO_INCREMENT NOT NULL,
@@ -177,7 +184,7 @@ VALUES ('20120101',true,'AAABBB',123);
 
 INSERT INTO usuario (dni, email, usuario, contrasenia, nombre, apellido, fecha_nacimiento, rol)
 VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "franco", "reynoso", 111111, "admin"),
-		(123, "sere@email.com", "sere", "202cb962ac59075b964b07152d234b70", "sere", "donato", 111111, "admin"),
+		(123, "sere@email.com", "sere", "202cb962ac59075b964b07152d234b70", "sere", "donato", 111111, "supervisor"),
 		(123, "fiore@email.com", "fiore", "202cb962ac59075b964b07152d234b70", "fiore", "coloca", 111111, "admin");
 
 INSERT INTO chofer (dni, email, imagen, usuario, nombre, apellido, tipo_licencia)

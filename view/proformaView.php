@@ -4,7 +4,7 @@
 
     <div class="container text-center">
         <h2 class="titulosindex">Realice proforma</h2>
-        <form action="/proforma/guardarProforma" method="post" enctype="multipart/form-data" class="mt-3">
+        <form action="/proforma/guardarProforma/id={{pedidoId}}" method="post" enctype="multipart/form-data" class="mt-3">
             <div class="row" style="margin-bottom: 2%">
                 <div class="card-body my-5" style="width: 45%; margin-bottom: 2%!important;">
                     <h5 class="card-title">Pedido</h5>
@@ -87,7 +87,7 @@
                                            style="margin-bottom: 2%; margin-right: 5%"
                                            required name="hazardSi">
 
-                                    <label for="hazardSi">NO</label>
+                                    <label for="hazardNo">NO</label>
                                     <input value="no" type="radio" onclick="ocultarSelectHazard()"
                                            style="margin-bottom: 2%"
                                            required name="hazardSi">
