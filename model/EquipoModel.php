@@ -50,9 +50,9 @@ class EquipoModel
         return $this->database->asignarAcopladoTractor($id_acoplado, $id_tractor, $id_equipo);
     }
 
-    public function modificaEquipo($id, $patente, $nro_chasis, $estadoEquipo)
+    public function modificaEquipo($id, $patente, $nro_chasis, $estadoEquipo,$fecha)
     {
-        return $this->database->modificarEquipo($id, $patente, $nro_chasis, $estadoEquipo);
+        return $this->database->modificarEquipo($id, $patente, $nro_chasis, $estadoEquipo,$fecha);
     }
 
 
