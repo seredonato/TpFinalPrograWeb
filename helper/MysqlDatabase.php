@@ -170,6 +170,36 @@ class MysqlDatabase
 
     }
 
+    public function mostrarProformaPorId($id){
+        $sql = 'SELECT * FROM proforma WHERE id = ' . $id;
+        $pedido = $this->connection->query($sql);
+        return $pedido->fetch_assoc();
+    }
+
+    public function mostrarCargaPorId($id){
+        $sql = 'SELECT * FROM carga WHERE id = ' . $id;
+        $pedido = $this->connection->query($sql);
+        return $pedido->fetch_assoc();
+    }
+
+    public function mostrarViajePorId($id){
+        $sql = 'SELECT * FROM viaje WHERE id = ' . $id;
+        $pedido = $this->connection->query($sql);
+        return $pedido->fetch_assoc();
+    }
+
+    public function mostrarImoClassPorClase($clase){
+        $sql = 'SELECT * FROM imoclass WHERE clase = ' . $clase;
+        $pedido = $this->connection->query($sql);
+        return $pedido->fetch_assoc();
+    }
+
+    public function mostrarImoSubClassPorSubClase($subClase){
+        $sql = 'SELECT * FROM imosubclass WHERE subclase = ' . $subClase;
+        $pedido = $this->connection->query($sql);
+        return $pedido->fetch_assoc();
+    }
+
     public function viajeReturneaId($origen, $destino, $fechaCarga, $fechaLlegada)
     {
 
