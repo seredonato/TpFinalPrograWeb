@@ -60,7 +60,7 @@ CREATE TABLE tractor(
 marca varchar(100) not null,
 modelo varchar(100) not null,
 nro_motor int not null,
-patente int not null,
+patente varchar(100)null,
 chasis int not null,
 kilometraje int not null,
 eliminado varchar(40),
@@ -69,7 +69,7 @@ primary key (id));
 
 CREATE TABLE acoplado (
 tipo_acoplado varchar(100),
-patente int not null,
+patente varchar(100),
 chasis int not null,
 eliminado varchar(40),
 id int AUTO_INCREMENT NOT NULL,
