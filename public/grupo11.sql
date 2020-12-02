@@ -191,9 +191,6 @@ INSERT INTO pedido_cliente (fecha_pedido, nombre_cliente, cuit_cliente ,email_cl
 						( curdate(), "Fiorella Coloca", 20254781021, "fiore@email.com", 1123569658, "Jujuy 158", "Algo 200", "San Telmo 93"),
 						( curdate(), "Juan Perez", 20123456781, "juan@email.com", 1123569658, "Jejox 58", "Pepe 69", "Martinez 23");
 
-INSERT INTO equipo (año_fabricacion,estado,patente,nro_chasis)
-VALUES ('20120101',true,'AAABBB',123);
-
 INSERT INTO usuario (dni, email, usuario, contrasenia, nombre, apellido, fecha_nacimiento, rol)
 VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "franco", "reynoso", 111111, "admin"),
 		(123, "sere@email.com", "sere", "202cb962ac59075b964b07152d234b70", "sere", "donato", 111111, "supervisor"),

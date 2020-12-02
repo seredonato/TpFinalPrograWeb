@@ -6,10 +6,6 @@
                 <p class="card-text" style="float: left">ID: {{id}}</p>
                 <p class="card-text" style="margin-left: 50%">año fabricacion: {{año_fabricacion}}</p>
                 <p class="card-text">Disponible: {{estado}}</p>
-                <p class="card-text">Número de chasis: {{nro_chasis}}</p>
-                <p class="card-text">Asignado al tractor: {{id_tractor}}</p>
-                <p class="card-text">Asignado al acoplado: {{id_acoplado}}</p>
-
                 <div style="text-align: center">
                     <a data-toggle="modal" data-target="#asignar{{id}}" type="button" class="btn btn-outline-dark" style="float: left">Asignar</a>
                     <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
@@ -107,12 +103,6 @@
                         <label for="tractor">Patente</label>
                         <input type="text" class="form-control" id="patente" name=patente value="{{patente}}"
                                placeholder="Patente" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="tractor">Número de chasis</label>
-                        <input type="text" class="form-control" id="nro_chasis" name=nro_chasis value="{{nro_chasis}}"
-                               placeholder="Número de chasis" required>
                     </div>
 
                     <div>
