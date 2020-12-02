@@ -23,11 +23,13 @@ class listaTractorController
         $marca = $_POST["marca"];
         $modelo = $_POST["modelo"];
         $kilometraje = $_POST["kilometraje"];
+        $patente = $_POST ["patente"];
+        $nro_chasis = $_POST ["chasis"];
 
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["tractores"] = $this->tractorModel->mostrarTractor();
 
-        $result = $this->tractorModel->registrarTractor($nro_motor,$marca,$modelo,$kilometraje);
+        $result = $this->tractorModel->registrarTractor($nro_motor,$marca,$modelo,$kilometraje,$patente,$nro_chasis);
 
         if ($result == "Ingrese todos los requerimientos"){
             $data["registroTractorError"] = $result;
@@ -55,8 +57,10 @@ class listaTractorController
         $marca = $_POST["marca"];
         $modelo = $_POST["modelo"];
         $nro_motor= $_POST["nro_motor"];
+        $patente = $_POST["patente"];
+        $chasis = $_POST["chasis"];
 
-        $result = $this->tractorModel->modificarTractor($id,$marca,$modelo,$nro_motor);
+        $result = $this->tractorModel->modificarTractor($id,$marca,$modelo,$nro_motor,$patente,$chasis);
 
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["tractores"] = $this->tractorModel->mostrarTractor();

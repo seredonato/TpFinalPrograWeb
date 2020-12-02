@@ -341,9 +341,9 @@ class MysqlDatabase
         return $this->connection->query($sql);
     }
 
-    public function modificarTractor($id, $marca, $modelo, $nro_motor)
+    public function modificarTractor($id,$marca,$modelo,$nro_motor,$patente,$chasis)
     {
-        $sql = 'UPDATE tractor SET marca = "' . $marca . '", modelo = "' . $modelo . '", nro_motor = ' . $nro_motor . ' WHERE id = ' . $id;
+        $sql = 'UPDATE tractor SET marca = "' . $marca . '", modelo = "' . $modelo . '", nro_motor = ' . $nro_motor . ', patente  = "' . $patente . '",chasis = ' . $chasis . ' WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
@@ -366,9 +366,10 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function mostrarCalendarioPorIdTractor($id){
-        $estado= "no";
-        $sql = 'SELECT * FROM calendarioServicio WHERE id_tractor = "' . $id . '" AND eliminado = "' . $estado . '"';
+    public function mostrarCalendarioPorIdTractor($id)
+    {
+        $estado = "no";
+        $sql = 'SELECT * FROM calendarioServicio WHERE id = "' . $id . '" AND eliminado = "' . $estado . '" ';
         $resultado = $this->connection->query($sql);
         $datos = array();
         while ($fila = $resultado->fetch_assoc()) {

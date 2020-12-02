@@ -6,7 +6,10 @@
                 <p class="card-text">ID: {{id}}</p>
                 <p class="card-text" style="float: left" >Modelo: {{modelo}}</p>
                 <p class="card-text" style="margin-left: 50%">Marca: {{marca}}</p>
-                <p class="card-text">Kilometraje: {{kilometraje}}</p>
+                <p class="card-text">Número de chasis: {{chasis}}</p>
+                <p class="card-text" style="float: left" >Kilometraje: {{kilometraje}}</p>
+                <p class="card-text" style="margin-left: 50%">Patente: {{patente}}</p>
+
                 <div style="text-align: center">
                     <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark" style="float: right; font-size: 15px;">Eliminar</a>
                     <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" style="float: left;font-size: 15px;" >Modificar</a>
@@ -68,6 +71,18 @@
                     <div class="form-group">
                         <label for="tractor">Número de motor</label>
                         <input type="number" class="form-control" id="nro_motor" name=nro_motor value="{{nro_motor}}"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tractor">Número de chasis</label>
+                        <input type="text" class="form-control" id="chasis" name=chasis value="{{chasis}}"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tractor">Patente</label>
+                        <input type="text" class="form-control" id="patente" name=patente value="{{patente}}"
                                required>
                     </div>
 
