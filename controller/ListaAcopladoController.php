@@ -18,10 +18,12 @@ class ListaAcopladoController
 
     public function registroAcoplado(){
         $acoplado = $_POST["acoplado"];
+        $patente = $_POST["patente"];
+        $chasis = $_POST["chasis"];
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
 
-        $result = $this->acopladoModel->registrarAcoplado( $acoplado);
+        $result = $this->acopladoModel->registrarAcoplado( $acoplado,$patente,$chasis);
         if ($result === "Ingrese contenido en el campo requerido"){
             $data["registroAcopladoError"] = $result;
             echo $this->render->render("view/listaAcopladosView.php", $data);
@@ -43,8 +45,10 @@ class ListaAcopladoController
     public function modificarAcoplado(){
         $tipo = $_POST["tipo"];
         $id = $_POST["id"];
+        $patente = $_POST["patente"];
+        $chasis = $_POST["chasis"];
 
-        $result = $this->acopladoModel->modificarAcoplado($id,$tipo);
+        $result = $this->acopladoModel->modificarAcoplado($id,$tipo,$patente,$chasis);
 
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();

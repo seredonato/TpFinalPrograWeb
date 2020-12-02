@@ -10,13 +10,13 @@ class AcopladoModel
         $this->database = $database;
     }
 
-    public function registrarAcoplado($acoplado)
+    public function registrarAcoplado($acoplado,$patente,$chasis)
     {
         $estado="no";
         if ($acoplado != null) {
             if ($acoplado != " "){
-                $sql = "INSERT INTO acoplado (tipo_acoplado,eliminado)
-                VALUES ('" . $acoplado . "','" . $estado . "')";
+                $sql = "INSERT INTO acoplado (tipo_acoplado,patente,chasis,eliminado)
+                VALUES ('" . $acoplado . "','" . $patente . "'," . $chasis . ",'" . $estado . "')";
                 return $this->database->query($sql);
             }
             else {
@@ -32,8 +32,8 @@ class AcopladoModel
         return $this->database->devolverAcoplado();
     }
 
-    public function modificarAcoplado($id,$tipo){
-        return $this->database->modificarAcoplado($id,$tipo);
+    public function modificarAcoplado($id,$tipo,$patente,$chasis){
+        return $this->database->modificarAcoplado($id,$tipo,$patente,$chasis);
     }
 
     public function eliminarAcoplado($id){

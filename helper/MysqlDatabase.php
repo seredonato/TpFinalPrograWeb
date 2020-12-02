@@ -335,9 +335,9 @@ class MysqlDatabase
         return $this->connection->query($sql);
     }
 
-    public function modificarAcoplado($id, $tipo)
+    public function modificarAcoplado($id,$tipo,$patente,$chasis)
     {
-        $sql = 'UPDATE acoplado SET tipo_acoplado = "' . $tipo . '"WHERE id = ' . $id;
+        $sql = 'UPDATE acoplado SET tipo_acoplado = "' . $tipo . '",patente = "' . $patente . '",chasis = "' . $chasis . '" WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 

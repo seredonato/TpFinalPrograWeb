@@ -2,16 +2,13 @@
     <div class="card choferes">
         <div class="card-body">
             <h5 class="card-title"> Tipo de acoplado : {{tipo_acoplado}}</h5>
-            <div style="text-align: left">
-                <p class="card-text" style="float: left">ID: {{id}}</p>
-             <br>
-                <br>
-
+            <p class="card-text">ID: {{id}}</p>
+            <p class="card-text">Patente: {{patente}}</p>
+            <p class="card-text">Chasis: {{chasis}}</p>
                 <div style="text-align: center">
                     <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
                     <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" style="float: left" >Modificar</a>
                 </div>
-            </div>
         </div>
     </div>
 </div>
@@ -56,6 +53,20 @@
                     <div class="form-group">
                         <label for="tractor">Tipo de acoplado</label>
                         <input type="text" class="form-control" id="tipo" name=tipo value="{{tipo_acoplado}}"
+                               required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="tractor">Patente</label>
+                        <input type="text" class="form-control" id="patente" name=patente value="{{patente}}"
+                               required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="tractor">Número de chasis</label>
+                        <input type="number" class="form-control" id="chasis" name=chasis value="{{chasis}}"
                                required>
                     </div>
 
