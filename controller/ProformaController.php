@@ -10,13 +10,15 @@ class ProformaController
     private $imoClassModel;
     private $imoSubClassModel;
     private $proformaModel;
+    private $qrModel;
 
-    public function __construct($render, $loginModel, $pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $proformaModel)
+    public function __construct($render, $loginModel, $pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $proformaModel, $qrModel)
     {
         $this->render = $render;
         $this->loginModel = $loginModel;
         $this->pedidoModel = $pedidoModel;
         $this->choferModel = $choferModel;
+        $this->qrModel = $qrModel;
         $this->imoClassModel = $imoClassModel;
         $this->imoSubClassModel = $imoSubClassModel;
         $this->proformaModel = $proformaModel;
@@ -82,14 +84,25 @@ class ProformaController
         $this->proformaModel->enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
         $idProforma = $this->proformaModel->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
 
-        $this->proformaModel->generarQR($idViaje);
+        $this->qrModel->generarQR($idViaje);
+
         $this->pedidoModel->agregarIdDeLaProforma($idPedido, $idProforma);
 
         $data["pedidos"] = $this->pedidoModel->mostrarPedidos();
 
 
-
         echo $this->render->render("view/listaPedidosView.php", $data);
     }
+
+    public function verFormulario(){
+
+        $idViaje =  $_GET["idViaje"];
+        $data["idViaje"] = $idViaje;
+
+        echo $this->render->render("view/cargarDatosView.php", $data);
+
+    }
+
+
 
 }

@@ -15,6 +15,7 @@ include_once ("controller/ListaAcopladoController.php");
 include_once ("controller/ListaPedidosController.php");
 include_once ("controller/ProformaController.php");
 include_once ("controller/PdfProformaController.php");
+include_once("controller/QrController.php");
 
 
 include_once("model/CalendarioModel.php");
@@ -31,6 +32,7 @@ include_once("model/ImoSubClassModel.php");
 include_once("model/ProformaModel.php");
 include_once("model/CargaModel.php");
 include_once("model/ViajeModel.php");
+include_once ("model/QrModel.php");
 
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
@@ -212,12 +214,13 @@ class Configuration
 
     public function getProformaController(){
         $loginModel = $this->getLoginModel();
+        $qrModel = $this->getQrModel();
         $pedidoModel = $this->getPedidoModel();
         $choferModel = $this->getChoferModel();
         $imoClassModel = $this->getImoClassModel();
         $imoSubClassModel = $this->getImoSubClassModel();
         $proformaModel = $this->getProformaModel();
-        return new ProformaController($this->getRender(),$loginModel,$pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $proformaModel);
+        return new ProformaController($this->getRender(),$loginModel,$pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $proformaModel,$qrModel);
 
     }
 
@@ -231,6 +234,19 @@ class Configuration
         $proformaModel = $this->getProformaModel();
         return new PdfProformaController($pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $proformaModel);
     }
+
+    public function getQrController(){
+        $QrModel = $this->getQrModel();
+        return new QrController($this->getRender(), $QrModel);
+
+    }
+
+    public function getQrModel()
+    {
+        $database = $this->getDatabase();
+        return new QrModel($database);
+    }
+
 
 
 

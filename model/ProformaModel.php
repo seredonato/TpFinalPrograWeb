@@ -1,7 +1,5 @@
 <?php
 
-include_once("phpqrcode/qrlib.php");
-
 class ProformaModel
 {
     private $database;
@@ -65,13 +63,6 @@ class ProformaModel
         return $this->database->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
     }
 
-    public function generarQr($idViaje)
-    {
-        $direccion = 'public/imgQr/';
-        $nombre = $idViaje . '.png';
-
-        QRcode::png("localhost/cargarDatos.php?idViaje=$idViaje", $direccion . $nombre);
-    }
 
     public function mostrarProformaPorId($id){
         return $this->database->mostrarProformaPorId($id);
