@@ -5,17 +5,17 @@ class PdfProformaController
 {
 
     private $pedidoModel;
-    private $choferModel;
+    private $usuarioModel;
     private $imoClassModel;
     private $imoSubClassModel;
     private $cargaModel;
     private $viajeModel;
     private $proformaModel;
 
-    public function __construct($pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $proformaModel)
+    public function __construct($pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $proformaModel)
     {
         $this->pedidoModel = $pedidoModel;
-        $this->choferModel = $choferModel;
+        $this->usuarioModel = $usuarioModel;
         $this->imoClassModel = $imoClassModel;
         $this->imoSubClassModel = $imoSubClassModel;
         $this->cargaModel = $cargaModel;
@@ -39,7 +39,7 @@ class PdfProformaController
 
         $imoSubClass = $this->imoSubClassModel->mostrarImoSubClassPorSubClase($carga["subclase_imosubclass"]);
 
-        $chofer = $this->choferModel->mostrarChoferPorId($proforma["id_chofer"]);
+        $usuarioChofer = $this->usuarioModel->mostrarChoferPorId($proforma["id_usuario"]);
 
 
         $pdf = new FPDF();
@@ -187,7 +187,7 @@ class PdfProformaController
         $pdf->Cell(60,5,'Sub-Clase designada',1,0,'');
         $pdf->Cell(144,5,$carga["subclase_imosubclass"],1,1,'C');
         $pdf->Cell(60,10,'Descripcion',1,0,'');
-        $pdf->MultiCell(144,5,utf8_decode($imoSubClass["descripcion"]),1, 'C');
+        $pdf->MultiCell(144,10,utf8_decode($imoSubClass["descripcion"]),1, 'C');
         $pdf->Cell(0,8,'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------',0,1,'C');
         $pdf->Ln(2);
 

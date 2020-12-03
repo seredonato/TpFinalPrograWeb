@@ -112,7 +112,7 @@ class MysqlDatabase
 
     public function mostrarChoferes()
     {
-        $sql = 'SELECT * FROM usuario where rol = chofer';
+        $sql = 'SELECT * FROM usuario where rol = "chofer"';
 
         $resultado = $this->connection->query($sql);
         $datos = array();
@@ -248,7 +248,7 @@ class MysqlDatabase
     }
 
     public function mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer){
-        $sql = 'SELECT id FROM proforma WHERE (id_pedido_cliente = ' . $idPedido . ') AND (id_viaje =  ' . $idViaje . ') AND (id_carga = ' . $idCarga . ') AND (id_costeo_estimado = "' . $idCosteoEstimado . '") AND (id_chofer = ' . $idChofer . ')';
+        $sql = 'SELECT id FROM proforma WHERE (id_pedido_cliente = ' . $idPedido . ') AND (id_viaje =  ' . $idViaje . ') AND (id_carga = ' . $idCarga . ') AND (id_costeo_estimado = "' . $idCosteoEstimado . '") AND (id_usuario = ' . $idChofer . ')';
 
         $resultado = $this->connection->query($sql);
 

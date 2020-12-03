@@ -6,18 +6,18 @@ class ProformaController
     private $render;
     private $loginModel;
     private $pedidoModel;
-    private $choferModel;
+    private $usuarioModel;
     private $imoClassModel;
     private $imoSubClassModel;
     private $proformaModel;
     private $qrModel;
 
-    public function __construct($render, $loginModel, $pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $proformaModel, $qrModel)
+    public function __construct($render, $loginModel, $pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $proformaModel, $qrModel)
     {
         $this->render = $render;
         $this->loginModel = $loginModel;
         $this->pedidoModel = $pedidoModel;
-        $this->choferModel = $choferModel;
+        $this->usuarioModel = $usuarioModel;
         $this->qrModel = $qrModel;
         $this->imoClassModel = $imoClassModel;
         $this->imoSubClassModel = $imoSubClassModel;
@@ -40,7 +40,7 @@ class ProformaController
         $data["pedidoContacto1"] = $pedido["contacto1"];
         $data["pedidocontacto2"] = $pedido["contacto2"];
 
-        $data["choferes"] = $this->choferModel->mostrarChoferes();
+        $data["choferes"] = $this->usuarioModel->mostrarChoferes();
 
         $data["imoClases"] = $this->imoClassModel->mostrarImoClases();
 

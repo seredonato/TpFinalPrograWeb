@@ -24,7 +24,6 @@ include_once("model/RegistroModel.php");
 include_once("model/UsuarioModel.php");
 include_once("model/EquipoModel.php");
 include_once("model/PedidoModel.php");
-include_once("model/ChoferModel.php");
 include_once("model/TractorModel.php");
 include_once("model/AcopladoModel.php");
 include_once("model/ImoClassModel.php");
@@ -146,10 +145,6 @@ class Configuration
 
     }
 
-    public function getChoferModel(){
-        $database = $this->getDatabase();
-        return new ChoferModel($database);
-    }
     public function getCargaModel(){
         $database = $this->getDatabase();
         return new CargaModel($database);
@@ -216,23 +211,23 @@ class Configuration
         $loginModel = $this->getLoginModel();
         $qrModel = $this->getQrModel();
         $pedidoModel = $this->getPedidoModel();
-        $choferModel = $this->getChoferModel();
+        $usuarioModel = $this->getUsuarioModel();
         $imoClassModel = $this->getImoClassModel();
         $imoSubClassModel = $this->getImoSubClassModel();
         $proformaModel = $this->getProformaModel();
-        return new ProformaController($this->getRender(),$loginModel,$pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $proformaModel,$qrModel);
+        return new ProformaController($this->getRender(),$loginModel,$pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $proformaModel,$qrModel);
 
     }
 
     public function getPdfProformaController(){
         $pedidoModel = $this->getPedidoModel();
-        $choferModel = $this->getChoferModel();
+        $usuarioModel = $this->getUsuarioModel();
         $imoClassModel = $this->getImoClassModel();
         $imoSubClassModel = $this->getImoSubClassModel();
         $cargaModel = $this->getCargaModel();
         $viajeModel = $this->getViajeModel();
         $proformaModel = $this->getProformaModel();
-        return new PdfProformaController($pedidoModel, $choferModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $proformaModel);
+        return new PdfProformaController($pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $proformaModel);
     }
 
     public function getQrController(){
