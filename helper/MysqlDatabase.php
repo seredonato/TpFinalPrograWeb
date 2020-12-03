@@ -45,9 +45,10 @@ class MysqlDatabase
 
         $resultado = $this->connection->query($sql);
         $rol = $resultado->fetch_assoc();
-
-
-        return $rol["rol"];
+        if(isset($rol["rol"])){
+            return $rol["rol"];
+        }
+        return null;
 
     }
 
@@ -343,7 +344,7 @@ class MysqlDatabase
 
     public function modificarTractor($id,$marca,$modelo,$nro_motor,$patente,$chasis)
     {
-        $sql = 'UPDATE tractor SET marca = "' . $marca . '", modelo = "' . $modelo . '", nro_motor = ' . $nro_motor . ', patente  = "' . $patente . '",chasis = ' . $chasis . ' WHERE id = ' . $id;
+        $sql = 'UPDATE tractor SET marca = "' . $marca . '", modelo = "' . $modelo . '", nro_motor = ' . $nro_motor . ', patente  = "' . $patente . '",chasis = "' . $chasis . '" WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
@@ -390,8 +391,8 @@ class MysqlDatabase
         return $this->connection->query($sql);
     }
 
-    public function editarCalendario($id,$descripcion,$fecha){
-        $sql = 'UPDATE calendarioServicio SET descripcion = "' . $descripcion . '", fecha = "' . $fecha . '"WHERE id = ' . $id;
+    public function editarCalendario($id,$fecha){
+        $sql = 'UPDATE calendarioServicio SET fecha = "' . $fecha . '"WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 }
