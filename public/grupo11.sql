@@ -1,3 +1,4 @@
+DROP DATABASE grupo11;
 CREATE DATABASE grupo11;
 USE grupo11;
 
@@ -13,20 +14,10 @@ CREATE TABLE usuario (
   fecha_nacimiento date,
   rol varchar(100),
   tipo_licencia varchar (100),
+  imagen varchar(180),
   PRIMARY KEY (id)
 );
 
-CREATE TABLE chofer (
-  id int AUTO_INCREMENT NOT NULL,
-  dni int NOT NULL,
-  email varchar(90) NOT NULL,
-  imagen varchar(180),
-  usuario varchar(90) NOT NULL,
-  nombre varchar(180) NOT NULL,
-  apellido varchar(180) NOT NULL,
-  tipo_licencia varchar (100),
-  PRIMARY KEY (id)
-);
 
 CREATE TABLE imoclass (
 clase dec(5,1),
@@ -170,13 +161,13 @@ id_viaje int,
 id_carga int,
 id_costeo_estimado int,
 id_costeo_final int,
-id_chofer int,
+id_usuario int,
 foreign key (id_pedido_cliente) references pedido_cliente(id),
 foreign key (id_viaje) references viaje(id),
 foreign key (id_carga) references carga(id),
 foreign key (id_costeo_estimado) references costeo_estimado(id),
 foreign key (id_costeo_final) references costeo_final(id),
-foreign key (id_chofer) references chofer(id)
+foreign key (id_usuario) references usuario(id)
 );
 
 ALTER TABLE pedido_cliente add id_proforma int AFTER contacto2;
@@ -192,11 +183,11 @@ VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "
 		(123, "sere@email.com", "sere", "202cb962ac59075b964b07152d234b70", "sere", "donato", 111111, "supervisor"),
 		(123, "fiore@email.com", "fiore", "202cb962ac59075b964b07152d234b70", "fiore", "coloca", 111111, "admin");
 
-INSERT INTO chofer (dni, email, imagen, usuario, nombre, apellido, tipo_licencia)
-VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1", "nombre chofer 1", "apellido", "A"),
-(40756984, "chofer2@email.com", "https://media.marcainformativa.com/adjuntos/269/imagenes/000/011/0000011059.jpg", "chofer2", "nombre chofer 2", "apellido2", "A"),
-(40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3", "nombre chofer 3", "apellido3", "A"),
-(50125698, "chofer4@email.com", "https://trabajamos.net/images/uploads/2012-08-08-17-40-05_867.jpg", "chofer4", "nombre chofer 4", "apellido4", "A");
+INSERT INTO usuario (dni, email, imagen, usuario, contrasenia, nombre, apellido, tipo_licencia)
+VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "nombre chofer 1", "apellido", "A"),
+(40756984, "chofer2@email.com", "https://media.marcainformativa.com/adjuntos/269/imagenes/000/011/0000011059.jpg", "chofer2", "202cb962ac59075b964b07152d234b70", "nombre chofer 2", "apellido2", "A"),
+(40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3",  "202cb962ac59075b964b07152d234b70", "nombre chofer 3", "apellido3", "A"),
+(50125698, "chofer4@email.com", "https://trabajamos.net/images/uploads/2012-08-08-17-40-05_867.jpg", "chofer4",  "202cb962ac59075b964b07152d234b70", "nombre chofer 4", "apellido4", "A");
 
 INSERT INTO imoclass (clase, descripcion)
 VALUES 	(1,"Explosivos"),

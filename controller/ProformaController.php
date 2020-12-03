@@ -95,7 +95,7 @@ class ProformaController
     }
 
     public function verFormulario(){
-
+        $data["login"] = $this->loginModel->ifSesionIniciada();
         $idViaje =  $_GET["idViaje"];
         $data["idViaje"] = $idViaje;
 

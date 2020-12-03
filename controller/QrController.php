@@ -5,16 +5,19 @@ class QrController
 {
     private $render;
     private $qrModel;
+    private $loginModel;
 
-    public function __construct($render, $qrModel)
+    public function __construct($render, $qrModel, $loginModel)
     {
         $this->render = $render;
         $this->qrModel = $qrModel;
+        $this->loginModel = $loginModel;
     }
 
     public function execute()
     {
-        echo $this->render->render("view/enviarQrView.php");
+        $data["login"] = $this->loginModel->ifSesionIniciada();
+        echo $this->render->render("view/enviarQrView.php", $data);
     }
 
     public function decodificarQr(){

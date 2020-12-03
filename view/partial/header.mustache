@@ -41,9 +41,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/transaff#quienes">¿Quiénes Somos?</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/qr">¿Q r?</a>
-                </li>
             </ul>
         </div>
         <div class="justify-content-end navbar-expand">
@@ -51,10 +48,10 @@
             <ul class="navbar-nav">
                 {{#login}}
                     {{#valorAdmin}}
-                    <li class="nav-item">
-                        <a href="/listaUsuario/mostrarUsuarios" class="nav-link"
-                           type="button">Ver lista de Usuarios</a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="/listaUsuario/mostrarUsuarios" class="nav-link"
+                               type="button">Ver lista de Usuarios</a>
+                        </li>
                     {{/valorAdmin}}
                     {{#valorSupervisor}}
                         <li class="nav-item">
@@ -72,12 +69,15 @@
                                type="button">Ver Equipos</a>
                         </li>
                     {{/valorSupervisor}}
-
-
-
+                    {{#valorChofer}}
+                        <li class="nav-item">
+                            <a href="/qr" class="nav-link"
+                               type="button">Ver Viajes</a>
+                        </li>
+                    {{/valorChofer}}
                     <li class="nav-item">
                         <a href="/login/desloguearse" class="nav-link"
-                          type="button">Cerrar
+                           type="button">Cerrar
                             Sesi&oacute;n</a>
                     </li>
                 {{/login}}
@@ -111,7 +111,8 @@
                         </div>
                         <form method="POST" action="/login/login">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="nombreUsuario" name=nombreUsuario placeholder="Nombre de Usuario">
+                                <input type="text" class="form-control" id="nombreUsuario" name=nombreUsuario
+                                       placeholder="Nombre de Usuario">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="password" name=contrasenia
@@ -124,7 +125,6 @@
             </div>
         </div>
     {{/login}}
-
 
 
 </header>

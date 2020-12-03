@@ -237,7 +237,8 @@ class Configuration
 
     public function getQrController(){
         $QrModel = $this->getQrModel();
-        return new QrController($this->getRender(), $QrModel);
+        $loginModel = $this->getLoginModel();
+        return new QrController($this->getRender(), $QrModel, $loginModel);
 
     }
 

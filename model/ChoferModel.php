@@ -10,12 +10,6 @@ class ChoferModel
         $this->database = $database;
     }
 
-    public function mostrarChoferes(){
-        return $this->database->mostrarChoferes();
-    }
 
-    public function mostrarChoferPorId($id){
-        return $this->database->mostrarChoferPorId($id);
-    }
 
 }

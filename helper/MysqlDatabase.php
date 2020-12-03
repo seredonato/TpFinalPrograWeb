@@ -112,7 +112,7 @@ class MysqlDatabase
 
     public function mostrarChoferes()
     {
-        $sql = 'SELECT * FROM chofer';
+        $sql = 'SELECT * FROM usuario where rol = chofer';
 
         $resultado = $this->connection->query($sql);
         $datos = array();
@@ -201,7 +201,7 @@ class MysqlDatabase
     }
 
     public function mostrarChoferPorId($id){
-        $sql = 'SELECT * FROM chofer WHERE id = ' . $id;
+        $sql = 'SELECT * FROM usuario WHERE id = ' . $id;
         $pedido = $this->connection->query($sql);
         return $pedido->fetch_assoc();
     }
