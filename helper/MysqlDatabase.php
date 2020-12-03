@@ -321,9 +321,9 @@ class MysqlDatabase
         return $this->connection->query($sql);
     }
 
-    public function modificarEquipo($id, $patente, $nro_chasis, $estadoEquipo,$fecha)
+    public function modificarEquipo($id, $patente, $estadoEquipo,$fecha)
     {
-        $sql = 'UPDATE equipo SET patente = "' . $patente . '", nro_chasis = ' . $nro_chasis . ', estado = "' . $estadoEquipo . '" , año_fabricacion = "' . $fecha . '"WHERE id = ' . $id;
+        $sql = 'UPDATE equipo SET patente = "' . $patente . '", estado = "' . $estadoEquipo . '" , año_fabricacion = "' . $fecha . '"WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 

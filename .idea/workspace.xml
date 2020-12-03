@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="" />
+    <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/PdfProformaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/PdfProformaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/proformaView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/proformaView.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +53,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dab7500f-94bc-4464-a51f-57d92dc704c8" name="Default Changelist" comment="" />
+      <changelist id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="" />
       <created>1604424110295</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -60,6 +64,8 @@
       <workItem from="1605025587566" duration="170000" />
       <workItem from="1605025852944" duration="106000" />
       <workItem from="1605025960413" duration="4821000" />
+      <workItem from="1606936873082" duration="605000" />
+      <workItem from="1606959029137" duration="3005000" />
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>

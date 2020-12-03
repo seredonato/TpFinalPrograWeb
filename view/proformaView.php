@@ -68,12 +68,12 @@
                                 <label for="tipo">Tipo de carga</label>
                                 <select id="tipo" name="tipo" class="form-control" style="margin-bottom: 2%" required>
                                     <option value="" selected>Tipo de cargas</option>
-                                    <option value="granel">Granel</option>
-                                    <option value="liquida">Liquida</option>
-                                    <option value="container20">Container 20''</option>
-                                    <option value="container40">Container 40''</option>
-                                    <option value="jaula">Jaula</option>
-                                    <option value="carCarrier">Car Carrier</option>
+                                    <option value="Granel">Granel</option>
+                                    <option value="Liquida">Liquida</option>
+                                    <option value="Container20">Container 20''</option>
+                                    <option value="Container40">Container 40''</option>
+                                    <option value="Jaula">Jaula</option>
+                                    <option value="CarCarrier">Car Carrier</option>
                                 </select>
 
                                 <label for="peso">Peso neto</label>
