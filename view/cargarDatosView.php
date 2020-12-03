@@ -5,7 +5,7 @@
     <div class="container text-center">
         <h2 class="titulosindex">Reporte</h2>
         <hr>
-        <form action="/reporte/guardarReporte" method="post" enctype="multipart/form-data" class="mt-3"></form>
+        <form action="/transaff" method="post" enctype="multipart/form-data" class="mt-3">
                     <div class="text-left">
                         <div class="form-row mt-4 mb-3">
                             <div class="col">
