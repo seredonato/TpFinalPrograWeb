@@ -14,8 +14,15 @@
                 {{#valorMecanico}}
                     <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark" style="float: right; font-size: 15px;">Eliminar</a>
                     <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" style="float: left;font-size: 15px;" >Modificar</a>
-                {{/valorMecanico}}
                     <a data-toggle="modal" data-target="#calendario{{id}}" type="button" class="btn btn-outline-dark ml-1" style="font-size: 15px;" >Calendario</a>
+                {{/valorMecanico}}
+
+                {{#valorSupervisor}}
+                    <form action="/listaTractor/verCalendario">
+                        <input type="hidden" value="{{id}}" name="id" id="id">
+                        <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Ver calendario</button>
+                    </form>
+                {{/valorSupervisor}}
                 </div>
 
             </div>
@@ -117,13 +124,6 @@
                         <input type="date" class="form-control" id="dia" name="dia"
                                required>
                     </div>
-
-                    <div class="form-group">
-                        <label for="tractor">Descripcion</label>
-                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ingresar descripcion.."
-                               required>
-                    </div>
-
                     <button type="submit" class="btn btn-dark btn-lg btn-block">Agregar</button>
                 </form>
                 <form action="/listaTractor/verCalendario">

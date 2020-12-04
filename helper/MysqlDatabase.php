@@ -370,7 +370,7 @@ class MysqlDatabase
     public function mostrarCalendarioPorIdTractor($id)
     {
         $estado = "no";
-        $sql = 'SELECT * FROM calendarioServicio WHERE id = "' . $id . '" AND eliminado = "' . $estado . '" ';
+        $sql = 'SELECT * FROM calendarioServicio WHERE id_tractor = "' . $id . '" AND eliminado = "' . $estado . '" ';
         $resultado = $this->connection->query($sql);
         $datos = array();
         while ($fila = $resultado->fetch_assoc()) {

@@ -1,27 +1,36 @@
+
+
 <div class="col-md-4 mb-4">
     <div class="card">
         <div class="card-body">
             <h4 class="card-title text-center"> Calendario </h4>
             <div style="text-align: left">
                 <form  method="POST" action="/ListaTractor/cambiarEstado/id_tractor={{id_tractor}}">
-                <p class="card-text">Descripcion: {{descripcion}}</p>
                 <h5 class="card-text">Fecha: {{fecha}}</h5>
+                {{#valorSupervisor}}
+                    <p class="card-text mt-3 mb-1">Estado: {{estado}}</p>
+                {{/valorSupervisor}}
                 <input type="hidden" value="{{id_tractor}}" name="id_tractor" id="id_tractor">
                 <label for="id">Id del calendario</label>
                 <textarea class="form-control" style="height: 36px" name="id" id="id" >{{id}}</textarea>
+                {{#valorMecanico}}
                     <select id="estado" name="estado" class="form-control mt-3">
                         <option value="{{estado}}"selected>Estado: {{estado}}</option>
-                        <option value="cumplido">Estado: cumplido</option>
-                        <option value="En espera">Estado: En espera</option>
+                        <option value="cumplido">Estado: Cumplido</option>
+                        <option value="En proceso">Estado: En proceso</option>
+                        <option value="Sin cumplir">Estado: Sin cumplir</option>
                     </select>
-
-                <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Enviar</button>
+                 {{/valorMecanico}}
+            {{#valorMecanico}}
+            <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Enviar</button>
+            {{/valorMecanico}}
                 </form>
-
+            {{#valorMecanico}}
                 <div style="text-align: center" class="mt-3">
                     <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark">Modificar</a>
                     <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark">Eliminar</a>
                 </div>
+            {{/valorMecanico}}
             </div>
         </div>
     </div>
@@ -63,7 +72,6 @@
 
                     <div class="form-group">
                         <label for="tractor">Descripcion</label>
-                        <input type="text" class="form-control" id="descripcion" name=descripcion value="{{descripcion}}" required>
                         <label for="tractor" class="mt-3">Fecha del Control del servicio</label>
                         <input type="date" class="form-control" id="fecha" name=fecha value="{{fecha}}" required>
                     </div>

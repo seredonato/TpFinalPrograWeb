@@ -8,13 +8,13 @@ class CalendarioModel
         $this->database = $database;
     }
 
-    public function registrarCalendarioTractor($id, $dia, $descripcion)
+    public function registrarCalendarioTractor($id, $dia)
     {
         $estado = "En espera";
         $eliminado = "no";
 
-        $sql = "INSERT INTO calendarioServicio(fecha,id_tractor,descripcion,estado,eliminado)
-                VALUES ('" . $dia . "'," . $id . ",'" . $descripcion . "','" . $estado . "','" . $eliminado . "')";
+        $sql = "INSERT INTO calendarioServicio(fecha,id_tractor,estado,eliminado)
+                VALUES ('" . $dia . "'," . $id . ",'" . $estado . "','" . $eliminado . "')";
         return $this->database->query($sql);
     }
 
@@ -31,8 +31,8 @@ class CalendarioModel
         return $this->database->eliminarCalendario($id);
     }
 
-    public function editarCalendario($id,$descripcion,$fecha){
-        return $this->database->editarCalendario($id,$descripcion,$fecha);
+    public function editarCalendario($id,$fecha){
+        return $this->database->editarCalendario($id,$fecha);
     }
 
 
