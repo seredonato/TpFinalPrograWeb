@@ -98,6 +98,7 @@ class ProformaController
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $idViaje =  $_GET["idViaje"];
         $data["idViaje"] = $idViaje;
+        $data["imoClases"] = $this->imoClassModel->mostrarImoClases();
 
         echo $this->render->render("view/cargarDatosView.php", $data);
 

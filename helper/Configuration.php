@@ -16,6 +16,7 @@ include_once ("controller/ListaPedidosController.php");
 include_once ("controller/ProformaController.php");
 include_once ("controller/PdfProformaController.php");
 include_once("controller/QrController.php");
+include_once("controller/ReporteController.php");
 
 
 include_once("model/CalendarioModel.php");
@@ -32,6 +33,7 @@ include_once("model/ProformaModel.php");
 include_once("model/CargaModel.php");
 include_once("model/ViajeModel.php");
 include_once ("model/QrModel.php");
+include_once ("model/ReporteModel.php");
 
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
@@ -243,7 +245,14 @@ class Configuration
         return new QrModel($database);
     }
 
+    public function getReporteController(){
+        $reporteModel = $this->getReporteModel();
+        $loginModel = $this->getLoginModel();
+        return new ReporteController($this->getRender(), $loginModel, $reporteModel);
+    }
 
-
-
+    public function getReporteModel(){
+        $database = $this->getDatabase();
+        return new ReporteModel($database);
+    }
 }

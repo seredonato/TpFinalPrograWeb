@@ -23,9 +23,7 @@ class LoginController
     public function execute()
 
     {
-
         echo $this->render->render("view/loginView.php");
-
     }
 
 
