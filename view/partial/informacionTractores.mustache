@@ -1,21 +1,32 @@
 <div class="col-md-4 mb-4">
     <div class="card choferes">
         <div class="card-body">
-            <h5 class="card-title"> Número de motor : {{nro_motor}}</h5>
+            <h5 class="card-title"> Marca : {{marca}}</h5>
             <div style="text-align: left">
                 <p class="card-text">ID: {{id}}</p>
                 <p class="card-text" style="float: left" >Modelo: {{modelo}}</p>
-                <p class="card-text" style="margin-left: 50%">Marca: {{marca}}</p>
-                <p class="card-text">Número de chasis: {{chasis}}</p>
-                <p class="card-text" style="float: left" >Kilometraje: {{kilometraje}}</p>
                 <p class="card-text" style="margin-left: 50%">Patente: {{patente}}</p>
+                <p class="card-text">Número de chasis: {{chasis}}</p>
+                <p class="card-text">Kilometraje: {{kilometraje}}</p>
+                <p class="card-text">Número de motor: {{nro_motor}}</p>
 
                 <div style="text-align: center">
+                {{#valorMecanico}}
                     <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark" style="float: right; font-size: 15px;">Eliminar</a>
                     <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" style="float: left;font-size: 15px;" >Modificar</a>
                     <a data-toggle="modal" data-target="#calendario{{id}}" type="button" class="btn btn-outline-dark ml-1" style="font-size: 15px;" >Calendario</a>
+                {{/valorMecanico}}
+
+                {{#valorSupervisor}}
+                    <form action="/listaTractor/verCalendario">
+                        <input type="hidden" value="{{id}}" name="id" id="id">
+                        <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Ver calendario</button>
+                    </form>
+                {{/valorSupervisor}}
                 </div>
+
             </div>
+
         </div>
     </div>
 </div>
@@ -113,13 +124,6 @@
                         <input type="date" class="form-control" id="dia" name="dia"
                                required>
                     </div>
-
-                    <div class="form-group">
-                        <label for="tractor">Descripcion</label>
-                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ingresar descripcion.."
-                               required>
-                    </div>
-
                     <button type="submit" class="btn btn-dark btn-lg btn-block">Agregar</button>
                 </form>
                 <form action="/listaTractor/verCalendario">

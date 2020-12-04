@@ -78,7 +78,6 @@ foreign key (id_acoplado) references acoplado(id));
 CREATE TABLE calendarioServicio(
 fecha date not null,
 id_tractor int not null,
-descripcion varchar(500),
 estado varchar(400),
 id int auto_increment not null,
 eliminado varchar(2),
@@ -181,7 +180,7 @@ INSERT INTO pedido_cliente (fecha_pedido, nombre_cliente, cuit_cliente ,email_cl
 INSERT INTO usuario (dni, email, usuario, contrasenia, nombre, apellido, fecha_nacimiento, rol)
 VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "franco", "reynoso", 111111, "admin"),
 		(123, "sere@email.com", "sere", "202cb962ac59075b964b07152d234b70", "sere", "donato", 111111, "supervisor"),
-		(123, "fiore@email.com", "fiore", "202cb962ac59075b964b07152d234b70", "fiore", "coloca", 111111, "admin");
+		(123, "fiore@email.com", "fiore", "202cb962ac59075b964b07152d234b70", "fiore", "coloca", 111111, "mecanico");
 
 INSERT INTO usuario (dni, email, imagen, usuario, contrasenia, nombre, apellido, tipo_licencia)
 VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "nombre chofer 1", "apellido", "A"),

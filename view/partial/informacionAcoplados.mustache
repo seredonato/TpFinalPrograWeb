@@ -5,10 +5,13 @@
             <p class="card-text">ID: {{id}}</p>
             <p class="card-text">Patente: {{patente}}</p>
             <p class="card-text">Chasis: {{chasis}}</p>
+                {{#valorMecanico}}
+
                 <div style="text-align: center">
                     <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
                     <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" style="float: left" >Modificar</a>
                 </div>
+                {{/valorMecanico}}
         </div>
     </div>
 </div>
