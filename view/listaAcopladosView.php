@@ -14,5 +14,4 @@
     {{/acoplados}}
     </div>
 </main>
-
 {{> footer}}
