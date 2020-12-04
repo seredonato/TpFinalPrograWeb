@@ -129,8 +129,8 @@ total long
 CREATE TABLE costeo_final (
 id int AUTO_INCREMENT NOT NULL,
 primary key (id),
-id_costeo_estimado int,
-foreign key (id_costeo_estimado) references costeo_estimado(id),
+id_viaje int,
+foreign key (id_viaje) references viaje(id),
 kilometros int,
 combustible int,
 tiempo_salida time,
@@ -139,12 +139,10 @@ viaticos int,
 peajes_pesajes int,
 extras int,
 hazard varchar(200),
-clase_imoclass dec(5,1),
-subclase_imosubclass dec(5,1),
-foreign key (clase_imoclass) references imoclass(clase),
-foreign key (subclase_imosubclass) references imosubclass(subclase),
 reefer varchar(200),
 fee int,
+latitud dec(9,6),
+longitud dec(9,6),
 total long
 );
 
