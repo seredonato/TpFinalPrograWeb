@@ -10,27 +10,33 @@ class EquipoModel
         $this->database = $database;
     }
 
-    public function registrarEquipo($año_fabricacion, $estadoEquipo, $patente)
+    public function registrarEquipo($id_acoplado,$id_tractor)
     {
         $eliminado = "no";
-        $equipoObtenidoPatente = $this->database->devolverEquipoPorPatente($patente);
+        $estado = "disponible";
+        $verificarAcopladoAsignado = $this->database->devolverAcopladosPorIdAsignados($id_acoplado);;
+        $verificarTractorAsignado = $this->database->devolverTractorPorIdAsignados($id_tractor);
 
-        if ($año_fabricacion == null || $estadoEquipo == null || $patente == null ) {
+        if ($id_acoplado == null || $id_tractor == null) {
             return "Ingrese todos los requerimientos";
-        }
-        if ($año_fabricacion == " " || $estadoEquipo == " " || $patente == " ") {
-            return "Ingrese todos los requerimientos";
-        } else
-            if (is_null($equipoObtenidoPatente)) {
-                    $sql = "INSERT INTO equipo (año_fabricacion,estado,patente,eliminado)
-        VALUES ('" . $año_fabricacion . "','" . $estadoEquipo . "','" . $patente . "','" . $eliminado . "')";
-
-                    return $this->database->query($sql);
-            } else {
-                return "Patente ya existente";
+        } else { if ($verificarAcopladoAsignado != null || $verificarTractorAsignado != null) {
+            return "Tractor y Acoplado ya existente, seleccione dentro de las opciones";
             }
+        }
+        $sql = "INSERT INTO equipo (eliminado,id_tractor,id_acoplado,estado)
+                VALUES ('" . $eliminado . "'," . $id_tractor . "," . $id_acoplado . ",'" . $estado . "')";
+        $this->database->cambiarEstadoTractorYAcopladoAEnUso($id_tractor, $id_acoplado);
+        return $this->database->query($sql);
+
     }
 
+    public function mostrarAcopladoSoloSinAsignar(){
+        return $this->database->mostrarAcopladoSoloSinAsignar();
+    }
+
+    public function mostrarTractorSoloSinAsignar(){
+        return $this->database->mostrarTractorSoloSinAsignar();
+    }
 
     public function mostrarEquipos()
     {
