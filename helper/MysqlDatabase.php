@@ -297,35 +297,43 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function eliminarEquipo($id)
+    public function eliminarEquipo($id,$id_acoplado,$id_tractor)
     {
-        $estado= "si";
-        $sql = 'UPDATE equipo SET eliminado = "' . $estado . '" WHERE id = ' . $id;
+        $estado = "Sin asignar";
+        $eliminado= "si";
+        $sql1 = 'UPDATE acoplado SET estado = "' . $estado . '" WHERE id = ' . $id_acoplado;
+        $sql2 = 'UPDATE tractor SET estado = "' . $estado . '" WHERE id = ' . $id_tractor;
+
+        $sql = 'UPDATE equipo SET eliminado = "' . $eliminado . '" WHERE id = ' . $id;
+         $this->connection->query($sql1);
+         $this->connection->query($sql2);
         return $this->connection->query($sql);
     }
 
-    public function devolverEquipoPorPatente($patente)
-    {
-        $estado="no";
-        $sql = 'SELECT patente FROM equipo WHERE patente = "' . $patente . '" AND eliminado ="' . $estado . '"';
-        $resultado = $this->connection->query($sql);
-        $patenteObtenida = $resultado->fetch_assoc();
-        if (isset($patenteObtenida["patente"])) {
-            return $patenteObtenida["patente"];
-        }
-    }
 
-    public function asignarAcopladoTractor($id_acoplado, $id_tractor, $id_equipo)
+    public function modificarEquipo($id,$acoplado,$tractor,$acopladoAnterior,$tractorAnterior)
     {
-        $sql = "UPDATE equipo 
-        SET id_tractor='$id_tractor',id_acoplado='$id_acoplado' WHERE id='$id_equipo'";
+        $estado1="Sin asignar";
+        $estado2="Asignado";
+        $sql = 'UPDATE equipo SET id_tractor = ' . $tractor . ', id_acoplado = '. $acoplado  .' WHERE id = ' . $id;
+        $sql1 ='UPDATE acoplado SET estado = "' . $estado1 . '" WHERE id = ' . $acopladoAnterior;
+        $sql2= 'UPDATE tractor SET estado = "' . $estado1 . '" WHERE id = ' . $tractorAnterior;
+        $sql3 ='UPDATE acoplado SET estado = "' . $estado2 . '" WHERE id = ' . $acoplado;
+        $sql4= 'UPDATE tractor SET estado = "' . $estado2 . '" WHERE id = ' . $tractor;
+        $this->connection->query($sql1);
+        $this->connection->query($sql2);
+        $this->connection->query($sql3);
+        $this->connection->query($sql4);
         return $this->connection->query($sql);
     }
 
-    public function modificarEquipo($id, $patente, $estadoEquipo,$fecha)
-    {
-        $sql = 'UPDATE equipo SET patente = "' . $patente . '", estado = "' . $estadoEquipo . '" , año_fabricacion = "' . $fecha . '"WHERE id = ' . $id;
-        return $this->connection->query($sql);
+    public function cambiarEstadoTractorYAcopladoAEnUso($id_tractor,$id_acoplado){
+        $sql = "UPDATE tractor 
+        SET estado='Asignado' WHERE id='$id_tractor'";
+        $sql2 = "UPDATE acoplado 
+        SET estado='Asignado' WHERE id='$id_acoplado'";
+         $this->connection->query($sql);
+        return $this->connection->query($sql2);
     }
 
 
@@ -350,15 +358,65 @@ class MysqlDatabase
 
     public function eliminarTractor($id)
     {
-        $estado= "si";
-        $sql = 'UPDATE tractor SET eliminado = "' . $estado . '" WHERE id = ' . $id;
+        $eliminado= "si";
+        $sql = 'UPDATE tractor SET eliminado = "' . $eliminado . '" WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
 
     public function mostrarTractorPorId($id){
-        $estado="no";
-        $sql = 'SELECT * FROM tractor WHERE id = "' . $id . '" AND eliminado = "' . $estado . '" ';
+        $eliminado="no";
+        $sql = 'SELECT * FROM tractor WHERE id = "' . $id . '" AND eliminado = "' . $eliminado . '"';
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function devolverTractorPorIdAsignados($id){
+        $eliminado="no";
+        $sql = 'SELECT * FROM tractor WHERE id = "' . $id . '" AND eliminado = "' . $eliminado . '" AND estado = "Asignado"';
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function devolverAcopladosPorIdAsignados($id){
+        $eliminado="no";
+        $sql = 'SELECT * FROM acoplado WHERE id = "' . $id . '" AND eliminado = "' . $eliminado . '" AND estado = "Asignado"';
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function mostrarAcopladoSoloSinAsignar(){
+        $eliminado = "no";
+        $estado = "Sin asignar";
+
+        $sql = "SELECT * FROM acoplado WHERE eliminado = '".$eliminado."' AND estado = '".$estado."' ";
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function mostrarTractorSoloSinAsignar(){
+        $eliminado = "no";
+        $estado = "Sin asignar";
+
+        $sql = "SELECT * FROM tractor WHERE eliminado = '".$eliminado."' AND estado = '".$estado."' ";
+
         $resultado = $this->connection->query($sql);
         $datos = array();
         while ($fila = $resultado->fetch_assoc()) {

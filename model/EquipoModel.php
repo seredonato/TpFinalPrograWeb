@@ -13,7 +13,7 @@ class EquipoModel
     public function registrarEquipo($id_acoplado,$id_tractor)
     {
         $eliminado = "no";
-        $estado = "disponible";
+        $estado = "Disponible";
         $verificarAcopladoAsignado = $this->database->devolverAcopladosPorIdAsignados($id_acoplado);;
         $verificarTractorAsignado = $this->database->devolverTractorPorIdAsignados($id_tractor);
 
@@ -43,9 +43,9 @@ class EquipoModel
         return $this->database->devolverEquipos();
     }
 
-    public function eliminarEquipo($id)
+    public function eliminarEquipo($id,$id_acoplado,$id_tractor)
     {
-        return $this->database->eliminarEquipo($id);
+        return $this->database->eliminarEquipo($id,$id_acoplado,$id_tractor);
     }
 
     public function asginarAcopladoTractor($id_acoplado, $id_tractor, $id_equipo)
@@ -53,9 +53,9 @@ class EquipoModel
         return $this->database->asignarAcopladoTractor($id_acoplado, $id_tractor, $id_equipo);
     }
 
-    public function modificaEquipo($id, $patente, $estadoEquipo,$fecha)
+    public function modificaEquipo($id,$acoplado,$tractor,$acopladoAnterior,$tractorAnterior)
     {
-        return $this->database->modificarEquipo($id, $patente, $estadoEquipo,$fecha);
+        return $this->database->modificarEquipo($id,$acoplado,$tractor,$acopladoAnterior,$tractorAnterior);
     }
 
 
