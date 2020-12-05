@@ -1,0 +1,18 @@
+<div id="errorModal" class="modal" style="display: block" role="dialog">
+    <div  class="modal-dialog">
+        <div  class="modal-content">
+            <div class="modal-header">
+                {{#errorUsuario}}
+                    <h4 class="modal-title">Usuario No Existe</h4>
+                {{/errorUsuario}}
+                {{#errorContraseña}}
+                    <h4 class="modal-title">Contraseña Incorrecta</h4>
+                {{/errorContraseña}}
+                <button onclick="document.getElementById('errorModal').style.display='none'" type="button" class="close">&times;</button>
+            </div>
+            <div class="modal-footer">
+                <button onclick="document.getElementById('errorModal').style.display='none'" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

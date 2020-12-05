@@ -37,27 +37,38 @@ class LoginController
 
         $result = $this->loginModel->loguearUsuario($nombreUsuario, $contrasenia);
 
-        $rol = $this->loginModel->getRolDeUsuario($nombreUsuario);
+        if (isset($result["logueado"]) && $result["logueado"] == true) {
+            $rol = $this->loginModel->getRolDeUsuario($nombreUsuario);
 
-        $_SESSION["nombreUsuario"] = $nombreUsuario;
-        $_SESSION["logueado"] = $result;
+            $_SESSION["nombreUsuario"] = $nombreUsuario;
+            $_SESSION["logueado"] = $result["logueado"];
 
-        $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
 
-        $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
-        $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
-        $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
-        $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
 
-        $data["valorAdmin"] = $valorAdmin;
-        $data["valorChofer"] = $valorChofer;
-        $data["valorMecanico"] = $valorMecanico;
-        $data["valorSupervisor"] = $valorSupervisor;
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
 
-        $data["login"] = $_SESSION["logueado"];
+            $data["login"] = $_SESSION["logueado"];
 
-        echo $this->render->render("view/inicio.php", $data);
+            echo $this->render->render("view/inicio.php", $data);
+        } elseif (isset($result["usuarioIncorrecto"]) && $result["usuarioIncorrecto"] == true) {
 
+            $data["errorUsuario"] = $result["usuarioIncorrecto"];
+            echo $this->render->render("view/inicio.php", $data);
+
+        } elseif (isset($result["contraseñaIncorrecta"]) && $result["contraseñaIncorrecta"] == true) {
+
+            $data["errorContraseña"] = $result["contraseñaIncorrecta"];
+            echo $this->render->render("view/inicio.php", $data);
+
+        }
     }
 
 
