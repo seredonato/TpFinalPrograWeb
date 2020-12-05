@@ -158,12 +158,21 @@ class PdfProformaController
         $pdf->Cell(40, 5, 'Hazard', 1, 0, '');
         $pdf->Cell(60, 5, $carga["hazard"], 1, 1, 'C');
         $pdf->SetXY(106, 90);
-        $pdf->Cell(40, 5, 'Clase del Hazard', 1, 0, '');
-        $pdf->Cell(60, 5, $carga["clase_imoclass"], 1, 1, 'C');
-        $pdf->SetXY(106, 95);
-        $pdf->Cell(40, 5, 'Subclase del Hazard', 1, 0, '');
-        $pdf->Cell(60, 5, $carga["subclase_imosubclass"], 1, 1, 'C');
-        $pdf->SetXY(106, 100);
+        if (isset($carga["hazard"])){
+            $pdf->Cell(40, 5, 'Clase del Hazard', 1, 0, '');
+            $pdf->Cell(60, 5, $carga["clase_imoclass"], 1, 1, 'C');
+            $pdf->SetXY(106, 95);
+            $pdf->Cell(40, 5, 'Subclase del Hazard', 1, 0, '');
+            $pdf->Cell(60, 5, $carga["subclase_imosubclass"], 1, 1, 'C');
+            $pdf->SetXY(106, 100);
+        }else{
+            $pdf->Cell(40, 5, 'Clase del Hazard', 1, 0, '');
+            $pdf->Cell(60, 5, 'X', 1, 1, 'C');
+            $pdf->SetXY(106, 95);
+            $pdf->Cell(40, 5, 'Subclase del Hazard', 1, 0, '');
+            $pdf->Cell(60, 5, 'X', 1, 1, 'C');
+            $pdf->SetXY(106, 100);
+        }
         $pdf->Cell(40, 5, 'Refrigeracion', 1, 0, '');
         $pdf->Cell(60, 5, $carga["reefer"], 1, 1, 'C');
         $pdf->SetXY(106, 105);
