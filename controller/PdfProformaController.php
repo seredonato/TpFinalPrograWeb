@@ -158,14 +158,14 @@ class PdfProformaController
         $pdf->Cell(40, 5, 'Hazard', 1, 0, '');
         $pdf->Cell(60, 5, $carga["hazard"], 1, 1, 'C');
         $pdf->SetXY(106, 90);
-        if (isset($carga["hazard"])){
+        if ($carga["hazard"] == "si") {
             $pdf->Cell(40, 5, 'Clase del Hazard', 1, 0, '');
             $pdf->Cell(60, 5, $carga["clase_imoclass"], 1, 1, 'C');
             $pdf->SetXY(106, 95);
             $pdf->Cell(40, 5, 'Subclase del Hazard', 1, 0, '');
             $pdf->Cell(60, 5, $carga["subclase_imosubclass"], 1, 1, 'C');
             $pdf->SetXY(106, 100);
-        }else{
+        } elseif ($carga["hazard"] == "no") {
             $pdf->Cell(40, 5, 'Clase del Hazard', 1, 0, '');
             $pdf->Cell(60, 5, 'X', 1, 1, 'C');
             $pdf->SetXY(106, 95);
@@ -173,35 +173,45 @@ class PdfProformaController
             $pdf->Cell(60, 5, 'X', 1, 1, 'C');
             $pdf->SetXY(106, 100);
         }
+
         $pdf->Cell(40, 5, 'Refrigeracion', 1, 0, '');
         $pdf->Cell(60, 5, $carga["reefer"], 1, 1, 'C');
         $pdf->SetXY(106, 105);
-        $pdf->Cell(40, 5, 'Refrigeracion', 1, 0, '');
-        $pdf->Cell(60, 5, $carga["temperatura"], 1, 1, 'C');
-        $pdf->SetXY(106, 110);
-        $pdf->Cell(40, 5, '', 1, 0, '');
-        $pdf->Cell(60, 5, '', 1, 1, '');
-        $pdf->Ln(2);
+        if ($carga["reefer"] == "si") {
 
+            $pdf->Cell(40, 5, 'Refrigeracion', 1, 0, '');
+            $pdf->Cell(60, 5, $carga["temperatura"], 1, 1, 'C');
+            $pdf->SetXY(106, 110);
+            $pdf->Cell(40, 5, '', 1, 0, '');
+            $pdf->Cell(60, 5, '', 1, 1, '');
+            $pdf->Ln(2);
+        }elseif ( $carga["reefer"] == "no"){
+            $pdf->Cell(40, 5, 'Refrigeracion', 1, 0, '');
+            $pdf->Cell(60, 5, "X", 1, 1, 'C');
+            $pdf->SetXY(106, 110);
+            $pdf->Cell(40, 5, '', 1, 0, '');
+            $pdf->Cell(60, 5, '', 1, 1, '');
+            $pdf->Ln(2);
+        }
         //HAZARD
-
-        $pdf->SetRightMargin(3);
-        $pdf->SetLeftMargin(3);
-        $pdf->Cell(0, 8, '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------', 0, 1, 'C');
-        $pdf->SetFont('helvetica', 'b', 12);
-        $pdf->Cell(0, 8, 'EN CASO DE QUE LA CARGA TENGA HAZARD', 1, 1, 'C', 6);
-        $pdf->SetFont('helvetica', '', 9);
-        $pdf->Cell(60, 5, 'Carga de clase tipo', 1, 0, '');
-        $pdf->Cell(144, 5, $carga["clase_imoclass"], 1, 1, 'C');
-        $pdf->Cell(60, 5, 'Descripcion Clase', 1, 0, '');
-        $pdf->Cell(144, 5, utf8_decode($imoClass["descripcion"]), 1, 1, 'C');
-        $pdf->Cell(60, 5, 'Sub-Clase designada', 1, 0, '');
-        $pdf->Cell(144, 5, $carga["subclase_imosubclass"], 1, 1, 'C');
-        $pdf->Cell(60, 10, 'Descripcion', 1, 0, '');
-        $pdf->MultiCell(144, 10, utf8_decode($imoSubClass["descripcion"]), 1, 'C');
-        $pdf->Cell(0, 8, '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------', 0, 1, 'C');
-        $pdf->Ln(2);
-
+        if ($carga["hazard"] == "si") {
+            $pdf->SetRightMargin(3);
+            $pdf->SetLeftMargin(3);
+            $pdf->Cell(0, 8, '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------', 0, 1, 'C');
+            $pdf->SetFont('helvetica', 'b', 12);
+            $pdf->Cell(0, 8, 'EN CASO DE QUE LA CARGA TENGA HAZARD', 1, 1, 'C', 6);
+            $pdf->SetFont('helvetica', '', 9);
+            $pdf->Cell(60, 5, 'Carga de clase tipo', 1, 0, '');
+            $pdf->Cell(144, 5, $carga["clase_imoclass"], 1, 1, 'C');
+            $pdf->Cell(60, 5, 'Descripcion Clase', 1, 0, '');
+            $pdf->Cell(144, 5, utf8_decode($imoClass["descripcion"]), 1, 1, 'C');
+            $pdf->Cell(60, 5, 'Sub-Clase designada', 1, 0, '');
+            $pdf->Cell(144, 5, $carga["subclase_imosubclass"], 1, 1, 'C');
+            $pdf->Cell(60, 10, 'Descripcion', 1, 0, '');
+            $pdf->MultiCell(144, 10, utf8_decode($imoSubClass["descripcion"]), 1, 'C');
+            $pdf->Cell(0, 8, '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------', 0, 1, 'C');
+            $pdf->Ln(2);
+        }
 
         $pdf->Output();
     }
