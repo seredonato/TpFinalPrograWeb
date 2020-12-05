@@ -22,10 +22,19 @@ class ProformaModel
 
     public function guardarCargaReturneaId($tipo, $peso, $hazardSi, $imoClass, $imoSubClass, $temperaturaSi, $temperatura)
     {
-
-        $sql = 'INSERT INTO carga (tipo, peso_neto, hazard, clase_imoclass, subclase_imosubclass, reefer, temperatura)
+        if ($hazardSi == "si" && $temperaturaSi == "si") {
+            $sql = 'INSERT INTO carga (tipo, peso_neto, hazard, clase_imoclass, subclase_imosubclass, reefer, temperatura)
                 VALUES ("' . $tipo . '", ' . $peso . ', "' . $hazardSi . '", "' . $imoClass . '", "' . $imoSubClass . '",  "' . $temperaturaSi . '", ' . $temperatura . ')';
-
+        } elseif ($hazardSi == "no" && $temperaturaSi == "si") {
+            $sql = 'INSERT INTO carga (tipo, peso_neto, hazard, reefer, temperatura)
+                VALUES ("' . $tipo . '", ' . $peso . ', "' . $hazardSi . '", "' . $temperaturaSi . '", ' . $temperatura . ')';
+        } elseif ($hazardSi == "si" && $temperaturaSi == "no") {
+            $sql = 'INSERT INTO carga (tipo, peso_neto, hazard, clase_imoclass, subclase_imosubclass, reefer)
+                VALUES ("' . $tipo . '", ' . $peso . ', "' . $hazardSi . '", "' . $imoClass . '", "' . $imoSubClass . '",  "' . $temperaturaSi . '")';
+        } elseif ($hazardSi == "no" && $temperaturaSi == "no") {
+            $sql = 'INSERT INTO carga (tipo, peso_neto, hazard, reefer)
+                VALUES ("' . $tipo . '", ' . $peso . ', "' . $hazardSi . '", "' . $temperaturaSi . '")';
+        }
         $this->database->query($sql);
 
         return $this->database->cargaReturneaId($tipo, $peso, $hazardSi);
@@ -64,7 +73,8 @@ class ProformaModel
     }
 
 
-    public function mostrarProformaPorId($id){
+    public function mostrarProformaPorId($id)
+    {
         return $this->database->mostrarProformaPorId($id);
     }
 

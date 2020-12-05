@@ -2,7 +2,6 @@ DROP DATABASE grupo11;
 CREATE DATABASE grupo11;
 USE grupo11;
 
-
 CREATE TABLE usuario (
   id int AUTO_INCREMENT NOT NULL,
   dni int NOT NULL,

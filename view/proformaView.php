@@ -93,9 +93,9 @@
                                            required name="hazardSi">
                                 </div>
 
-                                <div id="hazard" style="display: none">
+                                <div id="imoclass" style="display: none">
                                     <select id="imoclass" name="imoClass" class="form-control" style="margin-bottom: 2%">
-                                        <option value="" selected>Clases - Descripcion</option>
+                                        <option value="0" selected>Clases - Descripcion</option>
                                         {{#imoClases}}
                                         <option value="{{clase}}">{{clase}} - {{descripcion}}</option>
                                         {{/imoClases}}
@@ -103,7 +103,7 @@
 
                                     <select id="imoSubClases" name="imoSubClass" class="form-control"
                                             style="margin-bottom: 2%">
-                                        <option value="" selected>Clases - Subclase - Descripcion de subclase</option>
+                                        <option value="0" selected>Clases - Subclase - Descripcion de subclase</option>
                                         {{#imoSubClases}}
                                         <option value="{{subclase}}">{{clase}} - {{subclase}} - {{descripcion}}</option>
                                         {{/imoSubClases}}
