@@ -207,7 +207,9 @@ class listaTractorController
             $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractor($id);
 
             echo $this->render->render("view/listaCalendario.php", $data);
-        }            echo $this->render->render("view/inicio.php", $data);
+        }  else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
 
     }
 
@@ -235,7 +237,9 @@ class listaTractorController
             $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractor($idTractor);
 
             echo $this->render->render("view/listaCalendario.php", $data);
-        }             echo $this->render->render("view/inicio.php", $data);
+        }         else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
 
 }
 
@@ -261,7 +265,9 @@ class listaTractorController
             $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractor($id_tractor);
 
             echo $this->render->render("view/listaCalendario.php", $data);
-        }  echo $this->render->render("view/inicio.php", $data);
+        }  else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 
     public function cambiarEstado()
@@ -292,7 +298,37 @@ class listaTractorController
             echo $this->render->render("view/listaCalendario.php", $data);
 
         }
-        echo $this->render->render("view/inicio.php", $data);
+        else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
+    }
+
+
+    public function verTractorPorId()
+    {
+        $data["login"] = $this->loginModel->ifSesionIniciada();
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
+
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
+
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            $id = $_GET["id"];
+            $data["tractores"] = $this->tractorModel->devolverTractorPorIdAsignados($id);
+
+            echo $this->render->render("view/listaTractoresView.php", $data);
+
+        } else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 
 }

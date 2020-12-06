@@ -45,7 +45,9 @@ class ListaEquipoController
             $data["tractores"] = $this->equipoModel->mostrarTractorSoloSinAsignar();
 
             echo $this->render->render("view/listaEquipoView.php", $data);
-        }   echo $this->render->render("view/inicio.php", $data);
+        }  else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 
     public function registroEquipo()
@@ -125,24 +127,47 @@ class ListaEquipoController
             $data["tractores"] = $this->equipoModel->mostrarTractorSoloSinAsignar();
 
             echo $this->render->render("view/listaEquipoView.php", $data);
-        }       echo $this->render->render("view/inicio.php", $data);
+        }   else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 
     public function modificarEquipo(){
-        $id = $_POST["id"];
-        $acoplado = $_POST["acoplado"];
-        $acopladoAnterior = $_GET["idAcopladoAnterior"];
-        $tractorAnterior = $_GET["idTractorAnterior"];
-        $tractor= $_POST["tractor"];
-
-        $result = $this->equipoModel->modificaEquipo($id,$acoplado,$tractor,$acopladoAnterior,$tractorAnterior);
-
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $data["equipos"] = $this->equipoModel->mostrarEquipos();
-        $data["acoplados"] = $this->equipoModel->mostrarAcopladoSoloSinAsignar();
-        $data["tractores"] = $this->equipoModel->mostrarTractorSoloSinAsignar();
 
-        echo $this->render->render("view/listaEquipoView.php",$data);
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
+
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
+
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+
+            $id = $_POST["id"];
+            $acoplado = $_POST["acoplado"];
+            $acopladoAnterior = $_GET["idAcopladoAnterior"];
+            $tractorAnterior = $_GET["idTractorAnterior"];
+            $tractor = $_POST["tractor"];
+
+            $result = $this->equipoModel->modificaEquipo($id, $acoplado, $tractor, $acopladoAnterior, $tractorAnterior);
+
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            $data["equipos"] = $this->equipoModel->mostrarEquipos();
+            $data["acoplados"] = $this->equipoModel->mostrarAcopladoSoloSinAsignar();
+            $data["tractores"] = $this->equipoModel->mostrarTractorSoloSinAsignar();
+
+            echo $this->render->render("view/listaEquipoView.php", $data);
+        }   else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 
 }

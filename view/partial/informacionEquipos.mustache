@@ -1,17 +1,28 @@
 <div class="col-md-4 mb-4">
     <div class="card choferes">
         <div class="card-body">
-            <h5 class="card-title"> Patente : {{patente}}</h5>
-            <div style="text-align: left">
-                <p class="card-text" style="float: left">ID: {{id}}</p>
-                <p class="card-text" style="margin-left: 50%">año fabricacion: {{año_fabricacion}}</p>
-                <p class="card-text">Disponible: {{estado}}</p>
+            <h4 class="card-title"> EQUIPO número {{id}}</h4>
+                <p class="card-text">Estado: {{estado}}</p>
+
+                <h5> Tractor:</h5>
+                    <p class="card-text">Modelo: {{modelo}}</p>
+                    <p class="card-text">Patente: {{t_patente}}</p>
+                    <p class="card-text">Kilometraje: {{kilometraje}}</p>
+                    <form action="ListaTractor/verTractorPorId/id={{id_tractor}}" enctype="multipart/form-data" method="get" >
+                    <button type="submit" class="btn btn-outline-dark btn-block mb-3">Ver mas..</button>
+                    </form>
+                    <h5> Acoplado: {{tipo_acoplado}}</h5>
+                    <p class="card-text">Patente: {{a_patente}}</p>
+                    <form action="ListaAcoplado/verAcopladoPorId/id={{id_acoplado}}" enctype="multipart/form-data" method="get" >
+                    <button type="submit" class="btn btn-outline-dark btn-block mb-3">Ver mas..</button>
+                    </form>
+            {{#valorMecanico}}
                 <div style="text-align: center">
-                    <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
-                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" style="float: left">Modificar</a>
+                    <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-outline-dark" >Eliminar</a>
+                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" >Modificar</a>
                 </div>
+            {{/valorMecanico}}
             </div>
-        </div>
     </div>
 </div>
 
