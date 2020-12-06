@@ -187,19 +187,19 @@ class PdfProformaController
         $pdf->SetXY(106, 143);
         $pdf->Cell(40, 5, 'Refrigeracion', 0, 0, '');
         $pdf->Cell(60, 5, $carga["reefer"], 0, 1, 'C');
-        $pdf->SetXY(106, 105);
+        $pdf->SetXY(106, 148);
         if ($carga["reefer"] == "si") {
 
             $pdf->Cell(40, 5, 'Refrigeracion', 0, 0, '');
             $pdf->Cell(60, 5, $carga["temperatura"], 0, 1, 'C');
-            $pdf->SetXY(106, 148);
+            $pdf->SetXY(106, 153);
             $pdf->Cell(40, 5, '', 0, 0, '');
             $pdf->Cell(60, 5, '', 0, 1, '');
             $pdf->Ln(2);
         }elseif ( $carga["reefer"] == "no"){
             $pdf->Cell(40, 5, 'Refrigeracion', 0, 0, '');
             $pdf->Cell(60, 5, "X", 0, 1, 'C');
-            $pdf->SetXY(106, 148);
+            $pdf->SetXY(106, 153);
             $pdf->Cell(40, 5, '', 0, 0, '');
             $pdf->Cell(60, 5, '', 0, 1, '');
             $pdf->Ln(2);
