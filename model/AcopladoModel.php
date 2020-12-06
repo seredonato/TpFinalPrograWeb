@@ -32,6 +32,10 @@ class AcopladoModel
         return $this->database->devolverAcoplado();
     }
 
+    public function devolverAcopladosPorIdAsignados($id){
+        return $this->database->devolverAcopladosPorIdAsignados($id);
+    }
+
     public function modificarAcoplado($id,$tipo,$patente,$chasis){
         return $this->database->modificarAcoplado($id,$tipo,$patente,$chasis);
     }
