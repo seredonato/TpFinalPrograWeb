@@ -27,21 +27,29 @@ class LoginModel
 
         for ($i = 0; $i < sizeof($table); $i++) {
 
-            if ($table[$i]["usuario"] == $nombreUsuario && $table[$i]["contrasenia"] == $contraseniaEncriptada) {
+            if ($table[$i]["usuario"] == $nombreUsuario) {
+                if ($table[$i]["contrasenia"] == $contraseniaEncriptada) {
 
-                $_SESSION["logueado"] = true; //antes estaba 1
-
-                return true;
-
+                    $_SESSION["logueado"] = true;
+                    $result["logueado"] = true;
+                    return $result;
+                } else {
+                    $result["contraseñaIncorrecta"] = true;
+                    return $result;
+                }
+            } else {
+                $result["usuarioIncorrecto"] = true;
+                return $result;
             }
 
         }
-
-        return false;
+        $result["logueado"] = false;
+        return $result;
 
     }
 
-    public function getRolDeUsuario($nombreDeUsuario){
+    public function getRolDeUsuario($nombreDeUsuario)
+    {
 
         $rol = $this->database->devolverUnUsuarioPorNombreDeUsuario($nombreDeUsuario);
 
@@ -50,59 +58,67 @@ class LoginModel
 
     }
 
-    public function confirmarRolUsuario($rol){
+    public function confirmarRolUsuario($rol)
+    {
 
-        if ($rol == "admin"){
+        if ($rol == "admin") {
 
             return 1;
 
-        }elseif ($rol == "chofer"){
+        } elseif ($rol == "chofer") {
 
             return 2;
 
-        }elseif ($rol == "mecanico"){
+        } elseif ($rol == "mecanico") {
 
             return 3;
 
-        }elseif ($rol == "supervisor"){
+        } elseif ($rol == "supervisor") {
 
             return 4;
 
-        }else {
+        } else {
             return 0;
         }
 
     }
 
-    public function confirmarAdmin($rol){
+    public function confirmarAdmin($rol)
+    {
 
-        if ($rol == 1){
+        if ($rol == 1) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
     }
-    public function confirmarChofer($rol){
-        if ($rol == 2){
+
+    public function confirmarChofer($rol)
+    {
+        if ($rol == 2) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
     }
-    public function confirmarMecanico($rol){
-        if ($rol == 3){
+
+    public function confirmarMecanico($rol)
+    {
+        if ($rol == 3) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
     }
-    public function confirmarSupervisor($rol){
-        if ($rol == 4){
+
+    public function confirmarSupervisor($rol)
+    {
+        if ($rol == 4) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
