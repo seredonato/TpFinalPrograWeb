@@ -305,4 +305,3 @@ VALUES 	("Araña",	"AA100AS",	585822, "no"),
 		("CarCarrier",	"AD103LO",	732404, "no"),
 		("CarCarrier",	"AD104WE",	732880, "no"),
 		("CarCarrier",	"AD105ZP",	733355, "no");
- 
