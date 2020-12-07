@@ -21,6 +21,7 @@ CREATE TABLE usuario (
 CREATE TABLE imoclass (
 clase dec(5,1),
 descripcion varchar(600),
+precio int,
 PRIMARY KEY (clase)
 );
 
@@ -110,6 +111,8 @@ tiempo_llegada time NOT NULL
 CREATE TABLE costeo_estimado (
 id int AUTO_INCREMENT NOT NULL,
 primary key (id),
+id_viaje int,
+foreign key (id_viaje) references viaje(id),
 kilometros int NOT NULL,
 combustible int NOT NULL,
 tiempo_salida time NOT NULL,
@@ -117,10 +120,8 @@ tiempo_llegada time NOT NULL,
 viaticos int NOT NULL,
 peajes_pesajes int,
 extras int,
-hazard varchar(200),
-clase_imoclass dec(5,1),
-foreign key (clase_imoclass) references imoclass(clase),
-reefer varchar(200),
+hazard int,
+reefer int,
 fee int,
 total long
 );
@@ -137,15 +138,31 @@ tiempo_llegada time,
 viaticos int,
 peajes_pesajes int,
 extras int,
-hazard varchar(200),
-reefer varchar(200),
+hazard int,
+reefer int,
+fee int,
+total long
+);
+
+
+CREATE TABLE reporte(
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+id_viaje int,
+foreign key (id_viaje) references viaje(id),
+fecha datetime,
+kilometros int,
+combustible int,
+tiempo_salida time,
+tiempo_llegada time,
+viaticos int,
+peajes_pesajes int,
+extras int,
 fee int,
 latitud dec(9,6),
 longitud dec(9,6),
 total long
 );
-
-
 
 
 CREATE TABLE proforma(
@@ -164,6 +181,16 @@ foreign key (id_carga) references carga(id),
 foreign key (id_costeo_estimado) references costeo_estimado(id),
 foreign key (id_costeo_final) references costeo_final(id),
 foreign key (id_usuario) references usuario(id)
+);
+
+
+CREATE TABLE precio(
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+temperatura int,
+kilometro int,
+litro int,
+peaje int
 );
 
 ALTER TABLE pedido_cliente add id_proforma int AFTER contacto2;
@@ -186,20 +213,20 @@ VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images
 (40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3",  "202cb962ac59075b964b07152d234b70", "nombre chofer 3", "apellido3", "A", 111111, "chofer"),
 (50125698, "chofer4@email.com", "https://trabajamos.net/images/uploads/2012-08-08-17-40-05_867.jpg", "chofer4",  "202cb962ac59075b964b07152d234b70", "nombre chofer 4", "apellido4", "A", 111111, "chofer");
 
-INSERT INTO imoclass (clase, descripcion)
-VALUES 	(1,"Explosivos"),
-		(2,"Gases inflamables"),
-		(3,"Liquidos inflamables"),
-		(4.1,"Sustancias y solidos inflamables"),
-		(4.2,"Solidos inflamables"),
-		(4.3,"Sustancias que, en contacto con el agua, emiten gases inflamables."),
-		(5.1,"Sustancias oxidantes (agentes) que al producir oxígeno aumentan el riesgo y la intensidad del fuego"),
-		(5.2,"Peróxidos orgánicos: la mayoría se queman rápidamente y son sensibles al impacto o la fricción."),
-		(6.1,"Sustancias toxicas"),
-		(6.2,"Sustancias infecciosas"),
-		(7,"Sustancias radioactivas"),
-		(8,"Corrosivos"),
-        (9,"Sustancias y artículos peligrosos diversos")
+INSERT INTO imoclass (clase, descripcion, precio)
+VALUES 	(1,"Explosivos", 2345),
+		(2,"Gases inflamables", 2400),
+		(3,"Liquidos inflamables", 3900),
+		(4.1,"Sustancias y solidos inflamables", 3022),
+		(4.2,"Solidos inflamables", 3000),
+		(4.3,"Sustancias que, en contacto con el agua, emiten gases inflamables.", 4000),
+		(5.1,"Sustancias oxidantes (agentes) que al producir oxígeno aumentan el riesgo y la intensidad del fuego", 5000),
+		(5.2,"Peróxidos orgánicos: la mayoría se queman rápidamente y son sensibles al impacto o la fricción.", 4500),
+		(6.1,"Sustancias toxicas", 2450),
+		(6.2,"Sustancias infecciosas", 3024),
+		(7,"Sustancias radioactivas", 4000),
+		(8,"Corrosivos", 3242),
+        (9,"Sustancias y artículos peligrosos diversos", 3245)
 ;
 
 INSERT INTO imosubclass (clase, subclase, descripcion)
@@ -305,3 +332,5 @@ VALUES 	("Araña",	"AA100AS",	585822, "no"),
 		("CarCarrier",	"AD103LO",	732404, "no"),
 		("CarCarrier",	"AD104WE",	732880, "no"),
 		("CarCarrier",	"AD105ZP",	733355, "no");
+      
+INSERT INTO precio(temperatura, kilometro, litro, peaje) VALUES (450, 10, 60, 70);        
