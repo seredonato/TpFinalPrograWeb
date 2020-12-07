@@ -21,7 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/controller/ListaEquipoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ListaEquipoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper/MysqlDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/MysqlDatabase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/EquipoModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/EquipoModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/informacionEquipos.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/informacionEquipos.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/PdfProformaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/PdfProformaController.php" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +66,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -161,5 +168,9 @@
       <screen x="0" y="0" width="1365" height="680" />
     </state>
     <state x="0" y="0" width="714" height="680" key="find.popup/0.0.1365.680@0.0.1365.680" timestamp="1604428280867" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1607204490763">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1607204490763" />
   </component>
 </project>
