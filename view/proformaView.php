@@ -128,7 +128,7 @@
                                     <label for="temperatura">Temperatura</label>
                                     <input type="number" class="form-control"
                                            style="margin-bottom: 2%" placeholder="Temperatura en Cº"
-                                           required name="temperatura">
+                                           name="temperatura">
                                 </div>
                             </div>
                             <div>

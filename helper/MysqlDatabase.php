@@ -490,10 +490,13 @@ class MysqlDatabase
     {
         $sql = 'SELECT precio FROM imoClass where clase =' . $imoClass;
         $resultado = $this->connection->query($sql);
-
         $precio = $resultado->fetch_assoc();
+        if(isset($precio["precio"])){
 
-        return $precio["precio"];
+            return $precio["precio"];
+        }
+
+
 
     }
 
