@@ -51,16 +51,20 @@ class ProformaModel
         }
     }
 
-    public function guardarCosteoEstimadoReturneaId($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $imoClass, $reeferCosto, $fee, $total)
+    public function guardarCosteoEstimadoReturneaId($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $imoClass, $reeferCosto, $fee)
     {
 
         if ($hazardSi == "si") {
             $hazardCosto = $this->database->devolverCostoHazard($imoClass);
+            $total = $this->calcularTotal($kilometros, $combustible, $viaticos, $peajes, $extras, $fee , $hazardCosto, $reeferCosto);
+
             $sql = 'INSERT INTO costeo_estimado (id_viaje, kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, reefer, fee, total)
                 VALUES (' . $idViaje . ',' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ',' . $hazardCosto . ', ' . $reeferCosto . ',  ' . $fee . ', ' . $total . ')';
 
         } elseif ($hazardSi == "no") {
             $hazardCosto =  0;
+            $total = $this->calcularTotal($kilometros, $combustible, $viaticos, $peajes, $extras, $fee , $hazardCosto, $reeferCosto);
+
             $sql = 'INSERT INTO costeo_estimado (id_viaje, kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, reefer, fee, total)
                 VALUES (' . $idViaje . ',' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ', ' . $hazardCosto . ', ' . $reeferCosto . ',  ' . $fee . ', ' . $total . ')';
         }
@@ -70,17 +74,17 @@ class ProformaModel
         return $this->database->costeoEstimadoReturneaId($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $hazardCosto);
     }
 
-    public function enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer)
+    public function enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer, $idEquipo)
     {
-        $sql = 'INSERT INTO proforma (fecha, id_pedido_cliente, id_viaje, id_carga, id_costeo_estimado, id_usuario)
-                VALUES (curdate(), ' . $idPedido . ', ' . $idViaje . ', ' . $idCarga . ', ' . $idCosteoEstimado . ', ' . $idChofer . ')';
+        $sql = 'INSERT INTO proforma (fecha, id_pedido_cliente, id_viaje, id_carga, id_costeo_estimado, id_usuario, $id_equipo)
+                VALUES (curdate(), ' . $idPedido . ', ' . $idViaje . ', ' . $idCarga . ', ' . $idCosteoEstimado . ', ' . $idChofer . ', ' . $idEquipo . ')';
 
         return $this->database->query($sql);
     }
 
-    public function mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer)
+    public function mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer, $idEquipo)
     {
-        return $this->database->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
+        return $this->database->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer, $idEquipo);
     }
 
 
@@ -89,4 +93,17 @@ class ProformaModel
         return $this->database->mostrarProformaPorId($id);
     }
 
+    public function calcularTotal($kilometros, $combustible, $viaticos, $peajes, $extras, $fee, $hazardCosto, $reeferCosto){
+        $precioKilometro = $this->database->obtenerPrecioPorKm();
+        $precioLitro = $this->database->obtenerPrecioPorLitro();
+        $precioPeaje = $this->database->obtenerPrecioDePeaje();
+
+        $kilometrosFinal = $kilometros * $precioKilometro;
+        $combustibleFinal = $combustible * $precioLitro;
+        $peajeFinal = $peajes * $precioPeaje;
+
+        $total = $peajeFinal + $kilometrosFinal + $combustibleFinal + $viaticos + $extras + $fee + $hazardCosto + $reeferCosto;
+
+        return $total;
+    }
 }

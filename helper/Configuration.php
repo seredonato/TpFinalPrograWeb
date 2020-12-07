@@ -216,8 +216,9 @@ class Configuration
         $usuarioModel = $this->getUsuarioModel();
         $imoClassModel = $this->getImoClassModel();
         $imoSubClassModel = $this->getImoSubClassModel();
+        $equipoModel = $this->getEquipoModel();
         $proformaModel = $this->getProformaModel();
-        return new ProformaController($this->getRender(),$loginModel,$pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $proformaModel,$qrModel);
+        return new ProformaController($this->getRender(),$loginModel,$pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $proformaModel,$equipoModel,$qrModel);
 
     }
 
