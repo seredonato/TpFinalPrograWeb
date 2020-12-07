@@ -66,10 +66,10 @@
                         </li>
                     {{/valorSupervisor}}
                     {{#valorMecanico}}
-                            <li class="nav-item">
-                                <a href="/ListaEquipo" class="nav-link"
-                                   type="button">Ver Equipos</a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="/ListaEquipo" class="nav-link"
+                               type="button">Ver Equipos</a>
+                        </li>
                     {{/valorMecanico}}
 
                     {{#valorChofer}}
@@ -92,6 +92,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/registro">Registro</a>
                     </li>
+                    {{#errorUsuario}}
+                        {{> errorLogin}}
+                    {{/errorUsuario}}
+                    {{#errorContraseña}}
+                        {{> errorLogin}}
+                    {{/errorContraseña}}
                 {{/login}}
             </ul>
         </div>

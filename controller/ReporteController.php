@@ -20,7 +20,7 @@ class ReporteController
         echo $this->render->render("view/inicio.php", $data);
     }
 
-    public function guardarCosteo()
+    public function guardarReporte()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $idViaje = $_GET["idViaje"];
@@ -31,14 +31,20 @@ class ReporteController
         $viaticos = $_POST["viaticos"];
         $peajes = $_POST["peajes"];
         $extras = $_POST["extras"];
-        $hazardClass = $_POST["hazardClass"];
-        $reeferCosto = $_POST["reeferCosto"];
         $fee = $_POST["fee"];
         $latitud = $_POST["latitud"];
         $longitud = $_POST["longitud"];
 
-        $this->reporteModel->guardarCosteoFinal($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes,
-            $extras, $hazardClass, $reeferCosto, $fee, $latitud, $longitud);
+        $resultado = $this->reporteModel->verificarSiYaHizoReporte($idViaje);
+
+        if($resultado == 0) {
+            $this->reporteModel->guardarReporte($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes,
+                $extras, $fee, $latitud, $longitud);
+        }else{
+            $resultado2 = "Ya ha realizado un reporte en el día de la fecha sobre este viaje";
+            $data["reporteError"] = $resultado2;
+            echo $this->render->render("view/enviarQrView.php", $data);
+        }
 
         echo $this->render->render("view/inicio.php", $data);
     }

@@ -128,7 +128,7 @@
                                     <label for="temperatura">Temperatura</label>
                                     <input type="number" class="form-control"
                                            style="margin-bottom: 2%" placeholder="Temperatura en Cº"
-                                           required name="temperatura">
+                                           name="temperatura">
                                 </div>
                             </div>
                             <div>
@@ -189,19 +189,6 @@
                                 <input type="number" class="form-control" style="margin-bottom: 2%"
                                        placeholder="Extras estimado"
                                        required name="extras">
-
-                                <label for="hazardClass">Hazard</label>
-                                <select id="hazardClass" name="hazardClass" class="form-control" style="margin-bottom: 2%">
-                                    <option value="" selected>Clases - Descripcion</option>
-                                    {{#imoClases}}
-                                    <option value="{{clase}}">{{clase}} - {{descripcion}}</option>
-                                    {{/imoClases}}
-                                </select>
-
-                                <label for="reeferCosto">Reefer</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%"
-                                       placeholder="Reefer estimado"
-                                       required name="reeferCosto">
 
                                 <label for="fee">Fee</label>
                                 <input type="number" class="form-control" style="margin-bottom: 2%"

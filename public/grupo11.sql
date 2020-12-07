@@ -21,6 +21,7 @@ CREATE TABLE usuario (
 CREATE TABLE imoclass (
 clase dec(5,1),
 descripcion varchar(600),
+precio int,
 PRIMARY KEY (clase)
 );
 
@@ -54,6 +55,7 @@ nro_motor int not null,
 chasis varchar(100) not null,
 kilometraje int,
 eliminado varchar(40),
+estado varchar(40),
 id int AUTO_INCREMENT NOT NULL,
 primary key (id));
 
@@ -62,6 +64,7 @@ tipo_acoplado varchar(100),
 patente varchar(100),
 chasis int not null,
 eliminado varchar(40),
+estado varchar(40),
 id int AUTO_INCREMENT NOT NULL,
 primary key (id));
 
@@ -69,6 +72,7 @@ CREATE TABLE equipo(
 eliminado varchar(40),
 id_tractor int,
 id_acoplado int,
+estado varchar(40),
 id int AUTO_INCREMENT NOT NULL,
 primary key (id),
 foreign key (id_Tractor) references tractor(id),
@@ -110,6 +114,8 @@ tiempo_llegada time NOT NULL
 CREATE TABLE costeo_estimado (
 id int AUTO_INCREMENT NOT NULL,
 primary key (id),
+id_viaje int,
+foreign key (id_viaje) references viaje(id),
 kilometros int NOT NULL,
 combustible int NOT NULL,
 tiempo_salida time NOT NULL,
@@ -117,10 +123,8 @@ tiempo_llegada time NOT NULL,
 viaticos int NOT NULL,
 peajes_pesajes int,
 extras int,
-hazard varchar(200),
-clase_imoclass dec(5,1),
-foreign key (clase_imoclass) references imoclass(clase),
-reefer varchar(200),
+hazard int,
+reefer int,
 fee int,
 total long
 );
@@ -137,15 +141,31 @@ tiempo_llegada time,
 viaticos int,
 peajes_pesajes int,
 extras int,
-hazard varchar(200),
-reefer varchar(200),
+hazard int,
+reefer int,
+fee int,
+total long
+);
+
+
+CREATE TABLE reporte(
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+id_viaje int,
+foreign key (id_viaje) references viaje(id),
+fecha datetime,
+kilometros int,
+combustible int,
+tiempo_salida time,
+tiempo_llegada time,
+viaticos int,
+peajes_pesajes int,
+extras int,
 fee int,
 latitud dec(9,6),
 longitud dec(9,6),
 total long
 );
-
-
 
 
 CREATE TABLE proforma(
@@ -166,6 +186,16 @@ foreign key (id_costeo_final) references costeo_final(id),
 foreign key (id_usuario) references usuario(id)
 );
 
+
+CREATE TABLE precio(
+id int AUTO_INCREMENT NOT NULL,
+primary key (id),
+temperatura int,
+kilometro int,
+litro int,
+peaje int
+);
+
 ALTER TABLE pedido_cliente add id_proforma int AFTER contacto2;
 
 INSERT INTO pedido_cliente (fecha_pedido, nombre_cliente, cuit_cliente ,email_cliente ,telefono_cliente ,direccion_cliente ,contacto1 ,contacto2)
@@ -181,26 +211,27 @@ VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "
 		(123, "fiore@email.com", "fiore", "202cb962ac59075b964b07152d234b70", "fiore", "coloca", 111111, "mecanico"),
         (123, "abril@email.com", "abril", "202cb962ac59075b964b07152d234b70", "abril", "lopez ducas", 111111, "mecanico");
 
-INSERT INTO usuario (dni, email, imagen, usuario, contrasenia, nombre, apellido, tipo_licencia)
-VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "nombre chofer 1", "apellido", "A"),
-(40756984, "chofer2@email.com", "https://media.marcainformativa.com/adjuntos/269/imagenes/000/011/0000011059.jpg", "chofer2", "202cb962ac59075b964b07152d234b70", "nombre chofer 2", "apellido2", "A"),
-(40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3",  "202cb962ac59075b964b07152d234b70", "nombre chofer 3", "apellido3", "A"),
-(50125698, "chofer4@email.com", "https://trabajamos.net/images/uploads/2012-08-08-17-40-05_867.jpg", "chofer4",  "202cb962ac59075b964b07152d234b70", "nombre chofer 4", "apellido4", "A");
 
-INSERT INTO imoclass (clase, descripcion)
-VALUES 	(1,"Explosivos"),
-		(2,"Gases inflamables"),
-		(3,"Liquidos inflamables"),
-		(4.1,"Sustancias y solidos inflamables"),
-		(4.2,"Solidos inflamables"),
-		(4.3,"Sustancias que, en contacto con el agua, emiten gases inflamables."),
-		(5.1,"Sustancias oxidantes (agentes) que al producir oxígeno aumentan el riesgo y la intensidad del fuego"),
-		(5.2,"Peróxidos orgánicos: la mayoría se queman rápidamente y son sensibles al impacto o la fricción."),
-		(6.1,"Sustancias toxicas"),
-		(6.2,"Sustancias infecciosas"),
-		(7,"Sustancias radioactivas"),
-		(8,"Corrosivos"),
-        (9,"Sustancias y artículos peligrosos diversos")
+INSERT INTO usuario (dni, email, imagen, usuario, contrasenia, nombre, apellido, tipo_licencia, fecha_nacimiento, rol)
+VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "nombre chofer 1", "apellido", "A", 111111, "chofer"),
+(40756984, "chofer2@email.com", "https://media.marcainformativa.com/adjuntos/269/imagenes/000/011/0000011059.jpg", "chofer2", "202cb962ac59075b964b07152d234b70", "nombre chofer 2", "apellido2", "A", 111111, "chofer"),
+(40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3",  "202cb962ac59075b964b07152d234b70", "nombre chofer 3", "apellido3", "A", 111111, "chofer"),
+(50125698, "chofer4@email.com", "https://trabajamos.net/images/uploads/2012-08-08-17-40-05_867.jpg", "chofer4",  "202cb962ac59075b964b07152d234b70", "nombre chofer 4", "apellido4", "A", 111111, "chofer");
+
+INSERT INTO imoclass (clase, descripcion, precio)
+VALUES 	(1,"Explosivos", 2345),
+		(2,"Gases inflamables", 2400),
+		(3,"Liquidos inflamables", 3900),
+		(4.1,"Sustancias y solidos inflamables", 3022),
+		(4.2,"Solidos inflamables", 3000),
+		(4.3,"Sustancias que, en contacto con el agua, emiten gases inflamables.", 4000),
+		(5.1,"Sustancias oxidantes (agentes) que al producir oxígeno aumentan el riesgo y la intensidad del fuego", 5000),
+		(5.2,"Peróxidos orgánicos: la mayoría se queman rápidamente y son sensibles al impacto o la fricción.", 4500),
+		(6.1,"Sustancias toxicas", 2450),
+		(6.2,"Sustancias infecciosas", 3024),
+		(7,"Sustancias radioactivas", 4000),
+		(8,"Corrosivos", 3242),
+        (9,"Sustancias y artículos peligrosos diversos", 3245)
 ;
 
 INSERT INTO imosubclass (clase, subclase, descripcion)
@@ -225,84 +256,89 @@ VALUES 	(1, 1.1, "Explosivos que tienen un riesgo de explosión masiva. Explosio
 		(8, 8.1, "Materiales corrosivos, un líquido o sólido que causa la destrucción total de la piel humana en el sitio de contacto dentro de un período de tiempo especificado."),
 		(9, 9.1, "Un material que presenta un peligro durante el transporte pero que no cumple con la definición de ninguna otra clase de peligro.")
         ;
+      
+INSERT INTO precio(temperatura, kilometro, litro, peaje) VALUES (450, 10, 60, 70);        
 
-INSERT INTO tractor (marca, modelo, patente, nro_motor, chasis, kilometraje, eliminado)
-VALUES 	("IVECO","Cursor","AA123CD",53879558,"L53879558",0,"no"),
-		("IVECO","Cursor","AA124DC",69904367,"R69904367",0,"no"),
-		("IVECO","Cursor","AD200XS",57193968,"R57193968",0,"no"),
-		("IVECO","Cursor","AA211ZX",82836641,"N82836641",0,"no"),
-		("IVECO","Cursor","AC452WE",28204636,"R28204636",0,"no"),
-		("IVECO","Cursor","AA233SS",26139668,"K26139668",0,"no"),
-		("IVECO","Cursor","AB900QW",44301415,"F44301415",0,"no"),
-		("IVECO","Cursor","AC342WW",44260023,"D44260023",0,"no"),
-		("SCANIA","G310","AA150QW",82039512,"I82039512",0,"no"),
-		("SCANIA","G410","AB198QZ",18389741,"V18389741",0,"no"),
-		("SCANIA","G460","AC246QD",62500687,"O62500687",0,"no"),
-		("SCANIA","G310","AD294QW",27510702,"T27510702",0,"no"),
-		("SCANIA","G410","AA342QZ",72582865,"C72582865",0,"no"),
-		("SCANIA","G460","AB390QD",32041290,"Z32041290",0,"no"),
-		("SCANIA","G310","AC438QW",54712451,"W54712451",0,"no"),
-		("SCANIA","G410","AD486QZ",56284263,"L56284263",0,"no"),
-		("SCANIA","G460","AA534QD",21357689,"A21357689",0,"no"),
-		("M.BENZ","Actros 1846","AB582QW",17800122,"V17800122",0,"no"),
-		("M.BENZ","Actros 1846","AC630QZ",88648319,"G88648319",0,"no"),
-		("M.BENZ","Actros 1846","AD678QD",23849041,"C23849041",0,"no"),
-		("M.BENZ","Actros 1846","AA726QW",54650513,"C54650513",0,"no"),
-		("M.BENZ","Actros 1846","AB774QZ",46753468,"J46753468",0,"no"),
-		("M.BENZ","Actros 1846","AC822QD",60916748,"J60916748",0,"no"),
-		("M.BENZ","Actros 1846","AD870QW",30207594,"M30207594",0,"no"),
-		("M.BENZ","Actros 1846","AA918QZ",31256965,"C31256965",0,"no"),
-		("M.BENZ","Actros 1846","AB966QD",32632699,"B32632699",0,"no"),
-		("M.BENZ","Actros 1846","AC989QW",64092078,"F64092078",0,"no");
+        
+INSERT INTO tractor (marca, modelo, patente, nro_motor, chasis, kilometraje, eliminado,estado)
+VALUES 	("IVECO","Cursor","AA123CD",53879558,"L53879558",0,"no","Sin asignar"),
+		("IVECO","Cursor","AA124DC",69904367,"R69904367",0,"no","Sin asignar"),
+		("IVECO","Cursor","AD200XS",57193968,"R57193968",0,"no","Sin asignar"),
+		("IVECO","Cursor","AA211ZX",82836641,"N82836641",0,"no","Sin asignar"),
+		("IVECO","Cursor","AC452WE",28204636,"R28204636",0,"no","Sin asignar"),
+		("IVECO","Cursor","AA233SS",26139668,"K26139668",0,"no","Sin asignar"),
+		("IVECO","Cursor","AB900QW",44301415,"F44301415",0,"no","Sin asignar"),
+		("IVECO","Cursor","AC342WW",44260023,"D44260023",0,"no","Sin asignar"),
+		("SCANIA","G310","AA150QW",82039512,"I82039512",0,"no","Sin asignar"),
+		("SCANIA","G410","AB198QZ",18389741,"V18389741",0,"no","Sin asignar"),
+		("SCANIA","G460","AC246QD",62500687,"O62500687",0,"no","Sin asignar"),
+		("SCANIA","G310","AD294QW",27510702,"T27510702",0,"no","Sin asignar"),
+		("SCANIA","G410","AA342QZ",72582865,"C72582865",0,"no","Sin asignar"),
+		("SCANIA","G460","AB390QD",32041290,"Z32041290",0,"no","Sin asignar"),
+		("SCANIA","G310","AC438QW",54712451,"W54712451",0,"no","Sin asignar"),
+		("SCANIA","G410","AD486QZ",56284263,"L56284263",0,"no","Sin asignar"),
+		("SCANIA","G460","AA534QD",21357689,"A21357689",0,"no","Sin asignar"),
+		("M.BENZ","Actros 1846","AB582QW",17800122,"V17800122",0,"no","Sin asignar"),
+		("M.BENZ","Actros 1846","AC630QZ",88648319,"G88648319",0,"no","Sin asignar"),
+		("M.BENZ","Actros 1846","AD678QD",23849041,"C23849041",0,"no","Sin asignar"),
+		("M.BENZ","Actros 1846","AA726QW",54650513,"C54650513",0,"no","Sin asignar"),
+		("M.BENZ","Actros 1846","AB774QZ",46753468,"J46753468",0,"no","Sin asignar"),
+		("M.BENZ","Actros 1846","AC822QD",60916748,"J60916748",0,"no","Sin asignar"),
+		("M.BENZ","Actros 1846","AD870QW",30207594,"M30207594",0,"no","Sin asignar"),
+		("M.BENZ","Actros 1846","AA918QZ",31256965,"C31256965",0,"no","Sin asignar"),
+		("M.BENZ","Actros 1846","AB966QD",32632699,"B32632699",0,"no","Sin asignar"),
+		("M.BENZ","Actros 1846","AC989QW",64092078,"F64092078",0,"no","Sin asignar");
 
-INSERT INTO acoplado (tipo_acoplado,patente,chasis,eliminado)
-VALUES 	("Araña",	"AA100AS",	585822, "no"),
-		("Araña",	"AC125AD",	605737, "no"),
-		("Araña",	"AB135AG",	705687, "no"),
-		("Araña",	"AD166AS",	815082, "no"),
-		("Araña",	"AA189AD",	775167, "no"),
-		("Araña",	"AC208AG",	642287, "no"),
-		("Araña",	"AB230AS",	678666, "no"),
-		("Araña",	"AD252AD",	758967, "no"),
-		("Araña",	"AA274AG",	498515, "no"),
-		("Jaula",	"AC296AS",	882174, "no"),
-		("Jaula",	"AB318AD",	595287, "no"),
-		("Jaula",	"AD340AG",	549916, "no"),
-		("Jaula",	"AA362AS",	831768, "no"),
-		("Jaula",	"AC383AD",	535330, "no"),
-		("Tanque",	"AB405AG",	583419, "no"),
-		("Tanque",	"AD427AS",	703673, "no"),
-		("Tanque",	"AA449AD",	884654, "no"),
-		("Tanque",	"AC471AG",	510019, "no"),
-		("Tanque",	"AB493AS",	595948, "no"),
-		("Tanque",	"AD515AD",	704640, "no"),
-		("Tanque",	"AA537AG",	752105, "no"),
-		("Tanque",	"AC559AS",	554550, "no"),
-		("Granel",	"AB581AD",	761560, "no"),
-		("Granel",	"AD602AG",	555608, "no"),
-		("Granel",	"AA624AS",	852157, "no"),
-		("Granel",	"AC646AD",	710797, "no"),
-		("Granel",	"AB668AG",	815072, "no"),
-		("Granel",	"AD690AS",	495851, "no"),
-		("Granel",	"AA712AD",	468708, "no"),
-		("Granel",	"AC734AG",	661897, "no"),
-		("Granel",	"AB756AS",	616372, "no"),
-		("Granel",	"AD778AD",	873758, "no"),
-		("Granel",	"AA800AG",	820810, "no"),
-		("Araña",	"AC821AS",	731202, "no"),
-		("Araña",	"AB843AD",	670323, "no"),
-		("Araña",	"AD865AG",	747642, "no"),
-		("Araña",	"AA887AS",	777450, "no"),
-		("Araña",	"AC909AD",	485098, "no"),
-		("Araña",	"AB931AG",	806730, "no"),
-		("Araña",	"AD953AS",	729910, "no"),
-		("Araña",	"AA975AD",	726457, "no"),
-		("Araña",	"AC997AG",	730861, "no"),
-		("CarCarrier",	"AD100AZ",	730027, "no"),
-		("CarCarrier",	"AD100AQ",	730502, "no"),
-		("CarCarrier",	"AD100ER",	730978, "no"),
-		("CarCarrier",	"AD101EF",	731453, "no"),
-		("CarCarrier",	"AD102HG",	731929, "no"),
-		("CarCarrier",	"AD103LO",	732404, "no"),
-		("CarCarrier",	"AD104WE",	732880, "no"),
-		("CarCarrier",	"AD105ZP",	733355, "no");
+INSERT INTO acoplado (tipo_acoplado,patente,chasis,eliminado,estado)
+VALUES 	("Araña",	"AA100AS",	585822, "no","Sin asignar"),
+		("Araña",	"AC125AD",	605737, "no","Sin asignar"),
+		("Araña",	"AB135AG",	705687, "no","Sin asignar"),
+		("Araña",	"AD166AS",	815082, "no","Sin asignar"),
+		("Araña",	"AA189AD",	775167, "no","Sin asignar"),
+		("Araña",	"AC208AG",	642287, "no","Sin asignar"),
+		("Araña",	"AB230AS",	678666, "no","Sin asignar"),
+		("Araña",	"AD252AD",	758967, "no","Sin asignar"),
+		("Araña",	"AA274AG",	498515, "no","Sin asignar"),
+		("Jaula",	"AC296AS",	882174, "no","Sin asignar"),
+		("Jaula",	"AB318AD",	595287, "no","Sin asignar"),
+		("Jaula",	"AD340AG",	549916, "no","Sin asignar"),
+		("Jaula",	"AA362AS",	831768, "no","Sin asignar"),
+		("Jaula",	"AC383AD",	535330, "no","Sin asignar"),
+		("Tanque",	"AB405AG",	583419, "no","Sin asignar"),
+		("Tanque",	"AD427AS",	703673, "no","Sin asignar"),
+		("Tanque",	"AA449AD",	884654, "no","Sin asignar"),
+		("Tanque",	"AC471AG",	510019, "no","Sin asignar"),
+		("Tanque",	"AB493AS",	595948, "no","Sin asignar"),
+		("Tanque",	"AD515AD",	704640, "no","Sin asignar"),
+		("Tanque",	"AA537AG",	752105, "no","Sin asignar"),
+		("Tanque",	"AC559AS",	554550, "no","Sin asignar"),
+		("Granel",	"AB581AD",	761560, "no","Sin asignar"),
+		("Granel",	"AD602AG",	555608, "no","Sin asignar"),
+		("Granel",	"AA624AS",	852157, "no","Sin asignar"),
+		("Granel",	"AC646AD",	710797, "no","Sin asignar"),
+		("Granel",	"AB668AG",	815072, "no","Sin asignar"),
+		("Granel",	"AD690AS",	495851, "no","Sin asignar"),
+		("Granel",	"AA712AD",	468708, "no","Sin asignar"),
+		("Granel",	"AC734AG",	661897, "no","Sin asignar"),
+		("Granel",	"AB756AS",	616372, "no","Sin asignar"),
+		("Granel",	"AD778AD",	873758, "no","Sin asignar"),
+		("Granel",	"AA800AG",	820810, "no","Sin asignar"),
+		("Araña",	"AC821AS",	731202, "no","Sin asignar"),
+		("Araña",	"AB843AD",	670323, "no","Sin asignar"),
+		("Araña",	"AD865AG",	747642, "no","Sin asignar"),
+		("Araña",	"AA887AS",	777450, "no","Sin asignar"),
+		("Araña",	"AC909AD",	485098, "no","Sin asignar"),
+		("Araña",	"AB931AG",	806730, "no","Sin asignar"),
+		("Araña",	"AD953AS",	729910, "no","Sin asignar"),
+		("Araña",	"AA975AD",	726457, "no","Sin asignar"),
+		("Araña",	"AC997AG",	730861, "no","Sin asignar"),
+		("CarCarrier",	"AD100AZ",	730027, "no","Sin asignar"),
+		("CarCarrier",	"AD100AQ",	730502, "no","Sin asignar"),
+		("CarCarrier",	"AD100ER",	730978, "no","Sin asignar"),
+		("CarCarrier",	"AD101EF",	731453, "no","Sin asignar"),
+		("CarCarrier",	"AD102HG",	731929, "no","Sin asignar"),
+		("CarCarrier",	"AD103LO",	732404, "no","Sin asignar"),
+		("CarCarrier",	"AD104WE",	732880, "no","Sin asignar"),
+		("CarCarrier",	"AD105ZP",	733355, "no","Sin asignar");
+
+
