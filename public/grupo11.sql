@@ -172,12 +172,14 @@ INSERT INTO pedido_cliente (fecha_pedido, nombre_cliente, cuit_cliente ,email_cl
                 VALUES 	( curdate(), "Franco Reynoso", 20123456781, "franco@email.com", 1123569658, "Larrea 2458", "Larrea 5000", "San Martin 2693"),
 						( curdate(), "Serena Donato", 20365894161, "sere@email.com", 1123569658, "Pedro Algo 2878", "Nose 2600", "San Juan 2113"),
 						( curdate(), "Fiorella Coloca", 20254781021, "fiore@email.com", 1123569658, "Jujuy 158", "Algo 200", "San Telmo 93"),
-						( curdate(), "Juan Perez", 20123456781, "juan@email.com", 1123569658, "Jejox 58", "Pepe 69", "Martinez 23");
+						( curdate(), "Abril Lopez Ducas", 20350706827, "abril@email.com", 1123569658, "La Paz 2264", "Claro 89", "San Carlos 700"),
+                        ( curdate(), "Juan Perez", 20123456781, "juan@email.com", 1123569658, "Jejox 58", "Pepe 69", "Martinez 23");
 
 INSERT INTO usuario (dni, email, usuario, contrasenia, nombre, apellido, fecha_nacimiento, rol)
 VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "franco", "reynoso", 111111, "admin"),
 		(123, "sere@email.com", "sere", "202cb962ac59075b964b07152d234b70", "sere", "donato", 111111, "supervisor"),
-		(123, "fiore@email.com", "fiore", "202cb962ac59075b964b07152d234b70", "fiore", "coloca", 111111, "mecanico");
+		(123, "fiore@email.com", "fiore", "202cb962ac59075b964b07152d234b70", "fiore", "coloca", 111111, "mecanico"),
+        (123, "abril@email.com", "abril", "202cb962ac59075b964b07152d234b70", "abril", "lopez ducas", 111111, "mecanico");
 
 INSERT INTO usuario (dni, email, imagen, usuario, contrasenia, nombre, apellido, tipo_licencia)
 VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "nombre chofer 1", "apellido", "A"),
@@ -223,7 +225,7 @@ VALUES 	(1, 1.1, "Explosivos que tienen un riesgo de explosión masiva. Explosio
 		(8, 8.1, "Materiales corrosivos, un líquido o sólido que causa la destrucción total de la piel humana en el sitio de contacto dentro de un período de tiempo especificado."),
 		(9, 9.1, "Un material que presenta un peligro durante el transporte pero que no cumple con la definición de ninguna otra clase de peligro.")
         ;
- 
+
 INSERT INTO tractor (marca, modelo, patente, nro_motor, chasis, kilometraje, eliminado)
 VALUES 	("IVECO","Cursor","AA123CD",53879558,"L53879558",0,"no"),
 		("IVECO","Cursor","AA124DC",69904367,"R69904367",0,"no"),
@@ -304,4 +306,3 @@ VALUES 	("Araña",	"AA100AS",	585822, "no"),
 		("CarCarrier",	"AD103LO",	732404, "no"),
 		("CarCarrier",	"AD104WE",	732880, "no"),
 		("CarCarrier",	"AD105ZP",	733355, "no");
- 
