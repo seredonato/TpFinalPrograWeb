@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/PdfProformaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/PdfProformaController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,7 @@
       <workItem from="1607023801947" duration="6219000" />
       <workItem from="1607124358463" duration="3005000" />
       <workItem from="1607202430196" duration="6487000" />
-      <workItem from="1607271750922" duration="6138000" />
+      <workItem from="1607271750922" duration="7074000" />
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>
@@ -111,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607203069139</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="arregle el pdf lo hice mas lindo">
+      <created>1607281671716</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607281671716</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,7 +140,8 @@
     <MESSAGE value="segui con el tema del pdf" />
     <MESSAGE value="creo que arregle todo lo que tiene que ver con la proforma sin hazard ni temperatura" />
     <MESSAGE value="no se agregaba la puta abse de datos diossss" />
-    <option name="LAST_COMMIT_MESSAGE" value="no se agregaba la puta abse de datos diossss" />
+    <MESSAGE value="arregle el pdf lo hice mas lindo" />
+    <option name="LAST_COMMIT_MESSAGE" value="arregle el pdf lo hice mas lindo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="162" y="0" key="#CLI_Interpreters" timestamp="1604424176261">
