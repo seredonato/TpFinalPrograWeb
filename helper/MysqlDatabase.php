@@ -282,13 +282,13 @@ class MysqlDatabase
         $estado = "no";
 
 
-        $sql = "select e.id,e.id_tractor,e.id_acoplado,e.estado,t.marca,
+        $sql = 'select e.id,e.id_tractor,e.id_acoplado,e.estado,t.marca,
         t.modelo,t.patente as t_patente,t.nro_motor,t.chasis as t_chasis,t.kilometraje,
         a.tipo_acoplado,a.patente as a_patente,a.chasis as a_chasis
         from equipo as e inner join acoplado as a
         on e.id_acoplado = a.id 
         inner join tractor as t on e.id_tractor = t.id
-        WHERE e.eliminado = '".$estado."'";
+        WHERE e.eliminado = "'.$estado.'"';
 
         $resultado = $this->connection->query($sql);
         $datos = array();
