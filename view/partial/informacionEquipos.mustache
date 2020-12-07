@@ -8,12 +8,12 @@
                     <p class="card-text">Modelo: {{modelo}}</p>
                     <p class="card-text">Patente: {{t_patente}}</p>
                     <p class="card-text">Kilometraje: {{kilometraje}}</p>
-                    <form action="ListaTractor/verTractorPorId/id={{id_tractor}}" enctype="multipart/form-data" method="get" >
+                    <form action="/ListaTractor/verTractorPorId/id={{id_tractor}}" enctype="multipart/form-data" method="get" >
                     <button type="submit" class="btn btn-outline-dark btn-block mb-3">Ver mas..</button>
                     </form>
                     <h5> Acoplado: {{tipo_acoplado}}</h5>
                     <p class="card-text">Patente: {{a_patente}}</p>
-                    <form action="ListaAcoplado/verAcopladoPorId/id={{id_acoplado}}" enctype="multipart/form-data" method="get" >
+                    <form action="/ListaAcoplado/verAcopladoPorId/id={{id_acoplado}}" enctype="multipart/form-data" method="get" >
                     <button type="submit" class="btn btn-outline-dark btn-block mb-3">Ver mas..</button>
                     </form>
             {{#valorMecanico}}
