@@ -4,7 +4,8 @@
 
     <div class="container text-center">
         <h2 class="titulosindex">Realice proforma</h2>
-        <form action="/proforma/guardarProforma/id={{pedidoId}}" method="post" enctype="multipart/form-data" class="mt-3">
+        <form action="/proforma/guardarProforma/id={{pedidoId}}" method="post" enctype="multipart/form-data"
+              class="mt-3">
             <div class="row" style="margin-bottom: 2%">
                 <div class="card-body my-5" style="width: 45%; margin-bottom: 2%!important;">
                     <h5 class="card-title">Pedido</h5>
@@ -40,7 +41,8 @@
                                        placeholder="Fecha de Carga" required name="fechaCarga">
 
                                 <label for="horaCarga">Tiempo estimado de carga</label>
-                                <input type="time" class="form-control" style="margin-bottom: 2%" placeholder="horaCarga"
+                                <input type="time" class="form-control" style="margin-bottom: 2%"
+                                       placeholder="horaCarga"
                                        required name="horaCarga">
 
                                 <label for="fechaLlegada">Fecha de Llegada</label>
@@ -48,7 +50,8 @@
                                        placeholder="Fecha de Llegada" required name="fechaLlegada">
 
                                 <label for="horaLlegada">Tiempo estimado de llegada</label>
-                                <input type="time" class="form-control" style="margin-bottom: 2%" placeholder="horaLlegada"
+                                <input type="time" class="form-control" style="margin-bottom: 2%"
+                                       placeholder="horaLlegada"
                                        required name="horaLlegada">
 
                             </div>
@@ -94,7 +97,8 @@
                                 </div>
 
                                 <div id="imoclass" style="display: none">
-                                    <select id="imoclass" name="imoClass" class="form-control" style="margin-bottom: 2%">
+                                    <select id="imoclass" name="imoClass" class="form-control"
+                                            style="margin-bottom: 2%">
                                         <option value="0" selected>Clases - Descripcion</option>
                                         {{#imoClases}}
                                         <option value="{{clase}}">{{clase}} - {{descripcion}}</option>
@@ -133,7 +137,8 @@
                             </div>
                             <div>
                                 <h5 class="card-title" style="text-align: center">Seleccionar Chofer</h5>
-                                <div class="container mt-2 justify-content-center" style="margin-left: 0;margin-right: 0">
+                                <div class="container mt-2 justify-content-center"
+                                     style="margin-left: 0;margin-right: 0">
                                     <div class="row my-5 contenedorChoferes">
 
                                         {{#choferes}}
@@ -203,10 +208,18 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
+            <div class="mt-4 mb-4 text-center">
+                <h5 class="card-title">Seleccionar Equipo</h5>
+                <div class="container mt-2 justify-content-center" style="margin-left: 0;margin-right: 0">
+                    <div class="my-5 row justify-content-center">
 
+                        {{#equipos}}
+                        {{> equiposProforma}}
+                        {{/equipos}}
+                    </div>
+                </div>
+            </div>
 
             <div class="mt-4 mb-4 text-center">
                 <button type="submit" class="btn btn-dark btn-lg btn-block">Realizar Proforma</button>
