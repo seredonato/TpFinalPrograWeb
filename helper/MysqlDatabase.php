@@ -264,9 +264,9 @@ class MysqlDatabase
         return $temperatura["temperatura"];
     }
 
-    public function mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer)
+    public function mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer, $idEquipo)
     {
-        $sql = 'SELECT id FROM proforma WHERE (id_pedido_cliente = ' . $idPedido . ') AND (id_viaje =  ' . $idViaje . ') AND (id_carga = ' . $idCarga . ') AND (id_costeo_estimado = "' . $idCosteoEstimado . '") AND (id_usuario = ' . $idChofer . ')';
+        $sql = 'SELECT id FROM proforma WHERE (id_pedido_cliente = ' . $idPedido . ') AND (id_viaje =  ' . $idViaje . ') AND (id_carga = ' . $idCarga . ') AND (id_costeo_estimado = "' . $idCosteoEstimado . '") AND (id_usuario = ' . $idChofer . ') AND (id_equipo = ' . $idEquipo . ')';
 
         $resultado = $this->connection->query($sql);
 
@@ -490,10 +490,13 @@ class MysqlDatabase
     {
         $sql = 'SELECT precio FROM imoClass where clase =' . $imoClass;
         $resultado = $this->connection->query($sql);
-
         $precio = $resultado->fetch_assoc();
+        if(isset($precio["precio"])){
 
-        return $precio["precio"];
+            return $precio["precio"];
+        }
+
+
 
     }
 
