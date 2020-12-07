@@ -1,12 +1,13 @@
-
-
 <div class="col-md-4 mb-4">
     <div class="card">
-        <div class="card-body">
+        <div class="container p-2  text-white" style="background: #E6831A">
             <h4 class="card-title text-center"> Calendario </h4>
+        </div>
+        <div class="container p-3" style="background: #fffefd">
             <div style="text-align: left">
                 <form  method="POST" action="/ListaTractor/cambiarEstado/id_tractor={{id_tractor}}">
                 <h5 class="card-text">Fecha: {{fecha}}</h5>
+                <hr>
                 {{#valorSupervisor}}
                     <p class="card-text mt-3 mb-1">Estado: {{estado}}</p>
                 {{/valorSupervisor}}
@@ -22,13 +23,14 @@
                     </select>
                  {{/valorMecanico}}
             {{#valorMecanico}}
-            <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Enviar</button>
+            <button type="submit" class="btn btn-light btn-outline-dark btn-block mt-3">Enviar</button>
             {{/valorMecanico}}
                 </form>
             {{#valorMecanico}}
+                <hr>
                 <div style="text-align: center" class="mt-3">
-                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark">Modificar</a>
-                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark">Eliminar</a>
+                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary">Modificar</a>
+                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-danger">Eliminar</a>
                 </div>
             {{/valorMecanico}}
             </div>
@@ -47,7 +49,7 @@
             </div>
             <div class="modal-body">
                 <form action="/listaTractor/eliminarCalendario/id={{id}}&idTractor={{id_tractor}}" enctype="multipart/form-data" method="get" >
-                <button type="submit" class="btn btn-dark btn-lg btn-block">SI</button>
+                <button type="submit" class="btn btn-danger btn-lg btn-block">SI</button>
                 <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
                 </form>
             </div>

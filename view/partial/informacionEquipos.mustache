@@ -1,7 +1,7 @@
 <div class="col-md-4 mb-4">
     <div class="card choferes">
         <div class="container p-2 pl-3 text-white" style="background: #E6831A">
-            <h4 class="card-title"> EQUIPO : {{id}}</h4>
+            <h4 class="card-title"> Equipo : {{id}}</h4>
         </div>
         <div class="container p-3" style="background: #fffefd">
                 <h5 class="card-text">Estado: {{estado}}</h5>
@@ -19,8 +19,8 @@
                     <form action="/ListaAcoplado/verAcopladoPorId/id={{id_acoplado}}" enctype="multipart/form-data" method="get" >
                     <button type="submit" class="btn btn-light btn-outline-dark btn-block mb-3">Ver mas..</button>
                     </form>
-                    <hr>
             {{#valorMecanico}}
+                <hr>
                 <div style="text-align: center">
                     <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary" >Modificar</a>
                     <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-danger" >Eliminar</a>
@@ -55,7 +55,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modificar equipo de patente:{{patente}}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modificar el equipo cuya id es {{id}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -65,6 +65,7 @@
                         <label for="id">Id del equipo</label>
                         <textarea class="form-control" style="height: 36px" name="id" id="id" >{{id}}</textarea>
                         <div class="form-group">
+                            <hr>
                             <label for="acoplado">Asignar tipo de acoplado</label>
                             <select id="acoplado" name="acoplado" class="form-control">
                                 <option value="{{id_acoplado}}"selected>acoplado: {{tipo_acoplado}}</option>
@@ -85,7 +86,7 @@
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-dark btn-lg btn-block">Asignar</button>
+                        <button type="submit" class="btn btn-dark btn-lg btn-block">Modificar</button>
                     </form>
             </div>
         </div>
