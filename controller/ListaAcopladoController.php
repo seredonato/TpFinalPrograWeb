@@ -38,6 +38,7 @@ class ListaAcopladoController
             $patente = $_POST["patente"];
             $chasis = $_POST["chasis"];
             $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
             $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
 
             $result = $this->acopladoModel->registrarAcoplado( $acoplado,$patente,$chasis);
@@ -47,7 +48,9 @@ class ListaAcopladoController
             }
             $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
             echo $this->render->render("view/listaAcopladosView.php",$data);
-
+            }else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
         } else{
             echo $this->render->render("view/inicio.php", $data);
         }
@@ -71,9 +74,14 @@ class ListaAcopladoController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
+                $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
             echo $this->render->render("view/listaAcopladosView.php", $data);
 
+            }else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
         } else{
             echo $this->render->render("view/inicio.php", $data);
         }
@@ -95,6 +103,9 @@ class ListaAcopladoController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
+
             $tipo = $_POST["tipo"];
             $id = $_POST["id"];
             $patente = $_POST["patente"];
@@ -103,6 +114,9 @@ class ListaAcopladoController
             $result = $this->acopladoModel->modificarAcoplado($id,$tipo,$patente,$chasis);
             $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
             echo $this->render->render("view/listaAcopladosView.php", $data);
+            }else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
         } else{
             echo $this->render->render("view/inicio.php", $data);
         }
@@ -124,13 +138,18 @@ class ListaAcopladoController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+
+            if($valorDelRol == 3 || $valorDelRol == 4) {
             $id = $_GET["id"];
             $this->acopladoModel->eliminarAcoplado($id);
             $data["login"] = $this->loginModel->ifSesionIniciada();
 
             $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
             echo $this->render->render("view/listaAcopladosView.php", $data);
-
+            }else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
         } else{
             echo $this->render->render("view/inicio.php", $data);
         }
@@ -148,6 +167,9 @@ class ListaAcopladoController
             $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
             $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
             $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+
+            if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $data["valorAdmin"] = $valorAdmin;
             $data["valorChofer"] = $valorChofer;
@@ -155,7 +177,10 @@ class ListaAcopladoController
             $data["valorSupervisor"] = $valorSupervisor;
             $id = $_GET["id"];
             $data["acoplados"] = $this->acopladoModel->devolverAcopladosPorIdAsignados($id);
-            echo $this->render->render("view/listaAcopladosView.php", $data);
+                echo $this->render->render("view/listaAcopladosView.php", $data);
+            }   else{
+                echo $this->render->render("view/inicio.php", $data);
+            }
         } else{
             echo $this->render->render("view/inicio.php", $data);
         }
