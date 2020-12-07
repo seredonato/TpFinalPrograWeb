@@ -195,10 +195,6 @@
                                        placeholder="Fee estimado"
                                        required name="fee">
 
-                                <label for="total">Total</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%"
-                                       placeholder="Total estimado"
-                                       required name="total">
                             </div>
                         </div>
                     </div>

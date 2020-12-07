@@ -506,4 +506,54 @@ class MysqlDatabase
 
         return $cantReportes["cant_reportes"];
     }
+
+    public function obtenerPrecioDePeaje(){
+        $sql = 'SELECT peaje FROM precio';
+
+        $resultado = $this->connection->query($sql);
+
+        $peaje= $resultado->fetch_assoc();
+
+        return $peaje["peaje"];
+    }
+
+    public function obtenerPrecioPorKm(){
+        $sql = 'SELECT kilometro FROM precio';
+
+        $resultado = $this->connection->query($sql);
+
+        $km= $resultado->fetch_assoc();
+
+        return $km["kilometro"];
+    }
+
+    public function obtenerPrecioPorLitro(){
+        $sql = 'SELECT litro FROM precio';
+
+        $resultado = $this->connection->query($sql);
+
+        $litro= $resultado->fetch_assoc();
+
+        return $litro["litro"];
+    }
+
+    public function obtenerPrecioHazard($idViaje){
+        $sql = 'SELECT hazard FROM costeo_estimado WHERE id_viaje ='. $idViaje;
+
+        $resultado = $this->connection->query($sql);
+
+        $hazard= $resultado->fetch_assoc();
+
+        return $hazard["hazard"];
+    }
+
+    public function obtenerPrecioReefer($idViaje){
+        $sql = 'SELECT reefer FROM costeo_estimado WHERE id_viaje ='. $idViaje;
+
+        $resultado = $this->connection->query($sql);
+
+        $reefer= $resultado->fetch_assoc();
+
+        return $reefer["reefer"];
+    }
 }
