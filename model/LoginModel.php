@@ -36,10 +36,11 @@ class LoginModel
                 } else {
                     $result["contraseñaIncorrecta"] = true;
                     return $result;
+
                 }
             } else {
                 $result["usuarioIncorrecto"] = true;
-                return $result;
+
             }
 
         }

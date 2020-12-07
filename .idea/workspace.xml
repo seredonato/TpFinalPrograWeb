@@ -87,7 +87,8 @@
       <workItem from="1606959029137" duration="3062000" />
       <workItem from="1607023801947" duration="6219000" />
       <workItem from="1607124358463" duration="3005000" />
-      <workItem from="1607202430196" duration="407000" />
+      <workItem from="1607202430196" duration="6487000" />
+      <workItem from="1607271750922" duration="6138000" />
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>
@@ -110,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607127727737</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="no se agregaba la puta abse de datos diossss">
+      <created>1607203069139</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607203069139</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,7 +140,8 @@
     <MESSAGE value="agregue otra cosa a la proforma" />
     <MESSAGE value="segui con el tema del pdf" />
     <MESSAGE value="creo que arregle todo lo que tiene que ver con la proforma sin hazard ni temperatura" />
-    <option name="LAST_COMMIT_MESSAGE" value="creo que arregle todo lo que tiene que ver con la proforma sin hazard ni temperatura" />
+    <MESSAGE value="no se agregaba la puta abse de datos diossss" />
+    <option name="LAST_COMMIT_MESSAGE" value="no se agregaba la puta abse de datos diossss" />
   </component>
   <component name="WindowStateProjectService">
     <state x="162" y="0" key="#CLI_Interpreters" timestamp="1604424176261">
