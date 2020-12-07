@@ -264,9 +264,9 @@ class MysqlDatabase
         return $temperatura["temperatura"];
     }
 
-    public function mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer)
+    public function mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer, $idEquipo)
     {
-        $sql = 'SELECT id FROM proforma WHERE (id_pedido_cliente = ' . $idPedido . ') AND (id_viaje =  ' . $idViaje . ') AND (id_carga = ' . $idCarga . ') AND (id_costeo_estimado = "' . $idCosteoEstimado . '") AND (id_usuario = ' . $idChofer . ')';
+        $sql = 'SELECT id FROM proforma WHERE (id_pedido_cliente = ' . $idPedido . ') AND (id_viaje =  ' . $idViaje . ') AND (id_carga = ' . $idCarga . ') AND (id_costeo_estimado = "' . $idCosteoEstimado . '") AND (id_usuario = ' . $idChofer . ') AND (id_equipo = ' . $idEquipo . ')';
 
         $resultado = $this->connection->query($sql);
 
@@ -490,10 +490,13 @@ class MysqlDatabase
     {
         $sql = 'SELECT precio FROM imoClass where clase =' . $imoClass;
         $resultado = $this->connection->query($sql);
-
         $precio = $resultado->fetch_assoc();
+        if(isset($precio["precio"])){
 
-        return $precio["precio"];
+            return $precio["precio"];
+        }
+
+
 
     }
 
@@ -505,5 +508,55 @@ class MysqlDatabase
         $cantReportes= $resultado->fetch_assoc();
 
         return $cantReportes["cant_reportes"];
+    }
+
+    public function obtenerPrecioDePeaje(){
+        $sql = 'SELECT peaje FROM precio';
+
+        $resultado = $this->connection->query($sql);
+
+        $peaje= $resultado->fetch_assoc();
+
+        return $peaje["peaje"];
+    }
+
+    public function obtenerPrecioPorKm(){
+        $sql = 'SELECT kilometro FROM precio';
+
+        $resultado = $this->connection->query($sql);
+
+        $km= $resultado->fetch_assoc();
+
+        return $km["kilometro"];
+    }
+
+    public function obtenerPrecioPorLitro(){
+        $sql = 'SELECT litro FROM precio';
+
+        $resultado = $this->connection->query($sql);
+
+        $litro= $resultado->fetch_assoc();
+
+        return $litro["litro"];
+    }
+
+    public function obtenerPrecioHazard($idViaje){
+        $sql = 'SELECT hazard FROM costeo_estimado WHERE id_viaje ='. $idViaje;
+
+        $resultado = $this->connection->query($sql);
+
+        $hazard= $resultado->fetch_assoc();
+
+        return $hazard["hazard"];
+    }
+
+    public function obtenerPrecioReefer($idViaje){
+        $sql = 'SELECT reefer FROM costeo_estimado WHERE id_viaje ='. $idViaje;
+
+        $resultado = $this->connection->query($sql);
+
+        $reefer= $resultado->fetch_assoc();
+
+        return $reefer["reefer"];
     }
 }

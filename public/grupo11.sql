@@ -129,6 +129,7 @@ fee int,
 total long
 );
 
+
 CREATE TABLE costeo_final (
 id int AUTO_INCREMENT NOT NULL,
 primary key (id),
@@ -153,7 +154,7 @@ id int AUTO_INCREMENT NOT NULL,
 primary key (id),
 id_viaje int,
 foreign key (id_viaje) references viaje(id),
-fecha datetime,
+fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 kilometros int,
 combustible int,
 tiempo_salida time,
@@ -175,12 +176,14 @@ fecha date,
 id_pedido_cliente int,
 id_viaje int,
 id_carga int,
+id_equipo int,
 id_costeo_estimado int,
 id_costeo_final int,
 id_usuario int,
 foreign key (id_pedido_cliente) references pedido_cliente(id),
 foreign key (id_viaje) references viaje(id),
 foreign key (id_carga) references carga(id),
+foreign key (id_equipo) references equipo(id),
 foreign key (id_costeo_estimado) references costeo_estimado(id),
 foreign key (id_costeo_final) references costeo_final(id),
 foreign key (id_usuario) references usuario(id)
