@@ -5,7 +5,7 @@
     <div class="container text-center">
         <h2 class="titulosindex">Reporte</h2>
         <hr>
-        <form action="/reporte/guardarCosteo/idViaje={{idViaje}}" method="post" enctype="multipart/form-data" class="mt-3">
+        <form action="/reporte/guardarReporte/idViaje={{idViaje}}" method="post" enctype="multipart/form-data" class="mt-3">
                     <div class="text-left">
                         <div class="form-row mt-4 mb-3">
                             <div class="col">
@@ -52,20 +52,6 @@
                                 <input type="number" class="form-control" style="margin-bottom: 2%"
                                        placeholder="Extras"
                                        required name="extras">
-
-                                <label for="hazardClass">Hazard</label>
-                                <select id="hazardClass" name="hazardClass" class="form-control"
-                                        style="margin-bottom: 2%">
-                                    <option value="" selected>Clases - Descripcion</option>
-                                    {{#imoClases}}
-                                    <option value="{{clase}}">{{clase}} - {{descripcion}}</option>
-                                    {{/imoClases}}
-                                </select>
-
-                                <label for="reeferCosto">Reefer</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%"
-                                       placeholder="Reefer"
-                                       required name="reeferCosto">
 
                                 <label for="fee">Fee</label>
                                 <input type="number" class="form-control" style="margin-bottom: 2%"

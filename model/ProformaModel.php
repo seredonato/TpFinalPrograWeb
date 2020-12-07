@@ -40,23 +40,34 @@ class ProformaModel
         return $this->database->cargaReturneaId($tipo, $peso, $hazardSi);
     }
 
-    public function guardarCosteoEstimadoReturneaId($kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $hazardClass, $reeferCosto, $fee, $total)
+    public function devolverCostoReefer($temperaturaSi)
+    {
+        if ($temperaturaSi == "si") {
+            $costo = $this->database->mostrarCostoTemperatura();
+            return $costo;
+        } elseif ($temperaturaSi == "no") {
+            $costo = 0;
+            return $costo;
+        }
+    }
+
+    public function guardarCosteoEstimadoReturneaId($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $imoClass, $reeferCosto, $fee, $total)
     {
 
         if ($hazardSi == "si") {
-
-            $sql = 'INSERT INTO costeo_estimado (kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, clase_imoclass, reefer, fee, total)
-                VALUES (' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ', "' . $hazardSi . '", "' . $hazardClass . '", ' . $reeferCosto . ',  ' . $fee . ', ' . $total . ')';
+            $hazardCosto = $this->database->devolverCostoHazard($imoClass);
+            $sql = 'INSERT INTO costeo_estimado (id_viaje, kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, reefer, fee, total)
+                VALUES (' . $idViaje . ',' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ',' . $hazardCosto . ', ' . $reeferCosto . ',  ' . $fee . ', ' . $total . ')';
 
         } elseif ($hazardSi == "no") {
-
-            $sql = 'INSERT INTO costeo_estimado (kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, reefer, fee, total)
-                VALUES (' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ', "' . $hazardSi . '", ' . $reeferCosto . ',  ' . $fee . ', ' . $total . ')';
+            $hazardCosto =  0;
+            $sql = 'INSERT INTO costeo_estimado (id_viaje, kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, reefer, fee, total)
+                VALUES (' . $idViaje . ',' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ', ' . $hazardCosto . ', ' . $reeferCosto . ',  ' . $fee . ', ' . $total . ')';
         }
 
         $this->database->query($sql);
 
-        return $this->database->costeoEstimadoReturneaId($kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $hazardSi);
+        return $this->database->costeoEstimadoReturneaId($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $hazardCosto);
     }
 
     public function enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer)

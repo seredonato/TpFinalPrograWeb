@@ -52,6 +52,7 @@ class ProformaController
 
     public function guardarProforma()
     {
+        $data["login"] = $this->loginModel->ifSesionIniciada();
         $idPedido = $_GET["id"];
         $origen = $_POST["origen"];
         $destino = $_POST["destino"];
@@ -72,14 +73,14 @@ class ProformaController
         $viaticos = $_POST["viaticos"];
         $peajes = $_POST["peajes"];
         $extras = $_POST["extras"];
-        $hazardClass = $_POST["hazardClass"];
-        $reeferCosto = $_POST["reeferCosto"];
         $fee = $_POST["fee"];
         $total = $_POST["total"];
 
+        $reeferCosto = $this->proformaModel->devolverCostoReefer($temperaturaSi);
+
         $idViaje = $this->proformaModel->guardarViajeReturneaId($origen, $destino, $fechaCarga, $horaCarga, $fechaLlegada, $horaLlegada);
         $idCarga = $this->proformaModel->guardarCargaReturneaId($tipo, $peso, $hazardSi, $imoClass, $imoSubClass, $temperaturaSi, $temperatura);
-        $idCosteoEstimado = $this->proformaModel->guardarCosteoEstimadoReturneaId($kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $hazardClass, $reeferCosto, $fee, $total);
+        $idCosteoEstimado = $this->proformaModel->guardarCosteoEstimadoReturneaId($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $imoClass, $reeferCosto, $fee, $total);
         $idChofer = $_POST["choferElegido"];
         $this->proformaModel->enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
         $idProforma = $this->proformaModel->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer);
@@ -89,7 +90,6 @@ class ProformaController
         $this->pedidoModel->agregarIdDeLaProforma($idPedido, $idProforma);
 
         $data["pedidos"] = $this->pedidoModel->mostrarPedidos();
-
 
         echo $this->render->render("view/listaPedidosView.php", $data);
     }

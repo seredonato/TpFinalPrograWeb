@@ -135,4 +135,29 @@ class ListaAcopladoController
             echo $this->render->render("view/inicio.php", $data);
         }
     }
+
+    public function verAcopladoPorId()
+    {
+        $data["login"] = $this->loginModel->ifSesionIniciada();
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
+
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
+
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            $id = $_GET["id"];
+            $data["acoplados"] = $this->acopladoModel->devolverAcopladosPorIdAsignados($id);
+            echo $this->render->render("view/listaAcopladosView.php", $data);
+        } else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
+    }
 }

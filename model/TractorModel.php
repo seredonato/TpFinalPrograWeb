@@ -36,6 +36,10 @@ class TractorModel
         return $this->database->devolverTractor();
     }
 
+    public function devolverTractorPorIdAsignados($id){
+        return $this->database->devolverTractorPorIdAsignados($id);
+    }
+
     public function modificarTractor($id,$marca,$modelo,$nro_motor,$patente,$chasis){
         return $this->database->modificarTractor($id,$marca,$modelo,$nro_motor,$patente,$chasis);
     }

@@ -21,28 +21,29 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/ListaEquipo/registroEquipo">
-
-                    <div class="d-flex p-2 justify-content-center"><h5>Equipo:</h5></div>
-
-                    <label for="EstadoEquipo">Fecha de fabricación</label>
+                <form action="/listaEquipo/registroEquipo" enctype="multipart/form-data" method="post" >
                     <div class="form-group">
-                        <input type="date" class="form-control" id="año_fabricacion" name=año_fabricacion required>
-                    </div>
-                    <div class="form-group">
-                        <label for="EstadoEquipo">Estado</label>
-                        <select class="form-control" id="estadoEquipo" name="estadoEquipo" required>
-                            <option value="Disponible">Disponible</option>
-                            <option value="No disponible" >No disponible</option>
+                        <label for="acoplado">Asignar tipo de acoplado</label>
+                        <select id="acoplado" name="acoplado" class="form-control">
+                            <option value="" selected>Ninguno</option>
+                            {{#acoplados}}
+                                <option value="{{id}}">acoplado: {{tipo_acoplado}}</option>
+                            {{/acoplados}}
                         </select>
                     </div>
+
                     <div class="form-group">
-                        <input type="text" class="form-control" id="patente" name=patente
-                               placeholder="Patente" required>
+                        <label for="tractor">Asignar tipo de tractor</label>
+                        <select id="tractor" name="tractor" class="form-control">
+                            <option value=" " selected>Ninguno</option>
+                            {{#tractores}}
+                                <option value="{{id}}">TRACTOR: marca: {{marca}}, modelo: {{modelo}}, número de motor: {{nro_motor}}, kilometraje: {{kilometraje}}</option>
+                            {{/tractores}}
+                        </select>
                     </div>
-                    
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">Agregar Equipo</button>
-                    </form>
+
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Asignar</button>
+                </form>
             </div>
         </div>
     </div>
