@@ -4,7 +4,7 @@
 
     <div class="container text-center">
         <h2 class="titulosindex">Realice proforma</h2>
-        <div action="/proforma/guardarProforma/id={{pedidoId}}" method="post" enctype="multipart/form-data"
+        <form action="/proforma/guardarProforma/id={{pedidoId}}" method="post" enctype="multipart/form-data"
               class="mt-3">
 
             <div class="row">
@@ -187,15 +187,16 @@
                         {{#equipos}}
                         {{> equiposProforma}}
                         {{/equipos}}
-                    </div>
                 </div>
             </div>
+
 
             <div class="mt-4 mb-4 text-center">
                 <button type="submit" class="btn btn-dark btn-lg btn-block">Realizar Proforma</button>
             </div>
 
         </form>
+
     </div>
 
 </main>
