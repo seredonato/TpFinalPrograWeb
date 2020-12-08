@@ -20,9 +20,30 @@ class ListaPedidosController
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
 
-        $data["pedidos"] = $this->pedidoModel->mostrarPedidos();
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
-        echo $this->render->render("view/listaPedidosView.php", $data);
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
+
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if ($valorDelRol == 1 || $valorDelRol == 4) {
+                $data["pedidos"] = $this->pedidoModel->mostrarPedidos();
+                echo $this->render->render("view/listaPedidosView.php", $data);
+            } else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        } else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 
     public function pedidosPendientes()

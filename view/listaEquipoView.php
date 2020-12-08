@@ -1,7 +1,9 @@
 {{> header}}
 <main class="cuerpoindex">
-    <h2 class="text-center p-3"> Equipos </h2>
-
+    <div class="container mt-2 listaUsuarios">
+    <h2 class="titulosindex text-center"> Equipos </h2>
+    <hr>
+    </div>
     {{>registrarEquipo}}
 
     {{#registroEquipoError}}
@@ -12,6 +14,7 @@
         {{#equipos}}
         {{>informacionEquipos}}
         {{/equipos}}
+    </div>
     </div>
 
 </main>
