@@ -102,11 +102,14 @@ contacto1 varchar(600) NOT NULL,
 contacto2 varchar(600) NOT NULL
 );
 
+
+
 CREATE TABLE viaje (
 id int AUTO_INCREMENT NOT NULL,
 primary key (id),
 origen varchar (600) NOT NULL,
 destino varchar (600) NOT NULL,
+estado varchar (200),
 fecha_carga date NOT NULL,
 tiempo_carga time NOT NULL,
 fecha_llegada date NOT NULL,
@@ -358,3 +361,4 @@ values ("20200202",1,"Cumplido","no"),
  ("2021-02-02",3,"En espera","no"),
  ("2020-02-02",3,"Cumplido","no"),
  ("2020-02-02",3,"Cumplido","no");
+ 

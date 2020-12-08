@@ -244,7 +244,6 @@ class MysqlDatabase
     {
 
         $sql = 'SELECT id FROM costeo_estimado WHERE (id_viaje = ' . $idViaje . ') AND ( kilometros = ' . $kilometros . ') AND (combustible =  ' . $combustible . ') AND (tiempo_salida = "' . $horaSalida . '") AND (tiempo_llegada = "' . $horaLlegada . '") AND (viaticos = ' . $viaticos . ') AND (peajes_pesajes = ' . $peajes . ') AND (hazard = ' . $hazardSi . ')';
-
         $resultado = $this->connection->query($sql);
 
         $id = $resultado->fetch_assoc();
@@ -591,5 +590,49 @@ class MysqlDatabase
 
         return $chofer;
 
+    }
+
+    public function mostrarPedidosSinProforma(){
+        $sql = 'SELECT  p.id,p.fecha_pedido,p.nombre_cliente,p.cuit_cliente,p.direccion_cliente,p.telefono_cliente,p.email_cliente,p.contacto1, p.contacto2 FROM pedido_cliente AS p WHERE p.id NOT IN (SELECT id FROM proforma)';
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function mostrarPedidosFinalizados(){
+        $sql = 'SELECT p.id,p.fecha_pedido,p.nombre_cliente,p.cuit_cliente,p.direccion_cliente,p.telefono_cliente,p.email_cliente,p.contacto1, p.contacto2 FROM pedido_cliente AS p JOIN proforma AS pr ON p.id = pr.id JOIN viaje AS v ON pr.id = v.id WHERE v.estado = "FINALIZADO"';
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function mostrarPedidosActivos(){
+        $sql = 'SELECT p.id,p.fecha_pedido,p.nombre_cliente,p.cuit_cliente,p.direccion_cliente,p.telefono_cliente,p.email_cliente,p.contacto1, p.contacto2 FROM pedido_cliente AS p JOIN proforma AS pr ON p.id = pr.id JOIN viaje AS v ON pr.id = v.id WHERE v.estado = "ACTIVO"';
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function mostrarPedidosPendientes(){
+        $sql = 'SELECT p.id,p.fecha_pedido,p.nombre_cliente,p.cuit_cliente,p.direccion_cliente,p.telefono_cliente,p.email_cliente,p.contacto1, p.contacto2 FROM pedido_cliente AS p JOIN proforma AS pr ON p.id = pr.id JOIN viaje AS v ON pr.id = v.id WHERE v.estado = "PENDIENTE"';
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
     }
 }

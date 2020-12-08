@@ -93,7 +93,10 @@ class ProformaController
 
         $this->pedidoModel->agregarIdDeLaProforma($idPedido, $idProforma);
 
-        $data["pedidos"] = $this->pedidoModel->mostrarPedidos();
+        $data["pedidosNoProforma"] = $this->pedidoModel->mostrarPedidosSinProforma();
+        $data["pedidosFinalizados"] =$this->pedidoModel->mostrarPedidosFinalizados();
+        $data["pedidosPendientes"] = $this->pedidoModel->mostrarPedidosPendientes();
+        $data["pedidosActivos"] = $this->pedidoModel->mostrarPedidosActivos();
 
         echo $this->render->render("view/listaPedidosView.php", $data);
     }

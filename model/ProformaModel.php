@@ -12,8 +12,8 @@ class ProformaModel
     public function guardarViajeReturneaId($origen, $destino, $fechaCarga, $horaCarga, $fechaLlegada, $horaLlegada)
     {
 
-        $sql = 'INSERT INTO viaje (origen, destino, fecha_carga, tiempo_carga, fecha_llegada, tiempo_llegada)
-                VALUES ("' . $origen . '", "' . $destino . '", "' . $fechaCarga . '", "' . $horaCarga . '", "' . $fechaLlegada . '", "' . $horaLlegada . '")';
+        $sql = 'INSERT INTO viaje (origen, destino, estado, fecha_carga, tiempo_carga, fecha_llegada, tiempo_llegada)
+                VALUES ("' . $origen . '", "' . $destino . '", "PENDIENTE", "' . $fechaCarga . '", "' . $horaCarga . '", "' . $fechaLlegada . '", "' . $horaLlegada . '")';
 
         $this->database->query($sql);
         return $this->database->viajeReturneaId($origen, $destino, $fechaCarga, $fechaLlegada);
