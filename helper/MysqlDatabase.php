@@ -505,13 +505,13 @@ class MysqlDatabase
 
     public function reporteDelDia($idViaje)
     {
-        $sql = 'SELECT COUNT(id_viaje) AS cant_reportes FROM reporte WHERE fecha = curdate() AND id_viaje =' . $idViaje;
+        $sql = 'SELECT COUNT(reporte.id_viaje) AS cant_reportes FROM reporte WHERE fecha = curdate() AND id_viaje =' . $idViaje;
 
         $resultado = $this->connection->query($sql);
 
         $cantReportes = $resultado->fetch_assoc();
 
-        return $cantReportes["cant_reportes"];
+        return $cantReportes;
     }
 
     public function obtenerPrecioDePeaje()

@@ -40,12 +40,11 @@ class ReporteController
         if($resultado == 0) {
             $this->reporteModel->guardarReporte($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes,
                 $extras, $fee, $latitud, $longitud);
+            echo $this->render->render("view/inicio.php", $data);
         }else{
             $resultado2 = "Ya ha realizado un reporte en el día de la fecha sobre este viaje";
             $data["reporteError"] = $resultado2;
             echo $this->render->render("view/enviarQrView.php", $data);
         }
-
-        echo $this->render->render("view/inicio.php", $data);
     }
 }
