@@ -15,17 +15,11 @@
                 <p class="card-text">CONTACTO 1: {{contacto1}}</p>
                 <p class="card-text">CONTACTO 2: {{contacto2}}</p>
                 <div style="text-align: center">
-                    {{#id_proforma}}
                         <hr>
                         <a href="/pdfReporte?id={{id}}" type="button" class="btn btn-secondary" style="float:
                         left">Ver Reportes</a>
                         <a href="/pdfProforma?id={{id}}" type="button" class="btn btn-secondary" style="float:
                         right">Ver Proforma</a>
-                    {{/id_proforma}}
-                    {{^id_proforma}}
-                        <hr>
-                        <a href="/proforma?id={{id}}" type="button" class="btn btn-secondary">Realizar Proforma</a>
-                    {{/id_proforma}}
                 </div>
             </div>
         </div>

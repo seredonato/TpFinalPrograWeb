@@ -1,13 +1,15 @@
 {{> header}}
+
 <main class="cuerpoindex">
     <div class="container mt-2 listaUsuarios text-center">
-        <h2 class="titulosindex">Todos los Usuarios</h2>
+        <h2 class="titulosindex">Pedidos Pendientes</h2>
         <hr>
         <div class="row my-5">
-            {{#usuarios}}
-            {{>informacionUsuarios}}
-            {{/usuarios}}
+            {{#pedidosPendientes}}
+            {{>informacionPedidosConProforma}}
+            {{/pedidosPendientes}}
         </div>
     </div>
 </main>
+
 {{> footer}}

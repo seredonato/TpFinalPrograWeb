@@ -1,29 +1,33 @@
-<div class="col-md-4">
-    <div class="card choferes">
-        <div class="card-body">
-            <h5 class="card-title">{{nombre}} {{apellido}}</h5>
-            <div style="text-align: left">
-                <p class="card-text" style="float: left">ID: {{id}}</p>
-                <p class="card-text" style="margin-left: 50%">DNI: {{dni}}</p>
-                <p class="card-text">EMAIL: {{email}}</p>
-                <p class="card-text">USUARIO: {{usuario}}</p>
-                <p class="card-text">FECHA NACIMIENTO: {{fecha_nacimiento}}</p>
-                <p class="card-text">TIPO DE LICENCIA: {{tipo_licencia}}</p>
-                <p class="card-text">ROL: {{rol}}</p>
+<div class="col-md-4 mb-4">
+    <div class="card">
+        <div class="container p-2 pl-3 text-white" style="background: #E6831A">
+            <h4 class="card-title">{{nombre}} {{apellido}}</h4>
+        </div>
+        <div  class="container p-3" style="background:#fffcf8;text-align: left">
+            <h5 class="card-text" style="float: left">ID: {{id}}</h5>
+            <h5 class="card-text" style="margin-left: 50%">DNI: {{dni}}</h5>
+            <hr>
+            <p class="card-text">EMAIL: {{email}}</p>
+            <p class="card-text">USUARIO: {{usuario}}</p>
+            <p class="card-text">FECHA NACIMIENTO: {{fecha_nacimiento}}</p>
+            <p class="card-text">TIPO DE LICENCIA: {{tipo_licencia}}</p>
+            <p class="card-text">ROL: {{rol}}</p>
+            {{#valorAdmin}}
+                <hr>
                 <div style="text-align: center">
-                <a data-toggle="modal" data-target="#{{usuario}}" type="button" class="btn btn-outline-dark" style="float: left">Modificar</a>
-                <a data-toggle="modal" data-target="#{{usuario}}eliminar" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
+                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary" >Modificar</a>
+                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-danger" >Eliminar</a>
                 </div>
-            </div>
+            {{/valorAdmin}}
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="{{usuario}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modificar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modificar el rol de {{usuario}}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modificar el rol del usuario: {{usuario}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -49,7 +53,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="{{usuario}}eliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="eliminar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -60,8 +64,8 @@
             </div>
             <div class="modal-body">
                 <form action="/usuario/eliminarUsuario/id={{id}}" enctype="multipart/form-data" method="get" >
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">SI</button>
-                    <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
+                <button type="submit" class="btn btn-danger btn-lg btn-block">SI</button>
+                <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
                 </form>
             </div>
         </div>

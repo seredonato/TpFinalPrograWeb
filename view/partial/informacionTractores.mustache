@@ -1,27 +1,31 @@
 <div class="col-md-4 mb-4">
     <div class="card choferes">
-        <div class="card-body">
-            <h5 class="card-title"> Marca : {{marca}}</h5>
+        <div class="container p-2 pl-3 text-white" style="background: #E6831A">
+            <h4 class="card-title"> Marca : {{marca}}</h4>
+        </div>
+        <div class="container p-3" style="background: #fffcf8">
             <div style="text-align: left">
-                <p class="card-text">ID: {{id}}</p>
+                <h5 class="card-text">ID: {{id}}</h5>
+                <h5 class="card-text">Estado: {{estado}}</h5>
+                <hr>
                 <p class="card-text" style="float: left" >Modelo: {{modelo}}</p>
                 <p class="card-text" style="margin-left: 50%">Patente: {{patente}}</p>
                 <p class="card-text">Número de chasis: {{chasis}}</p>
                 <p class="card-text">Kilometraje: {{kilometraje}}</p>
                 <p class="card-text">Número de motor: {{nro_motor}}</p>
-                <p class="card-text">Estado: {{estado}}</p>
 
                 <div style="text-align: center">
                 {{#valorMecanico}}
-                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark" style="float: right; font-size: 15px;">Eliminar</a>
-                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" style="float: left;font-size: 15px;" >Modificar</a>
-                    <a data-toggle="modal" data-target="#calendario{{id}}" type="button" class="btn btn-outline-dark ml-1" style="font-size: 15px;" >Calendario</a>
+                    <hr>
+                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-danger" style="float: right; font-size: 15px;">Eliminar</a>
+                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary" style="float: left;font-size: 15px;" >Modificar</a>
+                    <a data-toggle="modal" data-target="#calendario{{id}}" type="button" class="btn btn-secondary" style="font-size: 15px;" >Calendario</a>
                 {{/valorMecanico}}
 
                 {{#valorSupervisor}}
                     <form action="/listaTractor/verCalendario">
                         <input type="hidden" value="{{id}}" name="id" id="id">
-                        <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Ver calendario</button>
+                        <button type="submit" class="btn btn-light btn-outline-dark btn-block mb-3">Ver calendario</button>
                     </form>
                 {{/valorSupervisor}}
                 </div>
@@ -45,7 +49,7 @@
             </div>
             <div class="modal-body">
                 <form action="/listaTractor/eliminarTractor/id={{id}}" enctype="multipart/form-data" method="get" >
-                <button type="submit" class="btn btn-dark btn-lg btn-block">SI</button>
+                <button type="submit" class="btn btn-danger btn-lg btn-block">SI</button>
                 <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
                 </form>
             </div>
@@ -58,7 +62,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modificar tractor de id :{{id}}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modificar tractor de id : {{id}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -110,7 +114,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Agregar calendario a tractor de id :{{id}}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Agregar calendario a tractor de id : {{id}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

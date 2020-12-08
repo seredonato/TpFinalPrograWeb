@@ -1,19 +1,21 @@
 <div class="col-md-4 mb-4">
     <div class="card choferes">
-        <div class="card-body">
-            <h5 class="card-title"> Tipo de acoplado : {{tipo_acoplado}}</h5>
+        <div class="container p-2 pl-3 text-white" style="background: #E6831A">
+            <h4 class="card-title"> Tipo de acoplado : {{tipo_acoplado}}</h4>
+        </div>
+        <div class="container p-3" style="background: #fffcf8">
+            <h5 class="card-text">Estado: {{estado}}</h5>
+            <hr>
             <p class="card-text">ID: {{id}}</p>
             <p class="card-text">Patente: {{patente}}</p>
             <p class="card-text">Chasis: {{chasis}}</p>
-            <p class="card-text">Estado: {{estado}}</p>
-
             {{#valorMecanico}}
-
+                <hr>
                 <div style="text-align: center">
-                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-outline-dark" style="float: right">Eliminar</a>
-                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-outline-dark" style="float: left" >Modificar</a>
+                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary" >Modificar</a>
+                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-danger">Eliminar</a>
                 </div>
-                {{/valorMecanico}}
+            {{/valorMecanico}}
         </div>
     </div>
 </div>
@@ -31,7 +33,7 @@
             </div>
             <div class="modal-body">
                 <form action="/listaAcoplado/eliminarAcoplado/id={{id}}" enctype="multipart/form-data" method="get" >
-                <button type="submit" class="btn btn-dark btn-lg btn-block">SI</button>
+                <button type="submit" class="btn btn-danger btn-lg btn-block">SI</button>
                 <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
                 </form>
             </div>
@@ -44,7 +46,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modificar equipo de patente:{{patente}}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modificar equipo de patente: {{patente}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

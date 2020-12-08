@@ -47,6 +47,7 @@ reefer varchar(200) NOT NULL,
 temperatura int
 );
 
+
 CREATE TABLE tractor(
 marca varchar(100) not null,
 modelo varchar(100) not null,
@@ -78,6 +79,7 @@ primary key (id),
 foreign key (id_Tractor) references tractor(id),
 foreign key (id_acoplado) references acoplado(id));
 
+
 CREATE TABLE calendarioServicio(
 fecha date not null,
 id_tractor int not null,
@@ -100,11 +102,14 @@ contacto1 varchar(600) NOT NULL,
 contacto2 varchar(600) NOT NULL
 );
 
+
+
 CREATE TABLE viaje (
 id int AUTO_INCREMENT NOT NULL,
 primary key (id),
 origen varchar (600) NOT NULL,
 destino varchar (600) NOT NULL,
+estado varchar (200),
 fecha_carga date NOT NULL,
 tiempo_carga time NOT NULL,
 fecha_llegada date NOT NULL,
@@ -128,6 +133,7 @@ reefer int,
 fee int,
 total long
 );
+
 
 CREATE TABLE costeo_final (
 id int AUTO_INCREMENT NOT NULL,
@@ -153,7 +159,7 @@ id int AUTO_INCREMENT NOT NULL,
 primary key (id),
 id_viaje int,
 foreign key (id_viaje) references viaje(id),
-fecha datetime,
+fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 kilometros int,
 combustible int,
 tiempo_salida time,
@@ -217,8 +223,7 @@ VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "
 INSERT INTO usuario (dni, email, imagen, usuario, contrasenia, nombre, apellido, tipo_licencia, fecha_nacimiento, rol)
 VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "nombre chofer 1", "apellido", "A", 111111, "chofer"),
 (40756984, "chofer2@email.com", "https://media.marcainformativa.com/adjuntos/269/imagenes/000/011/0000011059.jpg", "chofer2", "202cb962ac59075b964b07152d234b70", "nombre chofer 2", "apellido2", "A", 111111, "chofer"),
-(40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3",  "202cb962ac59075b964b07152d234b70", "nombre chofer 3", "apellido3", "A", 111111, "chofer"),
-(50125698, "chofer4@email.com", "https://trabajamos.net/images/uploads/2012-08-08-17-40-05_867.jpg", "chofer4",  "202cb962ac59075b964b07152d234b70", "nombre chofer 4", "apellido4", "A", 111111, "chofer");
+(40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3",  "202cb962ac59075b964b07152d234b70", "nombre chofer 3", "apellido3", "A", 111111, "chofer");
 
 INSERT INTO imoclass (clase, descripcion, precio)
 VALUES 	(1,"Explosivos", 2345),
@@ -261,11 +266,10 @@ VALUES 	(1, 1.1, "Explosivos que tienen un riesgo de explosión masiva. Explosio
       
 INSERT INTO precio(temperatura, kilometro, litro, peaje) VALUES (450, 10, 60, 70);        
 
-        
 INSERT INTO tractor (marca, modelo, patente, nro_motor, chasis, kilometraje, eliminado,estado)
-VALUES 	("IVECO","Cursor","AA123CD",53879558,"L53879558",0,"no","Sin asignar"),
-		("IVECO","Cursor","AA124DC",69904367,"R69904367",0,"no","Sin asignar"),
-		("IVECO","Cursor","AD200XS",57193968,"R57193968",0,"no","Sin asignar"),
+VALUES 	("IVECO","Cursor","AA123CD",53879558,"L53879558",0,"no","Asignado"),
+		("IVECO","Cursor","AA124DC",69904367,"R69904367",0,"no","Asignado"),
+		("IVECO","Cursor","AD200XS",57193968,"R57193968",0,"no","Asignado"),
 		("IVECO","Cursor","AA211ZX",82836641,"N82836641",0,"no","Sin asignar"),
 		("IVECO","Cursor","AC452WE",28204636,"R28204636",0,"no","Sin asignar"),
 		("IVECO","Cursor","AA233SS",26139668,"K26139668",0,"no","Sin asignar"),
@@ -292,9 +296,9 @@ VALUES 	("IVECO","Cursor","AA123CD",53879558,"L53879558",0,"no","Sin asignar"),
 		("M.BENZ","Actros 1846","AC989QW",64092078,"F64092078",0,"no","Sin asignar");
 
 INSERT INTO acoplado (tipo_acoplado,patente,chasis,eliminado,estado)
-VALUES 	("Araña",	"AA100AS",	585822, "no","Sin asignar"),
-		("Araña",	"AC125AD",	605737, "no","Sin asignar"),
-		("Araña",	"AB135AG",	705687, "no","Sin asignar"),
+VALUES 	("Araña",	"AA100AS",	585822, "no","Asignado"),
+		("Araña",	"AC125AD",	605737, "no","Asignado"),
+		("Araña",	"AB135AG",	705687, "no","Asignado"),
 		("Araña",	"AD166AS",	815082, "no","Sin asignar"),
 		("Araña",	"AA189AD",	775167, "no","Sin asignar"),
 		("Araña",	"AC208AG",	642287, "no","Sin asignar"),
@@ -343,4 +347,17 @@ VALUES 	("Araña",	"AA100AS",	585822, "no","Sin asignar"),
 		("CarCarrier",	"AD104WE",	732880, "no","Sin asignar"),
 		("CarCarrier",	"AD105ZP",	733355, "no","Sin asignar");
 
+INSERT INTO equipo(eliminado,id_tractor,id_acoplado,estado)
+values ("no",1,1,"Disponible"),
+	   ("no",2,2,"Disponible"),
+	   ("no",3,3,"Disponible");
 
+INSERT INTO calendarioServicio(fecha,id_tractor,estado,eliminado)
+values ("20200202",1,"Cumplido","no"),
+ ("2021-03-02",1,"En espera","no"),
+ ("2022-04-02",1,"En espera","no"),
+ ("2020-02-02",2,"Cumplido","no"),
+ ("2021-02-02",3,"En espera","no"),
+ ("2020-02-02",3,"Cumplido","no"),
+ ("2020-02-02",3,"Cumplido","no");
+ 

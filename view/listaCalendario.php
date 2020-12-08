@@ -1,7 +1,9 @@
 {{> header}}
 <main class="cuerpoindex">
     {{#tractorPorId}}
-    <h2 class="text-center p-3"> Calendario del tractor de patente: {{patente}}</h2>
+    <div class="container mt-2 listaUsuarios text-center">
+    <h2 class="titulosindex"> Calendario </h2>
+    <hr>
     <div class="d-flex p-2 justify-content-center">
         {{#valorMecanico}}
         <button type="button" class="btn btn-dark mr-2 ml-2" data-toggle="modal" data-target="#modalRegistrarCalendario">
@@ -40,7 +42,6 @@
             </div>
         </div>
     </div>
-
     {{/tractorPorId}}
 
     

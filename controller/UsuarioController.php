@@ -17,35 +17,92 @@ class UsuarioController
     public function execute()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        echo $this->render->render("view/listaUsuariosView.php", $data);
+
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            if ($valorDelRol == 1  || $valorDelRol == 4 ) {
+                $data["usuarios"] = $this->usuarioModel->mostrarUsuarios();
+                echo $this->render->render("view/listaUsuariosView.php", $data);
+            } else{
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        } else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
 
     }
 
     public function modificarRolUsuario(){
 
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $idUsuario = $_POST["id"];
-        $rol = $_POST["rol"];
 
-        $this->usuarioModel->modificarRolUsuario($idUsuario, $rol);
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
 
-        $data["usuarios"] = $this->usuarioModel->mostrarUsuarios();
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
 
-        echo $this->render->render("view/listaUsuariosView.php", $data);
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
 
+            if ($valorDelRol == 1 || $valorDelRol == 4 ) {
+                $idUsuario = $_POST["id"];
+                $rol = $_POST["rol"];
+                $this->usuarioModel->modificarRolUsuario($idUsuario, $rol);
+                $data["usuarios"] = $this->usuarioModel->mostrarUsuarios();
+                echo $this->render->render("view/listaUsuariosView.php", $data);
 
+            } else{
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        } else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 
     public function eliminarUsuario(){
-
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $id = $_GET["id"];
 
-        $this->usuarioModel->eliminarUsuario($id);
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
 
-        $data["usuarios"] = $this->usuarioModel->mostrarUsuarios();
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
 
-        echo $this->render->render("view/listaUsuariosView.php", $data);
-
+            if ($valorDelRol == 1  || $valorDelRol == 4 ) {
+                $id = $_GET["id"];
+                $this->usuarioModel->eliminarUsuario($id);
+                $data["usuarios"] = $this->usuarioModel->mostrarUsuarios();
+                echo $this->render->render("view/listaUsuariosView.php", $data);
+            } else{
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        } else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 }

@@ -24,7 +24,7 @@ class QrModel
         $direccion = 'public/imgQr/';
         $nombre = $idViaje . '.png';
 
-        QRcode::png("/proforma/verFormulario?idViaje=$idViaje", $direccion . $nombre);
+        QRcode::png("/proforma/verFormulario?idViaje=$idViaje", $direccion . $nombre, QR_ECLEVEL_H);
     }
 
 }

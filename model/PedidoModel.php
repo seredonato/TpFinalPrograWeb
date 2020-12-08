@@ -26,7 +26,8 @@ class PedidoModel
 
     }
 
-    public function agregarIdDeLaProforma($idPedido, $idProforma){
+    public function agregarIdDeLaProforma($idPedido, $idProforma)
+    {
         $sql = 'UPDATE pedido_cliente
                 SET id_proforma = ' . $idProforma . ' WHERE id=' . $idPedido;
 
@@ -38,4 +39,23 @@ class PedidoModel
         return $this->database->mostrarPedidos();
     }
 
+    public function mostrarPedidosSinProforma()
+    {
+        return $this->database->mostrarPedidosSinProforma();
+    }
+
+    public function mostrarPedidosFinalizados()
+    {
+        return $this->database->mostrarPedidosFinalizados();
+    }
+
+    public function mostrarPedidosActivos()
+    {
+        return $this->database->mostrarPedidosActivos();
+    }
+
+    public function mostrarPedidosPendientes()
+    {
+        return $this->database->mostrarPedidosPendientes();
+    }
 }
