@@ -19,29 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/view/partial/equiposProforma.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
-
-      <change beforePath="$PROJECT_DIR$/public/grupo11.sql" beforeDir="false" afterPath="$PROJECT_DIR$/public/grupo11.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/footer.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/footer.mustache" afterDir="false" />
-
-
-      <change beforePath="$PROJECT_DIR$/controller/ProformaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ProformaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper/Configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/Configuration.php" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/helper/MysqlDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/MysqlDatabase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ProformaModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ProformaModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/grupo11.sql" beforeDir="false" afterPath="$PROJECT_DIR$/public/grupo11.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/informacionEquipos.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/informacionEquipos.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/registrarEquipo.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/registrarEquipo.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/proformaView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/proformaView.php" afterDir="false" />
-
-
-
-
-    </list>
+    <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,12 +56,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../php/Tp5-LopezDucas" />
-
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -103,21 +78,15 @@
       <workItem from="1606936873082" duration="605000" />
       <workItem from="1606959029137" duration="3062000" />
       <workItem from="1607023801947" duration="6219000" />
-
       <workItem from="1607124358463" duration="2066000" />
       <workItem from="1607193270512" duration="1003000" />
       <workItem from="1607197788906" duration="5607000" />
       <workItem from="1607302873204" duration="1544000" />
-
       <workItem from="1607124358463" duration="3005000" />
       <workItem from="1607202430196" duration="6487000" />
       <workItem from="1607271750922" duration="7074000" />
       <workItem from="1607271750922" duration="6138000" />
       <workItem from="1607308303619" duration="849000" />
-
-
-
-
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>
