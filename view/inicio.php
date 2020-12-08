@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-sm">
                     <h5>Logística y almacenamiento</h5>
-                    <img class="d-block w-100 p-2" src="/public/images/indexfoto3   .png" alt="logalma">
+                    <img class="d-block w-100 p-2" src="/public/images/indexfoto3.png" alt="logalma">
                     <p>Hemos desarrollado un sistema logístico que nos permite rastrear y enviar cargas a
                         cualquier punto del país en cuestión de horas. Nuestros depósitos cuentan con la
                         tecnología necesaria para detectar despachos pendientes y así evitar retrasos
