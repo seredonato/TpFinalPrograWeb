@@ -288,7 +288,7 @@ class MysqlDatabase
         from equipo as e inner join acoplado as a
         on e.id_acoplado = a.id 
         inner join tractor as t on e.id_tractor = t.id
-        WHERE e.eliminado = "'.$estado.'"';
+        WHERE e.eliminado = "' . $estado . '"';
 
         $resultado = $this->connection->query($sql);
         $datos = array();
@@ -322,30 +322,30 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function eliminarEquipo($id,$id_acoplado,$id_tractor)
+    public function eliminarEquipo($id, $id_acoplado, $id_tractor)
     {
 
         $estado = "Sin asignar";
-        $eliminado= "si";
+        $eliminado = "si";
         $sql1 = 'UPDATE acoplado SET estado = "' . $estado . '" WHERE id = ' . $id_acoplado;
         $sql2 = 'UPDATE tractor SET estado = "' . $estado . '" WHERE id = ' . $id_tractor;
 
         $sql = 'UPDATE equipo SET eliminado = "' . $eliminado . '" WHERE id = ' . $id;
-         $this->connection->query($sql1);
-         $this->connection->query($sql2);
+        $this->connection->query($sql1);
+        $this->connection->query($sql2);
         return $this->connection->query($sql);
     }
 
 
-    public function modificarEquipo($id,$acoplado,$tractor,$acopladoAnterior,$tractorAnterior)
+    public function modificarEquipo($id, $acoplado, $tractor, $acopladoAnterior, $tractorAnterior)
     {
-        $estado1="Sin asignar";
-        $estado2="Asignado";
-        $sql = 'UPDATE equipo SET id_tractor = ' . $tractor . ', id_acoplado = '. $acoplado  .' WHERE id = ' . $id;
-        $sql1 ='UPDATE acoplado SET estado = "' . $estado1 . '" WHERE id = ' . $acopladoAnterior;
-        $sql2= 'UPDATE tractor SET estado = "' . $estado1 . '" WHERE id = ' . $tractorAnterior;
-        $sql3 ='UPDATE acoplado SET estado = "' . $estado2 . '" WHERE id = ' . $acoplado;
-        $sql4= 'UPDATE tractor SET estado = "' . $estado2 . '" WHERE id = ' . $tractor;
+        $estado1 = "Sin asignar";
+        $estado2 = "Asignado";
+        $sql = 'UPDATE equipo SET id_tractor = ' . $tractor . ', id_acoplado = ' . $acoplado . ' WHERE id = ' . $id;
+        $sql1 = 'UPDATE acoplado SET estado = "' . $estado1 . '" WHERE id = ' . $acopladoAnterior;
+        $sql2 = 'UPDATE tractor SET estado = "' . $estado1 . '" WHERE id = ' . $tractorAnterior;
+        $sql3 = 'UPDATE acoplado SET estado = "' . $estado2 . '" WHERE id = ' . $acoplado;
+        $sql4 = 'UPDATE tractor SET estado = "' . $estado2 . '" WHERE id = ' . $tractor;
         $this->connection->query($sql1);
         $this->connection->query($sql2);
         $this->connection->query($sql3);
@@ -354,12 +354,13 @@ class MysqlDatabase
     }
 
 
-    public function cambiarEstadoTractorYAcopladoAEnUso($id_tractor,$id_acoplado){
+    public function cambiarEstadoTractorYAcopladoAEnUso($id_tractor, $id_acoplado)
+    {
         $sql = "UPDATE tractor 
         SET estado='Asignado' WHERE id='$id_tractor'";
         $sql2 = "UPDATE acoplado 
         SET estado='Asignado' WHERE id='$id_acoplado'";
-         $this->connection->query($sql);
+        $this->connection->query($sql);
         return $this->connection->query($sql2);
 
     }
@@ -386,15 +387,16 @@ class MysqlDatabase
 
     public function eliminarTractor($id)
     {
-        $eliminado= "si";
+        $eliminado = "si";
         $sql = 'UPDATE tractor SET eliminado = "' . $eliminado . '" WHERE id = ' . $id;
 
         return $this->connection->query($sql);
     }
 
 
-    public function mostrarTractorPorId($id){
-        $eliminado="no";
+    public function mostrarTractorPorId($id)
+    {
+        $eliminado = "no";
         $sql = 'SELECT * FROM tractor WHERE id = "' . $id . '" AND eliminado = "' . $eliminado . '"';
         $resultado = $this->connection->query($sql);
         $datos = array();
@@ -404,8 +406,9 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function devolverTractorPorIdAsignados($id){
-        $eliminado="no";
+    public function devolverTractorPorIdAsignados($id)
+    {
+        $eliminado = "no";
         $sql = 'SELECT * FROM tractor WHERE id = "' . $id . '" AND eliminado = "' . $eliminado . '" AND estado = "Asignado"';
         $resultado = $this->connection->query($sql);
         $datos = array();
@@ -415,8 +418,9 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function devolverAcopladosPorIdAsignados($id){
-        $eliminado="no";
+    public function devolverAcopladosPorIdAsignados($id)
+    {
+        $eliminado = "no";
         $sql = 'SELECT * FROM acoplado WHERE id = "' . $id . '" AND eliminado = "' . $eliminado . '" AND estado = "Asignado"';
         $resultado = $this->connection->query($sql);
         $datos = array();
@@ -426,11 +430,12 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function mostrarAcopladoSoloSinAsignar(){
+    public function mostrarAcopladoSoloSinAsignar()
+    {
         $eliminado = "no";
         $estado = "Sin asignar";
 
-        $sql = "SELECT * FROM acoplado WHERE eliminado = '".$eliminado."' AND estado = '".$estado."' ";
+        $sql = "SELECT * FROM acoplado WHERE eliminado = '" . $eliminado . "' AND estado = '" . $estado . "' ";
 
         $resultado = $this->connection->query($sql);
         $datos = array();
@@ -440,11 +445,12 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function mostrarTractorSoloSinAsignar(){
+    public function mostrarTractorSoloSinAsignar()
+    {
         $eliminado = "no";
         $estado = "Sin asignar";
 
-        $sql = "SELECT * FROM tractor WHERE eliminado = '".$eliminado."' AND estado = '".$estado."' ";
+        $sql = "SELECT * FROM tractor WHERE eliminado = '" . $eliminado . "' AND estado = '" . $estado . "' ";
 
 
         $resultado = $this->connection->query($sql);
@@ -491,72 +497,99 @@ class MysqlDatabase
         $sql = 'SELECT precio FROM imoClass where clase =' . $imoClass;
         $resultado = $this->connection->query($sql);
         $precio = $resultado->fetch_assoc();
-        if(isset($precio["precio"])){
+        if (isset($precio["precio"])) {
 
             return $precio["precio"];
         }
-
-
-
     }
 
-    public function reporteDelDia($idViaje){
-        $sql = 'SELECT COUNT(id_viaje) AS cant_reportes FROM reporte WHERE fecha = curdate() AND id_viaje ='. $idViaje;
+    public function reporteDelDia($idViaje)
+    {
+        $sql = 'SELECT COUNT(id_viaje) AS cant_reportes FROM reporte WHERE fecha = curdate() AND id_viaje =' . $idViaje;
 
         $resultado = $this->connection->query($sql);
 
-        $cantReportes= $resultado->fetch_assoc();
+        $cantReportes = $resultado->fetch_assoc();
 
         return $cantReportes["cant_reportes"];
     }
 
-    public function obtenerPrecioDePeaje(){
+    public function obtenerPrecioDePeaje()
+    {
         $sql = 'SELECT peaje FROM precio';
 
         $resultado = $this->connection->query($sql);
 
-        $peaje= $resultado->fetch_assoc();
+        $peaje = $resultado->fetch_assoc();
 
         return $peaje["peaje"];
     }
 
-    public function obtenerPrecioPorKm(){
+    public function obtenerPrecioPorKm()
+    {
         $sql = 'SELECT kilometro FROM precio';
 
         $resultado = $this->connection->query($sql);
 
-        $km= $resultado->fetch_assoc();
+        $km = $resultado->fetch_assoc();
 
         return $km["kilometro"];
     }
 
-    public function obtenerPrecioPorLitro(){
+    public function obtenerPrecioPorLitro()
+    {
         $sql = 'SELECT litro FROM precio';
 
         $resultado = $this->connection->query($sql);
 
-        $litro= $resultado->fetch_assoc();
+        $litro = $resultado->fetch_assoc();
 
         return $litro["litro"];
     }
 
-    public function obtenerPrecioHazard($idViaje){
-        $sql = 'SELECT hazard FROM costeo_estimado WHERE id_viaje ='. $idViaje;
+    public function obtenerPrecioHazard($idViaje)
+    {
+        $sql = 'SELECT hazard FROM costeo_estimado WHERE id_viaje =' . $idViaje;
 
         $resultado = $this->connection->query($sql);
 
-        $hazard= $resultado->fetch_assoc();
+        $hazard = $resultado->fetch_assoc();
 
         return $hazard["hazard"];
     }
 
-    public function obtenerPrecioReefer($idViaje){
-        $sql = 'SELECT reefer FROM costeo_estimado WHERE id_viaje ='. $idViaje;
+    public function obtenerPrecioReefer($idViaje)
+    {
+        $sql = 'SELECT reefer FROM costeo_estimado WHERE id_viaje =' . $idViaje;
 
         $resultado = $this->connection->query($sql);
 
-        $reefer= $resultado->fetch_assoc();
+        $reefer = $resultado->fetch_assoc();
 
         return $reefer["reefer"];
+    }
+
+    public function obtenerReportesDelViajePorIdProforma($idProforma)
+    {
+        $sql = 'SELECT * FROM reporte AS r  WHERE r.id_viaje =' . $idProforma;
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function mostrarDatosChoferPorIdProforma($idProforma)
+    {
+        $sql = 'SELECT u.nombre,u.apellido,u.email,u.id,u.dni,u.tipo_licencia FROM usuario AS u JOIN proforma AS p ON u.id = p.id_usuario WHERE p.id =' . $idProforma;
+
+        $resultado = $this->connection->query($sql);
+
+        $chofer = $resultado->fetch_assoc();
+
+        return $chofer;
+
     }
 }

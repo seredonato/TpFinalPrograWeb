@@ -47,6 +47,7 @@ reefer varchar(200) NOT NULL,
 temperatura int
 );
 
+
 CREATE TABLE tractor(
 marca varchar(100) not null,
 modelo varchar(100) not null,
@@ -77,6 +78,7 @@ id int AUTO_INCREMENT NOT NULL,
 primary key (id),
 foreign key (id_Tractor) references tractor(id),
 foreign key (id_acoplado) references acoplado(id));
+
 
 CREATE TABLE calendarioServicio(
 fecha date not null,
@@ -343,5 +345,3 @@ VALUES 	("Araña",	"AA100AS",	585822, "no","Sin asignar"),
 		("CarCarrier",	"AD103LO",	732404, "no","Sin asignar"),
 		("CarCarrier",	"AD104WE",	732880, "no","Sin asignar"),
 		("CarCarrier",	"AD105ZP",	733355, "no","Sin asignar");
-
-

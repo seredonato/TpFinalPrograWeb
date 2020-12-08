@@ -29,7 +29,8 @@ class ReporteModel
 
     }
 
-    public function calcularTotal($idViaje, $kilometros, $combustible, $viaticos, $peajes, $extras, $fee){
+    public function calcularTotal($idViaje, $kilometros, $combustible, $viaticos, $peajes, $extras, $fee)
+    {
         $precioKilometro = $this->database->obtenerPrecioPorKm();
         $precioLitro = $this->database->obtenerPrecioPorLitro();
         $precioPeaje = $this->database->obtenerPrecioDePeaje();
@@ -44,4 +45,16 @@ class ReporteModel
 
         return $total;
     }
+
+    public function obtenerReportes($idProforma)
+    {
+        return $this->database->obtenerReportesDelViajePorIdProforma($idProforma);
+    }
+
+    public function obtenerDatosChoferPorIdProforma($idProforma){
+
+        return $this->database->mostrarDatosChoferPorIdProforma($idProforma);
+
+    }
+
 }

@@ -76,7 +76,7 @@ class ProformaModel
 
     public function enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer, $idEquipo)
     {
-        $sql = 'INSERT INTO proforma (fecha, id_pedido_cliente, id_viaje, id_carga, id_costeo_estimado, id_usuario, $id_equipo)
+        $sql = 'INSERT INTO proforma (fecha, id_pedido_cliente, id_viaje, id_carga, id_costeo_estimado, id_usuario, id_equipo)
                 VALUES (curdate(), ' . $idPedido . ', ' . $idViaje . ', ' . $idCarga . ', ' . $idCosteoEstimado . ', ' . $idChofer . ', ' . $idEquipo . ')';
 
         return $this->database->query($sql);
