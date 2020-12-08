@@ -1,7 +1,10 @@
 {{> header}}
 
 <main class="cuerpoindex">
-    <h2 class="text-center p-3"> Tractores </h2>
+    <div class="container mt-2 listaUsuarios">
+        <h2 class="titulosindex  text-center"> Tractores </h2>
+        <hr>
+    </div>
     {{>registrarTractor}}
 
     {{#registroTractorError}}
