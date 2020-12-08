@@ -1,7 +1,9 @@
 {{> header}}
 <main class="cuerpoindex">
-    <h2 class="text-center p-3"> Tipos de acoplados </h2>
-
+    <div class="container mt-2 listaUsuarios">
+    <h2 class="titulosindex  text-center"> Tipos de acoplados </h2>
+    <hr>
+    </div>
     {{>registrarAcoplado}}
 
     {{#registroAcopladoError}}
