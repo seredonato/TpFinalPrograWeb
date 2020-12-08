@@ -2,34 +2,16 @@
 
 <main class="cuerpoindex">
     <div class="container mt-2 listaUsuarios text-center">
-        <h2 class="titulosindex">Pedidos</h2>
+        <h2 class="titulosindex">Todos los Pedidos</h2>
         <hr>
-        <h3>Pedidos Sin Proforma</h3>
+        <a href="/listaPedidos/pedidosSinProforma" type="button" class="btn btn-dark">Pedidos Sin Proforma</a>
+        <a href="/listaPedidos/pedidosPendientes" type="button" class="btn btn-dark">Pedidos Pendientes</a>
+        <a href="/listaPedidos/pedidosActivos" type="button" class="btn btn-dark">Pedidos Activos</a>
+        <a href="/listaPedidos/pedidosFinalizados" type="button" class="btn btn-dark">Pedidos Finalizados</a>
         <div class="row my-5">
-            {{#pedidosNoProforma}}
+            {{#pedidos}}
             {{>informacionPedidos}}
-            {{/pedidosNoProforma}}
-        </div>
-        <hr>
-        <h3>Pedidos Pendientes</h3>
-        <div class="row my-5">
-            {{#pedidosPendientes}}
-            {{>informacionPedidosConProforma}}
-            {{/pedidosPendientes}}
-        </div>
-        <hr>
-        <h3>Pedidos Activos</h3>
-        <div class="row my-5">
-            {{#pedidosActivos}}
-            {{>informacionPedidosConProforma}}
-            {{/pedidosActivos}}
-        </div>
-        <hr>
-        <h3>Pedidos Finalizados</h3>
-        <div class="row my-5">
-            {{#pedidosFinalizados}}
-            {{>informacionPedidosConProforma}}
-            {{/pedidosFinalizados}}
+            {{/pedidos}}
         </div>
     </div>
 </main>

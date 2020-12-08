@@ -592,7 +592,8 @@ class MysqlDatabase
 
     }
 
-    public function mostrarPedidosSinProforma(){
+    public function mostrarPedidosSinProforma()
+    {
         $sql = 'SELECT  p.id,p.fecha_pedido,p.nombre_cliente,p.cuit_cliente,p.direccion_cliente,p.telefono_cliente,p.email_cliente,p.contacto1, p.contacto2 FROM pedido_cliente AS p WHERE p.id NOT IN (SELECT id FROM proforma)';
 
         $resultado = $this->connection->query($sql);
@@ -603,7 +604,8 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function mostrarPedidosFinalizados(){
+    public function mostrarPedidosFinalizados()
+    {
         $sql = 'SELECT p.id,p.fecha_pedido,p.nombre_cliente,p.cuit_cliente,p.direccion_cliente,p.telefono_cliente,p.email_cliente,p.contacto1, p.contacto2 FROM pedido_cliente AS p JOIN proforma AS pr ON p.id = pr.id JOIN viaje AS v ON pr.id = v.id WHERE v.estado = "FINALIZADO"';
 
         $resultado = $this->connection->query($sql);
@@ -614,7 +616,8 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function mostrarPedidosActivos(){
+    public function mostrarPedidosActivos()
+    {
         $sql = 'SELECT p.id,p.fecha_pedido,p.nombre_cliente,p.cuit_cliente,p.direccion_cliente,p.telefono_cliente,p.email_cliente,p.contacto1, p.contacto2 FROM pedido_cliente AS p JOIN proforma AS pr ON p.id = pr.id JOIN viaje AS v ON pr.id = v.id WHERE v.estado = "ACTIVO"';
 
         $resultado = $this->connection->query($sql);
@@ -625,7 +628,8 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function mostrarPedidosPendientes(){
+    public function mostrarPedidosPendientes()
+    {
         $sql = 'SELECT p.id,p.fecha_pedido,p.nombre_cliente,p.cuit_cliente,p.direccion_cliente,p.telefono_cliente,p.email_cliente,p.contacto1, p.contacto2 FROM pedido_cliente AS p JOIN proforma AS pr ON p.id = pr.id JOIN viaje AS v ON pr.id = v.id WHERE v.estado = "PENDIENTE"';
 
         $resultado = $this->connection->query($sql);
@@ -634,5 +638,14 @@ class MysqlDatabase
             $datos[] = $fila;
         }
         return $datos;
+    }
+
+    public function actualizarViajes()
+    {
+        $sql = 'UPDATE viaje SET estado = "ACTIVO" WHERE fecha_carga >= curdate()';
+        $sql1 = 'UPDATE viaje SET estado = "FINALIZADO" WHERE fecha_llegada <= curdate()';
+
+        $this->connection->query($sql);
+        $this->connection->query($sql1);
     }
 }

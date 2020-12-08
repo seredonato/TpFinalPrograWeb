@@ -40,6 +40,8 @@ class LoginController
         if (isset($result["logueado"]) && $result["logueado"] == true) {
             $rol = $this->loginModel->getRolDeUsuario($nombreUsuario);
 
+            $this->loginModel->actualizarViajes();
+
             $_SESSION["nombreUsuario"] = $nombreUsuario;
             $_SESSION["logueado"] = $result["logueado"];
 

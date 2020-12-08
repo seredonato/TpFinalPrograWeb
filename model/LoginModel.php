@@ -135,4 +135,8 @@ class LoginModel
     {
         session_destroy();
     }
+
+    public function actualizarViajes(){
+        $this->database->actualizarViajes();
+    }
 }
