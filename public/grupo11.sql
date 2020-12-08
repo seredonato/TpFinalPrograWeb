@@ -264,11 +264,10 @@ VALUES 	(1, 1.1, "Explosivos que tienen un riesgo de explosión masiva. Explosio
       
 INSERT INTO precio(temperatura, kilometro, litro, peaje) VALUES (450, 10, 60, 70);        
 
-        
 INSERT INTO tractor (marca, modelo, patente, nro_motor, chasis, kilometraje, eliminado,estado)
-VALUES 	("IVECO","Cursor","AA123CD",53879558,"L53879558",0,"no","Sin asignar"),
-		("IVECO","Cursor","AA124DC",69904367,"R69904367",0,"no","Sin asignar"),
-		("IVECO","Cursor","AD200XS",57193968,"R57193968",0,"no","Sin asignar"),
+VALUES 	("IVECO","Cursor","AA123CD",53879558,"L53879558",0,"no","Asignado"),
+		("IVECO","Cursor","AA124DC",69904367,"R69904367",0,"no","Asignado"),
+		("IVECO","Cursor","AD200XS",57193968,"R57193968",0,"no","Asignado"),
 		("IVECO","Cursor","AA211ZX",82836641,"N82836641",0,"no","Sin asignar"),
 		("IVECO","Cursor","AC452WE",28204636,"R28204636",0,"no","Sin asignar"),
 		("IVECO","Cursor","AA233SS",26139668,"K26139668",0,"no","Sin asignar"),
@@ -295,9 +294,9 @@ VALUES 	("IVECO","Cursor","AA123CD",53879558,"L53879558",0,"no","Sin asignar"),
 		("M.BENZ","Actros 1846","AC989QW",64092078,"F64092078",0,"no","Sin asignar");
 
 INSERT INTO acoplado (tipo_acoplado,patente,chasis,eliminado,estado)
-VALUES 	("Araña",	"AA100AS",	585822, "no","Sin asignar"),
-		("Araña",	"AC125AD",	605737, "no","Sin asignar"),
-		("Araña",	"AB135AG",	705687, "no","Sin asignar"),
+VALUES 	("Araña",	"AA100AS",	585822, "no","Asignado"),
+		("Araña",	"AC125AD",	605737, "no","Asignado"),
+		("Araña",	"AB135AG",	705687, "no","Asignado"),
 		("Araña",	"AD166AS",	815082, "no","Sin asignar"),
 		("Araña",	"AA189AD",	775167, "no","Sin asignar"),
 		("Araña",	"AC208AG",	642287, "no","Sin asignar"),
@@ -345,3 +344,17 @@ VALUES 	("Araña",	"AA100AS",	585822, "no","Sin asignar"),
 		("CarCarrier",	"AD103LO",	732404, "no","Sin asignar"),
 		("CarCarrier",	"AD104WE",	732880, "no","Sin asignar"),
 		("CarCarrier",	"AD105ZP",	733355, "no","Sin asignar");
+
+INSERT INTO equipo(eliminado,id_tractor,id_acoplado,estado)
+values ("no",1,1,"Disponible"),
+	   ("no",2,2,"Disponible"),
+	   ("no",3,3,"Disponible");
+
+INSERT INTO calendarioServicio(fecha,id_tractor,estado,eliminado)
+values ("20200202",1,"Cumplido","no"),
+ ("2021-03-02",1,"En espera","no"),
+ ("2022-04-02",1,"En espera","no"),
+ ("2020-02-02",2,"Cumplido","no"),
+ ("2021-02-02",3,"En espera","no"),
+ ("2020-02-02",3,"Cumplido","no"),
+ ("2020-02-02",3,"Cumplido","no");

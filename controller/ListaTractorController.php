@@ -35,6 +35,8 @@ class listaTractorController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
             $data["tractores"] = $this->tractorModel->mostrarTractor();
             $nro_motor = $_POST["nro_motor"];
             $marca = $_POST["marca"];
@@ -61,11 +63,12 @@ class listaTractorController
             }
 
             echo $this->render->render("view/listaTractoresView.php", $data);
-
+            } else{
+                echo $this->render->render("view/inicio.php", $data);
+            }
         } else{
             echo $this->render->render("view/inicio.php", $data);
         }
-
     }
 
     public function execute()
@@ -80,6 +83,8 @@ class listaTractorController
             $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
             $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
             $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $data["valorAdmin"] = $valorAdmin;
             $data["valorChofer"] = $valorChofer;
@@ -88,7 +93,9 @@ class listaTractorController
             $data["tractores"] = $this->tractorModel->mostrarTractor();
 
             echo $this->render->render("view/listaTractoresView.php", $data);
-
+            }  else{
+                echo $this->render->render("view/inicio.php", $data);
+            }
         } else{
             echo $this->render->render("view/inicio.php", $data);
         }
@@ -108,6 +115,8 @@ class listaTractorController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $id = $_POST["id"];
             $marca = $_POST["marca"];
@@ -119,7 +128,9 @@ class listaTractorController
 
             $data["tractores"] = $this->tractorModel->mostrarTractor();
             echo $this->render->render("view/listaTractoresView.php", $data);
-
+            }  else{
+                echo $this->render->render("view/inicio.php", $data);
+            }
         } else{
             echo $this->render->render("view/inicio.php", $data);
         }
@@ -140,16 +151,21 @@ class listaTractorController
             $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
             $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
             $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $data["valorAdmin"] = $valorAdmin;
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
             echo $this->render->render("view/listaTractoresView.php", $data);
-
+            }  else{
+                echo $this->render->render("view/inicio.php", $data);
+            }
         } else{
             echo $this->render->render("view/inicio.php", $data);
         }
+
     }
 
     public function registrarCalendarioTractor(){
@@ -173,6 +189,8 @@ class listaTractorController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
             $result = $this->calendarioModel->registrarCalendarioTractor($id,$dia);
 
             $data["tractores"] = $this->tractorModel->mostrarTractor();
@@ -180,6 +198,9 @@ class listaTractorController
             $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractor($id);
             echo $this->render->render("view/listaCalendario.php", $data);
         } else{
+            echo $this->render->render("view/inicio.php", $data);
+         }
+        }  else{
             echo $this->render->render("view/inicio.php", $data);
         }
 
@@ -200,6 +221,8 @@ class listaTractorController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $data["tractores"] = $this->tractorModel->mostrarTractor();
             $id = $_GET["id"];
@@ -207,6 +230,9 @@ class listaTractorController
             $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractor($id);
 
             echo $this->render->render("view/listaCalendario.php", $data);
+        }  else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
         }  else{
             echo $this->render->render("view/inicio.php", $data);
         }
@@ -229,6 +255,8 @@ class listaTractorController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $id = $_GET["id"];
             $idTractor = $_GET["idTractor"];
@@ -238,6 +266,9 @@ class listaTractorController
 
             echo $this->render->render("view/listaCalendario.php", $data);
         }         else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
+        }  else{
             echo $this->render->render("view/inicio.php", $data);
         }
 
@@ -257,6 +288,9 @@ class listaTractorController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
+
             $id = $_POST["id"];
             $id_tractor = $_GET["idTractor"];
             $fecha = $_POST["fecha"];
@@ -265,6 +299,9 @@ class listaTractorController
             $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractor($id_tractor);
 
             echo $this->render->render("view/listaCalendario.php", $data);
+        }  else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
         }  else{
             echo $this->render->render("view/inicio.php", $data);
         }
@@ -286,6 +323,8 @@ class listaTractorController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $id = $_POST["id"];
             $id_tractor = $_POST["id_tractor"];
@@ -299,6 +338,9 @@ class listaTractorController
 
         }
         else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
+        }  else{
             echo $this->render->render("view/inicio.php", $data);
         }
     }
