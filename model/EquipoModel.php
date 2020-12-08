@@ -30,6 +30,10 @@ class EquipoModel
 
     }
 
+    public function mostrarEquipoPorId($id){
+        return $this->database->mostrarEquipoPorId($id);
+    }
+
     public function mostrarAcopladoSoloSinAsignar(){
         return $this->database->mostrarAcopladoSoloSinAsignar();
     }
