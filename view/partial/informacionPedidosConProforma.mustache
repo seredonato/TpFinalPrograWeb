@@ -1,10 +1,13 @@
-<div class="col-md-4">
-    <div class="card choferes">
-        <div class="card-body">
-            <h5 class="card-title">{{nombre_cliente}}</h5>
+<div class="col-md-4 mb-4">
+    <div class="card">
+        <div class="container p-2 pl-3 text-white" style="background: #E6831A">
+            <h4 class="card-title">{{nombre_cliente}}</h4>
+        </div>
+        <div class="container p-3" style="background: #fffcf8">
             <div style="text-align: left">
-                <p class="card-text" style="float: left">ID PEDIDO: {{id}}</p>
-                <p class="card-text" style="margin-left: 50%">CUIT: {{cuit_cliente}}</p>
+                <h5 class="card-text" style="float: left">ID: {{id}}</h5>
+                <h5 class="card-text" style="margin-left: 40%">CUIT: {{cuit_cliente}}</h5>
+                <hr>
                 <p class="card-text">FECHA PEDIDO: {{fecha_pedido}}</p>
                 <p class="card-text">EMAIL: {{email_cliente}}</p>
                 <p class="card-text">TELEFONO: {{telefono_cliente}}</p>
@@ -12,9 +15,10 @@
                 <p class="card-text">CONTACTO 1: {{contacto1}}</p>
                 <p class="card-text">CONTACTO 2: {{contacto2}}</p>
                 <div style="text-align: center">
-                        <a href="/pdfReporte?id={{id}}" type="button" class="btn btn-outline-dark" style="float:
+                        <hr>
+                        <a href="/pdfReporte?id={{id}}" type="button" class="btn btn-secondary" style="float:
                         left">Ver Reportes</a>
-                        <a href="/pdfProforma?id={{id}}" type="button" class="btn btn-outline-dark" style="float:
+                        <a href="/pdfProforma?id={{id}}" type="button" class="btn btn-secondary" style="float:
                         right">Ver Proforma</a>
                 </div>
             </div>

@@ -49,36 +49,116 @@ class ListaPedidosController
     public function pedidosPendientes()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
-        $data["pedidosPendientes"] = $this->pedidoModel->mostrarPedidosPendientes();
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
 
-        echo $this->render->render("view/listaPedidosPendientesView.php", $data);
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if ($valorDelRol == 1 || $valorDelRol == 4) {
+                $data["pedidosPendientes"] = $this->pedidoModel->mostrarPedidosPendientes();
+                echo $this->render->render("view/listaPedidosPendientesView.php", $data);
+            } else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        } else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 
     public function pedidosActivos()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
-        $data["pedidosActivos"] = $this->pedidoModel->mostrarPedidosActivos();
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
 
-        echo $this->render->render("view/listaPedidosActivosView.php", $data);
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if ($valorDelRol == 1 || $valorDelRol == 4) {
+                $data["pedidosActivos"] = $this->pedidoModel->mostrarPedidosActivos();
+                echo $this->render->render("view/listaPedidosActivosView.php", $data);
+            } else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        } else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 
     public function pedidosFinalizados()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
-        $data["pedidosFinalizados"] = $this->pedidoModel->mostrarPedidosFinalizados();
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
 
-        echo $this->render->render("view/listaPedidosFinalizadosView.php", $data);
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if ($valorDelRol == 1 || $valorDelRol == 4) {
+                $data["pedidosFinalizados"] = $this->pedidoModel->mostrarPedidosFinalizados();
+                echo $this->render->render("view/listaPedidosFinalizadosView.php", $data);
+            } else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        } else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 
     public function pedidosSinProforma()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
-        $data["pedidosNoProforma"] = $this->pedidoModel->mostrarPedidosSinProforma();
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
 
-        echo $this->render->render("view/listaPedidosSinProformaView.php", $data);
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            if ($valorDelRol == 1 || $valorDelRol == 4) {
+                $data["pedidosNoProforma"] = $this->pedidoModel->mostrarPedidosSinProforma();
+                echo $this->render->render("view/listaPedidosSinProformaView.php", $data);
+            } else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        } else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 }
