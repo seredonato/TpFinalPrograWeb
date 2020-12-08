@@ -77,7 +77,7 @@
                                style="margin-bottom: 2%; margin-right: 5%"
                                required name="hazardSi">
 
-                        <label for="hazardNo">NO</label>
+                        <label for="hazardSi">NO</label>
                         <input value="no" type="radio" onclick="ocultarSelectHazard()"
                                style="margin-bottom: 2%"
                                required name="hazardSi">
@@ -184,7 +184,6 @@
             <div class="mt-4 mb-4 text-center">
                 <h5 class="card-title">Seleccionar Equipo</h5>
                 <div class="container mt-2 justify-content-center" style="margin-left: 0;margin-right: 0">
-
                         {{#equipos}}
                         {{> equiposProforma}}
                         {{/equipos}}
