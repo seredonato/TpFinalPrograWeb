@@ -94,16 +94,16 @@ class PdfReporteController
                     $pdf->SetLeftMargin(5);
                     $pdf->SetFont('helvetica', 'b', 18);
                     $pdf->SetFillColor(234, 149, 58);
-                    $pdf->SetXY(5, 165);
+                    $pdf->SetXY(5, 155);
                     $pdf->Cell(0, 10, utf8_decode('POSICIÓN'), 1, 1, 'C', 6);
                     $pdf->SetFont('helvetica', 'b', 13);
                     $pdf->Cell(0, 15, utf8_decode('Para ver la ubicación copie la latitud y longitud y péguelo en el buscador de Google Maps'), 0, 0, 'C');
                     $pdf->SetFont('helvetica', 'b', 15);
-                    $pdf->SetXY(5, 184);
+                    $pdf->SetXY(5, 174);
                     $pdf->Cell(0, 20, 'Latitud: ' . $reporte["latitud"], 0, 0, '');
-                    $pdf->SetXY(10, 184);
+                    $pdf->SetXY(10, 174);
                     $pdf->Cell(0, 20, 'Longitud: ' . $reporte["longitud"], 0, 0, 'R');
-                    $pdf->SetXY(10, 190);
+                    $pdf->SetXY(10, 183);
                     $pdf->SetFont('helvetica', 'i', 14);
                     $pdf->Cell(0, 20, 'Ejemplo: -33.67859,-69.65280', 0, 0, 'C');
 
