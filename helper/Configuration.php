@@ -18,6 +18,7 @@ include_once("controller/PdfProformaController.php");
 include_once("controller/QrController.php");
 include_once("controller/ReporteController.php");
 include_once("controller/PdfReporteController.php");
+include_once("controller/ViajeController.php");
 
 
 include_once("model/CalendarioModel.php");
@@ -35,7 +36,7 @@ include_once("model/CargaModel.php");
 include_once("model/ViajeModel.php");
 include_once("model/QrModel.php");
 include_once("model/ReporteModel.php");
-
+include_once("model/CosteoFinalModel.php");
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("Router.php");
@@ -109,6 +110,11 @@ class Configuration
     {
         $database = $this->getDatabase();
         return new UsuarioModel($database);
+    }
+
+    public function getCosteoFinalModel(){
+        $database = $this->getDatabase();
+        return new CosteoFinalModel($database);
     }
 
     public function getListaUsuarioController()
@@ -290,6 +296,14 @@ class Configuration
         $reporteModel = $this->getReporteModel();
         $loginModel = $this->getLoginModel();
         $render = $this->getRender();
-        return new PdfReporteController($reporteModel,$render,$loginModel);
+        return new PdfReporteController($render, $reporteModel, $loginModel);
+    }
+
+    public function getViajesController(){
+        $loginModel = $this->getLoginModel();
+        $viajeModel = $this->getViajeModel();
+        $costeoFinalModel = $this->getCosteoFinalModel();
+        return new ViajeController($this->getRender(), $costeoFinalModel, $viajeModel, $loginModel);
+
     }
 }

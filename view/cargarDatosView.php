@@ -28,16 +28,6 @@
                                        placeholder="Combustible"
                                        required name="combustible">
 
-                                <label for="horaSalida">Tiempo estimado de salida</label>
-                                <input type="time" class="form-control" style="margin-bottom: 2%"
-                                       placeholder="ETD"
-                                       required name="horaSalida">
-
-                                <label for="horaLlegada">Tiempo estimado de llegada</label>
-                                <input type="time" class="form-control" style="margin-bottom: 2%"
-                                       placeholder="ETA"
-                                       required name="horaLlegada">
-
                                 <label for="viaticos">Viaticos</label>
                                 <input type="number" class="form-control" style="margin-bottom: 2%"
                                        placeholder="Viaticos"

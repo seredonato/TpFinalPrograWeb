@@ -17,12 +17,12 @@ class ReporteModel
         return $resultado;
     }
 
-    public function guardarReporte($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes,
+    public function guardarReporte($idViaje, $kilometros, $combustible, $viaticos, $peajes,
                                    $extras, $fee, $latitud, $longitud)
     {
         $total = $this->calcularTotal($kilometros, $combustible, $viaticos, $peajes, $extras, $fee);
-        $sql = 'INSERT INTO reporte(id_viaje, kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, fee, latitud, longitud, total)
-                VALUES (' . $idViaje . ', ' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ', 
+        $sql = 'INSERT INTO reporte(id_viaje, kilometros, combustible, viaticos, peajes_pesajes, extras, fee, latitud, longitud, total)
+                VALUES (' . $idViaje . ', ' . $kilometros . ', ' . $combustible . ', ' . $viaticos . ', ' . $peajes . ', ' . $extras . ', 
                 ' . $fee . ', ' . $latitud . ', ' . $longitud . ', ' . $total . ')';
 
         return $this->database->query($sql);

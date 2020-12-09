@@ -297,7 +297,8 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function mostrarEquipoPorId($id){
+    public function mostrarEquipoPorId($id)
+    {
         $sql = 'select e.id,e.id_tractor,e.id_acoplado,e.estado,t.marca,
         t.modelo,t.patente as t_patente,t.nro_motor,t.chasis as t_chasis,t.kilometraje,
         a.tipo_acoplado,a.patente as a_patente,a.chasis as a_chasis
@@ -598,6 +599,18 @@ class MysqlDatabase
         return $datos;
     }
 
+    public function obtenerReportesDelViajePorIdViaje($idViaje)
+    {
+        $sql = 'SELECT * FROM reporte AS r  WHERE r.id_viaje =' . $idViaje;
+
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
     public function mostrarDatosChoferPorIdProforma($idProforma)
     {
         $sql = 'SELECT u.nombre,u.apellido,u.email,u.id,u.dni,u.tipo_licencia FROM usuario AS u JOIN proforma AS p ON u.id = p.id_usuario WHERE p.id =' . $idProforma;
@@ -658,17 +671,9 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function actualizarViajes()
+    public function mostrarCosteoEstimadoPorIdDeProforma($id)
     {
-        $sql = 'UPDATE viaje SET estado = "ACTIVO" WHERE fecha_carga >= curdate()';
-        $sql1 = 'UPDATE viaje SET estado = "FINALIZADO" WHERE fecha_llegada <= curdate()';
-
-        $this->connection->query($sql);
-        $this->connection->query($sql1);
-    }
-
-    public function mostrarCosteoEstimadoPorIdDeProforma($id){
-        $sql = 'SELECT * FROM costeo_estimado WHERE id = ' .$id;
+        $sql = 'SELECT * FROM costeo_estimado WHERE id = ' . $id;
 
         $resultado = $this->connection->query($sql);
 
@@ -677,7 +682,8 @@ class MysqlDatabase
         return $costeoEstimado;
     }
 
-    public function obtenerTablaConPrecios(){
+    public function obtenerTablaConPrecios()
+    {
         $sql = 'SELECT * FROM precio';
 
         $resultado = $this->connection->query($sql);
@@ -685,5 +691,90 @@ class MysqlDatabase
         $precios = $resultado->fetch_assoc();
 
         return $precios;
+    }
+
+    public function devolverIdChoferNombreUsuario($nombreUsuario)
+    {
+        $sql = 'SELECT id FROM usuario WHERE usuario ="' . $nombreUsuario . '"';
+
+        $resultado = $this->connection->query($sql);
+
+        $id = $resultado->fetch_assoc();
+
+        return $id["id"];
+    }
+
+    public function devolverViajesSegunId($id)
+    {
+        $sql = 'SELECT v.id, v.origen, v.destino, v.estado, v.fecha_carga, v.tiempo_carga, v.fecha_llegada, v.tiempo_llegada 
+FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.id_usuario = u.id WHERE p.id_usuario=' . $id;
+
+        $resultado = $this->connection->query($sql);
+
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function devolverViajesActivosSegunId($id)
+    {
+        $sql = 'SELECT v.id, v.origen, v.destino, v.estado, v.fecha_carga, v.tiempo_carga, v.fecha_llegada, v.tiempo_llegada 
+FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.id_usuario = u.id WHERE p.id_usuario="' . $id . '" AND v.estado = "ACTIVO"';
+
+        $resultado = $this->connection->query($sql);
+
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function devolverViajesFinalizadosSegunId($id)
+    {
+        $sql = 'SELECT v.id, v.origen, v.destino, v.estado, v.fecha_carga, v.tiempo_carga, v.fecha_llegada, v.tiempo_llegada 
+FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.id_usuario = u.id WHERE p.id_usuario="' . $id . '" AND v.estado = "FINALIZADO"';
+
+        $resultado = $this->connection->query($sql);
+
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function devolverViajesPendientesSegunId($id)
+    {
+        $sql = 'SELECT v.id, v.origen, v.destino, v.estado, v.fecha_carga, v.tiempo_carga, v.fecha_llegada, v.tiempo_llegada 
+FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.id_usuario = u.id WHERE p.id_usuario="' . $id . '" AND v.estado = "PENDIENTE"';
+
+        $resultado = $this->connection->query($sql);
+
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function asignarHoraSalidayEstado($idViaje)
+    {
+        $sql = 'UPDATE costeo_final SET tiempo_salida = now() WHERE id_viaje =' . $idViaje;
+        $sql1 = 'UPDATE viaje SET estado = "ACTIVO" WHERE id =' . $idViaje;
+
+        $this->connection->query($sql);
+        $this->connection->query($sql1);
+    }
+
+    public function asignarHoraLlegadayEstado($idViaje)
+    {
+        $sql = 'UPDATE costeo_final SET tiempo_llegada = now() WHERE id_viaje =' . $idViaje;
+        $sql1 = 'UPDATE viaje SET estado = "FINALIZADO" WHERE id =' . $idViaje;
+
+        $this->connection->query($sql);
+        $this->connection->query($sql1);
     }
 }

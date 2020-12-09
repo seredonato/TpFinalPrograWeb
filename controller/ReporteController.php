@@ -26,8 +26,6 @@ class ReporteController
         $idViaje = $_GET["idViaje"];
         $kilometros = $_POST["kilometros"];
         $combustible = $_POST["combustible"];
-        $horaSalida = $_POST["horaSalida"];
-        $horaLlegada = $_POST["horaLlegada"];
         $viaticos = $_POST["viaticos"];
         $peajes = $_POST["peajes"];
         $extras = $_POST["extras"];
@@ -35,7 +33,7 @@ class ReporteController
         $latitud = $_POST["latitud"];
         $longitud = $_POST["longitud"];
 
-        $this->reporteModel->guardarReporte($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes,
+        $this->reporteModel->guardarReporte($idViaje, $kilometros, $combustible, $viaticos, $peajes,
             $extras, $fee, $latitud, $longitud);
         echo $this->render->render("view/inicio.php", $data);
     }

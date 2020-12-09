@@ -21,6 +21,7 @@ class ListaPedidosController
         $data["login"] = $this->loginModel->ifSesionIniciada();
 
         if ($data["login"]) {
+
             $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
             $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
@@ -50,6 +51,7 @@ class ListaPedidosController
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
         if ($data["login"]) {
+
             $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
             $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
@@ -79,6 +81,7 @@ class ListaPedidosController
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
         if ($data["login"]) {
+
             $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
             $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
@@ -108,6 +111,7 @@ class ListaPedidosController
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
         if ($data["login"]) {
+
             $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
             $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
@@ -137,6 +141,7 @@ class ListaPedidosController
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
         if ($data["login"]) {
+
             $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
             $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);

@@ -7,7 +7,7 @@ class PdfReporteController
     private $render;
     private $loginModel;
 
-    public function __construct($reporteModel,$render,$loginModel)
+    public function __construct($render,$reporteModel,$loginModel)
     {
         $this->reporteModel = $reporteModel;
         $this->render = $render;
@@ -78,19 +78,15 @@ class PdfReporteController
                     $pdf->SetXY(5, 75);
                     $pdf->Cell(0, 25, 'Combustible: ' . $reporte["combustible"], 0, 0, 'C');
                     $pdf->SetXY(5, 82);
-                    $pdf->Cell(0, 30, 'Tiempo Salida: ' . $reporte["tiempo_salida"], 0, 0, 'C');
+                    $pdf->Cell(0, 30, 'Viaticos: ' . $reporte["viaticos"], 0, 0, 'C');
                     $pdf->SetXY(5, 90);
-                    $pdf->Cell(0, 35, 'Tiempo Llegada: ' . $reporte["tiempo_llegada"], 0, 0, 'C');
+                    $pdf->Cell(0, 35, 'Peajes y Pesajes: ' . $reporte["peajes_pesajes"], 0, 0, 'C');
                     $pdf->SetXY(5, 98);
-                    $pdf->Cell(0, 40, 'Viaticos: ' . $reporte["viaticos"], 0, 0, 'C');
+                    $pdf->Cell(0, 40, 'Extras: ' . $reporte["extras"], 0, 0, 'C');
                     $pdf->SetXY(5, 105);
-                    $pdf->Cell(0, 45, 'Peajes y Pesajes: ' . $reporte["peajes_pesajes"], 0, 0, 'C');
-                    $pdf->SetXY(5, 112);
-                    $pdf->Cell(0, 50, 'Extras: ' . $reporte["extras"], 0, 0, 'C');
-                    $pdf->SetXY(5, 120);
-                    $pdf->Cell(0, 55, 'Fee: ' . $reporte["fee"], 0, 0, 'C');
+                    $pdf->Cell(0, 45, 'Fee: ' . $reporte["fee"], 0, 0, 'C');
                     $pdf->SetFont('helvetica', 'b', 17);
-                    $pdf->SetXY(5, 130);
+                    $pdf->SetXY(5, 112);
                     $pdf->Cell(0, 55, 'Total: ' . $reporte["total"], 0, 0, 'C');
 
                     //POSICIÓN
