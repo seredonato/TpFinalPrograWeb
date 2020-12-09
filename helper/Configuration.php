@@ -288,6 +288,8 @@ class Configuration
     public function getPdfReporteController()
     {
         $reporteModel = $this->getReporteModel();
-        return new PdfReporteController($reporteModel);
+        $loginModel = $this->getLoginModel();
+        $render = $this->getRender();
+        return new PdfReporteController($reporteModel,$render,$loginModel);
     }
 }

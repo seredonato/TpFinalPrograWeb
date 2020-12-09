@@ -4,10 +4,14 @@ include_once("public/fpdf/fpdf.php");
 class PdfReporteController
 {
     private $reporteModel;
+    private $render;
+    private $loginModel;
 
-    public function __construct($reporteModel)
+    public function __construct($reporteModel,$render,$loginModel)
     {
         $this->reporteModel = $reporteModel;
+        $this->render = $render;
+        $this->loginModel = $loginModel;
     }
 
 
