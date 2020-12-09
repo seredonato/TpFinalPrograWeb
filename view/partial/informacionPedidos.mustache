@@ -17,10 +17,11 @@
                 <div style="text-align: center">
                     {{#id_proforma}}
                         <hr>
-                        <a href="/pdfReporte?id={{id}}" type="button" class="btn btn-secondary" style="float:
+                        <a onclick=" window.open('/pdfReporte?id={{id}}','_blank')" type="button" class="btn btn-secondary" style="float:
                         left">Ver Reportes</a>
-                        <a href="/pdfProforma?id={{id}}" type="button" class="btn btn-secondary" style="float:
+                        <a onclick=" window.open('/pdfProforma?id={{id}}','_blank')" type="button" class="btn btn-secondary" style="float:
                         right">Ver Proforma</a>
+
                     {{/id_proforma}}
                     {{^id_proforma}}
                         <hr>
