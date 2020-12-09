@@ -13,9 +13,10 @@ class PdfProformaController
     private $equipoModel;
     private $proformaModel;
     private $loginModel;
+    private $render;
 
 
-    public function __construct($pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $equipoModel, $proformaModel,$loginModel)
+    public function __construct($pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $equipoModel, $proformaModel,$loginModel,$render)
     {
         $this->pedidoModel = $pedidoModel;
         $this->usuarioModel = $usuarioModel;
@@ -26,6 +27,7 @@ class PdfProformaController
         $this->equipoModel = $equipoModel;
         $this->proformaModel = $proformaModel;
         $this->loginModel = $loginModel;
+        $this->render = $render;
     }
 
     public function execute()
@@ -282,6 +284,8 @@ class PdfProformaController
             }else{
                 echo $this->render->render("view/inicio.php", $data);
             }
-        } echo $this->render->render("view/inicio.php", $data);
+        }else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 }
