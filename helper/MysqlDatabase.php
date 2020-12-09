@@ -316,6 +316,12 @@ class MysqlDatabase
         }
     }
 
+    public function cambiarEstadoNoDisponible($idEquipo){
+        $estado = "No disponible";
+        $sql = 'UPDATE equipo SET estado = "' . $estado . '" WHERE id = ' . $idEquipo;
+        return $this->connection->query($sql);
+    }
+
     public function devolverTractor()
     {
         $estado = "no";
@@ -748,8 +754,8 @@ FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.i
 
     public function devolverViajesPendientesSegunId($id)
     {
-        $sql = 'SELECT v.id, v.origen, v.destino, v.estado, v.fecha_carga, v.tiempo_carga, v.fecha_llegada, v.tiempo_llegada 
-FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.id_usuario = u.id WHERE p.id_usuario="' . $id . '" AND v.estado = "PENDIENTE"';
+        $sql = 'SELECT v.id, v.origen, v.destino, v.estado, v.fecha_carga, v.tiempo_carga, v.fecha_llegada, v.tiempo_llegada, e.id as id_equipo
+FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.id_usuario = u.id JOIN equipo as e on e.id = p.id_equipo  WHERE p.id_usuario="' . $id . '" AND v.estado = "PENDIENTE"';
 
         $resultado = $this->connection->query($sql);
 

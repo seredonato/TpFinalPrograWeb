@@ -7,13 +7,16 @@ class ViajeController
     private $render;
     private $loginModel;
     private $viajeModel;
+    private $equipoModel;
 
-    public function __construct($render,$costeoFinalModel, $viajeModel, $loginModel)
+    public function __construct($render,$costeoFinalModel, $viajeModel, $loginModel,$equipoMode)
     {
         $this->costeoFinalModel = $costeoFinalModel;
         $this->render = $render;
         $this->loginModel = $loginModel;
         $this->viajeModel = $viajeModel;
+        $this->equipoModel = $equipoMode;
+
     }
 
     public function execute(){
@@ -55,11 +58,12 @@ class ViajeController
     public function empezarViaje(){
         $data["login"] = $this->loginModel->ifSesionIniciada();
         $idViaje = $_GET["id"];
+        $idEquipo = $_GET["idEquipo"];
 
         $this->costeoFinalModel->guardarHoraSalidayEstado($idViaje);
+        $this->equipoModel->cambiarEstadoNoDisponible($idEquipo);
 
         $nombreUsuario = $_SESSION["nombreUsuario"];
-
         $data["viajes"] = $this->viajeModel->mostrarViajesAsignadosChofer($nombreUsuario);
 
         echo $this->render->render("view/viajesView.php", $data);

@@ -62,5 +62,9 @@ class EquipoModel
         return $this->database->modificarEquipo($id,$acoplado,$tractor,$acopladoAnterior,$tractorAnterior);
     }
 
+    public function cambiarEstadoNoDisponible($idEquipo){
+        return $this->database->cambiarEstadoNoDisponible($idEquipo);
+    }
+
 
 }

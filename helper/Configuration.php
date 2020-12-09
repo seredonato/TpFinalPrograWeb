@@ -304,8 +304,9 @@ class Configuration
     public function getViajesController(){
         $loginModel = $this->getLoginModel();
         $viajeModel = $this->getViajeModel();
+        $equipoModel = $this->getEquipoModel();
         $costeoFinalModel = $this->getCosteoFinalModel();
-        return new ViajeController($this->getRender(), $costeoFinalModel, $viajeModel, $loginModel);
+        return new ViajeController($this->getRender(), $costeoFinalModel, $viajeModel, $loginModel, $equipoModel);
 
     }
 }
