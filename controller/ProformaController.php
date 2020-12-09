@@ -80,50 +80,73 @@ class ProformaController
     public function guardarProforma()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $idPedido = $_GET["id"];
-        $origen = $_POST["origen"];
-        $destino = $_POST["destino"];
-        $fechaCarga = $_POST["fechaCarga"];
-        $horaCarga = $_POST["horaCarga"];
-        $fechaLlegada = $_POST["fechaLlegada"];
-        $horaLlegada = $_POST["horaLlegada"];
-        $tipo = $_POST["tipo"];
-        $peso = $_POST["peso"];
-        $hazardSi = $_POST["hazardSi"];
-        $imoClass = $_POST["imoClass"];
-        $imoSubClass = $_POST["imoSubClass"];
-        $temperaturaSi = $_POST["temperaturaSi"];
-        $temperatura = $_POST["temperatura"];
-        $kilometros = $_POST["kilometros"];
-        $combustible = $_POST["combustible"];
-        $horaSalida = $_POST["horaSalida"];
-        $viaticos = $_POST["viaticos"];
-        $peajes = $_POST["peajes"];
-        $extras = $_POST["extras"];
-        $fee = $_POST["fee"];
+        if (isset($_SESSION["nombreUsuario"])) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
-        $idEquipo = $_POST["equipoElegido"];
-        $reeferCosto = $this->proformaModel->devolverCostoReefer($temperaturaSi);
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
 
-        $idViaje = $this->proformaModel->guardarViajeReturneaId($origen, $destino, $fechaCarga, $horaCarga, $fechaLlegada, $horaLlegada);
-        $idCarga = $this->proformaModel->guardarCargaReturneaId($tipo, $peso, $hazardSi, $imoClass, $imoSubClass, $temperaturaSi, $temperatura);
-        $idCosteoEstimado = $this->proformaModel->guardarCosteoEstimadoReturneaId($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $imoClass, $reeferCosto, $fee);
-        $idChofer = $_POST["choferElegido"];
-        $this->proformaModel->enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer, $idEquipo);
-        $idProforma = $this->proformaModel->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer, $idEquipo);
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
 
-        $this->qrModel->generarQR($idViaje);
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
 
-        $this->pedidoModel->agregarIdDeLaProforma($idPedido, $idProforma);
+            if($valorDelRol == 4) {
+            $origen = $_POST["origen"];
+            $idPedido = $_GET["id"];
+            $destino = $_POST["destino"];
+            $fechaCarga = $_POST["fechaCarga"];
+            $horaCarga = $_POST["horaCarga"];
+            $fechaLlegada = $_POST["fechaLlegada"];
+            $horaLlegada = $_POST["horaLlegada"];
+            $tipo = $_POST["tipo"];
+            $peso = $_POST["peso"];
+            $hazardSi = $_POST["hazardSi"];
+            $imoClass = $_POST["imoClass"];
+            $imoSubClass = $_POST["imoSubClass"];
+            $temperaturaSi = $_POST["temperaturaSi"];
+            $temperatura = $_POST["temperatura"];
+            $kilometros = $_POST["kilometros"];
+            $combustible = $_POST["combustible"];
+            $horaSalida = $_POST["horaSalida"];
+            $viaticos = $_POST["viaticos"];
+            $peajes = $_POST["peajes"];
+            $extras = $_POST["extras"];
+            $fee = $_POST["fee"];
 
-        $data["pedidos"] = $this->pedidoModel->mostrarPedidos();
+            $idEquipo = $_POST["equipoElegido"];
+            $reeferCosto = $this->proformaModel->devolverCostoReefer($temperaturaSi);
 
-        echo $this->render->render("view/listaPedidosView.php", $data);
+            $idViaje = $this->proformaModel->guardarViajeReturneaId($origen, $destino, $fechaCarga, $horaCarga, $fechaLlegada, $horaLlegada);
+            $idCarga = $this->proformaModel->guardarCargaReturneaId($tipo, $peso, $hazardSi, $imoClass, $imoSubClass, $temperaturaSi, $temperatura);
+            $idCosteoEstimado = $this->proformaModel->guardarCosteoEstimadoReturneaId($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $imoClass, $reeferCosto, $fee);
+            $idChofer = $_POST["choferElegido"];
+            $this->proformaModel->enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer, $idEquipo);
+            $idProforma = $this->proformaModel->mostrarIdProforma($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer, $idEquipo);
+
+            $this->qrModel->generarQR($idViaje);
+
+            $this->pedidoModel->agregarIdDeLaProforma($idPedido, $idProforma);
+
+            $data["pedidos"] = $this->pedidoModel->mostrarPedidos();
+            echo $this->render->render("view/listaPedidosView.php", $data);
+        }  else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
+        }  else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
+
     }
 
     public function verFormulario()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
+
         $idViaje = $_GET["idViaje"];
         $data["idViaje"] = $idViaje;
         $data["imoClases"] = $this->imoClassModel->mostrarImoClases();

@@ -148,7 +148,9 @@ class Configuration
     public function getPedidoController()
     {
         $pedidoModel = $this->getPedidoModel();
-        return new PedidoController($this->getRender(), $pedidoModel);
+        $render = $this->getRender();
+        $login = $this->getLoginModel();
+        return new PedidoController($render, $pedidoModel,$login);
 
     }
 
