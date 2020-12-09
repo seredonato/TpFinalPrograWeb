@@ -66,5 +66,9 @@ class EquipoModel
         return $this->database->cambiarEstadoNoDisponible($idEquipo);
     }
 
+    public function cambiarEstadoADisponible($idEquipo){
+        return $this->database->cambiarEstadoADisponible($idEquipo);
+    }
+
 
 }
