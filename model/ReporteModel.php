@@ -20,7 +20,7 @@ class ReporteModel
     public function guardarReporte($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes,
                                    $extras, $fee, $latitud, $longitud)
     {
-        $total = $this->calcularTotal($idViaje, $kilometros, $combustible, $viaticos, $peajes, $extras, $fee);
+        $total = $this->calcularTotal($kilometros, $combustible, $viaticos, $peajes, $extras, $fee);
         $sql = 'INSERT INTO reporte(id_viaje, kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, fee, latitud, longitud, total)
                 VALUES (' . $idViaje . ', ' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ', 
                 ' . $fee . ', ' . $latitud . ', ' . $longitud . ', ' . $total . ')';
@@ -29,7 +29,7 @@ class ReporteModel
 
     }
 
-    public function calcularTotal($idViaje, $kilometros, $combustible, $viaticos, $peajes, $extras, $fee)
+    public function calcularTotal ($kilometros, $combustible, $viaticos, $peajes, $extras, $fee)
     {
         $precioKilometro = $this->database->obtenerPrecioPorKm();
         $precioLitro = $this->database->obtenerPrecioPorLitro();
@@ -38,10 +38,8 @@ class ReporteModel
         $kilometrosFinal = $kilometros * $precioKilometro;
         $combustibleFinal = $combustible * $precioLitro;
         $peajeFinal = $peajes * $precioPeaje;
-        $hazardCosto = $this->database->obtenerPrecioHazard($idViaje);
-        $reeferCosto = $this->database->obtenerPrecioReefer($idViaje);
 
-        $total = $peajeFinal + $kilometrosFinal + $combustibleFinal + $viaticos + $extras + $fee + $hazardCosto + $reeferCosto;
+        $total = $peajeFinal + $kilometrosFinal + $combustibleFinal + $viaticos + $extras + $fee;
 
         return $total;
     }
