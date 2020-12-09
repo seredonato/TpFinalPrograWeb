@@ -62,9 +62,42 @@ class UsuarioController
             $data["valorSupervisor"] = $valorSupervisor;
 
             if ($valorDelRol == 1 || $valorDelRol == 4 ) {
-                $idUsuario = $_POST["id"];
+                $idUsuario = $_GET["id"];
                 $rol = $_POST["rol"];
                 $this->usuarioModel->modificarRolUsuario($idUsuario, $rol);
+                $data["usuarios"] = $this->usuarioModel->mostrarUsuarios();
+                echo $this->render->render("view/listaUsuariosView.php", $data);
+
+            } else{
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        } else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
+    }
+
+    public function modificarLicenciaUsuario(){
+        $data["login"] = $this->loginModel->ifSesionIniciada();
+
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
+
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["login"] = $this->loginModel->ifSesionIniciada();
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+
+            if ($valorDelRol == 1 || $valorDelRol == 4 ) {
+                $idUsuario = $_GET["id"];
+                $licencia = $_POST["licencia"];
+                $this->usuarioModel->modificarLicenciaUsuario($idUsuario, $licencia);
                 $data["usuarios"] = $this->usuarioModel->mostrarUsuarios();
                 echo $this->render->render("view/listaUsuariosView.php", $data);
 

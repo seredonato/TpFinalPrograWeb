@@ -33,9 +33,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/usuario/modificarRolUsuario" enctype="multipart/form-data" method="post" >
-                    <label for="id">Id del usuario a asignar</label>
-                    <textarea class="form-control" style="height: 36px" name="id" id="id" >{{id}}</textarea>
+                <form action="/usuario/modificarRolUsuario/id={{id}}" enctype="multipart/form-data" method="post" >
                     <div class="form-group">
                         <label for="rol">Seleccionar el rol que desea asignar</label>
                         <select id="rol" name="rol" class="form-control">
@@ -46,7 +44,24 @@
                             <option value="supervisor">Supervisor</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">Asignar</button>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Asignar Rol</button>
+                </form>
+                <form action="/usuario/modificarLicenciaUsuario/id={{id}}" enctype="multipart/form-data" method="post" >
+                <div class="form-group">
+                    <label for="licencia">Seleccionar la licencia</label>
+                    <select id="licencia" name="licencia" class="form-control">
+                        <option value="0"selected>Tipo de Licencia</option>
+                        <option value="A">A - Motovehículos de 2, 3 o 4 ruedas</option>
+                        <option value="PA">PA - Profesionales motovehículos de 2, 3 o 4 ruedas</option>
+                        <option value="B">B - Automóviles particulares</option>
+                        <option value="C">C - Carga</option>
+                        <option value="D">D - Transporte de pasajeros</option>
+                        <option value="E">E - Camiones y maquinaria especial no agrícola</option>
+                        <option value="F">F - Vehículos adaptados</option>
+                        <option value="G">G - Vehículos agrícolas</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-dark btn-lg btn-block">Asignar Licencia</button>
                 </form>
             </div>
         </div>

@@ -84,6 +84,11 @@ class MysqlDatabase
 
     }
 
+    public function modificarLicenciaUsuario($idUsuario, $licencia){
+        $sql = 'UPDATE usuario SET tipo_licencia = "' . $licencia . '" WHERE id = ' . $idUsuario;
+
+        return $this->connection->query($sql);
+    }
 
     public function eliminarUsuario($id)
     {

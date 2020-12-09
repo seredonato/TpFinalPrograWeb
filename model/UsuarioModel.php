@@ -23,6 +23,10 @@ class UsuarioModel
 
     }
 
+    public function modificarLicenciaUsuario($idUsuario, $licencia){
+        return $this->database->modificarLicenciaUsuario($idUsuario, $licencia);
+    }
+
     public function eliminarUsuario($id){
 
         return $this->database->eliminarUsuario($id);

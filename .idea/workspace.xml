@@ -21,7 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/informacionPedidos.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/informacionPedidos.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/UsuarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/UsuarioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper/MysqlDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/MysqlDatabase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/UsuarioModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/UsuarioModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/informacionUsuarios.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/informacionUsuarios.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +92,8 @@
       <workItem from="1607271750922" duration="7074000" />
       <workItem from="1607271750922" duration="6138000" />
       <workItem from="1607308303619" duration="849000" />
+      <workItem from="1607486454070" duration="185000" />
+      <workItem from="1607555780967" duration="1209000" />
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>
@@ -146,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607479414402</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="que abra el pdf en otra pestaña">
+      <created>1607480066381</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1607480066381</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +185,8 @@
     <MESSAGE value="Termine la vista del pdf de la proforma" />
     <MESSAGE value="arreglando el tema de sesiones con fiore gg" />
     <MESSAGE value="justifique mi vida" />
-    <option name="LAST_COMMIT_MESSAGE" value="justifique mi vida" />
+    <MESSAGE value="que abra el pdf en otra pestaña" />
+    <option name="LAST_COMMIT_MESSAGE" value="que abra el pdf en otra pestaña" />
   </component>
   <component name="WindowStateProjectService">
     <state x="162" y="0" key="#CLI_Interpreters" timestamp="1604424176261">
