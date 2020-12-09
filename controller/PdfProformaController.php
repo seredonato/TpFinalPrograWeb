@@ -12,8 +12,10 @@ class PdfProformaController
     private $viajeModel;
     private $equipoModel;
     private $proformaModel;
+    private $loginModel;
 
-    public function __construct($pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $equipoModel, $proformaModel)
+
+    public function __construct($pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $equipoModel, $proformaModel,$loginModel)
     {
         $this->pedidoModel = $pedidoModel;
         $this->usuarioModel = $usuarioModel;
@@ -23,6 +25,7 @@ class PdfProformaController
         $this->viajeModel = $viajeModel;
         $this->equipoModel = $equipoModel;
         $this->proformaModel = $proformaModel;
+        $this->loginModel = $loginModel;
     }
 
     public function execute()
