@@ -666,4 +666,24 @@ class MysqlDatabase
         $this->connection->query($sql);
         $this->connection->query($sql1);
     }
+
+    public function mostrarCosteoEstimadoPorIdDeProforma($id){
+        $sql = 'SELECT * FROM costeo_estimado WHERE id = ' .$id;
+
+        $resultado = $this->connection->query($sql);
+
+        $costeoEstimado = $resultado->fetch_assoc();
+
+        return $costeoEstimado;
+    }
+
+    public function obtenerTablaConPrecios(){
+        $sql = 'SELECT * FROM precio';
+
+        $resultado = $this->connection->query($sql);
+
+        $precios = $resultado->fetch_assoc();
+
+        return $precios;
+    }
 }

@@ -47,6 +47,10 @@ class PdfProformaController
 
         $equipo = $this->equipoModel->mostrarEquipoPorId($proforma["id_equipo"]);
 
+        $costeoEstimado = $this->proformaModel->mostrarCosteoEstimadoPorIdDeProforma($proforma["id"]);
+
+        $total = $this->proformaModel->calcularTotal($costeoEstimado["kilometros"], $costeoEstimado["combustible"], $costeoEstimado["viaticos"], $costeoEstimado["peajes_pesajes"], $costeoEstimado["extras"], $costeoEstimado["fee"], $costeoEstimado["hazard"], $costeoEstimado["reefer"]);
+
 
 
         $pdf = new FPDF();
@@ -70,8 +74,7 @@ class PdfProformaController
         $pdf->Image('public/images/logoheaderBlancoYNegro.png', 6, 7, 0, 35);
         $pdf->SetXY(155, 2);
         $pdf->Cell(50, 50,'', 1, 0, '');
-        $pdf->SetXY(155, 2);
-        $pdf->Cell(50, 50,'QR', 0, 0, 'C');
+        $pdf->Image('public/imgQr/' . $proforma["id"] . '.png', 157, 4, 0, 46);
         $pdf->Ln(2);
 
         //PEDIDO
@@ -126,11 +129,11 @@ class PdfProformaController
         $pdf->Cell(40, 5, 'HORARIO DE LLEGADA', 0, 0, '');
         $pdf->Cell(60, 5, $viaje["tiempo_llegada"], 0, 1, 'C');
         $pdf->SetXY(106, 98);
-        $pdf->Cell(40, 5, '', 0, 0, '');
-        $pdf->Cell(60, 5, '', 0, 1, '');
+        $pdf->Cell(40, 5, 'NOMBRE DEL CHOFER', 0, 0, '');
+        $pdf->Cell(60, 5, $usuarioChofer["nombre"] . ' ' . $usuarioChofer["apellido"], 0, 1, 'C');
         $pdf->SetXY(106, 103);
-        $pdf->Cell(40, 5, '', 0, 0, '');
-        $pdf->Cell(60, 5, '', 0, 1, '');
+        $pdf->Cell(40, 5, 'DNI', 0, 0, '');
+        $pdf->Cell(60, 5, $usuarioChofer["dni"], 0, 1, 'C');
         $pdf->Ln(2);
 
         // EQUIPO
@@ -151,7 +154,7 @@ class PdfProformaController
         $pdf->Cell(40, 5, 'CHASIS (tractor)', 0, 0, '');
         $pdf->Cell(60, 5, $equipo["t_chasis"], 0, 1, 'C');
         $pdf->Cell(40, 5, 'TIPO DE ACOPLADO', 0, 0, '');
-        $pdf->Cell(60, 5, $equipo["tipo_acoplado"], 0, 1, 'C');
+        $pdf->Cell(60, 5, utf8_decode($equipo["tipo_acoplado"]), 0, 1, 'C');
         $pdf->Cell(40, 5, 'PATENTE (acoplado)', 0, 0, '');
         $pdf->Cell(60, 5, $equipo["a_patente"], 0, 1, 'C');
         $pdf->Cell(40, 5, 'CHASIS (acoplado)', 0, 0, '');
@@ -200,14 +203,12 @@ class PdfProformaController
             $pdf->SetXY(106, 153);
             $pdf->Cell(40, 5, '', 0, 0, '');
             $pdf->Cell(60, 5, '', 0, 1, '');
-            $pdf->Ln(2);
         }elseif ( $carga["reefer"] == "no"){
             $pdf->Cell(40, 5, 'REFRIGERACION', 0, 0, '');
             $pdf->Cell(60, 5, "X", 0, 1, 'C');
             $pdf->SetXY(106, 153);
             $pdf->Cell(40, 5, '', 0, 0, '');
             $pdf->Cell(60, 5, '', 0, 1, '');
-            $pdf->Ln(2);
         }
 
         //HAZARD
@@ -227,8 +228,34 @@ class PdfProformaController
             $pdf->Cell(40, 10, 'DESCRIPCION', 0, 0, '');
             $pdf->MultiCell(144, 10, utf8_decode($imoSubClass["descripcion"]), 0, 'C');
             $pdf->Cell(0, 8, '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------', 0, 1, 'C');
-            $pdf->Ln(2);
         }
+
+        // COSTEO
+
+        $pdf->SetRightMargin(3);
+        $pdf->SetLeftMargin(3);
+        $pdf->SetFont('helvetica', 'b', 12);
+        $pdf->Cell(0, 8, 'SUMATORIA DE COSTOS', 0, 1, 'C', 6);
+        $pdf->SetFont('helvetica', '', 9);
+        $pdf->Cell(40, 5, 'CARGO POR LOS KILOMETROS A RECORRER', 0, 0, '');
+        $pdf->Cell(0, 5, '$ ' . $total["kilometro"], 0, 1, 'R');
+        $pdf->Cell(40, 5, 'CARGO POR COMBUSTIBLE', 0, 0, '');
+        $pdf->Cell(0, 5, '$ ' . $total["combustible"], 0, 1, 'R');
+        $pdf->Cell(40, 5, 'CARGO POR HAZARD CORRESPONDIENTE', 0, 0, '');
+        $pdf->Cell(0, 5, '$ ' . $total["hazard"], 0,1, 'R');
+        $pdf->Cell(40, 5, 'CARGO POR REFRIGERACION', 0, 0, '');
+        $pdf->Cell(0, 5, '$ ' . $total["fee"], 0, 1, 'R');
+        $pdf->Cell(40, 5, 'VIATICOS', 0, 0, '');
+        $pdf->Cell(0, 5, '$ ' . $total["viatico"], 0, 1, 'R');
+        $pdf->Cell(40, 5, 'PEAJES', 0, 0, '');
+        $pdf->Cell(0, 5, '$ ' . $total["peaje"], 0,1, 'R');
+        $pdf->Cell(40, 5, 'EXTRAS', 0, 0, '');
+        $pdf->Cell(0, 5, '$ ' . $total["extras"], 0, 1, 'R');
+        $pdf->Cell(40, 5, 'FEE', 0, 0, '');
+        $pdf->Cell(0, 5, '$ ' . $total["fee"], 0, 1, 'R');
+        $pdf->Cell(40, 5, 'TOTAL', 0, 0, '', 1);
+        $pdf->Cell(0, 5, '$ ' . $total["total"], 0, 1, 'R', 1);
+
 
         $pdf->Output();
     }
