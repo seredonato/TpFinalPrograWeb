@@ -19,13 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/PdfProformaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/PdfProformaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/PdfReporteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/PdfReporteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ProformaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ProformaController.php" afterDir="false" />
-    </list>
+    <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607477069145</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="arreglando el tema de sesiones con fiore gg">
+      <created>1607478371574</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607478371574</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +161,8 @@
     <MESSAGE value="no se agregaba la puta abse de datos diossss" />
     <MESSAGE value="arregle el pdf lo hice mas lindo" />
     <MESSAGE value="Termine la vista del pdf de la proforma" />
-    <option name="LAST_COMMIT_MESSAGE" value="Termine la vista del pdf de la proforma" />
+    <MESSAGE value="arreglando el tema de sesiones con fiore gg" />
+    <option name="LAST_COMMIT_MESSAGE" value="arreglando el tema de sesiones con fiore gg" />
   </component>
   <component name="WindowStateProjectService">
     <state x="162" y="0" key="#CLI_Interpreters" timestamp="1604424176261">
