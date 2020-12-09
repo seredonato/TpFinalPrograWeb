@@ -30,28 +30,51 @@ class ProformaController
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
 
-        $id = $_GET["id"];
-        $pedido = $this->pedidoModel->mostrarPedidoPorId($id);
-        $data["pedidoId"] = $pedido["id"];
-        $data["pedidoNombre"] = $pedido["nombre_cliente"];
-        $data["pedidoFecha"] = $pedido["fecha_pedido"];
-        $data["pedidoCuit"] = $pedido["cuit_cliente"];
-        $data["pedidoEmail"] = $pedido["email_cliente"];
-        $data["pedidoTelefono"] = $pedido["telefono_cliente"];
-        $data["pedidoDireccion"] = $pedido["direccion_cliente"];
-        $data["pedidoContacto1"] = $pedido["contacto1"];
-        $data["pedidocontacto2"] = $pedido["contacto2"];
+        if (isset($_SESSION["nombreUsuario"])) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
-        $data["choferes"] = $this->usuarioModel->mostrarChoferes();
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
 
-        $data["imoClases"] = $this->imoClassModel->mostrarImoClases();
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
 
-        $data["imoSubClases"] = $this->imoSubClassModel->mostrarImoSubClass();
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
 
-        $data["equipos"] = $this->equipoModel->mostrarEquipos();
+            if ($valorDelRol == 4) {
+
+                $id = $_GET["id"];
+                $pedido = $this->pedidoModel->mostrarPedidoPorId($id);
+                $data["pedidoId"] = $pedido["id"];
+                $data["pedidoNombre"] = $pedido["nombre_cliente"];
+                $data["pedidoFecha"] = $pedido["fecha_pedido"];
+                $data["pedidoCuit"] = $pedido["cuit_cliente"];
+                $data["pedidoEmail"] = $pedido["email_cliente"];
+                $data["pedidoTelefono"] = $pedido["telefono_cliente"];
+                $data["pedidoDireccion"] = $pedido["direccion_cliente"];
+                $data["pedidoContacto1"] = $pedido["contacto1"];
+                $data["pedidocontacto2"] = $pedido["contacto2"];
+
+                $data["choferes"] = $this->usuarioModel->mostrarChoferes();
+
+                $data["imoClases"] = $this->imoClassModel->mostrarImoClases();
+
+                $data["imoSubClases"] = $this->imoSubClassModel->mostrarImoSubClass();
+
+                $data["equipos"] = $this->equipoModel->mostrarEquipos();
 
 
-        echo $this->render->render("view/proformaView.php", $data);
+                echo $this->render->render("view/proformaView.php", $data);
+            }else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        }else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
     }
 
     public function guardarProforma()
@@ -70,7 +93,7 @@ class ProformaController
         $imoClass = $_POST["imoClass"];
         $imoSubClass = $_POST["imoSubClass"];
         $temperaturaSi = $_POST["temperaturaSi"];
-        $temperatura =$_POST["temperatura"];
+        $temperatura = $_POST["temperatura"];
         $kilometros = $_POST["kilometros"];
         $combustible = $_POST["combustible"];
         $horaSalida = $_POST["horaSalida"];
@@ -98,16 +121,16 @@ class ProformaController
         echo $this->render->render("view/listaPedidosView.php", $data);
     }
 
-    public function verFormulario(){
+    public function verFormulario()
+    {
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $idViaje =  $_GET["idViaje"];
+        $idViaje = $_GET["idViaje"];
         $data["idViaje"] = $idViaje;
         $data["imoClases"] = $this->imoClassModel->mostrarImoClases();
 
         echo $this->render->render("view/cargarDatosView.php", $data);
 
     }
-
 
 
 }
