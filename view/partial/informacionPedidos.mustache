@@ -3,7 +3,7 @@
         <div class="container p-2 pl-3 text-white" style="background: #E6831A">
             <h4 class="card-title">{{nombre_cliente}}</h4>
         </div>
-        <div class="container p-3" style="background: #fffcf8">
+        <div class="container p-3" style="background: #FCDEC3">
             <div style="text-align: left">
                 <h5 class="card-text" style="float: left">ID: {{id}}</h5>
                 <h5 class="card-text" style="margin-left: 40%">CUIT: {{cuit_cliente}}</h5>
@@ -17,10 +17,11 @@
                 <div style="text-align: center">
                     {{#id_proforma}}
                         <hr>
-                        <a href="/pdfReporte?id={{id}}" type="button" class="btn btn-secondary" style="float:
+                        <a onclick=" window.open('/pdfReporte?id={{id}}','_blank')" type="button" class="btn btn-secondary" style="float:
                         left">Ver Reportes</a>
-                        <a href="/pdfProforma?id={{id}}" type="button" class="btn btn-secondary" style="float:
+                        <a onclick=" window.open('/pdfProforma?id={{id}}','_blank')" type="button" class="btn btn-secondary" style="float:
                         right">Ver Proforma</a>
+
                     {{/id_proforma}}
                     {{^id_proforma}}
                         <hr>

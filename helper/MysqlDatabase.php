@@ -297,6 +297,24 @@ class MysqlDatabase
         return $datos;
     }
 
+    public function mostrarEquipoPorId($id){
+        $sql = 'select e.id,e.id_tractor,e.id_acoplado,e.estado,t.marca,
+        t.modelo,t.patente as t_patente,t.nro_motor,t.chasis as t_chasis,t.kilometraje,
+        a.tipo_acoplado,a.patente as a_patente,a.chasis as a_chasis
+        from equipo as e inner join acoplado as a
+        on e.id_acoplado = a.id 
+        inner join tractor as t on e.id_tractor = t.id
+        WHERE e.id = ' . $id;
+
+        $resultado = $this->connection->query($sql);
+
+        $fila = $resultado->fetch_assoc();
+
+        if (isset($fila)) {
+            return $fila;
+        }
+    }
+
     public function devolverTractor()
     {
         $estado = "no";
@@ -647,5 +665,25 @@ class MysqlDatabase
 
         $this->connection->query($sql);
         $this->connection->query($sql1);
+    }
+
+    public function mostrarCosteoEstimadoPorIdDeProforma($id){
+        $sql = 'SELECT * FROM costeo_estimado WHERE id = ' .$id;
+
+        $resultado = $this->connection->query($sql);
+
+        $costeoEstimado = $resultado->fetch_assoc();
+
+        return $costeoEstimado;
+    }
+
+    public function obtenerTablaConPrecios(){
+        $sql = 'SELECT * FROM precio';
+
+        $resultado = $this->connection->query($sql);
+
+        $precios = $resultado->fetch_assoc();
+
+        return $precios;
     }
 }

@@ -51,27 +51,35 @@ class ProformaModel
         }
     }
 
+    public function devolverCostoHazard($imoClass){
+        return $this->database->devolverCostoHazard($imoClass);
+    }
+
     public function guardarCosteoEstimadoReturneaId($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $extras, $hazardSi, $imoClass, $reeferCosto, $fee)
     {
 
         if ($hazardSi == "si") {
-            $hazardCosto = $this->database->devolverCostoHazard($imoClass);
+            $hazardCosto = $this->devolverCostoHazard($imoClass);
             $total = $this->calcularTotal($kilometros, $combustible, $viaticos, $peajes, $extras, $fee , $hazardCosto, $reeferCosto);
 
             $sql = 'INSERT INTO costeo_estimado (id_viaje, kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, reefer, fee, total)
-                VALUES (' . $idViaje . ',' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ',' . $hazardCosto . ', ' . $reeferCosto . ',  ' . $fee . ', ' . $total . ')';
+                VALUES (' . $idViaje . ',' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ',' . $hazardCosto . ', ' . $reeferCosto . ',  ' . $fee . ', ' . $total["total"] . ')';
 
         } elseif ($hazardSi == "no") {
             $hazardCosto =  0;
             $total = $this->calcularTotal($kilometros, $combustible, $viaticos, $peajes, $extras, $fee , $hazardCosto, $reeferCosto);
 
             $sql = 'INSERT INTO costeo_estimado (id_viaje, kilometros, combustible, tiempo_salida, tiempo_llegada, viaticos, peajes_pesajes, extras, hazard, reefer, fee, total)
-                VALUES (' . $idViaje . ',' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ', ' . $hazardCosto . ', ' . $reeferCosto . ',  ' . $fee . ', ' . $total . ')';
+                VALUES (' . $idViaje . ',' . $kilometros . ', ' . $combustible . ', "' . $horaSalida . '", "' . $horaLlegada . '", ' . $viaticos . ', ' . $peajes . ', ' . $extras . ', ' . $hazardCosto . ', ' . $reeferCosto . ',  ' . $fee . ', ' . $total["total"] . ')';
         }
 
         $this->database->query($sql);
 
         return $this->database->costeoEstimadoReturneaId($idViaje, $kilometros, $combustible, $horaSalida, $horaLlegada, $viaticos, $peajes, $hazardCosto);
+    }
+
+    public function mostrarCosteoEstimadoPorIdDeProforma($id){
+        return $this->database->mostrarCosteoEstimadoPorIdDeProforma($id);
     }
 
     public function enlazarProformaATablas($idPedido, $idViaje, $idCarga, $idCosteoEstimado, $idChofer, $idEquipo)
@@ -102,7 +110,16 @@ class ProformaModel
         $combustibleFinal = $combustible * $precioLitro;
         $peajeFinal = $peajes * $precioPeaje;
 
-        $total = $peajeFinal + $kilometrosFinal + $combustibleFinal + $viaticos + $extras + $fee + $hazardCosto + $reeferCosto;
+
+        $total["kilometro"] = $kilometrosFinal;
+        $total["combustible"] = $combustibleFinal;
+        $total["viatico"] = $viaticos;
+        $total["peaje"] = $peajeFinal;
+        $total["extras"] = $extras;
+        $total["fee"] = $fee;
+        $total["hazard"] = $hazardCosto;
+        $total["reefer"] = $reeferCosto;
+        $total["total"] = $peajeFinal + $kilometrosFinal + $combustibleFinal + $viaticos + $extras + $fee + $hazardCosto + $reeferCosto;
 
         return $total;
     }

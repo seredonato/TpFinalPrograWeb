@@ -251,8 +251,11 @@ class Configuration
         $imoSubClassModel = $this->getImoSubClassModel();
         $cargaModel = $this->getCargaModel();
         $viajeModel = $this->getViajeModel();
+        $equipoModel = $this->getEquipoModel();
         $proformaModel = $this->getProformaModel();
-        return new PdfProformaController($pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $proformaModel);
+        $loginModel = $this->getLoginModel();
+        $render = $this->getRender();
+        return new PdfProformaController($pedidoModel, $usuarioModel, $imoClassModel, $imoSubClassModel, $cargaModel, $viajeModel, $equipoModel, $proformaModel,$loginModel,$render);
     }
 
     public function getQrController()
@@ -285,6 +288,8 @@ class Configuration
     public function getPdfReporteController()
     {
         $reporteModel = $this->getReporteModel();
-        return new PdfReporteController($reporteModel);
+        $loginModel = $this->getLoginModel();
+        $render = $this->getRender();
+        return new PdfReporteController($reporteModel,$render,$loginModel);
     }
 }
