@@ -64,7 +64,7 @@
                 <div class="col-sm">
                     <h5>Transporte y distribución</h5>
                     <img class="d-block w-100 p-2" src="/public/images/indexfoto2.png" alt="transdis">
-                    <p>En Transaff nos caracterizamos por valorar el esfuerzo que nuestros clientes
+                    <p style="text-align: justify">En Transaff nos caracterizamos por valorar el esfuerzo que nuestros clientes
                         realizan para fabricar sus productos. Es por eso que asumimos la responsabilidad
                         de trabajar con la seriedad y el compromiso necesarios para entregarlos en tiempo
                         y forma.</p>
@@ -72,7 +72,7 @@
                 <div class="col-sm">
                     <h5>Logística y almacenamiento</h5>
                     <img class="d-block w-100 p-2" src="/public/images/indexfoto3.png" alt="logalma">
-                    <p>Hemos desarrollado un sistema logístico que nos permite rastrear y enviar cargas a
+                    <p style="text-align: justify">Hemos desarrollado un sistema logístico que nos permite rastrear y enviar cargas a
                         cualquier punto del país en cuestión de horas. Nuestros depósitos cuentan con la
                         tecnología necesaria para detectar despachos pendientes y así evitar retrasos
                         innecesarios.</p>
@@ -80,7 +80,7 @@
                 <div class="col-sm">
                     <h5>Desarrollos a medida</h5>
                     <img class="d-block w-100 p-2" src="/public/images/indexfoto5.png" alt="dir">
-                    <p>Con el correr de los años, hemos excedido el título de “proveedores” de nuestros clientes,
+                    <p style="text-align: justify">Con el correr de los años, hemos excedido el título de “proveedores” de nuestros clientes,
                         y nos hemos transformado en sus socios estratégicos. Esto nos ha llevado en muchos casos a
                         desarrollar nuevos centros logísticos para satisfacer necesidades incipientes.</p>
                 </div>
