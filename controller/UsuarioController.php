@@ -91,7 +91,6 @@ class UsuarioController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
 
             if ($valorDelRol == 1  || $valorDelRol == 4 ) {
                 $id = $_GET["id"];

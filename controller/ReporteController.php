@@ -23,18 +23,42 @@ class ReporteController
     public function guardarReporte()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
-        $idViaje = $_GET["idViaje"];
-        $kilometros = $_POST["kilometros"];
-        $combustible = $_POST["combustible"];
-        $viaticos = $_POST["viaticos"];
-        $peajes = $_POST["peajes"];
-        $extras = $_POST["extras"];
-        $fee = $_POST["fee"];
-        $latitud = $_POST["latitud"];
-        $longitud = $_POST["longitud"];
 
-        $this->reporteModel->guardarReporte($idViaje, $kilometros, $combustible, $viaticos, $peajes,
-            $extras, $fee, $latitud, $longitud);
-        echo $this->render->render("view/inicio.php", $data);
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
+
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
+
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            if ($valorDelRol == 2) {
+                $data["login"] = $this->loginModel->ifSesionIniciada();
+                $idViaje = $_GET["idViaje"];
+                $kilometros = $_POST["kilometros"];
+                $combustible = $_POST["combustible"];
+                $viaticos = $_POST["viaticos"];
+                $peajes = $_POST["peajes"];
+                $extras = $_POST["extras"];
+                $fee = $_POST["fee"];
+                $latitud = $_POST["latitud"];
+                $longitud = $_POST["longitud"];
+
+                $this->reporteModel->guardarReporte($idViaje, $kilometros, $combustible, $viaticos, $peajes,
+                    $extras, $fee, $latitud, $longitud);
+                echo $this->render->render("view/inicio.php", $data);
+            } else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        } else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
+
     }
 }

@@ -34,12 +34,12 @@ class ListaAcopladoController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
+            if($valorDelRol == 3 || $valorDelRol == 4) {
+            $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
+
             $acoplado = $_POST["acoplado"];
             $patente = $_POST["patente"];
             $chasis = $_POST["chasis"];
-            $data["login"] = $this->loginModel->ifSesionIniciada();
-            if($valorDelRol == 3 || $valorDelRol == 4) {
-            $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
 
             $result = $this->acopladoModel->registrarAcoplado( $acoplado,$patente,$chasis);
             if ($result === "Ingrese contenido en el campo requerido"){
@@ -74,7 +74,7 @@ class ListaAcopladoController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
+
             if($valorDelRol == 3 || $valorDelRol == 4) {
                 $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
             echo $this->render->render("view/listaAcopladosView.php", $data);
@@ -103,7 +103,7 @@ class ListaAcopladoController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
+
             if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $tipo = $_POST["tipo"];
@@ -138,7 +138,6 @@ class ListaAcopladoController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
 
             if($valorDelRol == 3 || $valorDelRol == 4) {
             $id = $_GET["id"];
@@ -167,14 +166,13 @@ class ListaAcopladoController
             $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
             $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
             $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
-            $data["login"] = $this->loginModel->ifSesionIniciada();
-
-            if($valorDelRol == 3 || $valorDelRol == 4) {
-
             $data["valorAdmin"] = $valorAdmin;
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+
+            if($valorDelRol == 3 || $valorDelRol == 4) {
+
             $id = $_GET["id"];
             $data["acoplados"] = $this->acopladoModel->devolverAcopladosPorIdAsignados($id);
                 echo $this->render->render("view/listaAcopladosView.php", $data);

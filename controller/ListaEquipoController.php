@@ -38,7 +38,6 @@ class ListaEquipoController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
             if($valorDelRol == 3 || $valorDelRol == 4) {
                 $data["equipos"] = $this->equipoModel->mostrarEquipos();
                 $data["acoplados"] = $this->equipoModel->mostrarAcopladoSoloSinAsignar();
@@ -120,7 +119,6 @@ class ListaEquipoController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
 
             if($valorDelRol == 3 || $valorDelRol == 4) {
             $id = $_GET["id"];
@@ -158,7 +156,6 @@ class ListaEquipoController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
 
             if($valorDelRol == 3 || $valorDelRol == 4) {
             $id = $_POST["id"];

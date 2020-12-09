@@ -35,7 +35,7 @@ class listaTractorController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
+
             if($valorDelRol == 3 || $valorDelRol == 4) {
             $data["tractores"] = $this->tractorModel->mostrarTractor();
             $nro_motor = $_POST["nro_motor"];
@@ -83,13 +83,13 @@ class listaTractorController
             $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
             $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
             $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
-            $data["login"] = $this->loginModel->ifSesionIniciada();
-            if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $data["valorAdmin"] = $valorAdmin;
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+
+            if($valorDelRol == 3 || $valorDelRol == 4) {
             $data["tractores"] = $this->tractorModel->mostrarTractor();
 
             echo $this->render->render("view/listaTractoresView.php", $data);
@@ -111,11 +111,12 @@ class listaTractorController
             $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
             $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
             $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
             $data["valorAdmin"] = $valorAdmin;
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
+
             if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $id = $_POST["id"];
@@ -151,13 +152,14 @@ class listaTractorController
             $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
             $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
             $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
-            $data["login"] = $this->loginModel->ifSesionIniciada();
-            if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $data["valorAdmin"] = $valorAdmin;
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
+
+            if($valorDelRol == 3 || $valorDelRol == 4) {
+
             echo $this->render->render("view/listaTractoresView.php", $data);
             }  else{
                 echo $this->render->render("view/inicio.php", $data);
@@ -171,7 +173,6 @@ class listaTractorController
     public function registrarCalendarioTractor(){
 
         $data["login"] = $this->loginModel->ifSesionIniciada();
-
 
         if ($data["login"]) {
             $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
@@ -189,7 +190,7 @@ class listaTractorController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
+
             if($valorDelRol == 3 || $valorDelRol == 4) {
             $result = $this->calendarioModel->registrarCalendarioTractor($id,$dia);
 
@@ -217,11 +218,11 @@ class listaTractorController
             $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
             $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
             $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
             $data["valorAdmin"] = $valorAdmin;
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
             if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $data["tractores"] = $this->tractorModel->mostrarTractor();
@@ -241,8 +242,6 @@ class listaTractorController
 
     public function eliminarCalendario(){
         $data["login"] = $this->loginModel->ifSesionIniciada();
-
-
         if ($data["login"]) {
             $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
             $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
@@ -251,11 +250,12 @@ class listaTractorController
             $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
             $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
             $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
             $data["valorAdmin"] = $valorAdmin;
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
+
             if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $id = $_GET["id"];
@@ -284,11 +284,11 @@ class listaTractorController
             $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
             $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
             $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
             $data["valorAdmin"] = $valorAdmin;
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
             if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $id = $_POST["id"];
@@ -319,11 +319,11 @@ class listaTractorController
             $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
             $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
             $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
             $data["valorAdmin"] = $valorAdmin;
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
             if($valorDelRol == 3 || $valorDelRol == 4) {
 
             $id = $_POST["id"];

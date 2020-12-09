@@ -146,14 +146,36 @@ class ProformaController
     public function verFormulario()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
+        if (isset($_SESSION["nombreUsuario"])) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
 
-        $idViaje = $_GET["idViaje"];
-        $data["idViaje"] = $idViaje;
-        $data["imoClases"] = $this->imoClassModel->mostrarImoClases();
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
 
-        echo $this->render->render("view/cargarDatosView.php", $data);
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+
+            if ($valorDelRol == 2) {
+                $data["login"] = $this->loginModel->ifSesionIniciada();
+
+                $idViaje = $_GET["idViaje"];
+                $data["idViaje"] = $idViaje;
+                $data["imoClases"] = $this->imoClassModel->mostrarImoClases();
+
+                echo $this->render->render("view/cargarDatosView.php", $data);
+
+            } else {
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        } else {
+            echo $this->render->render("view/inicio.php", $data);
+        }
 
     }
-
-
 }

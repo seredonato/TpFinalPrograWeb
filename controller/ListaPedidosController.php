@@ -35,7 +35,6 @@ class ListaPedidosController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
             if ($valorDelRol == 1 || $valorDelRol == 4) {
                 $data["pedidos"] = $this->pedidoModel->mostrarPedidos();
                 echo $this->render->render("view/listaPedidosView.php", $data);
@@ -65,7 +64,6 @@ class ListaPedidosController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
             if ($valorDelRol == 1 || $valorDelRol == 4) {
                 $data["pedidosPendientes"] = $this->pedidoModel->mostrarPedidosPendientes();
                 echo $this->render->render("view/listaPedidosPendientesView.php", $data);
@@ -95,7 +93,6 @@ class ListaPedidosController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
             if ($valorDelRol == 1 || $valorDelRol == 4) {
                 $data["pedidosActivos"] = $this->pedidoModel->mostrarPedidosActivos();
                 echo $this->render->render("view/listaPedidosActivosView.php", $data);
@@ -125,7 +122,6 @@ class ListaPedidosController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
             if ($valorDelRol == 1 || $valorDelRol == 4) {
                 $data["pedidosFinalizados"] = $this->pedidoModel->mostrarPedidosFinalizados();
                 echo $this->render->render("view/listaPedidosFinalizadosView.php", $data);
@@ -155,7 +151,6 @@ class ListaPedidosController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            $data["login"] = $this->loginModel->ifSesionIniciada();
             if ($valorDelRol == 1 || $valorDelRol == 4) {
                 $data["pedidosNoProforma"] = $this->pedidoModel->mostrarPedidosSinProforma();
                 echo $this->render->render("view/listaPedidosSinProformaView.php", $data);
