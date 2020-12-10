@@ -301,8 +301,9 @@ class listaTractorController
             $tipo_servicio = $_POST["tipo_servicio"];
             $costo = $_POST["costo"];
             $kilometraje = $_POST["kilometraje"];
+            $mecanico = $_SESSION["nombreUsuario"];
 
-            $this->calendarioModel->editarCalendario($id, $fecha,$tipo_servicio,$cambios,$costo,$kilometraje);
+            $this->calendarioModel->editarCalendario($id, $fecha,$tipo_servicio,$cambios,$costo,$kilometraje,$mecanico);
             $data["tractorPorId"] = $this->tractorModel->mostrarTractorPorId($id_tractor);
             $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoCumplido($id_tractor);
             $data["calendarioSinCumplir"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoSinCumplir($id_tractor);
@@ -378,8 +379,9 @@ class listaTractorController
                 $tipo_servicio = $_POST["tipo_servicio"];
                 $costo = $_POST["costo"];
                 $kilometraje = $_POST["kilometraje"];
+                $mecanico = $_SESSION["nombreUsuario"];
 
-                $this->calendarioModel->editarCalendario($id, $fecha,$tipo_servicio,$cambios,$costo,$kilometraje);
+                $this->calendarioModel->editarCalendario($id, $fecha,$tipo_servicio,$cambios,$costo,$kilometraje,$mecanico);
                 $data["tractorPorId"] = $this->tractorModel->mostrarTractorPorId($id_tractor);
                 $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoCumplido($id_tractor);
                 $data["calendarioSinCumplir"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoSinCumplir($id_tractor);

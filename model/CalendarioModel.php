@@ -36,8 +36,8 @@ class CalendarioModel
         return $this->database->eliminarCalendario($id);
     }
 
-    public function editarCalendario($id,$fecha,$tipo_servicio,$cambios,$costo,$kilometraje){
-        return $this->database->editarCalendario($id,$fecha,$tipo_servicio,$cambios,$costo,$kilometraje);
+    public function editarCalendario($id,$fecha,$tipo_servicio,$cambios,$costo,$kilometraje,$mecanico){
+        return $this->database->editarCalendario($id,$fecha,$tipo_servicio,$cambios,$costo,$kilometraje,$mecanico);
     }
 
 

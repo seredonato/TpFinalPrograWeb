@@ -536,11 +536,11 @@ class MysqlDatabase
         return $this->connection->query($sql);
     }
 
-    public function editarCalendario($id, $fecha,$tipo_servicio,$cambios,$costo,$kilometraje)
+    public function editarCalendario($id, $fecha,$tipo_servicio,$cambios,$costo,$kilometraje,$mecanico)
     {
         $estado= "Cumplido";
         $sql = 'UPDATE calendarioServicio SET fecha = "' . $fecha . '", tipo_service = "'.$tipo_servicio.'",
-        respuestosCambiados = "'.$cambios.'", costo = '.$costo.' , estado = "'.$estado.'", kilometraje= '.$kilometraje.' WHERE id = ' . $id;
+        respuestosCambiados = "'.$cambios.'", costo = '.$costo.' , estado = "'.$estado.'", kilometraje= '.$kilometraje.', mecanico = "'.$mecanico.'" WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
