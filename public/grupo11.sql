@@ -88,7 +88,7 @@ id int auto_increment not null,
 eliminado varchar(2),
 costo int,
 tipo_service varchar(40),
-mecanico varchar(500),
+mecanico varchar(400),
 respuestosCambiados varchar(5000),
 kilometraje int,
 primary key(id),
@@ -354,12 +354,10 @@ values ("no",1,1,"Disponible"),
 	   ("no",2,2,"Disponible"),
 	   ("no",3,3,"Disponible");
 
-INSERT INTO calendarioServicio(fecha,id_tractor,estado,eliminado)
-values ("20200202",1,"Cumplido","no"),
- ("2021-03-02",1,"En espera","no"),
- ("2022-04-02",1,"En espera","no"),
- ("2020-02-02",2,"Cumplido","no"),
- ("2021-02-02",3,"En espera","no"),
- ("2020-02-02",3,"Cumplido","no"),
- ("2020-02-02",3,"Cumplido","no");
+select * from calendarioServicio;
+INSERT INTO calendarioServicio(fecha,id_tractor,estado,eliminado,costo,tipo_service,mecanico,respuestosCambiados,kilometraje)
+values
+ ("2021-03-02",1,"En espera","no",null,null,null,null,null),
+ ("2022-04-02",1,"En espera","no",null,null,null,null,null),
+ ("2021-02-02",3,"En espera","no",null,null,null,null,null);
  
