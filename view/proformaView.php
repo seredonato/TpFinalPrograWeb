@@ -181,15 +181,25 @@
                 </div>
             </div>
 
-            <div class="mt-4 mb-4 text-center">
+           <!-- <div class="mt-4 mb-4 text-center">
                 <h5 class="card-title">Seleccionar Equipo</h5>
                 <div class="container mt-2 justify-content-center" style="margin-left: 0;margin-right: 0">
                         {{#equipos}}
                         {{> equiposProforma}}
                         {{/equipos}}
                 </div>
-            </div>
+            </div> -->
 
+            <div class="container mt-4 mb-4 text-center margenesEquipoProforma">
+            <h5 class="card-title mb-5">Seleccionar Equipo</h5>
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                        {{#equipos}}
+                        {{> equiposProforma}}
+                        {{/equipos}}
+                </div>
+            </div>
 
             <div class="mt-4 mb-4 text-center">
                 <button type="submit" class="btn btn-dark btn-lg btn-block">Realizar Proforma</button>
