@@ -1,8 +1,8 @@
 {{> header}}
 <main class="cuerpoindex">
     {{#tractorPorId}}
-    <div class="container mt-2 listaUsuarios text-center">
-    <h2 class="titulosindex"> Calendario </h2>
+    <div class="container mt-2 listaUsuarios">
+    <h2 class="titulosindex text-center"> Calendario </h2>
     <hr>
     <div class="d-flex p-2 justify-content-center">
         {{#valorMecanico}}
@@ -42,6 +42,7 @@
             </div>
         </div>
     </div>
+
     {{/tractorPorId}}
 
     
@@ -50,6 +51,7 @@
         {{>informacionCalendario}}
         {{/calendario}}
     </div>
+</div>
 
 </main>
 {{> footer}}
