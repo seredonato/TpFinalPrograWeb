@@ -45,13 +45,16 @@
 
     {{/tractorPorId}}
 
-    
-    <div class="row my-5 p-4">
-        {{#calendario}}
+        <div class="row my-5 p-4">
+        {{#calendarioSinCumplir}}
         {{>informacionCalendario}}
+        {{/calendarioSinCumplir}}
+        {{#calendario}}
+        {{>informacionCalendarioCumplido}}
         {{/calendario}}
+        </div>
+
     </div>
-</div>
 
 </main>
 {{> footer}}

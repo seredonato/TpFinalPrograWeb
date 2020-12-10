@@ -86,6 +86,11 @@ id_tractor int not null,
 estado varchar(400),
 id int auto_increment not null,
 eliminado varchar(2),
+costo int,
+tipo_service varchar(40),
+mecanico varchar(500),
+respuestosCambiados varchar(5000),
+kilometraje int,
 primary key(id),
 foreign key (id_tractor) references tractor(id));
 

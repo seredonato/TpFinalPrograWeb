@@ -497,10 +497,24 @@ class MysqlDatabase
         return $datos;
     }
 
-    public function mostrarCalendarioPorIdTractor($id)
+    public function mostrarCalendarioPorIdTractorEstadoCumplido($id)
     {
-        $estado = "no";
-        $sql = 'SELECT * FROM calendarioServicio WHERE id_tractor = "' . $id . '" AND eliminado = "' . $estado . '" ';
+        $eliminado= "no";
+        $estado = "Cumplido";
+        $sql = 'SELECT * FROM calendarioServicio WHERE id_tractor = "' . $id . '" AND eliminado = "' . $eliminado . '" AND estado = "'.$estado.'" ';
+        $resultado = $this->connection->query($sql);
+        $datos = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        return $datos;
+    }
+
+    public function mostrarCalendarioPorIdTractorEstadoSinCumplir($id)
+    {
+        $eliminado= "no";
+        $estado = "Cumplido";
+        $sql = 'SELECT * FROM calendarioServicio WHERE id_tractor = "' . $id . '" AND eliminado = "' . $eliminado . '" AND estado != "'.$estado.'" ';
         $resultado = $this->connection->query($sql);
         $datos = array();
         while ($fila = $resultado->fetch_assoc()) {
@@ -522,9 +536,11 @@ class MysqlDatabase
         return $this->connection->query($sql);
     }
 
-    public function editarCalendario($id, $fecha)
+    public function editarCalendario($id, $fecha,$tipo_servicio,$cambios,$costo,$kilometraje)
     {
-        $sql = 'UPDATE calendarioServicio SET fecha = "' . $fecha . '"WHERE id = ' . $id;
+        $estado= "Cumplido";
+        $sql = 'UPDATE calendarioServicio SET fecha = "' . $fecha . '", tipo_service = "'.$tipo_servicio.'",
+        respuestosCambiados = "'.$cambios.'", costo = '.$costo.' , estado = "'.$estado.'", kilometraje= '.$kilometraje.' WHERE id = ' . $id;
         return $this->connection->query($sql);
     }
 
