@@ -9,7 +9,7 @@
                 <h5 class="card-text"> ID: {{id}}</h5>
                 <h5 class="card-text">Fecha: {{fecha}}</h5>
                 <hr>
-                    <p class="card-text mt-3 mb-1">Estado: {{estado}}</p>
+                <p class="card-text mt-3 mb-1">Estado: {{estado}}</p>
 
                 {{#valorMecanico}}
                     <br>
@@ -27,7 +27,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="modal fade" id="eliminar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -48,7 +47,6 @@
     </div>
 </div>
 
-
 <div class="modal fade" id="modificar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -64,15 +62,15 @@
                 <p>RESPUESTOS CAMBIADOS: {{respuestosCambiados}}</p>
                 <p>KILOMETRAJE: {{kilometraje}}</p>
                 <p>MECANICO: {{mecanico}}</p>
+                <p>COSTO: {{costo}}</p>
 
                 <div style="text-align: center" class="mt-3">
                     <a data-toggle="modal" data-target="#modificarEsto{{id}}" type="button" class="btn btn-secondary">Modificar</a>
                 </div>
             </div>
 
-            </div>
-
         </div>
+
     </div>
 </div>
 
@@ -86,14 +84,11 @@
                 </button>
             </div>
             <form action="/listaTractor/editarServiceCalendario/idTractor={{id_tractor}}" enctype="multipart/form-data" method="POST">
-                <div class="form-group">
-                    <div class="modal-body">
+            <div class="form-group">
+                <div class="modal-body">
                     <p for="id">ID del Servicio: {{id}}</p>
                     <input type="hidden" value="{{id}}" name="id" id="id">
-                    <label for="fecha" name="fecha" id="fecha">Fecha del control</label>
-                    <br>
                     <input type="hidden" value="{{id}}" name="id" id="id">
-                    <input type="date" value="{{fecha}}" name="fecha" id="fecha">
                     <label for="tipo_servicio" class="mt-3">Tipo de Service</label>
                     <select id="tipo_servicio" name="tipo_servicio" class="form-control mt-3" required>
                         <option value="{{tipo_service}}">{{tipo_service}}</option>
@@ -106,13 +101,18 @@
                     <input type="number" class="form-control" id="costo" name="costo" value="{{costo}}" required>
                     <label for="kilometro" class="mt-3">Ingrese kilometros realizados</label>
                     <input type="number" class="form-control" id="kilometraje" name="kilometraje" value="{{kilometraje}}" required>
-                        <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Enviar</button>
+                    <label for="fecha" name="fecha" id="fecha" class="mt-2">Fecha del control</label>
+                    <br>
+                    <input type="date" value="{{fecha}}" name="fecha" id="fecha">
 
-                    </div>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Enviar</button>
+
                 </div>
+            </div>
             </form>
         </div>
 
     </div>
 </div>
-</div>
+
+
