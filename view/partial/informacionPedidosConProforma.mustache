@@ -16,10 +16,8 @@
                 <p class="card-text">CONTACTO 2: {{contacto2}}</p>
                 <div style="text-align: center">
                         <hr>
-                        <a href="/pdfReporte?id={{id}}" type="button" class="btn btn-secondary" style="float:
-                        left">Ver Reportes</a>
-                        <a href="/pdfProforma?id={{id}}" type="button" class="btn btn-secondary" style="float:
-                        right">Ver Proforma</a>
+                    <a onclick=" window.open('/pdfReporte?id={{id}}','_blank')" type="button" class="btn btn-secondary mt-4 mb-4" >Ver Reportes</a>
+                    <a onclick=" window.open('/pdfProforma?id={{id}}','_blank')" type="button" class="btn btn-secondary mt-4 mb-4" >Ver Proforma</a>
                 </div>
             </div>
         </div>
