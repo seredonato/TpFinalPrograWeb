@@ -18,9 +18,14 @@ class CalendarioModel
         return $this->database->query($sql);
     }
 
-    public function mostrarCalendarioPorIdTractor($id)
+    public function mostrarCalendarioPorIdTractorEstadoCumplido($id)
     {
-        return $this->database->mostrarCalendarioPorIdTractor($id);
+        return $this->database->mostrarCalendarioPorIdTractorEstadoCumplido($id);
+    }
+
+    public function mostrarCalendarioPorIdTractorEstadoSinCumplir($id)
+    {
+        return $this->database->mostrarCalendarioPorIdTractorEstadoSinCumplir($id);
     }
 
     public function cambiarEstado($id,$estado){
@@ -31,10 +36,9 @@ class CalendarioModel
         return $this->database->eliminarCalendario($id);
     }
 
-    public function editarCalendario($id,$fecha){
-        return $this->database->editarCalendario($id,$fecha);
+    public function editarCalendario($id,$fecha,$tipo_servicio,$cambios,$costo,$kilometraje,$mecanico){
+        return $this->database->editarCalendario($id,$fecha,$tipo_servicio,$cambios,$costo,$kilometraje,$mecanico);
     }
-
 
 
 }

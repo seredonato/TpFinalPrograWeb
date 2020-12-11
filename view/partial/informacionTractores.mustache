@@ -69,8 +69,8 @@
             </div>
             <div class="modal-body">
                 <form action="/listaTractor/modificarTractor" enctype="multipart/form-data" method="post" >
-                    <label for="id">Id del Tractor</label>
-                    <textarea class="form-control" style="height: 36px" name="id" id="id" >{{id}}</textarea>
+                    <p for="id">Id del Tractor: {{id}}</p>
+                    <input type="hidden" value="{{id}}" style="height: 36px" name="id" id="id" >
 
                     <div class="form-group">
                         <label for="tractor">Marca</label>
@@ -121,8 +121,8 @@
             </div>
             <div class="modal-body">
                 <form action="/listaTractor/registrarCalendarioTractor" enctype="multipart/form-data" method="post" >
-                    <label for="id">Id del Tractor</label>
-                    <textarea class="form-control" style="height: 36px" name="id" id="id" >{{id}}</textarea>
+                    <p for="id">Id del Tractor: {{id}}</p>
+                    <input type="hidden" name="id" id="id" value="{{id}}">
 
                     <div class="form-group">
                         <label for="tractor">Día</label>

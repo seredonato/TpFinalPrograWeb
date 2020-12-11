@@ -196,7 +196,9 @@ class listaTractorController
 
             $data["tractores"] = $this->tractorModel->mostrarTractor();
             $data["tractorPorId"] = $this->tractorModel->mostrarTractorPorId($id);
-            $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractor($id);
+            $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoCumplido($id);
+            $data["calendarioSinCumplir"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoSinCumplir($id);
+
             echo $this->render->render("view/listaCalendario.php", $data);
         } else{
             echo $this->render->render("view/inicio.php", $data);
@@ -228,7 +230,8 @@ class listaTractorController
             $data["tractores"] = $this->tractorModel->mostrarTractor();
             $id = $_GET["id"];
             $data["tractorPorId"] = $this->tractorModel->mostrarTractorPorId($id);
-            $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractor($id);
+            $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoCumplido($id);
+            $data["calendarioSinCumplir"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoSinCumplir($id);
 
             echo $this->render->render("view/listaCalendario.php", $data);
         }  else{
@@ -262,9 +265,10 @@ class listaTractorController
             $idTractor = $_GET["idTractor"];
             $result = $this->calendarioModel->eliminarCalendario($id);
             $data["tractorPorId"] = $this->tractorModel->mostrarTractorPorId($idTractor);
-            $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractor($idTractor);
+            $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoCumplido($idTractor);
+            $data["calendarioSinCumplir"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoSinCumplir($idTractor);
 
-            echo $this->render->render("view/listaCalendario.php", $data);
+                echo $this->render->render("view/listaCalendario.php", $data);
         }         else{
             echo $this->render->render("view/inicio.php", $data);
         }
@@ -290,15 +294,21 @@ class listaTractorController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
             if($valorDelRol == 3 || $valorDelRol == 4) {
-
             $id = $_POST["id"];
             $id_tractor = $_GET["idTractor"];
             $fecha = $_POST["fecha"];
-            $result = $this->calendarioModel->editarCalendario($id, $fecha);
-            $data["tractorPorId"] = $this->tractorModel->mostrarTractorPorId($id_tractor);
-            $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractor($id_tractor);
+            $cambios = $_POST["cambios"];
+            $tipo_servicio = $_POST["tipo_servicio"];
+            $costo = $_POST["costo"];
+            $kilometraje = $_POST["kilometraje"];
+            $mecanico = $_SESSION["nombreUsuario"];
 
-            echo $this->render->render("view/listaCalendario.php", $data);
+            $this->calendarioModel->editarCalendario($id, $fecha,$tipo_servicio,$cambios,$costo,$kilometraje,$mecanico);
+            $data["tractorPorId"] = $this->tractorModel->mostrarTractorPorId($id_tractor);
+            $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoCumplido($id_tractor);
+            $data["calendarioSinCumplir"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoSinCumplir($id_tractor);
+
+                echo $this->render->render("view/listaCalendario.php", $data);
         }  else{
             echo $this->render->render("view/inicio.php", $data);
         }
@@ -332,9 +342,10 @@ class listaTractorController
             $result = $this->calendarioModel->cambiarEstado($id, $estado);
 
             $data["tractorPorId"] = $this->tractorModel->mostrarTractorPorId($id_tractor);
-            $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractor($id_tractor);
+            $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoCumplido($id_tractor);
+            $data["calendarioSinCumplir"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoSinCumplir($id_tractor);
 
-            echo $this->render->render("view/listaCalendario.php", $data);
+                echo $this->render->render("view/listaCalendario.php", $data);
 
         }
         else{
@@ -345,6 +356,44 @@ class listaTractorController
         }
     }
 
+    public function editarServiceCalendario(){
+        $data["login"] = $this->loginModel->ifSesionIniciada();
+        if ($data["login"]) {
+            $rol = $this->loginModel->getRolDeUsuario($_SESSION["nombreUsuario"]);
+            $valorDelRol = $this->loginModel->confirmarRolUsuario($rol);
+
+            $valorAdmin = $this->loginModel->confirmarAdmin($valorDelRol);
+            $valorChofer = $this->loginModel->confirmarChofer($valorDelRol);
+            $valorMecanico = $this->loginModel->confirmarMecanico($valorDelRol);
+            $valorSupervisor = $this->loginModel->confirmarSupervisor($valorDelRol);
+
+            $data["valorAdmin"] = $valorAdmin;
+            $data["valorChofer"] = $valorChofer;
+            $data["valorMecanico"] = $valorMecanico;
+            $data["valorSupervisor"] = $valorSupervisor;
+            if($valorDelRol == 3 || $valorDelRol == 4) {
+                $id = $_POST["id"];
+                $id_tractor = $_GET["idTractor"];
+                $fecha = $_POST["fecha"];
+                $cambios = $_POST["cambios"];
+                $tipo_servicio = $_POST["tipo_servicio"];
+                $costo = $_POST["costo"];
+                $kilometraje = $_POST["kilometraje"];
+                $mecanico = $_SESSION["nombreUsuario"];
+
+                $this->calendarioModel->editarCalendario($id, $fecha,$tipo_servicio,$cambios,$costo,$kilometraje,$mecanico);
+                $data["tractorPorId"] = $this->tractorModel->mostrarTractorPorId($id_tractor);
+                $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoCumplido($id_tractor);
+                $data["calendarioSinCumplir"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoSinCumplir($id_tractor);
+
+                echo $this->render->render("view/listaCalendario.php", $data);
+            }  else{
+                echo $this->render->render("view/inicio.php", $data);
+            }
+        }  else{
+            echo $this->render->render("view/inicio.php", $data);
+        }
+    }
 
     public function verTractorPorId()
     {
@@ -364,7 +413,8 @@ class listaTractorController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
             $id = $_GET["id"];
-            $data["tractores"] = $this->tractorModel->devolverTractorPorIdAsignados($id);
+            $data["tractores"] = $this->tractorModel->mostrarTractorPorId($id);
+
 
             echo $this->render->render("view/listaTractoresView.php", $data);
 

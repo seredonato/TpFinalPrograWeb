@@ -4,7 +4,8 @@
             <h4 class="card-title"> Equipo : {{id}}</h4>
         </div>
         <div class="container p-3" style="background: #FCDEC3">
-                <h5 class="card-text">Estado: {{estado}}</h5>
+            <h5 class="card-text">ID: {{id}}</h5>
+            <h5 class="card-text">Estado: {{estado}}</h5>
                 <hr>
                 <h5> Tractor:</h5>
                     <p class="card-text">Modelo: {{modelo}}</p>
@@ -62,8 +63,8 @@
             </div>
             <div class="modal-body">
                 <form action="/listaEquipo/modificarEquipo/idAcopladoAnterior={{id_acoplado}}&idTractorAnterior={{id_tractor}}" enctype="multipart/form-data" method="post" >
-                        <label for="id">Id del equipo</label>
-                        <textarea class="form-control" style="height: 36px" name="id" id="id" >{{id}}</textarea>
+                        <p for="id">ID del equipo: {{id}}</p>
+                        <input type="hidden"  name="id" id="id" value="{{id}}">
                         <div class="form-group">
                             <hr>
                             <label for="acoplado">Asignar tipo de acoplado</label>
