@@ -9,7 +9,7 @@
 <br>
     <br>
     <br>
-    <h2 class="titulosindex  text-center"> Gráfico de barras</h2>
+    <h2 class="titulosindex  text-center"> Gráfico de barras espeficico</h2>
     <hr>
     <figure class="highcharts-figure">
     <div id="container"></div>
@@ -42,7 +42,7 @@
             type: 'column'
         },
         title: {
-            text: 'Gráfico de barras'
+            text: ''
         },
         xAxis: {
             categories: ['Kilometros', 'Combustible', 'Viaticos', 'Peajes', 'FreeFinal', 'Extras']
