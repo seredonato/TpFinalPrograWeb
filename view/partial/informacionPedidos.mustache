@@ -37,13 +37,13 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de querer eliminar la proforma cuya id es {{id}}?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de querer eliminar el pedido cuya id es {{id}}?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/listaEquipo/eliminarEquipo/id={{id}}&idAcoplado={{id_acoplado}}&idTractor={{id_tractor}}" enctype="multipart/form-data" method="get" >
+                <form action="/Pedido/eliminarPedido/id={{id}}" enctype="multipart/form-data" method="get" >
                 <button type="submit" class="btn btn-danger btn-lg btn-block">SI</button>
                 <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
                 </form>
@@ -63,33 +63,28 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/listaEquipo/modificarEquipo/idAcopladoAnterior={{id_acoplado}}&idTractorAnterior={{id_tractor}}" enctype="multipart/form-data" method="post" >
+                <form action="/pedido/modificarPedido" enctype="multipart/form-data" method="post" >
                 <input type="hidden"  name="id" id="id" value="{{id}}">
                 <div class="form-group">
-                    <hr>
-                    <label for="acoplado">Asignar tipo de acoplado</label>
-                    <select id="acoplado" name="acoplado" class="form-control">
-                        <option value="{{id_acoplado}}"selected>acoplado: {{tipo_acoplado}}</option>
-                        {{#acoplados}}
-                            <option value="{{id}}">Acoplado: {{tipo_acoplado}} - Patente: {{patente}} - Chasis:
-                                {{chasis}}</option>
-                        {{/acoplados}}
-                    </select>
-                </div>
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" name="nombre" id="nombre"  class="form-control mb-2"  value="{{nombre_cliente}}" required>
+                    <label for="cuit">C.U.I.T.</label>
+                    <input type="number" name="cuit" id="cuit" class="form-control mb-2"  value="{{cuit_cliente}}" required>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control mb-2"  value="{{email_cliente}}" required>
+                    <label for="telefono">Telefono</label>
+                    <input type="number" name="tel" id="tel" class="form-control mb-2"  value="{{telefono_cliente}}" required>
+                    <label for="direccion">Direccion</label>
+                    <input type="text" name="direccion" id="direccion"  class="form-control mb-2"  value="{{direccion_cliente}}" required>
+                    <label for="direccionOrigen">Direccion Origen</label>
+                    <input type="text" name="direccionOrigen" id="direccionOrigen" class="form-control mb-2"  value="{{contacto1}}" required>
+                    <label for="direccionDestino">Direccion Destino</label>
+                    <input type="text" name="direccionDestino" id="direccionDestino" class="form-control mb-2"  value="{{contacto2}}" required>
 
-                <div class="form-group">
-                    <label for="tractor">Asignar tipo de tractor</label>
-                    <select id="tractor" name="tractor" class="form-control">
-                        <option value="{{id_tractor}}">TRACTOR: marca: {{marca}}, modelo: {{modelo}}, número de motor: {{nro_motor}}, kilometraje: {{kilometraje}}</option>
-                        {{#tractores}}
-                            <option value="{{id}}">TRACTOR: marca: {{marca}}, modelo: {{modelo}}, número de motor: {{nro_motor}}, kilometraje: {{kilometraje}}</option>
-                        {{/tractores}}
-                    </select>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Modificar</button>
                 </div>
-
-                <button type="submit" class="btn btn-dark btn-lg btn-block">Modificar</button>
                 </form>
             </div>
-        </div>
+         </div>
     </div>
 </div>

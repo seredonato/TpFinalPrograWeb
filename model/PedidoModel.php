@@ -58,4 +58,12 @@ class PedidoModel
     {
         return $this->database->mostrarPedidosPendientes();
     }
+
+    public function eliminarPedido($id){
+        return $this->database->eliminarPedido($id);
+    }
+
+    public function modificarPedido($id,$nombre,$cuit,$email,$tel,$direccion,$direccionOrigen,$direccionDestino){
+        return $this->database->modificarPedido($id,$nombre,$cuit,$email,$tel,$direccion,$direccionOrigen,$direccionDestino);
+    }
 }

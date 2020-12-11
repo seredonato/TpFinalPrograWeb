@@ -116,6 +116,19 @@ class MysqlDatabase
         return $datos;
     }
 
+    public function eliminarPedido($id){
+        $sql = 'DELETE FROM pedido_cliente WHERE id = ' . $id .' and id_proforma is null ';
+        return $this->connection->query($sql);
+    }
+
+    public function modificarPedido($id,$nombre,$cuit,$email,$tel,$direccion,$direccionOrigen,$direccionDestino){
+        $sql = 'UPDATE pedido_cliente SET nombre_cliente = "'.$nombre.'"
+         ,cuit_cliente = '.$cuit.', direccion_cliente = "'.$direccion.'",telefono_cliente = '.$tel.'
+         ,email_cliente = "'.$email.'",contacto1 = "'.$direccionOrigen.'",contacto2 = "'.$direccionDestino.'" WHERE id = ' . $id;
+
+        return  $this->connection->query($sql);
+    }
+
     public function mostrarChoferes()
     {
         $sql = 'SELECT * FROM usuario where rol = "chofer"';
