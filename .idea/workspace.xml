@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/imgQr/qr.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/proformaView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/proformaView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/PdfProformaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/PdfProformaController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,7 @@
       <workItem from="1607486454070" duration="185000" />
       <workItem from="1607555780967" duration="1887000" />
       <workItem from="1607618774985" duration="676000" />
-      <workItem from="1607652657924" duration="386000" />
+      <workItem from="1607652657924" duration="1437000" />
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>
@@ -170,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607557049813</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="cambie el imput peajes">
+      <created>1607653048822</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1607653048822</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +205,8 @@
     <MESSAGE value="justifique mi vida" />
     <MESSAGE value="que abra el pdf en otra pestaña" />
     <MESSAGE value="modificar licencia de los usuarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="modificar licencia de los usuarios" />
+    <MESSAGE value="cambie el imput peajes" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambie el imput peajes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="162" y="0" key="#CLI_Interpreters" timestamp="1604424176261">
