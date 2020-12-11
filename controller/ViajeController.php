@@ -72,7 +72,7 @@ class ViajeController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if ($valorDelRol == 2 || $valorDelRol == 4) {
+            if ($valorDelRol == 2) {
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajesActivos"] = $this->viajeModel->mostrarViajesActivosAsignadosChofer($nombreUsuario);
@@ -105,7 +105,7 @@ class ViajeController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if ($valorDelRol == 2 || $valorDelRol == 4) {
+            if ($valorDelRol == 2) {
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajesPendientes"] = $this->viajeModel->mostrarViajesPendientesAsignadosChofer($nombreUsuario);
@@ -138,7 +138,7 @@ class ViajeController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if ($valorDelRol == 2 || $valorDelRol == 4) {
+            if ($valorDelRol == 2) {
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajesFinalizados"] = $this->viajeModel->mostrarViajesFinalizadosAsignadosChofer($nombreUsuario);
@@ -171,7 +171,7 @@ class ViajeController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if ($valorDelRol == 2 || $valorDelRol == 4) {
+            if ($valorDelRol == 2) {
 
                 $idViaje = $_GET["id"];
                 $idEquipo = $_GET["idEquipo"];
@@ -211,7 +211,7 @@ class ViajeController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if ($valorDelRol == 2 || $valorDelRol == 4) {
+            if ($valorDelRol == 2) {
 
                 $idViaje = $_GET["id"];
                 $idEquipo = $_GET["idEquipo"];
