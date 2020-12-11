@@ -17,17 +17,78 @@
                 <div style="text-align: center">
                     {{#id_proforma}}
                         <hr>
-                        <a onclick=" window.open('/pdfReporte?id={{id}}','_blank')" type="button" class="btn btn-secondary" style="float:
-                        left">Ver Reportes</a>
-                        <a onclick=" window.open('/pdfProforma?id={{id}}','_blank')" type="button" class="btn btn-secondary" style="float:
-                        right">Ver Proforma</a>
-
+                        <a onclick=" window.open('/pdfReporte?id={{id}}','_blank')" type="button" class="btn btn-secondary mt-4 mb-4" >Ver Reportes</a>
+                        <a onclick=" window.open('/pdfProforma?id={{id}}','_blank')" type="button" class="btn btn-secondary mt-4 mb-4" >Ver Proforma</a>
                     {{/id_proforma}}
                     {{^id_proforma}}
                         <hr>
-                        <a href="/proforma?id={{id}}" type="button" class="btn btn-secondary">Realizar Proforma</a>
+                        <a href="/proforma?id={{id}}" class="btn btn-light btn-outline-dark btn-block mb-3">Realizar Proforma</a>
+
+                        <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary" >Modificar</a>
+                        <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-danger" >Eliminar</a>
                     {{/id_proforma}}
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="inactivar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de querer eliminar la proforma cuya id es {{id}}?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/listaEquipo/eliminarEquipo/id={{id}}&idAcoplado={{id_acoplado}}&idTractor={{id_tractor}}" enctype="multipart/form-data" method="get" >
+                <button type="submit" class="btn btn-danger btn-lg btn-block">SI</button>
+                <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modificar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modificar el pedido cuya ID es {{id}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/listaEquipo/modificarEquipo/idAcopladoAnterior={{id_acoplado}}&idTractorAnterior={{id_tractor}}" enctype="multipart/form-data" method="post" >
+                <input type="hidden"  name="id" id="id" value="{{id}}">
+                <div class="form-group">
+                    <hr>
+                    <label for="acoplado">Asignar tipo de acoplado</label>
+                    <select id="acoplado" name="acoplado" class="form-control">
+                        <option value="{{id_acoplado}}"selected>acoplado: {{tipo_acoplado}}</option>
+                        {{#acoplados}}
+                            <option value="{{id}}">Acoplado: {{tipo_acoplado}} - Patente: {{patente}} - Chasis:
+                                {{chasis}}</option>
+                        {{/acoplados}}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tractor">Asignar tipo de tractor</label>
+                    <select id="tractor" name="tractor" class="form-control">
+                        <option value="{{id_tractor}}">TRACTOR: marca: {{marca}}, modelo: {{modelo}}, número de motor: {{nro_motor}}, kilometraje: {{kilometraje}}</option>
+                        {{#tractores}}
+                            <option value="{{id}}">TRACTOR: marca: {{marca}}, modelo: {{modelo}}, número de motor: {{nro_motor}}, kilometraje: {{kilometraje}}</option>
+                        {{/tractores}}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-lg btn-block">Modificar</button>
+                </form>
             </div>
         </div>
     </div>

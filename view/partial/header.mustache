@@ -46,6 +46,10 @@
 
             <ul class="navbar-nav">
                 {{#login}}
+                    <li class="nav-item">
+                        <a href="/perfil" class="nav-link"
+                           type="button">Perfil</a>
+                    </li>
                     {{#valorAdmin}}
                         <li class="nav-item">
                             <a href="/listaUsuario/mostrarUsuarios" class="nav-link"
@@ -76,6 +80,7 @@
                     {{/valorMecanico}}
 
                     {{#valorChofer}}
+
                         <li class="nav-item">
                             <a href="/viajes" class="nav-link"
                                type="button">Ver Viajes</a>

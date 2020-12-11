@@ -33,6 +33,17 @@ class UsuarioModel
 
     }
 
+    public function cambiarImagenPerfil($id, $destination){
+        $sql = 'UPDATE usuario
+                SET imagen = "' . $destination . '" WHERE id=' . $id;
+
+        return $this->database->query($sql);
+    }
+
+    public function mostrarUsuarioPorNombreDeUsuario($nombreUsuario){
+        return $this->database->mostrarUsuarioPorNombreDeUsuario($nombreUsuario);
+    }
+
     public function mostrarChoferes(){
         return $this->database->mostrarChoferes();
     }

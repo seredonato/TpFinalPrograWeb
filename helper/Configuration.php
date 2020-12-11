@@ -19,7 +19,7 @@ include_once("controller/QrController.php");
 include_once("controller/ReporteController.php");
 include_once("controller/PdfReporteController.php");
 include_once("controller/ViajeController.php");
-
+include_once("controller/PerfilController.php");
 
 include_once("model/CalendarioModel.php");
 include_once("model/LoginModel.php");
@@ -185,6 +185,12 @@ class Configuration
     {
         $database = $this->getDatabase();
         return new CalendarioModel($database);
+    }
+
+    public function getPerfilController(){
+        $usuarioModel = $this->getUsuarioModel();
+        $loginModel = $this->getLoginModel();
+        return new PerfilController($this->getRender(), $usuarioModel, $loginModel);
     }
 
     public function getListaTractorController()

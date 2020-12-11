@@ -155,6 +155,16 @@ class MysqlDatabase
 
     }
 
+    public function mostrarUsuarioPorNombreDeUsuario($nombreUsuario){
+        $sql = 'SELECT * FROM usuario WHERE usuario = "' . $nombreUsuario . '"';
+        $resultado = $this->connection->query($sql);
+        $usuario = $resultado->fetch_assoc();
+
+        if (isset($usuario)){
+            return $usuario;
+        }
+    }
+
     public function mostrarImoClases()
     {
         $sql = 'SELECT * FROM imoclass';

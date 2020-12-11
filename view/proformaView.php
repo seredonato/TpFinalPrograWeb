@@ -22,7 +22,8 @@
                 </div>
 
                 <div class="col-sm-6 pt-3">
-                    <h5 class="card-title" >Viaje</h5
+                    <h5 class="card-title" >Viaje</h5>
+                    <div class="text-left">
                         <label for="origen" >Origen</label>
                             <input type="text" class="form-control" style="margin-bottom: 2%" placeholder="Origen"
                                    required name="origen">
@@ -50,11 +51,12 @@
                                    required name="horaLlegada">
                     </div>
                 </div>
+                </div>
 
             <div class="row">
                 <div class="col-sm-6 pt-3">
-                    <div class="text-left">
                     <h5 class="card-title">Carga</h5>
+                    <div class="text-left">
                     <label for="tipo">Tipo de carga</label>
                     <select id="tipo" name="tipo" class="form-control" style="margin-bottom: 2%" required>
                         <option value="" selected>Tipo de cargas</option>
@@ -191,14 +193,6 @@
                 </div>
             </div>
 
-           <!-- <div class="mt-4 mb-4 text-center">
-                <h5 class="card-title">Seleccionar Equipo</h5>
-                <div class="container mt-2 justify-content-center" style="margin-left: 0;margin-right: 0">
-                        {{#equipos}}
-                        {{> equiposProforma}}
-                        {{/equipos}}
-                </div>
-            </div> -->
 
             <div class="container mt-4 mb-4 text-center margenesEquipoProforma">
             <h5 class="card-title mb-5">Seleccionar Equipo</h5>
