@@ -10,7 +10,7 @@
         <a href="/listaPedidos/listaPedidosView" type="button" class="btn text-white" style="background: #1E0C80">Todos los pedidos</a>
         <div class="row my-5">
             {{#pedidosFinalizados}}
-            {{>informacionPedidosConProforma}}
+            {{>informacionPedidosFinalizadosEstadistica}}
             {{/pedidosFinalizados}}
         </div>
     </div>
