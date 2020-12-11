@@ -73,7 +73,6 @@ class ViajeController
             $data["valorSupervisor"] = $valorSupervisor;
 
             if ($valorDelRol == 2 || $valorDelRol == 4) {
-                $data["login"] = $this->loginModel->ifSesionIniciada();
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajesActivos"] = $this->viajeModel->mostrarViajesActivosAsignadosChofer($nombreUsuario);
@@ -107,7 +106,6 @@ class ViajeController
             $data["valorSupervisor"] = $valorSupervisor;
 
             if ($valorDelRol == 2 || $valorDelRol == 4) {
-                $data["login"] = $this->loginModel->ifSesionIniciada();
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajesPendientes"] = $this->viajeModel->mostrarViajesPendientesAsignadosChofer($nombreUsuario);
@@ -141,7 +139,6 @@ class ViajeController
             $data["valorSupervisor"] = $valorSupervisor;
 
             if ($valorDelRol == 2 || $valorDelRol == 4) {
-                $data["login"] = $this->loginModel->ifSesionIniciada();
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajesFinalizados"] = $this->viajeModel->mostrarViajesFinalizadosAsignadosChofer($nombreUsuario);
@@ -175,7 +172,7 @@ class ViajeController
             $data["valorSupervisor"] = $valorSupervisor;
 
             if ($valorDelRol == 2 || $valorDelRol == 4) {
-                $data["login"] = $this->loginModel->ifSesionIniciada();
+
                 $idViaje = $_GET["id"];
                 $idEquipo = $_GET["idEquipo"];
 
@@ -185,7 +182,7 @@ class ViajeController
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajes"] = $this->viajeModel->mostrarViajesAsignadosChofer($nombreUsuario);
 
-                echo $this->render->render("view/viajesView.php", $data);
+                echo $this->render->render("view/viajesActivosView.php", $data);
             } else {
                 echo $this->render->render("view/inicio.php", $data);
             }
@@ -216,7 +213,6 @@ class ViajeController
 
             if ($valorDelRol == 2 || $valorDelRol == 4) {
 
-                $data["login"] = $this->loginModel->ifSesionIniciada();
                 $idViaje = $_GET["id"];
                 $idEquipo = $_GET["idEquipo"];
 

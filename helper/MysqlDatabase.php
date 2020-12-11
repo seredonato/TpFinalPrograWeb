@@ -168,6 +168,16 @@ class MysqlDatabase
 
     }
 
+    public function mostrarUsuarioPorNombreDeUsuario($nombreUsuario){
+        $sql = 'SELECT * FROM usuario WHERE usuario = "' . $nombreUsuario . '"';
+        $resultado = $this->connection->query($sql);
+        $usuario = $resultado->fetch_assoc();
+
+        if (isset($usuario)){
+            return $usuario;
+        }
+    }
+
     public function mostrarImoClases()
     {
         $sql = 'SELECT * FROM imoclass';
@@ -809,7 +819,7 @@ FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.i
 
     public function asignarHoraSalidayEstado($idViaje)
     {
-        $sql = 'UPDATE costeo_final SET tiempo_salida = now() WHERE id_viaje =' . $idViaje;
+        $sql = 'INSERT INTO costeo_final(id_viaje, tiempo_salida) VALUES ("'.$idViaje.'", now())';
         $sql1 = 'UPDATE viaje SET estado = "ACTIVO" WHERE id =' . $idViaje;
 
         $this->connection->query($sql);
@@ -823,5 +833,25 @@ FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.i
 
         $this->connection->query($sql);
         $this->connection->query($sql1);
+    }
+
+    public function devolverHazardViaje($idViaje){
+        $sql = 'SELECT hazard FROM costeo_estimado WHERE id_viaje='. $idViaje;
+
+        $resultado = $this->connection->query($sql);
+
+        $hazard = $resultado->fetch_assoc();
+
+        return $hazard["hazard"];
+    }
+
+    public function devolverReeferViaje($idViaje){
+        $sql = 'SELECT reefer FROM costeo_estimado WHERE id_viaje='. $idViaje;
+
+        $resultado = $this->connection->query($sql);
+
+        $reefer = $resultado->fetch_assoc();
+
+        return $reefer["reefer"];
     }
 }

@@ -33,10 +33,19 @@
                                        placeholder="Viaticos"
                                        required name="viaticos">
 
-                                <label for="peajes">Peajes y pesajes</label>
-                                <input type="number" class="form-control" style="margin-bottom: 2%"
-                                       placeholder="Peajes y Pesajes"
-                                       required name="peajes">
+                                <label for="peajes">Peajes</label>
+                                <select id="peajes" required name="peajes" class="form-control"
+                                        style="margin-bottom: 2%">
+                                    <option value="0" selected>Cantidad de pasajes a pasar</option>
+                                    <option value="1">1 Peaje</option>
+                                    <option value="2">2 Peajes</option>
+                                    <option value="3">3 Peajes</option>
+                                    <option value="4">4 Peajes</option>
+                                    <option value="5">5 Peajes</option>
+                                    <option value="6">6 Peajes</option>
+                                    <option value="7">7 Peajes</option>
+                                    <option value="8">8 Peajes</option>
+                                </select>
 
                                 <label for="extras">Extras</label>
                                 <input type="number" class="form-control" style="margin-bottom: 2%"
