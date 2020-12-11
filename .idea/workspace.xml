@@ -20,11 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/imgQr/qr.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/UsuarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/UsuarioController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper/MysqlDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/MysqlDatabase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/UsuarioModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/UsuarioModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/informacionUsuarios.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/informacionUsuarios.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/proformaView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/proformaView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +64,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\public\imgQr" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -93,7 +96,9 @@
       <workItem from="1607271750922" duration="6138000" />
       <workItem from="1607308303619" duration="849000" />
       <workItem from="1607486454070" duration="185000" />
-      <workItem from="1607555780967" duration="1209000" />
+      <workItem from="1607555780967" duration="1887000" />
+      <workItem from="1607618774985" duration="676000" />
+      <workItem from="1607652657924" duration="386000" />
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>
@@ -158,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607480066381</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="modificar licencia de los usuarios">
+      <created>1607557049813</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1607557049813</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +198,8 @@
     <MESSAGE value="arreglando el tema de sesiones con fiore gg" />
     <MESSAGE value="justifique mi vida" />
     <MESSAGE value="que abra el pdf en otra pestaña" />
-    <option name="LAST_COMMIT_MESSAGE" value="que abra el pdf en otra pestaña" />
+    <MESSAGE value="modificar licencia de los usuarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="modificar licencia de los usuarios" />
   </component>
   <component name="WindowStateProjectService">
     <state x="162" y="0" key="#CLI_Interpreters" timestamp="1604424176261">
