@@ -164,7 +164,7 @@
                            required name="viaticos">
 
                     <label for="peajes">Peajes</label>
-                        <select id="peajes" name="peajes" class="form-control"
+                        <select id="peajes" required name="peajes" class="form-control"
                                 style="margin-bottom: 2%">
                             <option value="0" selected>Cantidad de pasajes a pasar</option>
                             <option value="1">1 Peaje</option>

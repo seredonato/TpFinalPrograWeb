@@ -12,9 +12,9 @@ class CosteoFinalModel
 
     public function guardarCosteoFinal($idViaje)
     {
-
         $reportes = $this->database->obtenerReportesDelViajePorIdViaje($idViaje);
-
+        $reefer = $this->obtenerReeferSegunViaje($idViaje);
+        $hazard = $this->obtenerHazardSegunViaje($idViaje);
         foreach ($reportes as $reporte) {
             $kilometros = 0;
             $combustible = 0;
@@ -29,17 +29,16 @@ class CosteoFinalModel
             $viaticos += $reporte["viaticos"];
             $peajes += $reporte["peajes_pesajes"];
             $extras += $reporte["extras"];
-            $hazard = $reporte["hazard"];
-            $reefer = $reporte["reefer"];
             $fee += $reporte["fee"];
             $total += $reporte["total"];
 
-            $sql = 'INSERT INTO costeo_final (id_viaje, kilometros, combustible, viaticos, peajes_pesajes, extras, hazard, reefer, fee, total) VALUES
-                (' . $idViaje . ', ' . $kilometros . ',' . $combustible . ',' . $viaticos . ', ' . $peajes . ', 
-                ' . $extras . ', ' . $hazard . ', ' . $reefer . ', ' . $fee . ', ' . $total . ')';
+            $sql = 'UPDATE costeo_final SET id_viaje=' . $idViaje . ', kilometros= ' . $kilometros . ', combustible=' . $combustible . ', 
+        viaticos = ' . $viaticos . ', peajes_pesajes= ' . $peajes . ', extras=' . $extras . ', hazard=' . $hazard . ', reefer=' . $reefer . ', fee=' . $fee . ', 
+        total=' . $total . ' WHERE id_viaje =' . $idViaje;
 
             $this->database->query($sql);
         }
+
     }
 
     public function guardarHoraSalidayEstado($idViaje)
@@ -51,4 +50,15 @@ class CosteoFinalModel
     {
         $this->database->asignarHoraLlegadayEstado($idViaje);
     }
+
+    public function obtenerHazardSegunViaje($idViaje)
+    {
+        return $this->database->devolverHazardViaje($idViaje);
+    }
+
+    public function obtenerReeferSegunViaje($idViaje)
+    {
+        return $this->database->devolverReeferViaje($idViaje);
+    }
+
 }

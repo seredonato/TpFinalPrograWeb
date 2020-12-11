@@ -354,7 +354,6 @@ values ("no",1,1,"Disponible"),
 	   ("no",2,2,"Disponible"),
 	   ("no",3,3,"Disponible");
 
-select * from calendarioServicio;
 INSERT INTO calendarioServicio(fecha,id_tractor,estado,eliminado,costo,tipo_service,mecanico,respuestosCambiados,kilometraje)
 values
  ("2021-03-02",1,"En espera","no",null,null,null,null,null),
