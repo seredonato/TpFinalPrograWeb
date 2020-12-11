@@ -56,7 +56,7 @@ class PdfReporteController
                     $pdf->Cell(0, 36, 'REPORTE', 0, 0, 'C');
                     $pdf->SetFont('helvetica', '', 13);
                     $pdf->SetXY(5, 20);
-                    $pdf->Cell(0, 40, 'FECHA: ' . $reporte["fecha"], 0, 0, 'C');
+                    $pdf->Cell(0, 40, 'FECHA: ' . $reporte["fecha"] . $reporte["hora"], 0, 0, 'C');
                     $pdf->SetXY(150, 15);
                     $pdf->SetFont('helvetica', 'u', 14);
                     $pdf->Cell(0, 24, utf8_decode('Nº DE VIAJE: ' . $reporte["id_viaje"]), 0, 0, 'C');

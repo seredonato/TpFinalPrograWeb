@@ -49,10 +49,15 @@ class ReporteController
                 $fee = $_POST["fee"];
                 $latitud = $_POST["latitud"];
                 $longitud = $_POST["longitud"];
-
-                $this->reporteModel->guardarReporte($idViaje, $kilometros, $combustible, $viaticos, $peajes,
-                    $extras, $fee, $latitud, $longitud);
-                echo $this->render->render("view/inicio.php", $data);
+                $result = $this->reporteModel->verificarSiYaHizoReporte($idViaje);
+                if ($result == 0) {
+                    $this->reporteModel->guardarReporte($idViaje, $kilometros, $combustible, $viaticos, $peajes,
+                        $extras, $fee, $latitud, $longitud);
+                    echo $this->render->render("view/inicio.php", $data);
+                } else {
+                    $data["error"] = true;
+                    echo $this->render->render("view/enviarQrView.php", $data);
+                }
             } else {
                 echo $this->render->render("view/inicio.php", $data);
             }

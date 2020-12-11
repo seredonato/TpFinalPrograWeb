@@ -5,9 +5,9 @@
     <h2 class="titulosindex">Cargar QR</h2>
     <hr>
 
-    {{#reporteError}}
-    <label class="text-danger m-3">{{reporteError}}</label>
-    {{/reporteError}}
+    {{#error}}
+    <label class="text-danger m-3">Ya se ha realizado un reporte en el dia de la fecha</label>
+    {{/error}}
 
     <p>Por favor, suba la imagen QR y aprete enviar. De esta manera, podrá realizar el Reporte del viaje correspondiente.</p>
             <form action="/qr/decodificarQr" method="post" enctype="multipart/form-data">

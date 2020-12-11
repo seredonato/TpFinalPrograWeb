@@ -20,20 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/PerfilController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/perfilView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper/Configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/Configuration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/PdfReporteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/PdfReporteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ReporteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ReporteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helper/MysqlDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/MysqlDatabase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/RegistroModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/RegistroModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/UsuarioModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/UsuarioModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/grupo11.sql" beforeDir="false" afterPath="$PROJECT_DIR$/public/grupo11.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/logoPerfil.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/logoPerfil.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/equiposProforma.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/equiposProforma.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/header.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/informacionChoferes.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/informacionChoferes.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/informacionUsuarios.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/informacionUsuarios.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/proformaView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/proformaView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/imgQr/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/imgQr/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/imgQr/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/enviarQrView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/enviarQrView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +105,7 @@
       <workItem from="1607486454070" duration="185000" />
       <workItem from="1607555780967" duration="1887000" />
       <workItem from="1607618774985" duration="676000" />
-      <workItem from="1607652657924" duration="8010000" />
+      <workItem from="1607652657924" duration="11271000" />
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>
@@ -196,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607654185210</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="cree perfil. cambie boludeces dsp de eso">
+      <created>1607660796389</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1607660796389</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +229,8 @@
     <MESSAGE value="modificar licencia de los usuarios" />
     <MESSAGE value="cambie el imput peajes" />
     <MESSAGE value="termine la proforma el pdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="termine la proforma el pdf" />
+    <MESSAGE value="cree perfil. cambie boludeces dsp de eso" />
+    <option name="LAST_COMMIT_MESSAGE" value="cree perfil. cambie boludeces dsp de eso" />
   </component>
   <component name="WindowStateProjectService">
     <state x="162" y="0" key="#CLI_Interpreters" timestamp="1604424176261">

@@ -586,7 +586,10 @@ class MysqlDatabase
 
         $cantReportes = $resultado->fetch_assoc();
 
-        return $cantReportes;
+        if (isset($cantReportes["cant_reportes"])) {
+
+            return $cantReportes["cant_reportes"];
+        }
     }
 
     public function obtenerPrecioDePeaje()
