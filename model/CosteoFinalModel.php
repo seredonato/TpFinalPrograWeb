@@ -41,6 +41,14 @@ class CosteoFinalModel
 
     }
 
+    public function obtenerCosteoInicialSegunPedido($idPedido){
+        return $this->database->obtenerCosteoInicialSegunPedido($idPedido);
+    }
+
+    public function obtenerCosteoFinalSegunPedido($idPedido){
+        return $this->database->obtenerCosteoFinalSegunPedido($idPedido);
+    }
+
     public function guardarHoraSalidayEstado($idViaje)
     {
         $this->database->asignarHoraSalidayEstado($idViaje);

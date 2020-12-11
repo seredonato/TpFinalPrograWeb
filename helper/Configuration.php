@@ -20,6 +20,7 @@ include_once("controller/ReporteController.php");
 include_once("controller/PdfReporteController.php");
 include_once("controller/ViajeController.php");
 include_once("controller/PerfilController.php");
+include_once("controller/EstadisticasController.php");
 
 include_once("model/CalendarioModel.php");
 include_once("model/LoginModel.php");
@@ -314,5 +315,11 @@ class Configuration
         $costeoFinalModel = $this->getCosteoFinalModel();
         return new ViajeController($this->getRender(), $costeoFinalModel, $viajeModel, $loginModel, $equipoModel);
 
+    }
+
+    public function getEstadisticasController(){
+        $loginModel = $this->getLoginModel();
+        $costeoFinalModel = $this->getCosteoFinalModel();
+        return new EstadisticasController($this->getRender(), $loginModel, $costeoFinalModel);
     }
 }

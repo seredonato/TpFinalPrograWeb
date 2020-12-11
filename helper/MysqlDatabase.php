@@ -578,6 +578,34 @@ class MysqlDatabase
         }
     }
 
+    public function obtenerCosteoInicialSegunPedido($idPedido){
+        $sql = 'SELECT c.kilometros, c.combustible, c.viaticos, c.peajes_pesajes, c.fee, c.extras FROM costeo_estimado AS c JOIN proforma AS p ON c.id = p.id_costeo_estimado
+                WHERE p.id_pedido_cliente ='. $idPedido;
+
+        $resultado = $this->connection->query($sql);
+
+        $fila = $resultado->fetch_assoc();
+
+        if (isset($fila)) {
+            return $fila;
+        }
+    }
+
+    public function obtenerCosteoFinalSegunPedido($idPedido){
+        $sql = 'SELECT c.kilometros, c.combustible, c.viaticos, c.peajes_pesajes, c.fee, c.extras FROM costeo_final AS c JOIN proforma AS p ON c.id = p.id_costeo_final 
+                WHERE p.id_pedido_cliente ='. $idPedido;
+
+        $resultado = $this->connection->query($sql);
+
+        $fila = $resultado->fetch_assoc();
+
+        if (isset($fila)) {
+            return $fila;
+        }
+
+
+    }
+
     public function verificarEstadoViaje($idViaje){
         $sql = 'SELECT estado FROM viaje WHERE id =' . $idViaje;
 
@@ -836,6 +864,7 @@ FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.i
         $sql = 'INSERT INTO costeo_final(id_viaje, tiempo_salida) VALUES ("'.$idViaje.'", now())';
         $sql1 = 'UPDATE viaje SET estado = "ACTIVO" WHERE id =' . $idViaje;
 
+
         $this->connection->query($sql);
         $this->connection->query($sql1);
     }
@@ -844,9 +873,19 @@ FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.i
     {
         $sql = 'UPDATE costeo_final SET tiempo_llegada = now() WHERE id_viaje =' . $idViaje;
         $sql1 = 'UPDATE viaje SET estado = "FINALIZADO" WHERE id =' . $idViaje;
+        $sql2 = 'SELECT id FROM costeo_final WHERE id_viaje = '. $idViaje;
 
         $this->connection->query($sql);
         $this->connection->query($sql1);
+
+        $resultado = $this->connection->query($sql2);
+
+        $id = $resultado->fetch_assoc();
+
+        $sql3 = 'UPDATE proforma SET id_costeo_final = '. $id["id"] . ' WHERE id_viaje =' . $idViaje;
+
+
+        $this->connection->query($sql3);
     }
 
     public function devolverHazardViaje($idViaje){
