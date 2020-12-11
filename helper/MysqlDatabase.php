@@ -578,6 +578,17 @@ class MysqlDatabase
         }
     }
 
+    public function verificarEstadoViaje($idViaje){
+        $sql = 'SELECT estado FROM viaje WHERE id =' . $idViaje;
+
+        $resultado = $this->connection->query($sql);
+        $estado = $resultado->fetch_assoc();
+        if (isset($estado["estado"])) {
+
+            return $estado["estado"];
+        }
+    }
+
     public function reporteDelDia($idViaje)
     {
         $sql = 'SELECT COUNT(reporte.id_viaje) AS cant_reportes FROM reporte WHERE fecha = curdate() AND id_viaje =' . $idViaje;

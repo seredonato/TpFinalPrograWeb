@@ -50,6 +50,14 @@ class ReporteController
                 $latitud = $_POST["latitud"];
                 $longitud = $_POST["longitud"];
                 $result = $this->reporteModel->verificarSiYaHizoReporte($idViaje);
+                $estadoViaje = $this->reporteModel->verificarEstadoViaje($idViaje);
+                if ($estadoViaje == "PENDIENTE"){
+                    $data["errorPendiente"] = true;
+                    echo $this->render->render("view/enviarQrView.php", $data);
+                }elseif ($estadoViaje == "FINALIZADO"){
+                    $data["errorFinalizado"] = true;
+                    echo $this->render->render("view/enviarQrView.php", $data);
+                }
                 if ($result == 0) {
                     $this->reporteModel->guardarReporte($idViaje, $kilometros, $combustible, $viaticos, $peajes,
                         $extras, $fee, $latitud, $longitud);

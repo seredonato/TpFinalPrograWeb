@@ -8,6 +8,12 @@
     {{#error}}
     <label class="text-danger m-3">Ya se ha realizado un reporte en el dia de la fecha</label>
     {{/error}}
+    {{#errorPendiente}}
+    <label class="text-danger m-3">No se puede hacer un reporte de un viaje no comenzado</label>
+    {{/errorPendiente}}
+    {{#errorFinalizado}}
+    <label class="text-danger m-3">Este viaje ya finaliz&oacute;</label>
+    {{/errorFinalizado}}
 
     <p>Por favor, suba la imagen QR y aprete enviar. De esta manera, podrá realizar el Reporte del viaje correspondiente.</p>
             <form action="/qr/decodificarQr" method="post" enctype="multipart/form-data">

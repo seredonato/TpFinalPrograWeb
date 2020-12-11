@@ -17,6 +17,10 @@ class ReporteModel
         return $resultado;
     }
 
+    public function verificarEstadoViaje($idViaje){
+        return $this->database->verificarEstadoViaje($idViaje);
+}
+
     public function guardarReporte($idViaje, $kilometros, $combustible, $viaticos, $peajes,
                                    $extras, $fee, $latitud, $longitud)
     {
