@@ -1,8 +1,8 @@
 {{> header}}
 
 <main class="cuerpoindex">
-    <div class="container mt-2 listaUsuarios text-center">
-        <h2 class="titulosindex">Pedidos Sin Proforma Hecha</h2>
+    <div class="container mt-2 listaUsuarios">
+        <h2 class="titulosindex text-center">Pedidos Sin Proforma Hecha</h2>
         <hr>
         <a href="/listaPedidos/listaPedidosView" type="button" class="btn text-white" style="background: #1E0C80">Todos los pedidos</a>
         <a href="/listaPedidos/pedidosPendientes" type="button" class="btn text-white" style="background: #1E0C80">Pedidos Pendientes</a>
