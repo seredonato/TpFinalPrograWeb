@@ -19,8 +19,8 @@ class RegistroModel
             $contraseniaEncriptada = md5($contrasenia);
 
 
-            $sql = "INSERT INTO usuario (dni, email, usuario, contrasenia, nombre, apellido, fecha_nacimiento)
-                VALUES (" . $dni . ", '" . $email . "', '" . $usuario . "', '" . $contraseniaEncriptada . "', '" . $nombre . "', '" . $apellido . "', '" . $fecha_nacimiento . "')";
+            $sql = "INSERT INTO usuario (dni, email, usuario, contrasenia, nombre, apellido, fecha_nacimiento, rol, tipo_licencia, imagen)
+                VALUES (" . $dni . ", '" . $email . "', '" . $usuario . "', '" . $contraseniaEncriptada . "', '" . $nombre . "', '" . $apellido . "', '" . $fecha_nacimiento . "', 'no especificado', 'no aplica' ,'/public/images/logoPerfil.png')";
 
             return $this->database->query($sql);
             exit();
