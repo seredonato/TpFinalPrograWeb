@@ -63,10 +63,8 @@
             </div>
             <div class="modal-body">
                 <form action="/listaEquipo/modificarEquipo/idAcopladoAnterior={{id_acoplado}}&idTractorAnterior={{id_tractor}}" enctype="multipart/form-data" method="post" >
-                        <p for="id">ID del equipo: {{id}}</p>
                         <input type="hidden"  name="id" id="id" value="{{id}}">
                         <div class="form-group">
-                            <hr>
                             <label for="acoplado">Asignar tipo de acoplado</label>
                             <select id="acoplado" name="acoplado" class="form-control">
                                 <option value="{{id_acoplado}}"selected>acoplado: {{tipo_acoplado}}</option>
