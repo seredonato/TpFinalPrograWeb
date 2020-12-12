@@ -14,7 +14,7 @@ CREATE TABLE usuario (
   rol varchar(100),
   tipo_licencia varchar (100),
   imagen varchar(180),
-  estado varchar(180)
+  estado varchar(180),
   PRIMARY KEY (id)
 );
 
@@ -216,18 +216,17 @@ INSERT INTO pedido_cliente (fecha_pedido, nombre_cliente, cuit_cliente ,email_cl
 						( curdate(), "Fiorella Coloca", 20254781021, "fiore@email.com", 1123569658, "Jujuy 158", "Algo 200", "San Telmo 93"),
 						( curdate(), "Abril Lopez Ducas", 20350706827, "abril@email.com", 1123569658, "La Paz 2264", "Claro 89", "San Carlos 700"),
                         ( curdate(), "Juan Perez", 20123456781, "juan@email.com", 1123569658, "Jejox 58", "Pepe 69", "Martinez 23");
-select * from usuario;
-INSERT INTO usuario (dni, email, usuario, contrasenia, nombre, apellido, fecha_nacimiento, rol, tipo_licencia, imagen)
-VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "franco", "reynoso", 111111, "admin" , "no aplica", "/public/images/logoPerfil.png"),
-		(123, "sere@email.com", "sere", "202cb962ac59075b964b07152d234b70", "sere", "donato", 111111, "supervisor", "no aplica", "/public/images/logoPerfil.png"),
-		(123, "fiore@email.com", "fiore", "202cb962ac59075b964b07152d234b70", "fiore", "coloca", 111111, "mecanico", "no aplica", "/public/images/logoPerfil.png"),
-        (123, "abril@email.com", "abril", "202cb962ac59075b964b07152d234b70", "abril", "lopez ducas", 111111, "mecanico", "no aplica", "/public/images/logoPerfil.png");
 
+INSERT INTO usuario (dni, email, usuario, contrasenia, nombre, apellido, fecha_nacimiento, rol, tipo_licencia, imagen, estado)
+VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "franco", "reynoso", 111111, "admin" , "no aplica", "/public/images/logoPerfil.png", "ACTIVO"),
+		(123, "sere@email.com", "sere", "202cb962ac59075b964b07152d234b70", "sere", "donato", 111111, "supervisor", "no aplica", "/public/images/logoPerfil.png", "ACTIVO"),
+		(123, "fiore@email.com", "fiore", "202cb962ac59075b964b07152d234b70", "fiore", "coloca", 111111, "mecanico", "no aplica", "/public/images/logoPerfil.png", "ACTIVO"),
+        (123, "abril@email.com", "abril", "202cb962ac59075b964b07152d234b70", "abril", "lopez ducas", 111111, "mecanico", "no aplica", "/public/images/logoPerfil.png", "ACTIVO");
 
-INSERT INTO usuario (dni, email, imagen, usuario, contrasenia, nombre, apellido, tipo_licencia, fecha_nacimiento, rol)
-VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "nombre chofer 1", "apellido", "A", 111111, "chofer"),
-(40756984, "chofer2@email.com", "https://media.marcainformativa.com/adjuntos/269/imagenes/000/011/0000011059.jpg", "chofer2", "202cb962ac59075b964b07152d234b70", "nombre chofer 2", "apellido2", "A", 111111, "chofer"),
-(40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3",  "202cb962ac59075b964b07152d234b70", "nombre chofer 3", "apellido3", "A", 111111, "chofer");
+INSERT INTO usuario (dni, email, imagen, usuario, contrasenia, nombre, apellido, tipo_licencia, fecha_nacimiento, rol, estado)
+VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "nombre chofer 1", "apellido", "A", 111111, "chofer", "ACTIVO"),
+(40756984, "chofer2@email.com", "https://media.marcainformativa.com/adjuntos/269/imagenes/000/011/0000011059.jpg", "chofer2", "202cb962ac59075b964b07152d234b70", "nombre chofer 2", "apellido2", "A", 111111, "chofer", "ACTIVO"),
+(40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3",  "202cb962ac59075b964b07152d234b70", "nombre chofer 3", "apellido3", "A", 111111, "chofer", "ACTIVO");
 
 INSERT INTO imoclass (clase, descripcion, precio)
 VALUES 	(1,"Explosivos", 2345),
