@@ -1,27 +1,21 @@
-<div class="col-md-4 mb-4">
-    <div class="card">
-        <div class="container p-2 pl-3 text-white" style="background: #E6831A">
-            <h4 class="card-title">{{nombre}} {{apellido}}</h4>
-        </div>
-        <div  class="container p-3" style="background:#FCDEC3;text-align: left">
-            <h5 class="card-text" style="float: left">ID: {{id}}</h5>
-            <h5 class="card-text" style="margin-left: 50%">DNI: {{dni}}</h5>
-            <hr>
-            <p class="card-text">EMAIL: {{email}}</p>
-            <p class="card-text">USUARIO: {{usuario}}</p>
-            <p class="card-text">FECHA NACIMIENTO: {{fecha_nacimiento}}</p>
-            <p class="card-text">TIPO DE LICENCIA: {{tipo_licencia}}</p>
-            <p class="card-text">ROL: {{rol}}</p>
+<tr class="text-center">
+    <th scope="row">{{id}}</th>
+    <td>{{nombre}}</td>
+    <td>{{apellido}}</td>
+    <td>{{dni}}</td>
+    <td>{{usuario}}</td>
+    <td>{{email}}</td>
+    <td>{{fecha_nacimiento}}</td>
+    <td>{{tipo_licencia}}</td>
+    <td>{{rol}}</td>
+    <td>
             {{#valorAdmin}}
-                <hr>
                 <div style="text-align: center">
-                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary" >Modificar</a>
-                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-danger" >Eliminar</a>
+                    <a data-toggle="modal" data-target="#modificar{{id}}" style="width: 44%" type="button" class="btn btn-secondary" ><i class="fas fa-user-edit"></i></a>
+                    <a data-toggle="modal" data-target="#eliminar{{id}}" style="width: 44%" type="button" class="btn btn-danger" ><i class="fas fa-user-minus"></i></a>
                 </div>
             {{/valorAdmin}}
-        </div>
-    </div>
-</div>
+    </td>
 
 <div class="modal fade" id="modificar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

@@ -21,9 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/RegistroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/RegistroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/errorLogin.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/errorLogin.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/header.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosActivosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosActivosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosFinalizadosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosFinalizadosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosPendientesView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosPendientesView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosSinProformaView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosSinProformaView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaUsuariosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaUsuariosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/footer.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/footer.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/informacionPedidos.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/informacionPedidos.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/informacionPedidosConProforma.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/informacionPedidosConProforma.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/informacionPedidosFinalizadosEstadistica.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/informacionPedidosFinalizadosEstadistica.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/informacionUsuarios.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/informacionUsuarios.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +110,8 @@
       <workItem from="1607618774985" duration="676000" />
       <workItem from="1607652657924" duration="19338000" />
       <workItem from="1607705873972" duration="2769000" />
-      <workItem from="1607738960668" duration="3598000" />
+      <workItem from="1607738960668" duration="4797000" />
+      <workItem from="1607803139937" duration="10731000" />
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>
@@ -223,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607709406071</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="modal de mail enviado">
+      <created>1607746225666</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1607746225666</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +275,8 @@
     <MESSAGE value="errores de reportes cuando el viaje no esta disponible" />
     <MESSAGE value="los graficos andan palcu" />
     <MESSAGE value="grafico de barras cambiado" />
-    <option name="LAST_COMMIT_MESSAGE" value="grafico de barras cambiado" />
+    <MESSAGE value="modal de mail enviado" />
+    <option name="LAST_COMMIT_MESSAGE" value="modal de mail enviado" />
   </component>
   <component name="WindowStateProjectService">
     <state x="162" y="0" key="#CLI_Interpreters" timestamp="1604424176261">
