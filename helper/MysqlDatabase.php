@@ -907,4 +907,21 @@ FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.i
 
         return $reefer["reefer"];
     }
+
+    public function activarUsuario($nombreUsuario){
+        $sql = 'UPDATE usuario SET estado = "ACTIVO" WHERE usuario="'.$nombreUsuario.'"';
+
+        $this->connection->query($sql);
+    }
+
+    public function verificarEstadoUsuario($nombreUsuario){
+        $sql = 'SELECT estado FROM usuario WHERE usuario= "'.$nombreUsuario.'"';
+
+        $resultado = $this->connection->query($sql);
+
+        $estado = $resultado->fetch_assoc();
+
+        return $estado["estado"];;
+    }
+
 }

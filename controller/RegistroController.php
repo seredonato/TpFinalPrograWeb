@@ -51,10 +51,8 @@ class RegistroController
 
 
         } else {
-
+            $this->registroModel->enviarMail($email, $usuario);
             echo $this->render->render("view/inicio.php");
-
-
         }
     }
 

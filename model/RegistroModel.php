@@ -1,5 +1,12 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+
+require 'phpmailer/Exception.php';
+require 'phpmailer/PHPMailer.php';
+require 'phpmailer/SMTP.php';
+
+
 class RegistroModel
 {
     private $database;
@@ -18,8 +25,9 @@ class RegistroModel
 
             $contraseniaEncriptada = md5($contrasenia);
 
-            $sql = "INSERT INTO usuario (dni, email, usuario, contrasenia, nombre, apellido, fecha_nacimiento, rol, tipo_licencia, imagen)
-                VALUES (" . $dni . ", '" . $email . "', '" . $usuario . "', '" . $contraseniaEncriptada . "', '" . $nombre . "', '" . $apellido . "', '" . $fecha_nacimiento . "', 'no especificado', 'no aplica' ,'/public/images/logoPerfil.png')";
+            $sql = "INSERT INTO usuario (dni, email, usuario, contrasenia, nombre, apellido, fecha_nacimiento, rol, tipo_licencia, imagen, estado)
+                VALUES (" . $dni . ", '" . $email . "', '" . $usuario . "', '" . $contraseniaEncriptada . "', '" . $nombre . "', '" . $apellido . "', '" . $fecha_nacimiento . "', 'no especificado', 'no aplica' 
+                ,'/public/images/logoPerfil.png', 'NO ACTIVO')";
 
             return $this->database->query($sql);
             exit();
@@ -40,7 +48,32 @@ class RegistroModel
         }
     }
 
+    public function enviarMail($email, $usuario){
 
+        $mail = new PHPMailer(true);
+
+            //Server settings
+            $mail->SMTPDebug = 0;                      // Enable verbose debug output
+            $mail->isSMTP();                                            // Send using SMTP
+            $mail->Host = 'smtp.gmail.com';                    // Set the SMTP server to send through
+            $mail->SMTPAuth = true;                                   // Enable SMTP authentication
+            $mail->Username = 'transaff2020@gmail.com';                     // SMTP username
+            $mail->Password = 'transaff12345';                               // SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+            $mail->Port = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+            //Recipients
+            $mail->setFrom('transaff2020@gmail.com', 'Transaff');
+            $mail->addAddress(''.$email.'');     // Add a recipient;               // Name is optional
+
+            // Content
+            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->Subject = 'Bienvenido a Transaff';
+            $mail->Body = 'Por favor ingrese al siguiente link para poder verificar su cuenta <a href="http://localhost/activar?usuario='.$usuario.'">http://localhost/activar?usuario='.$usuario.'</a>';
+
+
+            $mail->send();
+    }
 
 
 
