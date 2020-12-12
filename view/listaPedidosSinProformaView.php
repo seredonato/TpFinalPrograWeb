@@ -5,10 +5,10 @@
         <h2 class="titulosindex text-center">Pedidos Sin Proforma Hecha</h2>
         <hr>
         <div  class="text-center">
-        <a href="/listaPedidos/listaPedidosView" type="button" class="btn text-white" style="background: #1E0C80">Todos los pedidos</a>
-        <a href="/listaPedidos/pedidosPendientes" type="button" class="btn text-white" style="background: #1E0C80">Pedidos Pendientes</a>
-        <a href="/listaPedidos/pedidosActivos" type="button" class="btn text-white" style="background: #1E0C80">Pedidos Activos</a>
-        <a href="/listaPedidos/pedidosFinalizados" type="button" class="btn text-white" style="background: #1E0C80">Pedidos Finalizados</a>
+        <a href="/listaPedidos/listaPedidosView" type="button" class="btn text-white mt-2" style="background: #1E0C80">Todos los pedidos</a>
+        <a href="/listaPedidos/pedidosPendientes" type="button" class="btn text-white mt-2" style="background: #1E0C80">Pedidos Pendientes</a>
+        <a href="/listaPedidos/pedidosActivos" type="button" class="btn text-white mt-2" style="background: #1E0C80">Pedidos Activos</a>
+        <a href="/listaPedidos/pedidosFinalizados" type="button" class="btn text-white mt-2" style="background: #1E0C80">Pedidos Finalizados</a>
         </div>
         <div class="row my-5">
             {{#pedidosNoProforma}}
