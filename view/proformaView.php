@@ -4,6 +4,7 @@
 
     <div class="container text-center">
         <h2 class="titulosindex">Realice proforma</h2>
+        <hr>
         <form action="/proforma/guardarProforma/id={{pedidoId}}" method="post" enctype="multipart/form-data"
               class="mt-3">
 

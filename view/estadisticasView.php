@@ -1,7 +1,7 @@
 {{> header}}
 <main class="cuerpoindex">
 
-<h2 class="titulosindex  text-center"> Gráfico de costos</h2>
+<h2 class="titulosindex  text-center"> Gráfico de Costos</h2>
 <hr>
 
 
@@ -9,7 +9,7 @@
 <br>
     <br>
     <br>
-    <h2 class="titulosindex  text-center"> Gráfico de barras espeficico</h2>
+    <h2 class="titulosindex  text-center"> Gráfico de Barras Específico</h2>
     <hr>
     <figure class="highcharts-figure">
     <div id="container"></div>
@@ -20,13 +20,13 @@
     var marksCanvas = document.getElementById("marksChart");
 
     var marksData = {
-        labels: ["kilometros", "Combustible", "Viatico", "Peaje", "Free", "Extras"],
+        labels: ["kilometros", "Combustible", "Viatico", "Peaje", "Fee", "Extras"],
         datasets: [{
-            label: "Costo inicial",
+            label: "Costo Inicial",
             backgroundColor: "rgba(300,80,0,0.3)",
             data: [{{kilometrosInicial}}, {{combustibleInicial}}, {{viaticosInicial}},{{peajesInicial}}, {{feeInicial}}, {{extrasInicial}}]
         }, {
-            label: "Costo final",
+            label: "Costo Final",
             backgroundColor: "rgba(0,0,255,0.3)",
             data: [{{kilometrosFinal}}, {{combustibleFinal}}, {{viaticosFinal}}, {{peajesFinal}}, {{feeFinal}}, {{extrasFinal}}]
         }]
@@ -45,17 +45,17 @@
             text: ''
         },
         xAxis: {
-            categories: ['Kilometros', 'Combustible', 'Viaticos', 'Peajes', 'FreeFinal', 'Extras']
+            categories: ['Kilometros', 'Combustible', 'Viaticos', 'Peajes', 'Fee', 'Extras']
         },
         credits: {
             enabled: false
         },
         series: [{
-            name: 'Costo inicial',
+            name: 'Costo Inicial',
             fill: "rgb(0,0,255)",
             data: [{{kilometrosInicial}}, {{combustibleInicial}}, {{viaticosInicial}},{{peajesInicial}}, {{feeInicial}}, {{extrasInicial}}]
         }, {
-            name: 'Costo final',
+            name: 'Costo Final',
             data: [{{kilometrosFinal}}, {{combustibleFinal}}, {{viaticosFinal}}, {{peajesFinal}}, {{feeFinal}}, {{extrasFinal}}]
         }]
     });
