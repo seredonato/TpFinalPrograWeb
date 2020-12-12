@@ -1,5 +1,5 @@
 <div id="errorModal" class="modal" style="display: block" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="margin-top: 15%">
         <div class="modal-content">
             <div class="modal-header">
                 {{#errorUsuario}}
@@ -14,6 +14,9 @@
                 {{#usuarioVerificado}}
                     <h4 class="modal-title">El usuario ha sido verificado correctamente</h4>
                 {{/usuarioVerificado}}
+                {{#mailEnviado}}
+                    <h4 class="modal-title">Te hemos enviado un mail para verificar tu cuenta, revisa tu email y presiona el link del mensaje</h4>
+                {{/mailEnviado}}
                 <button onclick="document.getElementById('errorModal').style.display='none'" type="button"
                         class="close">&times;
                 </button>

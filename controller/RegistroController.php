@@ -52,7 +52,8 @@ class RegistroController
 
         } else {
             $this->registroModel->enviarMail($email, $usuario);
-            echo $this->render->render("view/inicio.php");
+            $data["mailEnviado"] = true;
+            echo $this->render->render("view/inicio.php", $data);
         }
     }
 
