@@ -20,7 +20,7 @@
     var marksCanvas = document.getElementById("marksChart");
 
     var marksData = {
-        labels: ["kilometros", "Combustible", "Viatico", "Peaje", "Fee", "Extras"],
+        labels: ["Kilometros", "Combustible", "Viatico", "Peaje", "Fee", "Extras"],
         datasets: [{
             label: "Costo Inicial",
             backgroundColor: "rgba(300,80,0,0.3)",
