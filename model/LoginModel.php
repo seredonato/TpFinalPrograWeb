@@ -16,38 +16,32 @@ class LoginModel
 
     }
 
-
     public function loguearUsuario($nombreUsuario, $contrasenia)
-
     {
-
         $contraseniaEncriptada = md5($contrasenia);
-
         $table = $this->database->devolverUsuarios();
-
-        for ($i = 0; $i < sizeof($table); $i++) {
-
-            if ($table[$i]["usuario"] == $nombreUsuario) {
-                if ($table[$i]["contrasenia"] == $contraseniaEncriptada) {
-
-                    $_SESSION["logueado"] = true;
-                    $result["logueado"] = true;
-                    return $result;
+        foreach ($table as $usuario) {
+            if ($usuario["usuario"] == $nombreUsuario) {
+                if ($usuario["contrasenia"] == $contraseniaEncriptada) {
+                    if ($usuario["estado"] == "ACTIVO") {
+                        $_SESSION["logueado"] = true;
+                        $result["logueado"] = $_SESSION["logueado"];
+                        return $result;
+                    } else {
+                        $result["cuentaInactiva"] = true;
+                        return $result;
+                    }
                 } else {
                     $result["contraseñaIncorrecta"] = true;
                     return $result;
-
                 }
-            } else {
-                $result["usuarioIncorrecto"] = true;
-
             }
-
         }
+        $result["usuarioIncorrecto"] = true;
         $result["logueado"] = false;
         return $result;
-
     }
+
 
     public function getRolDeUsuario($nombreDeUsuario)
     {
@@ -134,9 +128,5 @@ class LoginModel
     public function desloguearUsuario()
     {
         session_destroy();
-    }
-
-    public function actualizarViajes(){
-        $this->database->actualizarViajes();
     }
 }

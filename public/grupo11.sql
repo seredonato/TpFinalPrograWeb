@@ -14,6 +14,7 @@ CREATE TABLE usuario (
   rol varchar(100),
   tipo_licencia varchar (100),
   imagen varchar(180),
+  estado varchar(180)
   PRIMARY KEY (id)
 );
 

@@ -21,6 +21,8 @@ include_once("controller/PdfReporteController.php");
 include_once("controller/ViajeController.php");
 include_once("controller/PerfilController.php");
 include_once("controller/EstadisticasController.php");
+include_once("controller/ActivarController.php");
+
 
 include_once("model/CalendarioModel.php");
 include_once("model/LoginModel.php");
@@ -38,6 +40,7 @@ include_once("model/ViajeModel.php");
 include_once("model/QrModel.php");
 include_once("model/ReporteModel.php");
 include_once("model/CosteoFinalModel.php");
+include_once("model/ActivarModel.php");
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("Router.php");
@@ -322,4 +325,17 @@ class Configuration
         $costeoFinalModel = $this->getCosteoFinalModel();
         return new EstadisticasController($this->getRender(), $loginModel, $costeoFinalModel);
     }
+
+
+    public function getActivarModel(){
+        $database = $this->getDatabase();
+        return new ActivarModel($database);
+    }
+
+    public function getActivarController(){
+        $activarModel = $this->getActivarModel();
+        $loginModel = $this->getLoginModel();
+        return new ActivarController($this->getRender(), $activarModel, $loginModel);
+    }
+
 }

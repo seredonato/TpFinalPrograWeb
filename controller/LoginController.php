@@ -58,6 +58,7 @@ class LoginController
             $data["login"] = $_SESSION["logueado"];
 
             echo $this->render->render("view/inicio.php", $data);
+
         } elseif (isset($result["usuarioIncorrecto"]) && $result["usuarioIncorrecto"] == true) {
 
             $data["errorUsuario"] = $result["usuarioIncorrecto"];
@@ -68,7 +69,13 @@ class LoginController
             $data["errorContraseña"] = $result["contraseñaIncorrecta"];
             echo $this->render->render("view/inicio.php", $data);
 
+        } elseif (isset($result["cuentaInactiva"]) && $result["cuentaInactiva"] == true) {
+            $data["errorCuenta"] = $result["cuentaInactiva"];
+            echo $this->render->render("view/inicio.php", $data);
+        } else {
+            echo $this->render->render("view/inicio.php");
         }
+
     }
 
 
