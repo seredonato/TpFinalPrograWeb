@@ -1,36 +1,22 @@
-<div class="col-md-4 mb-4">
-    <div class="card">
-        <div class="container p-2 pl-3 text-white" style="background: #E6831A">
-            <h4 class="card-title"> Equipo : {{id}}</h4>
+<tr class="text-center cambiarColorEquipos">
+    <th scope="row">{{id}}</th>
+    <td scope="col">{{modelo}}</td>
+    <td scope="col">{{t_patente}}</td>
+    <td scope="col">{{kilometraje}}</td>
+    <td scope="col"><a href="/ListaTractor/verTractorPorId/id={{id_tractor}}" class="btn btn-outline-dark"><i class="fas fa-plus"></i></a> </td>
+    <td scope="col">{{tipo_acoplado}}</td>
+    <td scope="col">{{a_patente}}</td>
+    <td scope="col"><a href="/ListaAcoplado/verAcopladoPorId/id={{id_acoplado}}" class="btn btn-outline-dark"><i class="fas fa-plus"></i></a> </td>
+    <td scope="col" class="estadoEquipos">{{estado}}</td>
+<td>
+    {{#valorMecanico}}
+        <div style="text-align: center">
+            <a data-toggle="modal" data-target="#modificar{{id}}" style="width: 44%" type="button" class="btn btn-secondary" ><i class="fas fa-user-edit"></i></a>
+            <a data-toggle="modal" data-target="#inactivar{{id}}" style="width: 44%" type="button" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></a>
         </div>
-        <div class="container p-3" style="background: #FCDEC3">
-            <h5 class="card-text">ID: {{id}}</h5>
-            <h5 class="card-text">Estado: {{estado}}</h5>
-                <hr>
-                <h5> Tractor:</h5>
-                    <p class="card-text">Modelo: {{modelo}}</p>
-                    <p class="card-text">Patente: {{t_patente}}</p>
-                    <p class="card-text">Kilometraje: {{kilometraje}}</p>
-                    <form action="/ListaTractor/verTractorPorId/id={{id_tractor}}" enctype="multipart/form-data" method="get" >
-                    <button type="submit" class="btn btn-light btn-outline-dark btn-block mb-3">Ver mas..</button>
-                    </form>
-                    <hr>
-                    <h5> Acoplado: {{tipo_acoplado}}</h5>
-                    <p class="card-text">Patente: {{a_patente}}</p>
-                    <form action="/ListaAcoplado/verAcopladoPorId/id={{id_acoplado}}" enctype="multipart/form-data" method="get" >
-                    <button type="submit" class="btn btn-light btn-outline-dark btn-block mb-3">Ver mas..</button>
-                    </form>
-            {{#valorMecanico}}
-                <hr>
-                <div style="text-align: center">
-                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary" >Modificar</a>
-                    <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-danger" >Eliminar</a>
-                </div>
-            {{/valorMecanico}}
-        </div>
-
-    </div>
-</div>
+    {{/valorMecanico}}
+</td>
+</tr>
 
 <div class="modal fade" id="inactivar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

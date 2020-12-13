@@ -11,7 +11,7 @@
     </div>
     <table class="table">
         <thead>
-        <tr class="text-center">
+        <tr class="text-center table-active">
             <th scope="col">ID</th>
             <th scope="col">CUIT</th>
             <th scope="col">FECHA</th>

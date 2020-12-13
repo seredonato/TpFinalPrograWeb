@@ -43,7 +43,7 @@ class ViajeController
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajes"] = $this->viajeModel->mostrarViajesAsignadosChofer($nombreUsuario);
-
+                $data["titulo"] = "Todos los Viajes";
                 echo $this->render->render("view/viajesView.php", $data);
             } else {
                 echo $this->render->render("view/inicio.php", $data);
@@ -76,7 +76,7 @@ class ViajeController
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajesActivos"] = $this->viajeModel->mostrarViajesActivosAsignadosChofer($nombreUsuario);
-
+                $data["titulo"] = "Viajes Activos";
                 echo $this->render->render("view/viajesActivosView.php", $data);
             } else {
                 echo $this->render->render("view/inicio.php", $data);
@@ -109,7 +109,7 @@ class ViajeController
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajesPendientes"] = $this->viajeModel->mostrarViajesPendientesAsignadosChofer($nombreUsuario);
-
+                $data["titulo"] = "Viajes Pendientes";
                 echo $this->render->render("view/viajesPendientesView.php", $data);
             } else {
                 echo $this->render->render("view/inicio.php", $data);
@@ -142,7 +142,7 @@ class ViajeController
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajesFinalizados"] = $this->viajeModel->mostrarViajesFinalizadosAsignadosChofer($nombreUsuario);
-
+                $data["titulo"] = "Viajes Finalizados";
                 echo $this->render->render("view/viajesFinalizadosView.php", $data);
             } else {
                 echo $this->render->render("view/inicio.php", $data);
@@ -181,7 +181,7 @@ class ViajeController
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajes"] = $this->viajeModel->mostrarViajesAsignadosChofer($nombreUsuario);
-
+                $data["titulo"] = "Todos los Viajes";
                 echo $this->render->render("view/viajesActivosView.php", $data);
             } else {
                 echo $this->render->render("view/inicio.php", $data);
@@ -222,7 +222,7 @@ class ViajeController
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
                 $data["viajes"] = $this->viajeModel->mostrarViajesAsignadosChofer($nombreUsuario);
-
+                $data["titulo"] = "Todos los Viajes";
                 echo $this->render->render("view/viajesView.php", $data);
             } else {
                 echo $this->render->render("view/inicio.php", $data);

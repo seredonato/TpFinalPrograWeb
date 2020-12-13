@@ -1,25 +1,20 @@
-<div class="col-md-4 mb-4">
-    <div class="card choferes">
-        <div class="container p-2 pl-3 text-white" style="background: #E6831A">
-            <h4 class="card-title"> Tipo de acoplado : {{tipo_acoplado}}</h4>
-        </div>
-        <div class="container p-3" style="background: #FCDEC3">
-            <h5 class="card-text"> ID: {{id}}</h5>
-            <h5 class="card-text">Estado: {{estado}}</h5>
-            <hr>
-            <p class="card-text">Patente: {{patente}}</p>
-            <p class="card-text">Chasis: {{chasis}}</p>
-            {{#valorMecanico}}
-                <hr>
-                <div style="text-align: center">
-                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary" >Modificar</a>
-                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-danger">Eliminar</a>
-                </div>
-            {{/valorMecanico}}
-        </div>
-    </div>
-</div>
-
+<tr class="text-center cambiarColor">
+    <th scope="row">{{id}}</th>
+    <td scope="col">{{tipo_acoplado}}</td>
+    <td scope="col">{{patente}}</td>
+    <td scope="col">{{chasis}}</td>
+    <td scope="col" class="estado">{{estado}}</td>
+    <td>
+        {{#valorMecanico}}
+            <div style="text-align: center">
+                <a data-toggle="modal" data-target="#modificar{{id}}" style="width: 44%" type="button"
+                   class="btn btn-secondary"><i class="fas fa-user-edit"></i></a>
+                <a data-toggle="modal" data-target="#eliminar{{id}}" style="width: 44%" type="button"
+                   class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+            </div>
+        {{/valorMecanico}}
+    </td>
+</tr>
 
 
 <div class="modal fade" id="eliminar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

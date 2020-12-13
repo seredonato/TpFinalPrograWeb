@@ -1,19 +1,19 @@
 {{> header}}
 <main class="cuerpoindex">
     {{#tractorPorId}}
-    <div class="container mt-2 listaUsuarios">
+    <div class="container mt-2 listaUsuarios"  style="margin-bottom: 2%">
     <h2 class="titulosindex text-center"> Calendario </h2>
     <hr>
     <div class="d-flex p-2 justify-content-center">
         {{#valorMecanico}}
-        <button type="button" class="btn text-white" style="background: #1E0C80" data-toggle="modal" data-target="#modalRegistrarCalendario">
+        <button type="button" class="btn text-white" style="background: #ffa420" data-toggle="modal" data-target="#modalRegistrarCalendario">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
             </svg> Agregar fecha </button>
         {{/valorMecanico}}
-        <a href="/ListaEquipo" class="btn text-white ml-2" style="background: #1E0C80"> Ver equipos</a>
-        <a href="/ListaAcoplado" class="btn text-white ml-2" style="background: #1E0C80"> Ver acoplado</a>
-        <a href="/ListaTractor" class="btn text-white ml-2" style="background: #1E0C80"> Ver a tractores</a>
+        <a href="/ListaEquipo" class="btn text-white ml-2" style="background: #1E0C80">Equipos</a>
+        <a href="/ListaAcoplado" class="btn text-white ml-2" style="background: #1E0C80">Acoplado</a>
+        <a href="/ListaTractor" class="btn text-white ml-2" style="background: #1E0C80">Tractores</a>
     </div>
 
 
@@ -45,16 +45,55 @@
 
     {{/tractorPorId}}
 
-        <div class="row my-5 p-4">
-        {{#calendarioSinCumplir}}
-        {{>informacionCalendario}}
-        {{/calendarioSinCumplir}}
-        {{#calendario}}
-        {{>informacionCalendarioCumplido}}
-        {{/calendario}}
-        </div>
+        <table class="table">
+            <thead>
+            <tr class="text-center table-active" style="background: #aeaeae">
+                <th scope="col">ID</th>
+                <th scope="col">FECHA</th>
+                <th scope="col">ID (TRACTOR)</th>
+                {{#valorSupervisor}}
+                <th scope="col">ESTADO</th>
+                {{/valorSupervisor}}
+                {{#valorMecanico}}
+                <th scope="col">ESTADO</th>
+                <th scope="col">SERVICE</th>
+                <th scope="col"></th>
+                <th scope="col">OPCIONES</th>
+                {{/valorMecanico}}
 
+            </tr>
+            </thead>
+            <tbody>
+            {{#calendarioSinCumplir}}
+            {{>informacionCalendario}}
+            {{/calendarioSinCumplir}}
 
+            {{#calendario}}
+            {{>informacionCalendarioCumplido}}
+            {{/calendario}}
+
+            {{^calendarioSinCumplir}}
+            {{^calendario}}
+            <tr class="text-center">
+                <th scope="row">--</th>
+                <td>--</td>
+                <td>--</td>
+
+                {{#valorSupervisor}}
+                <td>--</td>
+                {{/valorSupervisor}}
+
+                {{#valorMecanico}}
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                {{/valorMecanico}}
+            </tr>
+            {{/calendario}}
+            {{/calendarioSinCumplir}}
+
+            </tbody>
+        </table>
     </div>
 
 </main>

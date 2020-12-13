@@ -4,7 +4,7 @@
     <h2 class="titulosindex text-center mt-2">Todos los Usuarios</h2>
     <table class="table">
         <thead>
-        <tr class="text-center">
+        <tr class="text-center table-active">
             <th scope="col">ID</th>
             <th scope="col">NOMBRE</th>
             <th scope="col">APELLIDO</th>
