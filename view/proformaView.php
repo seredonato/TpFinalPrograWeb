@@ -76,7 +76,7 @@
                     <label for="hazardSi">Hazard</label>
                     <div>
                         <label for="hazardSi">SI</label>
-                        <input value="si" type="radio" onclick="mostrarSelectHazard()"
+                        <input value="si" type="radio" onclick="mostrarSelectHazard(), cambiarImoSubClases()"
                                style="margin-bottom: 2%; margin-right: 5%"
                                required name="hazardSi">
 
@@ -89,7 +89,7 @@
                     <div id="imoclass" style="display: none">
                         <select id="imoclass" name="imoClass" class="form-control"
                                 style="margin-bottom: 2%">
-                            <option value="0" selected>Clases - Descripcion</option>
+                            <option value="0" selected disabled>Clases - Descripcion</option>
                             {{#imoClases}}
                             <option value="{{clase}}">{{clase}} - {{descripcion}}</option>
                             {{/imoClases}}
@@ -97,9 +97,9 @@
 
                         <select id="imoSubClases" name="imoSubClass" class="form-control"
                                 style="margin-bottom: 2%">
-                            <option value="0" selected>Clases - Subclase - Descripcion de subclase</option>
+                            <option value="0" selected disabled>Clases - Subclase - Descripcion de subclase</option>
                             {{#imoSubClases}}
-                            <option value="{{subclase}}">{{clase}} - {{subclase}} - {{descripcion}}</option>
+                            <option class="optionSubClass" value="{{subclase}}" style="display: none">{{clase}} - {{subclase}} - {{descripcion}}</option>
                             {{/imoSubClases}}
                         </select>
 

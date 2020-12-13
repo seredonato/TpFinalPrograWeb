@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/equiposProforma.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/equiposProforma.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/footer.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/footer.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/proformaView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/proformaView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +103,7 @@
       <workItem from="1607705873972" duration="2769000" />
       <workItem from="1607738960668" duration="4797000" />
       <workItem from="1607803139937" duration="37025000" />
-      <workItem from="1607891221057" duration="1344000" />
+      <workItem from="1607891221057" duration="4800000" />
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>
@@ -245,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607841636858</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="arregle equipos de proforma">
+      <created>1607893355243</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1607893355243</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,7 +291,8 @@
     <MESSAGE value="modal de mail enviado" />
     <MESSAGE value="agregue grillas para los pedidos y usuarios" />
     <MESSAGE value="AGREGUE GRILLAS A TODO Y BOTONES CON FONTOSOM" />
-    <option name="LAST_COMMIT_MESSAGE" value="AGREGUE GRILLAS A TODO Y BOTONES CON FONTOSOM" />
+    <MESSAGE value="arregle equipos de proforma" />
+    <option name="LAST_COMMIT_MESSAGE" value="arregle equipos de proforma" />
   </component>
   <component name="WindowStateProjectService">
     <state x="162" y="0" key="#CLI_Interpreters" timestamp="1604424176261">

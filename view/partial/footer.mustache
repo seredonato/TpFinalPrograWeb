@@ -70,6 +70,32 @@
 
     }
 
+    function cambiarImoSubClases(imoClass) {
+
+    }
+
+    $(document).ready(function () {
+        $("select[name=imoClass]").change(function () {
+            var valor = $('select[name=imoClass]').val();
+            var i;
+            var optionSubClass = document.getElementsByClassName("optionSubClass");
+
+            for (i = 0; i < optionSubClass.length; i++) {
+
+                if (optionSubClass[i].textContent.substr(0, 3) == valor) {
+
+                    optionSubClass[i].style.display = 'block';
+
+                } else {
+
+                    optionSubClass[i].style.display = 'none';
+                }
+
+            }
+
+        });
+    });
+
     $(document).ready(function () {
         var x = document.getElementsByClassName("cambiarColorEquipos");
         var valor = document.getElementsByClassName("estadoEquipos");
@@ -86,6 +112,7 @@
         }
 
     });
+
 
     $(document).ready(function () {
         var x = document.getElementsByClassName("cambiarColorViaje");
