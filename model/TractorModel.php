@@ -12,8 +12,8 @@ class TractorModel
 
     public function registrarTractor($nro_motor,$marca,$modelo,$kilometraje,$patente,$nro_chasis)
     {
-
-        $estado="no";
+        $estado = "Sin asignar";
+        $eliminado="no";
         if ($nro_motor == null || $marca == null || $modelo == null ||  $kilometraje == null){
             return "Ingrese todos los requerimientos";
         }else
@@ -21,8 +21,8 @@ class TractorModel
                 return "Ingrese todos los requerimientos";
             }else{
                 if(is_numeric($nro_motor) && is_numeric($kilometraje)){
-                $sql = "INSERT INTO tractor (marca,modelo,nro_motor,patente,chasis,kilometraje,eliminado)
-        VALUES ('". $marca."','". $modelo."',". $nro_motor.",'". $patente."',". $nro_chasis.",". $kilometraje.",'". $estado."')";
+                $sql = "INSERT INTO tractor (marca,modelo,nro_motor,patente,chasis,kilometraje,eliminado,estado)
+        VALUES ('". $marca."','". $modelo."',". $nro_motor.",'". $patente."',". $nro_chasis.",". $kilometraje.",'". $eliminado."','". $estado."')";
 
                 return $this->database->query($sql);
                 }else {

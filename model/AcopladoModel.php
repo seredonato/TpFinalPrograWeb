@@ -12,11 +12,12 @@ class AcopladoModel
 
     public function registrarAcoplado($acoplado,$patente,$chasis)
     {
-        $estado="no";
+        $estado = "Sin asignar";
+        $eliminado="no";
         if ($acoplado != null) {
             if ($acoplado != " "){
-                $sql = "INSERT INTO acoplado (tipo_acoplado,patente,chasis,eliminado)
-                VALUES ('" . $acoplado . "','" . $patente . "'," . $chasis . ",'" . $estado . "')";
+                $sql = "INSERT INTO acoplado (tipo_acoplado,patente,chasis,eliminado,estado)
+                VALUES ('" . $acoplado . "','" . $patente . "'," . $chasis . ",'" . $eliminado . "','" . $estado . "')";
                 return $this->database->query($sql);
             }
             else {
