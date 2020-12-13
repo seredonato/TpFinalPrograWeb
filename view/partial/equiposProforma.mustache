@@ -1,14 +1,13 @@
-<div class="col-sm-3">
-<div style="height: fit-content !important" class="card choferesProforma p-1">
-
-    <span style="font-weight: bold">Marca del Tractor</span><span>{{marca}}</span>
-    <span style="font-weight: bold">Model del Tractor</span><span>{{modelo}}</span>
-    <span style="font-weight: bold">Patente del Tractor</span><span>{{t_patente}}</span>
-    <span style="font-weight: bold">Tipo de Acoplado</span><span>{{tipo_acoplado}}</span>
-    <span style="font-weight: bold">Patente del Acoplado</span><span>{{a_patente}}</span>
-    <span style="font-weight: bold">Chasis del acoplado</span><span>{{a_chasis}}</span>
-    <div class="text-center">
+<tr class="text-center">
+    <th scope="row ">{{id}}</th>
+    <td>{{marca}}</td>
+    <td>{{modelo}}</td>
+    <td>{{t_patente}}</td>
+    <td>{{tipo_acoplado}}</td>
+    <td>{{a_patente}}</td>
+    <td>{{a_chasis}}</td>
+    <td style="background-color: rgba(0,0,0,.20)"><div class="text-center">
         <input type="radio" name="equipoElegido" value="{{id}}" required>
-    </div>
-</div>
-</div>
+    </div></td>
+
+</tr>

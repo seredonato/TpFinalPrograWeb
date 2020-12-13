@@ -197,13 +197,27 @@
 
             <div class="container mt-4 mb-4 text-center margenesEquipoProforma">
             <h5 class="card-title mb-5">Seleccionar Equipo</h5>
-                <div class="row">
-                    <div class="col-sm-2">
-                    </div>
-                        {{#equipos}}
-                        {{> equiposProforma}}
-                        {{/equipos}}
-                </div>
+                <table class="table">
+                    <thead>
+                    <tr class="text-center table-active">
+                        <th scope="col">ID</th>
+                        <th scope="col">MARCA<br>(TRACTOR)</th>
+                        <th scope="col">MODELO<br>(TRACTOR)</th>
+                        <th scope="col">PATENTE<br>(TRACTOR)</th>
+                        <th scope="col">TIPO<br>(ACOPLADO)</th>
+                        <th scope="col">PATENTE<br>(ACOPLADO)</th>
+                        <th scope="col">CHASIS<br>(ACOPLADO)</th>
+                        <th scope="col"></th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#equipos}}
+                    {{> equiposProforma}}
+                    {{/equipos}}
+                    </tbody>
+                </table>
             </div>
 
             <div class="mt-4 mb-4 text-center">
