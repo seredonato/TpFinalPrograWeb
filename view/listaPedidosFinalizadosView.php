@@ -9,6 +9,7 @@
         <a href="/listaPedidos/pedidosActivos" type="button" class="btn text-white mt-2" style="background: #1E0C80">Pedidos Activos</a>
         <a href="/listaPedidos/listaPedidosView" type="button" class="btn text-white mt-2" style="background: #1E0C80">Todos los pedidos</a>
     </div>
+    <div class="table-responsive-xl">
         <table class="table">
             <thead>
             <tr class="text-center table-active">
@@ -48,6 +49,7 @@
             {{/pedidosFinalizados}}
             </tbody>
         </table>
+    </div>
 </main>
 
 {{> footer}}

@@ -19,7 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="" />
+    <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaAcopladosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaAcopladosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaCalendario.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaCalendario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaEquipoView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaEquipoView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosActivosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosActivosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosFinalizadosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosFinalizadosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosPendientesView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosPendientesView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosSinProformaView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosSinProformaView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaTractoresView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaTractoresView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaUsuariosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaUsuariosView.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -9,6 +9,8 @@
         <a href="/listaPedidos/listaPedidosView" type="button" class="btn text-white mt-2" style="background: #1E0C80">Todos los pedidos</a>
         <a href="/listaPedidos/pedidosFinalizados" type="button" class="btn text-white mt-2" style="background: #1E0C80">Pedidos Finalizados</a>
     </div>
+
+    <div class="table-responsive-xl">
     <table class="table">
         <thead>
         <tr class="text-center table-active">
