@@ -22,6 +22,19 @@
     <list default="true" id="659624c8-0fb1-4218-86f7-0f4a8ca3a67a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/partial/footer.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/footer.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosActivosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosActivosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosFinalizadosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosFinalizadosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosPendientesView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosPendientesView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosSinProformaView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosSinProformaView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaPedidosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaPedidosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaTractoresView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaTractoresView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/listaUsuariosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/listaUsuariosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/registrarAcoplado.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/registrarAcoplado.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/registrarEquipo.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/registrarEquipo.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/registrarTractor.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/registrarTractor.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/proformaView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/proformaView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viajesFinalizadosView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viajesFinalizadosView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viajesView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viajesView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +119,10 @@
       <workItem from="1607705873972" duration="2769000" />
       <workItem from="1607738960668" duration="3598000" />
       <workItem from="1607915129307" duration="430000" />
+      <workItem from="1607738960668" duration="4797000" />
+      <workItem from="1607803139937" duration="37025000" />
+      <workItem from="1607891221057" duration="5418000" />
+      <workItem from="1607913384069" duration="1904000" />
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>

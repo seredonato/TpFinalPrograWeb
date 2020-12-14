@@ -224,9 +224,9 @@ VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "
         (123, "abril@email.com", "abril", "202cb962ac59075b964b07152d234b70", "abril", "lopez ducas", 111111, "mecanico", "no aplica", "/public/images/logoPerfil.png", "ACTIVO");
 
 INSERT INTO usuario (dni, email, imagen, usuario, contrasenia, nombre, apellido, tipo_licencia, fecha_nacimiento, rol, estado)
-VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "nombre chofer 1", "apellido", "A", 111111, "chofer", "ACTIVO"),
-(40756984, "chofer2@email.com", "https://media.marcainformativa.com/adjuntos/269/imagenes/000/011/0000011059.jpg", "chofer2", "202cb962ac59075b964b07152d234b70", "nombre chofer 2", "apellido2", "A", 111111, "chofer", "ACTIVO"),
-(40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3",  "202cb962ac59075b964b07152d234b70", "nombre chofer 3", "apellido3", "A", 111111, "chofer", "ACTIVO");
+VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "Ash", "Quetechupo", "A", 111111, "chofer", "ACTIVO"),
+(40756984, "chofer2@email.com", "https://media.marcainformativa.com/adjuntos/269/imagenes/000/011/0000011059.jpg", "chofer2", "202cb962ac59075b964b07152d234b70", "Guido", "Zuler", "A", 111111, "chofer", "ACTIVO"),
+(40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3",  "202cb962ac59075b964b07152d234b70", "Roberto", "Carlos", "A", 111111, "chofer", "ACTIVO");
 
 INSERT INTO imoclass (clase, descripcion, precio)
 VALUES 	(1,"Explosivos", 2345),
