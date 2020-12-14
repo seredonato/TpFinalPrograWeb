@@ -1,24 +1,32 @@
-<div class="col-md-4 mb-4">
-    <div class="card">
-        <div class="container p-2 pl-3 text-white" style="background: #E6831A">
-            <h4 class="card-title">{{nombre_cliente}}</h4>
-        </div>
-        <div class="container p-3" style="background: #FCDEC3">
-            <div style="text-align: left">
-                <h5 class="card-text" style="float: left">ID: {{id}}</h5>
-                <h5 class="card-text" style="margin-left: 40%">CUIT: {{cuit_cliente}}</h5>
-                <hr>
-                <p class="card-text">FECHA PEDIDO: {{fecha_pedido}}</p>
-                <p class="card-text">EMAIL: {{email_cliente}}</p>
-                <p class="card-text">TELEFONO: {{telefono_cliente}}</p>
-                <p class="card-text">DIRECCION CLIENTE: {{direccion_cliente}}</p>
-                <p class="card-text">CONTACTO 1: {{contacto1}}</p>
-                <p class="card-text">CONTACTO 2: {{contacto2}}</p>
-                <div style="text-align: center">
-                    <hr>
-                    <a onclick=" window.open('/pdfReporte?id={{id}}','_blank')" type="button" class="btn btn-secondary" >Ver Reportes</a>
-                    <a onclick=" window.open('/pdfProforma?id={{id}}','_blank')" type="button" class="btn btn-secondary" >Ver Proforma</a>
-                </div>
+<tr class="text-center">
+    <th scope="row">{{id}}</th>
+    <td>{{cuit_cliente}}</td>
+    <td>{{fecha_pedido}}</td>
+    <td>{{nombre_cliente}}</td>
+    <td>{{email_cliente}}</td>
+    <td>{{telefono_cliente}}</td>
+    <td>{{direccion_cliente}}</td>
+    <td>{{contacto1}}</td>
+    <td>{{contacto2}}</td>
+    <td>
+        <a onclick=" window.open('/pdfProforma?id={{id}}','_blank')" type="button" class="btn btn-secondary" >Ver</a>
+    </td>
+    <td>
+        <a onclick=" window.open('/pdfReporte?id={{id}}','_blank')" type="button" class="btn btn-secondary" >Ver</a>
+    </td>
+    <td>
+        <a data-toggle="modal" data-target="#noGrafico{{id}}" type="button" class="btn btn-outline-info"><i class="fas fa-chart-pie"></i></a>
+    </td>
+</tr>
+
+<div class="modal fade" id="noGrafico{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Podra ver los graficos una vez haya finalizado el viaje</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         </div>
     </div>

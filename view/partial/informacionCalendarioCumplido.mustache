@@ -1,32 +1,23 @@
-<div class="col-md-4 mb-4">
-    <div class="card">
-        <div class="container p-2  text-white" style="background: #E6831A">
-            <h4 class="card-title text-center"> Calendario </h4>
-        </div>
-        <div class="container p-3" style="background: #FCDEC3">
-            <div style="text-align: left">
-                <form  method="POST" action="/ListaTractor/cambiarEstado/id_tractor={{id_tractor}}">
-                <h5 class="card-text"> ID: {{id}}</h5>
-                <h5 class="card-text">Fecha: {{fecha}}</h5>
-                <hr>
-                <p class="card-text mt-3 mb-1">Estado: {{estado}}</p>
+<tr class="text-center">
+    <th scope="row ">{{id}}</th>
+    <td>{{fecha}}</td>
+    <td>{{id_tractor}}</td>
+    {{#valorSupervisor}}
+        <td>{{estado}}</td>
+    {{/valorSupervisor}}
 
-                {{#valorMecanico}}
-                    <br>
-                    <br>
-                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-light btn-outline-dark btn-block mt-3">Ver servicio</a>
-                {{/valorMecanico}}
-                </form>
-                {{#valorMecanico}}
-                    <hr>
-                    <div style="text-align: center" class="mt-3">
-                        <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-danger">Eliminar</a>
-                    </div>
-                {{/valorMecanico}}
-            </div>
-        </div>
-    </div>
-</div>
+    {{#valorMecanico}}
+        <td>{{estado}}</td>
+        <td>
+        </td>
+        <td>
+        </td>
+
+        <td>
+                <a data-toggle="modal" data-target="#informacion{{id}}" type="button" class="btn btn-success"><i class="fas fa-question-circle"></i></a>
+        </td>
+    {{/valorMecanico}}
+</tr>
 
 <div class="modal fade" id="eliminar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -47,7 +38,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="modificar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="informacion{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">

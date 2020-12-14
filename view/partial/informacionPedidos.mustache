@@ -1,90 +1,65 @@
-<div class="col-md-4 mb-4">
-    <div class="card">
-        <div class="container p-2 pl-3 text-white" style="background: #E6831A">
-            <h4 class="card-title">{{nombre_cliente}}</h4>
-        </div>
-        <div class="container p-3" style="background: #FCDEC3">
-            <div style="text-align: left">
-                <h5 class="card-text" style="float: left">ID: {{id}}</h5>
-                <h5 class="card-text" style="margin-left: 40%">CUIT: {{cuit_cliente}}</h5>
-                <hr>
-                <p class="card-text">FECHA PEDIDO: {{fecha_pedido}}</p>
-                <p class="card-text">EMAIL: {{email_cliente}}</p>
-                <p class="card-text">TELEFONO: {{telefono_cliente}}</p>
-                <p class="card-text">DIRECCION CLIENTE: {{direccion_cliente}}</p>
-                <p class="card-text">CONTACTO 1: {{contacto1}}</p>
-                <p class="card-text">CONTACTO 2: {{contacto2}}</p>
-                <div style="text-align: center">
-                    {{#id_proforma}}
-                        <hr>
-                        <a onclick=" window.open('/pdfReporte?id={{id}}','_blank')" type="button" class="btn btn-secondary mt-4 mb-4" >Ver Reportes</a>
-                        <a onclick=" window.open('/pdfProforma?id={{id}}','_blank')" type="button" class="btn btn-secondary mt-4 mb-4" >Ver Proforma</a>
-                    {{/id_proforma}}
-                    {{^id_proforma}}
-                        <hr>
-                        <a href="/proforma?id={{id}}" class="btn btn-light btn-outline-dark btn-block mb-3">Realizar Proforma</a>
+<tr class="text-center">
+    <th scope="row">{{id}}</th>
+    <td>{{cuit_cliente}}</td>
+    <td>{{fecha_pedido}}</td>
+    <td>{{nombre_cliente}}</td>
+    <td>{{email_cliente}}</td>
+    <td>{{telefono_cliente}}</td>
+    <td>{{direccion_cliente}}</td>
+    <td>{{contacto1}}</td>
+    <td>{{contacto2}}</td>
 
-                        <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary" >Modificar</a>
-                        <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-danger" >Eliminar</a>
-                    {{/id_proforma}}
+    {{#id_proforma}}
+        <td>
+            <a onclick=" window.open('/pdfProforma?id={{id}}','_blank')" type="button" class="btn btn-secondary" >Ver</a>
+        </td>
+        <td>
+            <a onclick=" window.open('/pdfReporte?id={{id}}','_blank')" type="button" class="btn btn-secondary" >Ver</a>
+        </td>
+        <td>
+            <a data-toggle="modal" data-target="#noEliminar{{id}}" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+        </td>
+    {{/id_proforma}}
+
+    {{^id_proforma}}
+        <td>
+            <a href="/proforma?id={{id}}" class="btn btn- btn-outline-dark">Realizar</a>
+        </td>
+    <td><a class="btn btn-outline-dark"><i class="fas fa-times"></i></a></td>
+    <td>
+        <a data-toggle="modal" data-target="#inactivar{{id}}" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+    </td>
+    {{/id_proforma}}
+</tr>
+    <div class="modal fade" id="inactivar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de querer eliminar el pedido cuya id
+                        es {{id}}?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/Pedido/eliminarPedido/id={{id}}" enctype="multipart/form-data" method="get" >
+                    <button type="submit" class="btn btn-danger btn-lg btn-block">SI</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="inactivar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="noEliminar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de querer eliminar el pedido cuya id es {{id}}?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">No puede eliminarse un pedido con proforma</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
-            <div class="modal-body">
-                <form action="/Pedido/eliminarPedido/id={{id}}" enctype="multipart/form-data" method="get" >
-                <button type="submit" class="btn btn-danger btn-lg btn-block">SI</button>
-                <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
-                </form>
             </div>
         </div>
-    </div>
-</div>
-
-
-<div class="modal fade" id="modificar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modificar el pedido cuya ID es {{id}}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="/pedido/modificarPedido" enctype="multipart/form-data" method="post" >
-                <input type="hidden"  name="id" id="id" value="{{id}}">
-                <div class="form-group">
-                    <label for="nombre">Nombre completo</label>
-                    <input type="text" name="nombre" id="nombre"  class="form-control mb-2"  value="{{nombre_cliente}}" required>
-                    <label for="cuit">C.U.I.T.</label>
-                    <input type="number" name="cuit" id="cuit" class="form-control mb-2"  value="{{cuit_cliente}}" required>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" class="form-control mb-2"  value="{{email_cliente}}" required>
-                    <label for="telefono">Telefono</label>
-                    <input type="number" name="tel" id="tel" class="form-control mb-2"  value="{{telefono_cliente}}" required>
-                    <label for="direccion">Direccion</label>
-                    <input type="text" name="direccion" id="direccion"  class="form-control mb-2"  value="{{direccion_cliente}}" required>
-                    <label for="direccionOrigen">Direccion Origen</label>
-                    <input type="text" name="direccionOrigen" id="direccionOrigen" class="form-control mb-2"  value="{{contacto1}}" required>
-                    <label for="direccionDestino">Direccion Destino</label>
-                    <input type="text" name="direccionDestino" id="direccionDestino" class="form-control mb-2"  value="{{contacto2}}" required>
-
-                    <button type="submit" class="btn btn-dark btn-lg btn-block mt-3">Modificar</button>
-                </div>
-                </form>
-            </div>
-         </div>
     </div>
 </div>

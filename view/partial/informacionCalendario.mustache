@@ -1,55 +1,50 @@
-<div class="col-md-4 mb-4">
-    <div class="card">
-        <div class="container p-2  text-white" style="background: #E6831A">
-            <h4 class="card-title text-center"> Calendario </h4>
-        </div>
-        <div class="container p-3" style="background: #FCDEC3">
-            <div style="text-align: left">
-                <form  method="POST" action="/ListaTractor/cambiarEstado/id_tractor={{id_tractor}}">
-                <h5 class="card-text"> ID: {{id}}</h5>
-                <h5 class="card-text">Fecha: {{fecha}}</h5>
-                <hr>
-                {{#valorSupervisor}}
-                    <p class="card-text mt-3 mb-1">Estado: {{estado}}</p>
-                {{/valorSupervisor}}
-                <input type="hidden" value="{{id_tractor}}" name="id_tractor" id="id_tractor">
-                <p for="id">Id del calendario: {{id}}</p>
-                <input type="hidden" value="{{id}}" name="id" id="id" >
-                {{#valorMecanico}}
-                    <select id="estado" name="estado" class="form-control mt-3">
-                        <option value="{{estado}}"selected>Estado: {{estado}}</option>
-                        <option value="En proceso">Estado: En proceso</option>
-                        <option value="Sin cumplir">Estado: Sin cumplir</option>
-                        <option value="En espera">Estado: En espera</option>
-                    </select>
-                 {{/valorMecanico}}
-            {{#valorMecanico}}
-            <button type="submit" class="btn btn-light btn-outline-dark btn-block mt-3">Enviar estado</button>
-            {{/valorMecanico}}
-                </form>
-            {{#valorMecanico}}
-                <hr>
-                <div style="text-align: center" class="mt-3">
-                    <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary">Realizar servicio</a>
-                    <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-danger">Eliminar</a>
-                </div>
-            {{/valorMecanico}}
+<tr class="text-center">
+    <th scope="row ">{{id}}</th>
+    <td>{{fecha}}</td>
+    <td>{{id_tractor}}</td>
+    {{#valorSupervisor}}
+        <td>{{estado}}</td>
+    {{/valorSupervisor}}
+
+    {{#valorMecanico}}
+        <td>{{estado}}</td>
+        <td>
+            <form method="POST" action="/ListaTractor/cambiarEstado/id_tractor={{id_tractor}}&&id={{id}}">
+            <select id="estado" name="estado" class="form-control mt-3">
+                <option value="{{estado}}" selected>Estado: {{estado}}</option>
+                <option value="En proceso">Estado: En proceso</option>
+                <option value="Sin cumplir">Estado: Sin cumplir</option>
+                <option value="En espera">Estado: En espera</option>
+            </select>
+        </td>
+        <td>
+            <button type="submit" class="btn btn-light btn-outline-dark btn-block mt-3">Enviar Estado</button>
+        </td>
+        </form>
+        <td>
+            <div style="text-align: center" class="mt-3">
+                <a data-toggle="modal" data-target="#modificar{{id}}" type="button" class="btn btn-secondary">Realizar
+                    servicio</a>
+                <a data-toggle="modal" data-target="#eliminar{{id}}" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
             </div>
-        </div>
-    </div>
-</div>
+        </td>
+    {{/valorMecanico}}
+</tr>
+
 
 <div class="modal fade" id="eliminar{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de querer eliminar el calendario de servicio del dia {{fecha}} ?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de querer eliminar el calendario de
+                    servicio del dia {{fecha}} ?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/listaTractor/eliminarCalendario/id={{id}}&idTractor={{id_tractor}}" enctype="multipart/form-data" method="get" >
+                <form action="/listaTractor/eliminarCalendario/id={{id}}&idTractor={{id_tractor}}"
+                enctype="multipart/form-data" method="get" >
                 <button type="submit" class="btn btn-danger btn-lg btn-block">SI</button>
                 <button type="button" data-dismiss="modal" class="btn btn-dark btn-lg btn-block">NO</button>
                 </form>
@@ -69,25 +64,27 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/listaTractor/editarCalendario/idTractor={{id_tractor}}" enctype="multipart/form-data" method="post" >
-                    <p for="id" class="mt-3">Id del Servicio: {{id}}</p>
-                    <input type="hidden" value="{{id}}" name="id" id="id" >
-                    <div class="form-group">
-                        <label for="tractor" class="mt-3">Fecha del Control del servicio</label>
-                        <input type="date" class="form-control" id="fecha" name=fecha value="{{fecha}}" required>
-                        <label for="tipo_servicio" class="mt-3">Tipo de Service</label>
-                        <select id="tipo_servicio" name="tipo_servicio" class="form-control mt-3" required>
-                            <option value="Interno">Interno</option>
-                            <option value="Externo">Externo</option>
-                        </select>
-                        <label for="cambios" class="mt-3">Cambios y arreglos</label>
-                        <textarea class="form-control" placeholder="Ingrese los cambios aquí" name="cambios" id="cambios" required></textarea>
-                        <label for="costo" class="mt-3">Ingrese costo</label>
-                        <input type="number" class="form-control" id="costo" name="costo" required>
-                        <label for="kilometro" class="mt-3">Ingrese kilometros realizados</label>
-                        <input type="number" class="form-control" id="kilometraje" name="kilometraje" required>
-                    </div>
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">Enviar</button>
+                <form action="/listaTractor/editarCalendario/idTractor={{id_tractor}}" enctype="multipart/form-data"
+                method="post" >
+                <p for="id" class="mt-3">Id del Servicio: {{id}}</p>
+                <input type="hidden" value="{{id}}" name="id" id="id">
+                <div class="form-group">
+                    <label for="tractor" class="mt-3">Fecha del Control del servicio</label>
+                    <input type="date" class="form-control" id="fecha" name=fecha value="{{fecha}}" required>
+                    <label for="tipo_servicio" class="mt-3">Tipo de Service</label>
+                    <select id="tipo_servicio" name="tipo_servicio" class="form-control mt-3" required>
+                        <option value="Interno">Interno</option>
+                        <option value="Externo">Externo</option>
+                    </select>
+                    <label for="cambios" class="mt-3">Cambios y arreglos</label>
+                    <textarea class="form-control" placeholder="Ingrese los cambios aquí" name="cambios" id="cambios"
+                              required></textarea>
+                    <label for="costo" class="mt-3">Ingrese costo</label>
+                    <input type="number" class="form-control" id="costo" name="costo" required>
+                    <label for="kilometro" class="mt-3">Ingrese kilometros realizados</label>
+                    <input type="number" class="form-control" id="kilometraje" name="kilometraje" required>
+                </div>
+                <button type="submit" class="btn btn-dark btn-lg btn-block">Enviar</button>
                 </form>
             </div>
 

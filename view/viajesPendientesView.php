@@ -1,18 +1,53 @@
 {{> header}}
 
-<main class="cuerpoindex">
-    <div class="container mt-2 listaUsuarios text-center">
-        <h2 class="titulosindex">Viajes Pendientes</h2>
+<main class="cuerpoindex" style="padding-left: 3%; padding-right: 3%">
+    <div class="container mt-2 listaUsuarios text-center" style="margin-bottom: 2%">
+        <h2 class="titulosindex">{{titulo}}</h2>
         <hr>
-        <a href="/viajes/viajesActivos" type="button" class="btn text-white mt-1" style="background: #1E0C80">Viajes Activos</a>
-        <a href="/viajes/viajesFinalizados" type="button" class="btn text-white mt-1" style="background: #1E0C80">Viajes Finalizados</a>
-        <a href="/viajes/viajes" type="button" class="btn text-white mt-1" style="background: #1E0C80">Ver todos los viajes</a>
-        <div class="row my-5">
-            {{#viajesPendientes}}
-            {{>informacionViajesPendientes}}
-            {{/viajesPendientes}}
-        </div>
+        <a href="/viajes/viajes" type="button" class="btn mt-1" style="background: #9179ef">TODOS</a>
+        <a href="/viajes/viajesPendientes" type="button" class="btn mt-1" style="background: #cbcbcb">PENDIENTES</a>
+        <a href="/viajes/viajesActivos" type="button" class="btn mt-1" style="background: #fff6aa">ACTIVOS</a>
+        <a href="/viajes/viajesFinalizados" type="button" class="btn mt-1" style="background: #cdfebb">FINALIZADOS</a>
     </div>
+    <table class="table">
+        <thead>
+        <tr class="text-center table-active" style="background: #aeaeae" >
+            <th scope="col">ID VIAJE</th>
+            <th scope="col">ESTADO</th>
+            <th scope="col">ORIGEN</th>
+            <th scope="col">DESTINO</th>
+            <th scope="col">FECHA DE CARGA</th>
+            <th scope="col">FECHA DE SALIDA</th>
+            <th scope="col">HORA DE SALIDA</th>
+            <th scope="col">HORA DE LLEGADA</th>
+            <th scope="col">OPCIONES</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+
+        {{#viajesPendientes}}
+        {{>informacionViajesPendientes}}
+        {{/viajesPendientes}}
+        {{^viajesPendientes}}
+        <tr class="text-center">
+            <th scope="row">--</th>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+        </tr>
+
+        {{/viajesPendientes}}
+
+
+        </tbody>
+    </table>
 </main>
 
 {{> footer}}

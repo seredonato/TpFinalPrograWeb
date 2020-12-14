@@ -1,21 +1,13 @@
-<div class="col-md-4 mb-4">
-    <div class="card">
-        <div class="container p-2 pl-3 text-white" style="background: #E6831A">
-            <h4 class="card-title">Viaje {{id}}</h4>
-        </div>
-        <div class="container p-3" style="background: #FCDEC3">
-            <div style="text-align: left">
-                <h5 class="card-text text-center">Estado: {{estado}}</h5>
-                <hr>
-                <p class="card-text">ORIGEN: {{origen}}</p>
-                <p class="card-text">DESTINO: {{destino}}</p>
-                <p class="card-text">FECHA DE CARGA: {{fecha_carga}}</p>
-                <p class="card-text">TIEMPO DE CARGA: {{tiempo_carga}}</p>
-                <p class="card-text">FECHA DE LLEGADA: {{fecha_llegada}}</p>
-                <p class="card-text">TIEMPO DE LLEGADA: {{tiempo_llegada}}</p>
-            </div>
-            <hr>
-                   <a href="/viajes/finalizarViaje/id={{id}}&idEquipo={{id_equipo}}" type="button" class="btn btn-secondary">Finalizar Viaje</a>
-        </div>
-    </div>
-</div>
+<tr class="text-center cambiarColorViaje">
+    <th scope="row ">{{id}}</th>
+    <td class="estadoViaje">{{estado}}</td>
+    <td>{{origen}}</td>
+    <td>{{destino}}</td>
+    <td>{{fecha_carga}}</td>
+    <td>{{fecha_llegada}}</td>
+    <td>{{tiempo_carga}}</td>
+    <td>{{tiempo_llegada}}</td>
+    <td><a href="/viajes/finalizarViaje/id={{id}}&idEquipo={{id_equipo}}" type="button" class="btn btn-outline-danger">Finalizar</a> </td>
+</tr>
+
+

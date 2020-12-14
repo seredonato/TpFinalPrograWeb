@@ -70,6 +70,86 @@
 
     }
 
+    function cambiarImoSubClases(imoClass) {
+
+    }
+
+    $(document).ready(function () {
+        $("select[name=imoClass]").change(function () {
+            var valor = $('select[name=imoClass]').val();
+            var i;
+            var optionSubClass = document.getElementsByClassName("optionSubClass");
+
+            for (i = 0; i < optionSubClass.length; i++) {
+
+                if (optionSubClass[i].textContent.substr(0, 3) == valor) {
+
+                    optionSubClass[i].style.display = 'block';
+
+                } else {
+
+                    optionSubClass[i].style.display = 'none';
+                }
+
+            }
+
+        });
+    });
+
+    $(document).ready(function () {
+        var x = document.getElementsByClassName("cambiarColorEquipos");
+        var valor = document.getElementsByClassName("estadoEquipos");
+        var i;
+        var k;
+        for (i = 0; i < x.length; i++) {
+            for (k = 0; k < x.length; k++) {
+                if (valor[k].textContent === "Disponible") {
+                    x[k].style.backgroundColor = "#cdfebb";
+                } else {
+                    x[k].style.backgroundColor = "#cbcbcb";
+                }
+            }
+        }
+
+    });
+
+
+    $(document).ready(function () {
+        var x = document.getElementsByClassName("cambiarColorViaje");
+        var valor = document.getElementsByClassName("estadoViaje");
+        var i;
+        var k;
+        for (i = 0; i < x.length; i++) {
+            for (k = 0; k < x.length; k++) {
+                if (valor[k].textContent === "PENDIENTE") {
+                    x[k].style.backgroundColor = "#cbcbcb";
+                } else if (valor[k].textContent === "ACTIVO") {
+                    x[k].style.backgroundColor = "#fff6aa";
+                } else if (valor[k].textContent === "FINALIZADO") {
+                    x[k].style.backgroundColor = "#cdfebb";
+                }
+            }
+        }
+
+    });
+
+    $(document).ready(function () {
+        var x = document.getElementsByClassName("cambiarColor");
+        var valor = document.getElementsByClassName("estado");
+        var i;
+        var k;
+        for (i = 0; i < x.length; i++) {
+            for (k = 0; k < x.length; k++) {
+                if (valor[k].textContent === "Asignado") {
+                    x[k].style.backgroundColor = "#cbcbcb";
+                } else {
+                    x[k].style.backgroundColor = "#cdfebb";
+                }
+            }
+        }
+
+    });
+
     $(document).ready(function () {
         $('#autoWidth').lightSlider({
             autoWidth: true,
@@ -78,7 +158,9 @@
                 $('#autoWidth').removeClass('cS-hidden');
             }
         });
+
     });
+
 
 </script>
 
@@ -92,6 +174,7 @@
 
 <script type="text/javascript" src="/public/js/jquery.min.js"></script>
 <script type="text/javascript" src="/public/js/jquery_validate.js"></script>
+<script src="https://kit.fontawesome.com/583a5d1f57.js" crossorigin="anonymous"></script>
 
 
 </body>

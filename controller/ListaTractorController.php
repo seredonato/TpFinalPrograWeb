@@ -61,8 +61,6 @@ class listaTractorController
                 $data["tractores"] = $this->tractorModel->mostrarTractor();
                 echo $this->render->render("view/listaTractoresView.php", $data);
             }
-
-            echo $this->render->render("view/listaTractoresView.php", $data);
             } else{
                 echo $this->render->render("view/inicio.php", $data);
             }
@@ -129,10 +127,10 @@ class listaTractorController
 
             $data["tractores"] = $this->tractorModel->mostrarTractor();
             echo $this->render->render("view/listaTractoresView.php", $data);
-            }  else{
+            }else {
                 echo $this->render->render("view/inicio.php", $data);
             }
-        } else{
+        }   else{
             echo $this->render->render("view/inicio.php", $data);
         }
     }
@@ -336,8 +334,8 @@ class listaTractorController
             $data["valorSupervisor"] = $valorSupervisor;
             if($valorDelRol == 3 || $valorDelRol == 4) {
 
-            $id = $_POST["id"];
-            $id_tractor = $_POST["id_tractor"];
+            $id = $_GET["id"];
+            $id_tractor = $_GET["id_tractor"];
             $estado = $_POST["estado"];
             $result = $this->calendarioModel->cambiarEstado($id, $estado);
 
