@@ -10,7 +10,8 @@
     <label class="text-danger m-3" for="patente">{{registroEquipoError}}</label>
     {{/registroEquipoError}}
 
-    <table class="table">
+    <div class="table-responsive-xl">
+        <table class="table">
         <thead>
         <tr class="text-center table-active">
             <th scope="col">ID</th>
@@ -47,6 +48,7 @@
         {{/equipos}}
         </tbody>
     </table>
+    </div>
 
 </main>
 {{> footer}}

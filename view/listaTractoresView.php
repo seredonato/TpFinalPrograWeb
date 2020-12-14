@@ -11,7 +11,7 @@
     <label class="text-danger m-3" for="patente">{{registroTractorError}}</label>
     {{/registroTractorError}}
 
-
+    <div class="table-responsive-xl">
     <table class="table">
         <thead>
         <tr class="text-center table-active">
@@ -49,6 +49,7 @@
         {{/tractores}}
         </tbody>
     </table>
+    </div>
 </main>
 
 

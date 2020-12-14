@@ -44,7 +44,7 @@
     </div>
 
     {{/tractorPorId}}
-
+        <div class="table-responsive-xl">
         <table class="table">
             <thead>
             <tr class="text-center table-active" style="background: #aeaeae">
@@ -94,6 +94,7 @@
 
             </tbody>
         </table>
+        </div>
     </div>
 
 </main>

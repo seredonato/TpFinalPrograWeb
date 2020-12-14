@@ -8,6 +8,7 @@
         <a href="/listaPedidos/pedidosActivos" type="button" class="btn text-white" style="background: #1E0C80">Pedidos Activos</a>
         <a href="/listaPedidos/pedidosFinalizados" type="button" class="btn text-white" style="background: #1E0C80">Pedidos Finalizados</a>
     </div>
+    <div class="table-responsive-xl">
     <table class="table">
         <thead>
         <tr class="text-center table-active">
@@ -47,6 +48,7 @@
         {{/pedidos}}
         </tbody>
     </table>
+    </div>
 
 </main>
 

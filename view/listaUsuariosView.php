@@ -2,6 +2,7 @@
 <main class="cuerpoindex" style="padding-left: 3%; padding-right: 3%">
 
     <h2 class="titulosindex text-center mt-2">Todos los Usuarios</h2>
+    <div class="table-responsive-xl">
     <table class="table">
         <thead>
         <tr class="text-center table-active">
@@ -24,6 +25,7 @@
         {{/usuarios}}
         </tbody>
     </table>
+    </div>
 
 </main>
 {{> footer}}

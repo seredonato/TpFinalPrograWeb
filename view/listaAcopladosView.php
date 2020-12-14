@@ -10,7 +10,7 @@
     <label class="text-danger m-3" for="acoplado">{{registroAcopladoError}}</label>
     {{/registroAcopladoError}}
 
-
+    <div class="table-responsive-xl">
     <table class="table">
         <thead>
         <tr class="text-center table-active">
@@ -44,5 +44,6 @@
         {{/acoplados}}
         </tbody>
     </table>
+    </div>
 </main>
 {{> footer}}
