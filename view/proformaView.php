@@ -197,6 +197,7 @@
 
             <div class="container mt-4 mb-4 text-center margenesEquipoProforma">
             <h5 class="card-title mb-5">Seleccionar Equipo</h5>
+                <div class="table-responsive-xl">
                 <table class="table">
                     <thead>
                     <tr class="text-center table-active">
@@ -218,6 +219,7 @@
                     {{/equipos}}
                     </tbody>
                 </table>
+                </div>
             </div>
 
             <div class="mt-4 mb-4 text-center">

@@ -1,7 +1,7 @@
 {{> header}}
 
 <main class="cuerpoindex" style="padding-left: 1em; padding-right: 1em">
-    <div class="container mt-2 listaUsuarios">
+    <div class="container mt-2 listaUsuarios text-center" style="margin-bottom: 2%">
         <h2 class="titulosindex  text-center"> Tractores </h2>
         <hr>
     </div>
