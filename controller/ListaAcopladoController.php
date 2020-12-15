@@ -104,7 +104,7 @@ class ListaAcopladoController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if($valorDelRol == 3 || $valorDelRol == 4) {
+            if($valorDelRol == 3) {
 
             $tipo = $_POST["tipo"];
             $id = $_POST["id"];
@@ -139,7 +139,7 @@ class ListaAcopladoController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if($valorDelRol == 3 || $valorDelRol == 4) {
+            if($valorDelRol == 3) {
             $id = $_GET["id"];
             $this->acopladoModel->eliminarAcoplado($id);
             $data["login"] = $this->loginModel->ifSesionIniciada();
