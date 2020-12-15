@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="659624c8-0fb1-4218-86f7-0f4a8ca3a67a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/footer.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/footer.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +230,56 @@
       <option name="project" value="LOCAL" />
       <updated>1607709406071</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="modal de mail enviado">
+      <created>1607746225666</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1607746225666</updated>
+    </task>
+    <task id="LOCAL-00019" summary="agregue grillas para los pedidos y usuarios">
+      <created>1607813990233</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1607813990233</updated>
+    </task>
+    <task id="LOCAL-00020" summary="AGREGUE GRILLAS A TODO Y BOTONES CON FONTOSOM">
+      <created>1607841636858</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1607841636858</updated>
+    </task>
+    <task id="LOCAL-00021" summary="arregle equipos de proforma">
+      <created>1607893355243</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1607893355243</updated>
+    </task>
+    <task id="LOCAL-00022" summary="LE METI QUE MUESTRE SOLO IMO CLASS SELECCIONADOS ME AMO">
+      <created>1607897067688</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1607897067688</updated>
+    </task>
+    <task id="LOCAL-00023" summary="agregue cosas ahre">
+      <created>1607915329002</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1607915329002</updated>
+    </task>
+    <task id="LOCAL-00024" summary="hice los choferes como la gente">
+      <created>1607915485525</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1607915485525</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +315,13 @@
     <MESSAGE value="errores de reportes cuando el viaje no esta disponible" />
     <MESSAGE value="los graficos andan palcu" />
     <MESSAGE value="grafico de barras cambiado" />
+    <MESSAGE value="modal de mail enviado" />
+    <MESSAGE value="agregue grillas para los pedidos y usuarios" />
+    <MESSAGE value="AGREGUE GRILLAS A TODO Y BOTONES CON FONTOSOM" />
+    <MESSAGE value="arregle equipos de proforma" />
+    <MESSAGE value="LE METI QUE MUESTRE SOLO IMO CLASS SELECCIONADOS ME AMO" />
+    <MESSAGE value="agregue cosas ahre" />
+    <MESSAGE value="hice los choferes como la gente" />
     <option name="LAST_COMMIT_MESSAGE" value="grafico de barras cambiado" />
   </component>
   <component name="WindowStateProjectService">
