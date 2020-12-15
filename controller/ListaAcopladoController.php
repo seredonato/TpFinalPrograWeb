@@ -45,6 +45,9 @@ class ListaAcopladoController
             if ($result === "Ingrese contenido en el campo requerido"){
                 $data["registroAcopladoError"] = $result;
                 echo $this->render->render("view/listaAcopladosView.php", $data);
+            }elseif($result === "Patente ya existente"){
+                $data["registroAcopladoError"] = $result;
+                echo $this->render->render("view/listaAcopladosView.php", $data);
             }
             $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
             echo $this->render->render("view/listaAcopladosView.php",$data);

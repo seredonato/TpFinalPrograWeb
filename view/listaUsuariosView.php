@@ -2,6 +2,7 @@
 <main class="cuerpoindex" style="padding-left: 3%; padding-right: 3%">
     <div class="container mt-2 listaUsuarios text-center" style="margin-bottom: 2%">
     <h2 class="titulosindex text-center mt-2">Todos los Usuarios</h2>
+        <hr>
     <div class="table-responsive-xl">
     <table class="table">
         <thead>

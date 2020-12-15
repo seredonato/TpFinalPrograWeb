@@ -50,11 +50,8 @@ class listaTractorController
 
                 $result = $this->tractorModel->registrarTractor($nro_motor, $marca, $modelo, $kilometraje, $patente, $nro_chasis);
 
-                if ($result == "Ingrese todos los requerimientos") {
-                    $data["registroTractorError"] = $result;
-                    echo $this->render->render("view/listaTractoresView.php", $data);
-                }
-                if ($result == "Ingrese sólo números en los campos Kilometraje y Número de motor.") {
+
+                if ($result == "Patente ya existente") {
                     $data["registroTractorError"] = $result;
                     echo $this->render->render("view/listaTractoresView.php", $data);
                 } else {
