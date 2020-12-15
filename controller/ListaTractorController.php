@@ -412,7 +412,7 @@ class listaTractorController
             $data["valorChofer"] = $valorChofer;
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
-            if ($valorDelRol == 3) {
+            if ($valorDelRol == 3 || $valorDelRol == 4 ) {
                 $id = $_GET["id"];
                 $data["tractores"] = $this->tractorModel->mostrarTractorPorId($id);
 
