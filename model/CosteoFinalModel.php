@@ -32,7 +32,7 @@ class CosteoFinalModel
             $fee += $reporte["fee"];
             $total += $reporte["total"];
 
-            $sql = 'UPDATE costeo_final SET id_viaje=' . $idViaje . ', kilometros= ' . $kilometros . ', combustible=' . $combustible . ', 
+            $sql = 'UPDATE costeo_final SET kilometros= ' . $kilometros . ', combustible=' . $combustible . ', 
         viaticos = ' . $viaticos . ', peajes_pesajes= ' . $peajes . ', extras=' . $extras . ', hazard=' . $hazard . ', reefer=' . $reefer . ', fee=' . $fee . ', 
         total=' . $total . ' WHERE id_viaje =' . $idViaje;
 

@@ -96,6 +96,17 @@ class ProformaController
             $data["valorSupervisor"] = $valorSupervisor;
 
             if($valorDelRol == 4) {
+
+            if(isset( $_POST["imoClass"])){
+                    $imoClass = $_POST["imoClass"];
+            }else{
+                $imoClass= "no";
+            }
+            if(isset( $_POST["imoClass"])){
+                $imoSubClass = $_POST["imoSubClass"];
+            }else{
+                $imoSubClass= "no";
+            }
             $origen = $_POST["origen"];
             $idPedido = $_GET["id"];
             $destino = $_POST["destino"];
@@ -106,8 +117,6 @@ class ProformaController
             $tipo = $_POST["tipo"];
             $peso = $_POST["peso"];
             $hazardSi = $_POST["hazardSi"];
-            $imoClass = $_POST["imoClass"];
-            $imoSubClass = $_POST["imoSubClass"];
             $temperaturaSi = $_POST["temperaturaSi"];
             $temperatura = $_POST["temperatura"];
             $kilometros = $_POST["kilometros"];

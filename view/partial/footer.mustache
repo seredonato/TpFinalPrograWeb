@@ -1,38 +1,58 @@
-<footer class="font-weight-bold mt-lg-5 p-3 position-relative" style="height: 26em">
-    <h4 class="text-white text-center blockquote mb-2">CÓMO LLEGAR</h4>
-    <div class="d-flex justify-content-around">
-        <div class="d-flex flex-column mt-2 text-white text-center miembrosydireccion">
-            <div class="d-flex flex-row">
-                <i class="fas fa-id-badge"></i>
-                <p class="pb-2 ml-2">Coloca, Fiorella</p>
+<footer class="font-weight-bold mt-5 p-3" style="padding-left: 10em">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-white mt-5 text-center">
+
+                <div class="d-flex flex-row">
+                    <p class="pb-2 ml-2"><i class="fas fa-id-badge pr-1"></i>
+                        Coloca, Fiorella</p>
+                </div>
+                <div class="d-flex flex-row">
+                    <p class="pb-2 ml-2"><i class="fas fa-id-badge pr-1"></i>
+                        Donato, Serena Rocío</p>
+                </div>
+                <div class="d-flex flex-row">
+                    <p class="pb-2 ml-2"><i class="fas fa-id-badge pr-1"></i>
+                        Lopez Ducas, Abril</p>
+                </div>
+                <div class="d-flex flex-row">
+                    <p class="pb-2 ml-2"><i class="fas fa-id-badge pr-1"></i>
+                        Reynoso, Franco Joaquín</p>
+                </div>
+
             </div>
-            <div class="d-flex flex-row">
-                <i class="fas fa-user-circle"></i>
-                <p class="pb-2 ml-2">Donato, Serena Rocío</p>
+
+            <div class="col-sm text-white mt-5 text-center" style="padding-left: 15%">
+                <div class="d-flex flex-row">
+                    <p class="pb-2 ml-2 text-left"><i class="fas fa-map-marker-alt pr-1"></i> Florencio Varela 1903,
+                        B1754 <br> San Justo, Buenos Aires, Argentina </p>
+                </div>
+                <div class="d-flex flex-row">
+                    <p class="pb-2 ml-2"><i class="fas fa-phone-alt pr-1"></i>
+                        +54 9 11 2345-6789</p>
+                </div>
+                <div class="d-flex flex-row">
+                    <p class="pb-2 ml-2"><i class="fas fa-envelope pr-1"></i>
+                        <a href="mailto: transaff2020@gmail.com" class="text-white" style="text-decoration: none">transaff2020@gmail.com</a>
+                    </p>
+                </div>
             </div>
-            <div class="d-flex flex-row">
-                <i class="fas fa-id-badge"></i>
-                <p class="pb-2 ml-2">Lopez Ducas, Abril</p>
+
+            <div class="col-sm text-white mt-5" style="padding-left: 15%">
+                <div class="d-flex flex-row">
+                    <a href="https://www.facebook.com/antonio.fernandezferro.5"><i
+                            class="fab fa-facebook pr-3 text-white"
+                            style="font-size: 2em; text-decoration: none"></i></a>
+                    <a href="https://twitter.com/transaff"><i class="fab fa-twitter pr-3 text-white"
+                                                              style="font-size: 2em; text-decoration: none; margin-right: 0.75em; margin-left: 0.75em;"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram pr-3 text-white"
+                                                            style="font-size: 2em; text-decoration: none;"></i></a>
+                </div>
+                <div class="d-flex flex-row pt-2">
+                    <img src="/public/images/logoBlanco.png" style="height: 8em;">
+
+                </div>
             </div>
-            <div class="d-flex flex-row">
-                <i class="fas fa-id-badge"></i>
-                <p class="pb-2 ml-2">Reynoso, Franco Joaquín</p>
-            </div>
-        </div>
-        <div class="text-white d-flex flex-column mt-4 text-center miembrosydireccion">
-            <div class="d-flex flex-row">
-                <i class="fas fa-map-marker-alt"></i>
-                <p class="pb-2 ml-2">Florencio Varela 1903, B1754 <br> San Justo, Buenos Aires, Argentina</p>
-            </div>
-            <div class="d-flex flex-row">
-                <i class="fas fa-phone-alt"></i>
-                <p class="pb-2 ml-2">+54 9 11 2345-6789</p>
-            </div>
-        </div>
-        <div class="mt-4 maps">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.3738521385076!2d-58.565059249360196!3d-34.67051288034624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc62cc3ef7083%3A0x8867107f425fade5!2sUniversidad%20Nacional%20de%20La%20Matanza!5e0!3m2!1ses-419!2sar!4v1604603845805!5m2!1ses-419!2sar"
-                    allowfullscreen="" aria-hidden="false"
-                    tabindex="0"></iframe>
         </div>
     </div>
 
@@ -144,6 +164,22 @@
                     x[k].style.backgroundColor = "#cbcbcb";
                 } else {
                     x[k].style.backgroundColor = "#cdfebb";
+                }
+            }
+        }
+
+    });
+
+
+    $(document).ready(function () {
+        var x = document.getElementsByClassName("mostrarBotonAcopladoTractor");
+        var valor = document.getElementsByClassName("estado");
+        var i;
+        var k;
+        for (i = 0; i < x.length; i++) {
+            for (k = 0; k < x.length; k++) {
+                if (valor[k].textContent === "Asignado") {
+                    x[k].style.display = "none";
                 }
             }
         }

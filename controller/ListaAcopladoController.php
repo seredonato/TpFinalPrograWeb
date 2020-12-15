@@ -34,7 +34,7 @@ class ListaAcopladoController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if($valorDelRol == 3 || $valorDelRol == 4) {
+            if($valorDelRol == 3) {
             $data["acoplados"] = $this->acopladoModel->mostrarAcoplado();
 
             $acoplado = $_POST["acoplado"];
@@ -43,6 +43,9 @@ class ListaAcopladoController
 
             $result = $this->acopladoModel->registrarAcoplado( $acoplado,$patente,$chasis);
             if ($result === "Ingrese contenido en el campo requerido"){
+                $data["registroAcopladoError"] = $result;
+                echo $this->render->render("view/listaAcopladosView.php", $data);
+            }elseif($result === "Patente ya existente"){
                 $data["registroAcopladoError"] = $result;
                 echo $this->render->render("view/listaAcopladosView.php", $data);
             }
@@ -104,7 +107,7 @@ class ListaAcopladoController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if($valorDelRol == 3 || $valorDelRol == 4) {
+            if($valorDelRol == 3) {
 
             $tipo = $_POST["tipo"];
             $id = $_POST["id"];
@@ -139,7 +142,7 @@ class ListaAcopladoController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if($valorDelRol == 3 || $valorDelRol == 4) {
+            if($valorDelRol == 3) {
             $id = $_GET["id"];
             $this->acopladoModel->eliminarAcoplado($id);
             $data["login"] = $this->loginModel->ifSesionIniciada();

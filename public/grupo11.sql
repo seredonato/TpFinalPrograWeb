@@ -224,7 +224,7 @@ VALUES	(123, "franco@email.com", "franco", "202cb962ac59075b964b07152d234b70", "
         (123, "abril@email.com", "abril", "202cb962ac59075b964b07152d234b70", "abril", "lopez ducas", 111111, "mecanico", "no aplica", "/public/images/logoPerfil.png", "ACTIVO");
 
 INSERT INTO usuario (dni, email, imagen, usuario, contrasenia, nombre, apellido, tipo_licencia, fecha_nacimiento, rol, estado)
-VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "Ash", "Quetechupo", "A", 111111, "chofer", "ACTIVO"),
+VALUES(40756984, "chofer1@email.com", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzH-0K-SCN_XyXbFJV4LGfRhRmnbt3wU2CQ&usqp=CAU", "chofer1",  "202cb962ac59075b964b07152d234b70", "Alberto", "Fernandez", "A", 111111, "chofer", "ACTIVO"),
 (40756984, "chofer2@email.com", "https://media.marcainformativa.com/adjuntos/269/imagenes/000/011/0000011059.jpg", "chofer2", "202cb962ac59075b964b07152d234b70", "Guido", "Zuler", "A", 111111, "chofer", "ACTIVO"),
 (40325648, "chofer3@email.com", "https://i.blogs.es/9b649a/camioneros-por-vocacion-006/450_1000.jpg", "chofer3",  "202cb962ac59075b964b07152d234b70", "Roberto", "Carlos", "A", 111111, "chofer", "ACTIVO");
 
@@ -266,8 +266,8 @@ VALUES 	(1, 1.1, "Explosivos que tienen un riesgo de explosión masiva. Explosio
 		(8, 8.1, "Materiales corrosivos, un líquido o sólido que causa la destrucción total de la piel humana en el sitio de contacto dentro de un período de tiempo especificado."),
 		(9, 9.1, "Un material que presenta un peligro durante el transporte pero que no cumple con la definición de ninguna otra clase de peligro.")
         ;
-      
-INSERT INTO precio(temperatura, kilometro, litro, peaje) VALUES (450, 10, 60, 70);        
+
+INSERT INTO precio(temperatura, kilometro, litro, peaje) VALUES (450, 10, 60, 70);
 
 INSERT INTO tractor (marca, modelo, patente, nro_motor, chasis, kilometraje, eliminado,estado)
 VALUES 	("IVECO","Cursor","AA123CD",53879558,"L53879558",0,"no","Asignado"),
@@ -360,4 +360,3 @@ values
  ("2021-03-02",1,"En espera","no",null,null,null,null,null),
  ("2022-04-02",1,"En espera","no",null,null,null,null,null),
  ("2021-02-02",3,"En espera","no",null,null,null,null,null);
- 

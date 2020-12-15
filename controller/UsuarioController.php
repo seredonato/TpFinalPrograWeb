@@ -61,7 +61,7 @@ class UsuarioController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if ($valorDelRol == 1 || $valorDelRol == 4 ) {
+            if ($valorDelRol == 1) {
                 $idUsuario = $_GET["id"];
                 $rol = $_POST["rol"];
                 $this->usuarioModel->modificarRolUsuario($idUsuario, $rol);
@@ -94,7 +94,7 @@ class UsuarioController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if ($valorDelRol == 1 || $valorDelRol == 4 ) {
+            if ($valorDelRol == 1) {
                 $idUsuario = $_GET["id"];
                 $licencia = $_POST["licencia"];
                 $this->usuarioModel->modificarLicenciaUsuario($idUsuario, $licencia);
@@ -125,7 +125,7 @@ class UsuarioController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if ($valorDelRol == 1  || $valorDelRol == 4 ) {
+            if ($valorDelRol == 1) {
                 $id = $_GET["id"];
                 $this->usuarioModel->eliminarUsuario($id);
                 $data["usuarios"] = $this->usuarioModel->mostrarUsuarios();

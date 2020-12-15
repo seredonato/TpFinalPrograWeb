@@ -381,6 +381,21 @@ class MysqlDatabase
         return $datos;
     }
 
+    public function devolverAcopladoPorPatente($patente){
+        $sql = "SELECT patente FROM acoplado WHERE patente ='" . $patente . "'";
+        $resultado = $this->connection->query($sql);
+        $patente = $resultado->fetch_assoc();
+        return $patente["patente"];
+
+    }
+
+    public function devolverTractorPorPatente($patente){
+        $sql = "SELECT patente FROM tractor WHERE patente ='" . $patente . "'";
+        $resultado = $this->connection->query($sql);
+        $patente = $resultado->fetch_assoc();
+        return $patente["patente"];
+    }
+
     public function eliminarEquipo($id, $id_acoplado, $id_tractor)
     {
 
@@ -921,7 +936,7 @@ FROM viaje AS v JOIN proforma AS p ON p.id_viaje = v.id JOIN usuario AS u ON p.i
 
         $estado = $resultado->fetch_assoc();
 
-        return $estado["estado"];;
+        return $estado["estado"];
     }
 
 }

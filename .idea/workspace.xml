@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="">
+    <list default="true" id="659624c8-0fb1-4218-86f7-0f4a8ca3a67a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +41,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/helper/MysqlDatabase.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/khanamiryan/qrcode-detector-decoder" />
@@ -60,6 +63,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -71,7 +75,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2d306875-4871-46c8-920a-0ed7fcb94aa8" name="Default Changelist" comment="" />
+      <changelist id="659624c8-0fb1-4218-86f7-0f4a8ca3a67a" name="Default Changelist" comment="" />
       <created>1604424110295</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -99,10 +103,13 @@
       <workItem from="1607618774985" duration="676000" />
       <workItem from="1607652657924" duration="19338000" />
       <workItem from="1607705873972" duration="2769000" />
+      <workItem from="1607738960668" duration="3598000" />
+      <workItem from="1607915129307" duration="430000" />
       <workItem from="1607738960668" duration="4797000" />
       <workItem from="1607803139937" duration="37025000" />
       <workItem from="1607891221057" duration="5418000" />
-      <workItem from="1607913384069" duration="2548000" />
+      <workItem from="1607913384069" duration="1904000" />
+      <workItem from="1607983600779" duration="6638000" />
     </task>
     <task id="LOCAL-00001" summary="agregue otra cosa a la proforma">
       <created>1606866625464</created>
@@ -315,7 +322,7 @@
     <MESSAGE value="LE METI QUE MUESTRE SOLO IMO CLASS SELECCIONADOS ME AMO" />
     <MESSAGE value="agregue cosas ahre" />
     <MESSAGE value="hice los choferes como la gente" />
-    <option name="LAST_COMMIT_MESSAGE" value="hice los choferes como la gente" />
+    <option name="LAST_COMMIT_MESSAGE" value="grafico de barras cambiado" />
   </component>
   <component name="WindowStateProjectService">
     <state x="162" y="0" key="#CLI_Interpreters" timestamp="1604424176261">
@@ -340,17 +347,18 @@
     </state>
     <state x="414" y="12" key="NewPhpClassDialog/0.0.1365.680@0.0.1365.680" timestamp="1605035892746" />
     <state x="414" y="13" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1607667559849" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1607835662783">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="-54" y="0" key="SettingsEditor" timestamp="1607915097007">
+      <screen x="0" y="0" width="1365" height="680" />
     </state>
-    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1607835662783" />
+    <state x="-54" y="0" key="SettingsEditor/0.0.1365.680@0.0.1365.680" timestamp="1607915097007" />
     <state x="0" y="0" width="714" height="680" key="find.popup" timestamp="1604428280867">
       <screen x="0" y="0" width="1365" height="680" />
     </state>
     <state x="0" y="0" width="714" height="680" key="find.popup/0.0.1365.680@0.0.1365.680" timestamp="1604428280867" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1607204490763">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="338" y="162" key="run.anything.popup" timestamp="1607986373132">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
+    <state x="338" y="162" key="run.anything.popup/0.0.1360.728@0.0.1360.728" timestamp="1607986373132" />
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1607204490763" />
   </component>
 </project>

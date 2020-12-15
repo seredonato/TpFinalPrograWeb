@@ -14,20 +14,14 @@ class TractorModel
     {
         $estado = "Sin asignar";
         $eliminado="no";
-        if ($nro_motor == null || $marca == null || $modelo == null ||  $kilometraje == null){
-            return "Ingrese todos los requerimientos";
-        }else
-            if($nro_motor == " " || $marca == " " || $modelo == " " ||  $kilometraje == " ") {
-                return "Ingrese todos los requerimientos";
+        $patenteExistente = $this->database->devolverTractorPorPatente($patente);
+            if($patenteExistente != null) {
+                return "Patente ya existente";
             }else{
-                if(is_numeric($nro_motor) && is_numeric($kilometraje)){
                 $sql = "INSERT INTO tractor (marca,modelo,nro_motor,patente,chasis,kilometraje,eliminado,estado)
         VALUES ('". $marca."','". $modelo."',". $nro_motor.",'". $patente."',". $nro_chasis.",". $kilometraje.",'". $eliminado."','". $estado."')";
 
                 return $this->database->query($sql);
-                }else {
-                    return "Ingrese sólo números en los campos Kilometraje y Número de motor.";
-                }
             }
 
     }
