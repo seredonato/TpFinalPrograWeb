@@ -33,7 +33,6 @@ class QrController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
             if ($valorDelRol == 2) {
-                $data["login"] = $this->loginModel->ifSesionIniciada();
                 echo $this->render->render("view/enviarQrView.php", $data);
             } else {
                 echo $this->render->render("view/inicio.php", $data);

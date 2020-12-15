@@ -39,7 +39,6 @@ class ReporteController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
             if ($valorDelRol == 2) {
-                $data["login"] = $this->loginModel->ifSesionIniciada();
                 $idViaje = $_GET["idViaje"];
                 $kilometros = $_POST["kilometros"];
                 $combustible = $_POST["combustible"];

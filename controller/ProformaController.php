@@ -171,7 +171,6 @@ class ProformaController
             $data["valorSupervisor"] = $valorSupervisor;
 
             if ($valorDelRol == 2) {
-                $data["login"] = $this->loginModel->ifSesionIniciada();
 
                 $idViaje = $_GET["idViaje"];
                 $data["idViaje"] = $idViaje;
