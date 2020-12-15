@@ -196,7 +196,6 @@ class listaTractorController
             if ($valorDelRol == 3) {
                 $result = $this->calendarioModel->registrarCalendarioTractor($id, $dia);
 
-                $data["tractores"] = $this->tractorModel->mostrarTractor();
                 $data["tractorPorId"] = $this->tractorModel->mostrarTractorPorId($id);
                 $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoCumplido($id);
                 $data["calendarioSinCumplir"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoSinCumplir($id);
@@ -230,7 +229,6 @@ class listaTractorController
             $data["valorSupervisor"] = $valorSupervisor;
             if ($valorDelRol == 3 || $valorDelRol == 4) {
 
-                $data["tractores"] = $this->tractorModel->mostrarTractor();
                 $id = $_GET["id"];
                 $data["tractorPorId"] = $this->tractorModel->mostrarTractorPorId($id);
                 $data["calendario"] = $this->calendarioModel->mostrarCalendarioPorIdTractorEstadoCumplido($id);
@@ -282,7 +280,7 @@ class listaTractorController
 
     }
 
-    public function editarCalendario()
+    public function realizarServiceCalendario()
     {
         $data["login"] = $this->loginModel->ifSesionIniciada();
         if ($data["login"]) {

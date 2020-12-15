@@ -38,7 +38,7 @@ class ViajeController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if ($valorDelRol == 2 || $valorDelRol == 4 ) {
+            if ($valorDelRol == 2) {
 
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
@@ -180,7 +180,7 @@ class ViajeController
                 $this->equipoModel->cambiarEstadoNoDisponible($idEquipo);
 
                 $nombreUsuario = $_SESSION["nombreUsuario"];
-                $data["viajes"] = $this->viajeModel->mostrarViajesAsignadosChofer($nombreUsuario);
+                $data["viajes"] = $this->viajeModel->mostrarViajesActivosAsignadosChofer($nombreUsuario);
                 $data["titulo"] = "Todos los Viajes";
                 echo $this->render->render("view/viajesActivosView.php", $data);
             } else {
