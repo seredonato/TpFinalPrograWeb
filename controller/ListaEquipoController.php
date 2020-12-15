@@ -70,7 +70,7 @@ class ListaEquipoController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
             $data["login"] = $this->loginModel->ifSesionIniciada();
-            if($valorDelRol == 3 || $valorDelRol == 4) {
+            if($valorDelRol == 3) {
 
                 $id_acoplado = $_POST["acoplado"];
                 $id_tractor = $_POST["tractor"];
@@ -120,7 +120,7 @@ class ListaEquipoController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if($valorDelRol == 3 || $valorDelRol == 4) {
+            if($valorDelRol == 3) {
             $id = $_GET["id"];
             $id_acoplado = $_GET["idAcoplado"];
             $id_tractor = $_GET["idTractor"];
@@ -157,7 +157,7 @@ class ListaEquipoController
             $data["valorMecanico"] = $valorMecanico;
             $data["valorSupervisor"] = $valorSupervisor;
 
-            if($valorDelRol == 3 || $valorDelRol == 4) {
+            if($valorDelRol == 3) {
             $id = $_POST["id"];
             $acoplado = $_POST["acoplado"];
             $acopladoAnterior = $_GET["idAcopladoAnterior"];
