@@ -102,7 +102,7 @@ class ProformaController
             }else{
                 $imoClass= "no";
             }
-            if(isset( $_POST["imoClass"])){
+            if(isset( $_POST["imoSubClass"])){
                 $imoSubClass = $_POST["imoSubClass"];
             }else{
                 $imoSubClass= "no";
